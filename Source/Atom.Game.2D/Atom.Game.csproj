@@ -1,0 +1,288 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{C4399B62-FBE2-4F55-A46A-C298BC0F6207}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Atom.Game</RootNamespace>
+    <AssemblyName>Atom.Game</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <UpgradeBackupLocation />
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <CodeContractsAssemblyMode>1</CodeContractsAssemblyMode>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>..\Binaries\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+    <DocumentationFile>..\Binaries\Debug\Atom.Game.XML</DocumentationFile>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <CodeContractsEnableRuntimeChecking>True</CodeContractsEnableRuntimeChecking>
+    <CodeContractsRuntimeOnlyPublicSurface>False</CodeContractsRuntimeOnlyPublicSurface>
+    <CodeContractsRuntimeThrowOnFailure>True</CodeContractsRuntimeThrowOnFailure>
+    <CodeContractsRuntimeCallSiteRequires>False</CodeContractsRuntimeCallSiteRequires>
+    <CodeContractsRunCodeAnalysis>False</CodeContractsRunCodeAnalysis>
+    <CodeContractsNonNullObligations>False</CodeContractsNonNullObligations>
+    <CodeContractsBoundsObligations>False</CodeContractsBoundsObligations>
+    <CodeContractsArithmeticObligations>False</CodeContractsArithmeticObligations>
+    <CodeContractsRedundantAssumptions>False</CodeContractsRedundantAssumptions>
+    <CodeContractsRunInBackground>True</CodeContractsRunInBackground>
+    <CodeContractsShowSquigglies>False</CodeContractsShowSquigglies>
+    <CodeContractsUseBaseLine>False</CodeContractsUseBaseLine>
+    <CodeContractsEmitXMLDocs>False</CodeContractsEmitXMLDocs>
+    <CodeContractsCustomRewriterAssembly />
+    <CodeContractsCustomRewriterClass />
+    <CodeContractsLibPaths />
+    <CodeContractsPlatformPath />
+    <CodeContractsExtraAnalysisOptions />
+    <CodeContractsBaseLineFile />
+    <CodeContractsRuntimeCheckingLevel>Full</CodeContractsRuntimeCheckingLevel>
+    <CodeContractsReferenceAssembly>DoNotBuild</CodeContractsReferenceAssembly>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <OutputPath>..\..\Binaries\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeContractsEnableRuntimeChecking>True</CodeContractsEnableRuntimeChecking>
+    <CodeContractsCustomRewriterAssembly>
+    </CodeContractsCustomRewriterAssembly>
+    <CodeContractsCustomRewriterClass>
+    </CodeContractsCustomRewriterClass>
+    <CodeContractsRuntimeCheckingLevel>Preconditions</CodeContractsRuntimeCheckingLevel>
+    <CodeContractsRuntimeOnlyPublicSurface>True</CodeContractsRuntimeOnlyPublicSurface>
+    <CodeContractsRuntimeThrowOnFailure>True</CodeContractsRuntimeThrowOnFailure>
+    <CodeContractsRuntimeCallSiteRequires>False</CodeContractsRuntimeCallSiteRequires>
+    <CodeContractsRunCodeAnalysis>False</CodeContractsRunCodeAnalysis>
+    <CodeContractsBuildReferenceAssembly>True</CodeContractsBuildReferenceAssembly>
+    <CodeContractsEmitXMLDocs>False</CodeContractsEmitXMLDocs>
+    <CodeContractsNonNullObligations>False</CodeContractsNonNullObligations>
+    <CodeContractsBoundsObligations>False</CodeContractsBoundsObligations>
+    <CodeContractsArithmeticObligations>False</CodeContractsArithmeticObligations>
+    <CodeContractsRedundantAssumptions>False</CodeContractsRedundantAssumptions>
+    <CodeContractsLibPaths>
+    </CodeContractsLibPaths>
+    <CodeContractsPlatformPath>
+    </CodeContractsPlatformPath>
+    <CodeContractsExtraAnalysisOptions>
+    </CodeContractsExtraAnalysisOptions>
+    <CodeContractsBaseLineFile>
+    </CodeContractsBaseLineFile>
+    <CodeContractsUseBaseLine>False</CodeContractsUseBaseLine>
+    <CodeContractsRunInBackground>True</CodeContractsRunInBackground>
+    <CodeContractsShowSquigglies>False</CodeContractsShowSquigglies>
+    <CodeAnalysisRuleSet>..\SourceAnalysisRules.ruleset</CodeAnalysisRuleSet>
+    <CodeContractsReferenceAssembly>DoNotBuild</CodeContractsReferenceAssembly>
+    <DocumentationFile>..\..\Binaries\Release\Atom.Game.xml</DocumentationFile>
+    <CodeContractsExtraRewriteOptions />
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\SolutionInfo.cs">
+      <Link>Properties\SolutionInfo.cs</Link>
+    </Compile>
+    <Compile Include="Components\Collision\Collision2.cs" />
+    <Compile Include="Components\Collision\ICollision2.cs" />
+    <Compile Include="Components\Collision\StaticCollision2.cs" />
+    <Compile Include="Components\Transform\HierarchicalTransform2.cs" />
+    <Compile Include="Components\Transform\ITransform2.cs" />
+    <Compile Include="Components\Transform\Transform2.cs" />
+    <Compile Include="Events\Design\LocalizedCategoryAttribute.cs" />
+    <Compile Include="Events\Design\LocalizedDescriptionAttribute.cs" />
+    <Compile Include="Events\Design\LocalizedDisplayNameAttribute.cs" />
+    <Compile Include="Events\Design\BaseEventCreationEditor.cs" />
+    <Compile Include="Events\Design\Dialogs\EventCreationDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Events\Design\Dialogs\EventCreationDialog.designer.cs">
+      <DependentUpon>EventCreationDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Events\Design\Dialogs\EventSelectionOrCreationDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Events\Design\Dialogs\EventSelectionOrCreationDialog.designer.cs">
+      <DependentUpon>EventSelectionOrCreationDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Events\Design\EventCreationEditor.cs" />
+    <Compile Include="Events\Design\ExistingEventCollectionEditor.cs" />
+    <Compile Include="Events\Design\TriggerCreationEditor.cs" />
+    <Compile Include="Events\EventDataType.cs" />
+    <Compile Include="Events\Events\LongTermLambdaEvent.cs" />
+    <Compile Include="Events\Storage\EventDeserializationContext.cs" />
+    <Compile Include="Events\EventManager.cs" />
+    <Compile Include="Events\Events\DualSwitchEvent.cs" />
+    <Compile Include="Events\Events\Event.cs" />
+    <Compile Include="Events\Events\LongTermEvent.cs" />
+    <Compile Include="Events\Events\MultiEvent.cs" />
+    <Compile Include="Events\Events\NullEvent.cs" />
+    <Compile Include="Events\Events\PermanentEvent.cs" />
+    <Compile Include="Events\Events\TimedEvent.cs" />
+    <Compile Include="Events\EventTypeRegister.cs" />
+    <Compile Include="Events\IEventManagerService.cs" />
+    <Compile Include="Events\Storage\EventManager.ReaderWriter.cs" />
+    <Compile Include="Events\Storage\EventSerializationContext.cs" />
+    <Compile Include="Events\Storage\IEventDeserializationContext.cs" />
+    <Compile Include="Events\Storage\IEventSerializationContext.cs" />
+    <Compile Include="Events\Storage\IEventStorageContext.cs" />
+    <Compile Include="Events\Storage\IEventStorageContextFactory.cs" />
+    <Compile Include="Events\TileEventManager.cs" />
+    <Compile Include="Events\TriggerContext.cs" />
+    <Compile Include="Events\Triggers\AreaEventTrigger.cs" />
+    <Compile Include="Events\Triggers\EventTrigger.cs" />
+    <Compile Include="Events\Triggers\TileAreaEventTrigger.cs" />
+    <Compile Include="State\GameStateManager.cs" />
+    <Compile Include="GlobalSuppressions.cs" />
+    <Compile Include="IFloorDrawable.cs" />
+    <Compile Include="State\GameStateManagerExtensions.cs" />
+    <Compile Include="State\IGameState.cs" />
+    <Compile Include="State\IGameStateManager.cs" />
+    <Compile Include="ISwitchable.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Events\EventStrings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EventStrings.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Scene\IFloorObject.cs" />
+    <Compile Include="Scene\IScene.cs" />
+    <Compile Include="Scene\ISceneEntity.cs" />
+    <Compile Include="Scene\ISceneObject.cs" />
+    <Compile Include="Scene\ISceneProvider.cs" />
+    <Compile Include="Scene\Tiles\ITileHandler.cs" />
+    <Compile Include="Scene\Tiles\ITileMapProvider.cs" />
+    <Compile Include="Scene\Tiles\TileMap.cs" />
+    <Compile Include="Scene\Tiles\TileMap.ReaderWriter.cs" />
+    <Compile Include="Scene\Tiles\TileMapDataLayer.cs" />
+    <Compile Include="Scene\Tiles\TileMapDataLayerType.cs" />
+    <Compile Include="Scene\Tiles\Floor\TileMapFloor.cs" />
+    <Compile Include="Scene\Tiles\Floor\TileMapFloor.ReaderWriter.cs" />
+    <Compile Include="Scene\Tiles\Floor\TileMapFloorTag.cs" />
+    <Compile Include="Scene\Tiles\Path\TilePath.cs" />
+    <Compile Include="Scene\Tiles\Path\TilePathState.cs" />
+    <Compile Include="Scene\Trees\IQuadTreeItem2.cs" />
+    <Compile Include="Scene\Trees\QuadTree2.cs" />
+    <Compile Include="Scene\Trees\QuadTreeItem2.cs" />
+    <Compile Include="Scene\Trees\QuadTreeNode2.cs" />
+    <Compile Include="State\IGameStateManagerContracts.cs" />
+    <Compile Include="Story\Design\TimeTickConverter.cs" />
+    <Compile Include="Story\Frame.cs" />
+    <Compile Include="IAction.cs" />
+    <Compile Include="Story\Incident.cs" />
+    <Compile Include="Story\Storyboard.cs" />
+    <Compile Include="Story\Timeline.cs" />
+    <Compile Include="Story\TickTimer.cs" />
+    <Compile Include="Story\TimelineWalker.cs" />
+    <Compile Include="Story\TimeTick.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Atom.Math\Atom.Math.csproj">
+      <Project>{CC3BC455-003C-43EE-8646-B53311A89298}</Project>
+      <Name>Atom.Math</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Atom\Atom.csproj">
+      <Project>{5EAD885A-5B98-4611-A45E-E4333D40476D}</Project>
+      <Name>Atom</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Events\EventStrings.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>EventStrings.Designer.cs</LastGenOutput>
+      <CustomToolNamespace>Atom.Events</CustomToolNamespace>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.VisualBasic.PowerPacks.10.0">
+      <Visible>False</Visible>
+      <ProductName>Microsoft Visual Basic PowerPacks 10.0</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

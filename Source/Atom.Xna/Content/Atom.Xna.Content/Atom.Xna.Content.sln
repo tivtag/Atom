@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Atom.Xna.Content", "Atom.Xna.Content.csproj", "{FFCBFE46-F4C1-4F3E-B670-434EF5155EF0}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x86 = Debug|x86
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FFCBFE46-F4C1-4F3E-B670-434EF5155EF0}.Debug|x86.ActiveCfg = Debug|x86
+		{FFCBFE46-F4C1-4F3E-B670-434EF5155EF0}.Debug|x86.Build.0 = Debug|x86
+		{FFCBFE46-F4C1-4F3E-B670-434EF5155EF0}.Release|x86.ActiveCfg = Release|x86
+		{FFCBFE46-F4C1-4F3E-B670-434EF5155EF0}.Release|x86.Build.0 = Release|x86
+		{04578493-8042-44D8-B3AD-BF3375BE49D0}.Debug|x86.ActiveCfg = Debug|x86
+		{04578493-8042-44D8-B3AD-BF3375BE49D0}.Release|x86.ActiveCfg = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

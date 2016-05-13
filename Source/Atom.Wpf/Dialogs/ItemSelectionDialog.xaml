@@ -1,0 +1,24 @@
+﻿<Window x:Class="Atom.Wpf.Dialogs.ItemSelectionDialog"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Title="Select Asset" KeyDown="OnWindowKeyDown"
+    WindowStartupLocation="CenterScreen" WindowStyle="ToolWindow" ResizeMode="NoResize"
+    Height="340" Width="250">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="25"/>
+            <RowDefinition Height="5"/>
+        </Grid.RowDefinitions>
+
+        <ListView Name="listBoxItems" KeyDown="OnListBoxItemsKeyDown" Margin="10"/>
+        <TextBox Name="textBoxSearch" AcceptsTab="False" AcceptsReturn="False" Margin="10,8" Grid.Row="1"
+                 KeyDown="OnAssetSearchBoxTextKeyDown" PreviewKeyDown="OnAssetSearchBoxTextPreviewKeyDown"
+                 TextChanged="OnAssetSearchBoxTextChanged" />
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Grid.Row="2">
+            <Button Content="Select" Padding="12,4" Click="OnSelectButtonClicked" />
+            <Button Content="Cancel" Padding="8,4" Margin="10,0" Click="OnCancelButtonClicked"/>
+        </StackPanel>
+    </Grid>
+</Window>

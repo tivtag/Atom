@@ -1,0 +1,270 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="TypeHasNoPublicConstructors" xml:space="preserve">
+    <value>The type '{0}' has no public constructors. This is required.</value>
+  </data>
+  <data name="TypeHasNoPublicConstructorWithParameters" xml:space="preserve">
+    <value>The type '{0}' has no public constructor with '{1}' parameters. This is required.</value>
+  </data>
+  <data name="TypeNotSupportedByPropertyWrapper" xml:space="preserve">
+    <value>The Type of the given Object is not supported by this IObjectPropertyWrapper.</value>
+  </data>
+  <data name="AttemptToReturnInActiveNode" xml:space="preserve">
+    <value>Attempted to return an inactive Node to the Atom.Collections.Pool.</value>
+  </data>
+  <data name="InvalidInternalNodeIndex" xml:space="preserve">
+    <value>Invalid Node. The node's internal node index is out of range.</value>
+  </data>
+  <data name="InvalidNodePoolMismatch" xml:space="preserve">
+    <value>Invalid Node. The  Pool of the Atom.Collections.PoolNode doesn't equal this Pool.</value>
+  </data>
+  <data name="InvalidStringFormatXWithSeparatorY" xml:space="preserve">
+    <value>Invalid string format. Expected a string in the format '{0}', separated by '{1}'.</value>
+  </data>
+  <data name="ServiceXNotFound" xml:space="preserve">
+    <value>The service {0} could not be found.</value>
+  </data>
+  <data name="SpecifiedValueIsInvalid" xml:space="preserve">
+    <value>The specified value is invalid.</value>
+  </data>
+  <data name="SpecifiedValueIsNaN" xml:space="preserve">
+    <value>The specified value is Not a Number. This is invalid for this operation.</value>
+  </data>
+  <data name="SpecifiedValueIsNegative" xml:space="preserve">
+    <value>The specified value is negative. This is invalid for this operation.</value>
+  </data>
+  <data name="SpecifiedValueIsZero" xml:space="preserve">
+    <value>The specified value is zero. This is invalid for this operation.</value>
+  </data>
+  <data name="SpecifiedValueIsZeroOrNegative" xml:space="preserve">
+    <value>The specified value is zero or negative. This is invalid for this operation.</value>
+  </data>
+  <data name="TheUnderlyingPropertyIsReadOnly" xml:space="preserve">
+    <value>The underlying property is read-only. As such the value of the property can't be changed.</value>
+  </data>
+  <data name="VersionXOfTypeYIsNotSupportedExpectedZ" xml:space="preserve">
+    <value>Version '{0}' of type {1} is not supported. Expected '{2}'.</value>
+  </data>
+  <data name="VersionXOfTypeYIsNotSupportedExpectedZToW" xml:space="preserve">
+    <value>Version '{0}' of type {1} is not supported. Expected '{2} to {3}'.</value>
+  </data>
+  <data name="ArgumentsMayNotBeEqual" xml:space="preserve">
+    <value>The specified arguments may not be equal.</value>
+  </data>
+  <data name="ArrayLengthOutOfValidRange" xml:space="preserve">
+    <value>The length of the array is out of valid range.</value>
+  </data>
+  <data name="ArrayLengthOutOfValidRange1" xml:space="preserve">
+    <value>The length of the array is out of valid range.</value>
+  </data>
+  <data name="MatrixDeleteOnlyColumn" xml:space="preserve">
+    <value>Can't delete the last column of the Matrix.</value>
+  </data>
+  <data name="MatrixDeleteOnlyRow" xml:space="preserve">
+    <value>Can't delete the last row of the Matrix.</value>
+  </data>
+  <data name="NotEnoughSpaceInSourceArray" xml:space="preserve">
+    <value>The source array must have at least as many elements as the specified size.</value>
+  </data>
+  <data name="NotEnoughSpaceInTargetArray" xml:space="preserve">
+    <value>There is not enough space in the targeted array.</value>
+  </data>
+  <data name="ParsingGivenStringXNotEnoughEntriesExpectedYHasZ" xml:space="preserve">
+    <value>An error has occurred while parsing the given string '{0}'. Not enough entries. Expected '{1}'. Has '{2}'.</value>
+  </data>
+  <data name="SpecifiedEnumerableContainsNoElements" xml:space="preserve">
+    <value>The specified IEnumerable doesn't contain any elements. This is required.</value>
+  </data>
+  <data name="SpecifiedIndexIsInvalid" xml:space="preserve">
+    <value>The specified index is invalid.</value>
+  </data>
+  <data name="SpecifiedIndexIsOutOfValidRange" xml:space="preserve">
+    <value>The specified index is out of valid range.</value>
+  </data>
+  <data name="ComponentCollectionIsReadOnly" xml:space="preserve">
+    <value>The IEntityComponentCollection is read-only. As such this operation is invalid.</value>
+  </data>
+  <data name="EntityComponentCollectionIsOwnedByDifferentEntity" xml:space="preserve">
+    <value>The given IEntityComponentCollection is not owned by this Entity. This is invalid.</value>
+  </data>
+  <data name="InvalidOperationHeapIsEmpty" xml:space="preserve">
+    <value>The Heap is empty. This is invalid for this operation.</value>
+  </data>
+  <data name="SpecifiedValueMustBeWithinRangeZeroOne" xml:space="preserve">
+    <value>The specified value must be within the range zero .. one.</value>
+  </data>
+  <data name="CantInsertItemIntoSortableListIfKeepSortedIsTrue" xml:space="preserve">
+    <value>It's not allowed to insert an item into the SortableList if KeepSorted is true.</value>
+  </data>
+  <data name="ListAlreadyConstainsSpecifiedItem" xml:space="preserve">
+    <value>The list already contains the specified item.</value>
+  </data>
+  <data name="ObjectXDoesntImplementY" xml:space="preserve">
+    <value>The object {0} doesn't implement '{1}'. This is required.</value>
+  </data>
+  <data name="TypeXDoesntImplementY" xml:space="preserve">
+    <value>The type {0} doesn't implement '{1}'. This is required.</value>
+  </data>
+  <data name="ExpectedDifferentNumberOfElementsInStringXSeparatedByYGotZInsteadOfW" xml:space="preserve">
+    <value>Expected different number of elements in the string '{0}' separated by '{1}'. Got '{2}' instead of '{3}'.</value>
+  </data>
+  <data name="InvalidStringXFormatYWithSeparatorZ" xml:space="preserve">
+    <value>The string '{0}' has an invalid format. The expected format '{1}', separated by '{2}'.</value>
+  </data>
+  <data name="AnUnhandledExceptionOccurred" xml:space="preserve">
+    <value>An unhandled exception has occurred.</value>
+  </data>
+  <data name="Error" xml:space="preserve">
+    <value>Error</value>
+  </data>
+  <data name="EntityAlreadyAddedToScene" xml:space="preserve">
+    <value>The entity '{0}' already has been added to a scene.</value>
+  </data>
+  <data name="EntityIsRequiredToHaveComponentType" xml:space="preserve">
+    <value>The entity is required to have a component of type {0}.</value>
+  </data>
+  <data name="EntityNotPartOfAScene" xml:space="preserve">
+    <value>The entity '{0}' is currently not part of any scene.</value>
+  </data>
+  <data name="ComponentWasNotFound" xml:space="preserve">
+    <value>The component of type '{0}' could not be found.</value>
+  </data>
+  <data name="CriticalUnhandledExceptionHasOccurred" xml:space="preserve">
+    <value>A critical unhandled exception has occurred.</value>
+  </data>
+  <data name="UnhandledExceptionHasOccurred" xml:space="preserve">
+    <value>An unhandled exception has occurred.</value>
+  </data>
+  <data name="Information" xml:space="preserve">
+    <value>Information</value>
+  </data>
+  <data name="MissingInformation" xml:space="preserve">
+    <value>Missing Information</value>
+  </data>
+  <data name="MaybeHasNoValue" xml:space="preserve">
+    <value>This Maybe{T} instance has no value.</value>
+  </data>
+  <data name="ItemDoesNotFulfillPredicate" xml:space="preserve">
+    <value>The item does not fulfill the predicate.</value>
+  </data>
+  <data name="SpecifiedItemIsNull" xml:space="preserve">
+    <value>The specified item is null.</value>
+  </data>
+</root>

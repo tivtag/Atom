@@ -1,0 +1,12 @@
+﻿<ResourceDictionary 
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+>
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="/Atom.Wpf;component/Themes/NumericUpDown.generic.xaml"/>
+        <ResourceDictionary Source="/Atom.Wpf;component/Themes/Vector2InputControl.generic.xaml"/>
+        <ResourceDictionary Source="/Atom.Wpf;component/Themes/ColorPicker.generic.xaml"/>
+        <ResourceDictionary Source="/Atom.Wpf;component/Themes/RectangleInputControl.generic.xaml"/>
+    </ResourceDictionary.MergedDictionaries>
+
+</ResourceDictionary>

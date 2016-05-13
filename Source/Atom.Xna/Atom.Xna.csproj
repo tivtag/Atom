@@ -1,0 +1,365 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="12.0">
+  <PropertyGroup>
+    <ProjectGuid>{68DE8DA7-DBBD-4EAF-B992-E431DD88B4B4}</ProjectGuid>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Atom.Xna</RootNamespace>
+    <AssemblyName>Atom.Xna</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>4.0</OldToolsVersion>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+    <UpgradeBackupLocation />
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <CodeContractsAssemblyMode>1</CodeContractsAssemblyMode>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\Binaries\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;WINDOWS</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <NoStdLib>true</NoStdLib>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <PlatformTarget>x86</PlatformTarget>
+    <CodeContractsEnableRuntimeChecking>True</CodeContractsEnableRuntimeChecking>
+    <CodeContractsCustomRewriterAssembly>
+    </CodeContractsCustomRewriterAssembly>
+    <CodeContractsCustomRewriterClass>
+    </CodeContractsCustomRewriterClass>
+    <CodeContractsRuntimeCheckingLevel>Full</CodeContractsRuntimeCheckingLevel>
+    <CodeContractsRuntimeOnlyPublicSurface>False</CodeContractsRuntimeOnlyPublicSurface>
+    <CodeContractsRuntimeThrowOnFailure>True</CodeContractsRuntimeThrowOnFailure>
+    <CodeContractsRuntimeCallSiteRequires>False</CodeContractsRuntimeCallSiteRequires>
+    <CodeContractsRunCodeAnalysis>False</CodeContractsRunCodeAnalysis>
+    <CodeContractsBuildReferenceAssembly>True</CodeContractsBuildReferenceAssembly>
+    <CodeContractsNonNullObligations>False</CodeContractsNonNullObligations>
+    <CodeContractsBoundsObligations>False</CodeContractsBoundsObligations>
+    <CodeContractsArithmeticObligations>False</CodeContractsArithmeticObligations>
+    <CodeContractsLibPaths>
+    </CodeContractsLibPaths>
+    <CodeContractsPlatformPath>
+    </CodeContractsPlatformPath>
+    <CodeContractsExtraAnalysisOptions>
+    </CodeContractsExtraAnalysisOptions>
+    <CodeContractsBaseLineFile>
+    </CodeContractsBaseLineFile>
+    <CodeContractsUseBaseLine>False</CodeContractsUseBaseLine>
+    <CodeContractsRunInBackground>True</CodeContractsRunInBackground>
+    <CodeContractsShowSquigglies>False</CodeContractsShowSquigglies>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <CodeContractsRedundantAssumptions>False</CodeContractsRedundantAssumptions>
+    <CodeContractsEmitXMLDocs>False</CodeContractsEmitXMLDocs>
+    <CodeContractsReferenceAssembly>DoNotBuild</CodeContractsReferenceAssembly>
+    <DocumentationFile>..\Binaries\Debug\Atom.Xna.xml</DocumentationFile>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\..\Binaries\Release\</OutputPath>
+    <DefineConstants>TRACE;WINDOWS</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <NoStdLib>true</NoStdLib>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <PlatformTarget>x86</PlatformTarget>
+    <CodeContractsEnableRuntimeChecking>True</CodeContractsEnableRuntimeChecking>
+    <CodeContractsCustomRewriterAssembly>
+    </CodeContractsCustomRewriterAssembly>
+    <CodeContractsCustomRewriterClass>
+    </CodeContractsCustomRewriterClass>
+    <CodeContractsRuntimeCheckingLevel>Preconditions</CodeContractsRuntimeCheckingLevel>
+    <CodeContractsRuntimeOnlyPublicSurface>True</CodeContractsRuntimeOnlyPublicSurface>
+    <CodeContractsRuntimeThrowOnFailure>True</CodeContractsRuntimeThrowOnFailure>
+    <CodeContractsRuntimeCallSiteRequires>False</CodeContractsRuntimeCallSiteRequires>
+    <CodeContractsRunCodeAnalysis>False</CodeContractsRunCodeAnalysis>
+    <CodeContractsBuildReferenceAssembly>True</CodeContractsBuildReferenceAssembly>
+    <CodeContractsEmitXMLDocs>False</CodeContractsEmitXMLDocs>
+    <CodeContractsNonNullObligations>False</CodeContractsNonNullObligations>
+    <CodeContractsBoundsObligations>False</CodeContractsBoundsObligations>
+    <CodeContractsArithmeticObligations>False</CodeContractsArithmeticObligations>
+    <CodeContractsRedundantAssumptions>False</CodeContractsRedundantAssumptions>
+    <CodeContractsLibPaths>
+    </CodeContractsLibPaths>
+    <CodeContractsPlatformPath>
+    </CodeContractsPlatformPath>
+    <CodeContractsExtraAnalysisOptions>
+    </CodeContractsExtraAnalysisOptions>
+    <CodeContractsBaseLineFile>
+    </CodeContractsBaseLineFile>
+    <CodeContractsUseBaseLine>False</CodeContractsUseBaseLine>
+    <CodeContractsRunInBackground>True</CodeContractsRunInBackground>
+    <CodeContractsShowSquigglies>False</CodeContractsShowSquigglies>
+    <DocumentationFile>..\..\Binaries\Release\Atom.Xna.xml</DocumentationFile>
+    <CodeAnalysisRuleSet>..\SourceAnalysisRules.ruleset</CodeAnalysisRuleSet>
+    <CodeContractsReferenceAssembly>DoNotBuild</CodeContractsReferenceAssembly>
+    <CodeContractsExtraRewriteOptions />
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>CONTRACTS_FULL;DEBUG;TRACE;WINDOWS</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <CodeAnalysisLogFile>bin\x86\Debug\Atom.Xna.dll.CodeAnalysisLog.xml</CodeAnalysisLogFile>
+    <CodeAnalysisInputAssembly>bin\Debug\Atom.Xna.dll</CodeAnalysisInputAssembly>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSetDirectories>;C:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\\Rule Sets</CodeAnalysisRuleSetDirectories>
+    <CodeAnalysisRuleDirectories>;C:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\FxCop\\Rules</CodeAnalysisRuleDirectories>
+    <CodeAnalysisIgnoreBuiltInRules>true</CodeAnalysisIgnoreBuiltInRules>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|AnyCPU'">
+    <OutputPath>..\Binaries\Release\</OutputPath>
+    <DefineConstants>CONTRACTS_FULL;TRACE;WINDOWS</DefineConstants>
+    <DocumentationFile>..\Binaries\Release\Atom.Xna.XML</DocumentationFile>
+    <Optimize>true</Optimize>
+    <NoStdLib>true</NoStdLib>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <CodeAnalysisLogFile>bin\x86\Release\Atom.Xna.dll.CodeAnalysisLog.xml</CodeAnalysisLogFile>
+    <CodeAnalysisInputAssembly>bin\Release\Atom.Xna.dll</CodeAnalysisInputAssembly>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSetDirectories>;C:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\\Rule Sets</CodeAnalysisRuleSetDirectories>
+    <CodeAnalysisRuleDirectories>;C:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\FxCop\\Rules</CodeAnalysisRuleDirectories>
+    <CodeContractsEnableRuntimeChecking>True</CodeContractsEnableRuntimeChecking>
+    <CodeContractsRuntimeOnlyPublicSurface>False</CodeContractsRuntimeOnlyPublicSurface>
+    <CodeContractsRuntimeThrowOnFailure>True</CodeContractsRuntimeThrowOnFailure>
+    <CodeContractsRuntimeCallSiteRequires>False</CodeContractsRuntimeCallSiteRequires>
+    <CodeContractsRunCodeAnalysis>False</CodeContractsRunCodeAnalysis>
+    <CodeContractsNonNullObligations>False</CodeContractsNonNullObligations>
+    <CodeContractsBoundsObligations>False</CodeContractsBoundsObligations>
+    <CodeContractsArithmeticObligations>False</CodeContractsArithmeticObligations>
+    <CodeContractsContainerAnalysis>False</CodeContractsContainerAnalysis>
+    <CodeContractsRedundantAssumptions>False</CodeContractsRedundantAssumptions>
+    <CodeContractsRunInBackground>True</CodeContractsRunInBackground>
+    <CodeContractsShowSquigglies>False</CodeContractsShowSquigglies>
+    <CodeContractsUseBaseLine>False</CodeContractsUseBaseLine>
+    <CodeContractsEmitXMLDocs>False</CodeContractsEmitXMLDocs>
+    <CodeContractsCustomRewriterAssembly />
+    <CodeContractsCustomRewriterClass />
+    <CodeContractsLibPaths />
+    <CodeContractsExtraRewriteOptions />
+    <CodeContractsExtraAnalysisOptions />
+    <CodeContractsBaseLineFile />
+    <CodeContractsRuntimeCheckingLevel>Preconditions</CodeContractsRuntimeCheckingLevel>
+    <CodeContractsReferenceAssembly>DoNotBuild</CodeContractsReferenceAssembly>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.Xna.Framework, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="Microsoft.Xna.Framework.Game, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=x86" />
+    <Reference Include="Microsoft.Xna.Framework.Graphics, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=x86" />
+    <Reference Include="mscorlib">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+      <Private>False</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\SolutionInfo.cs">
+      <Link>Properties\SolutionInfo.cs</Link>
+    </Compile>
+    <Compile Include="Assets\CachingCustomAssetLoader.cs" />
+    <Compile Include="Batches\ComposedSpriteBatch.cs" />
+    <Compile Include="Batches\DrawBatchBase.cs" />
+    <Compile Include="Batches\IComposedSpriteBatch.cs" />
+    <Compile Include="Batches\IDrawBatch.cs" />
+    <Compile Include="Batches\ITextureDrawBatch.cs" />
+    <Compile Include="Batches\ISpriteBatch.cs" />
+    <Compile Include="Batches\SpriteDrawBatch.cs" />
+    <Compile Include="Batches\SpriteTextureDrawBatch.cs" />
+    <Compile Include="Color\ColorComponent.cs" />
+    <Compile Include="Color\ColorExtensions.cs" />
+    <Compile Include="Assets\ContentAssetLoader.cs" />
+    <Compile Include="Color\ColorHelper.cs" />
+    <Compile Include="Effects\Color\AlphaBlendInOutColorEffect.cs" />
+    <Compile Include="Effects\Color\IColorEffect.cs" />
+    <Compile Include="Effects\Color\ITimedColorEffect.cs" />
+    <Compile Include="Effects\EdgeDetectionEffect.cs" />
+    <Compile Include="Effects\EffectLoader.cs" />
+    <Compile Include="Effects\IEffectLoader.cs" />
+    <Compile Include="Effects\Lightning\LightningBolt.cs" />
+    <Compile Include="Effects\Lightning\LightningSettings.cs" />
+    <Compile Include="Effects\Lightning\LightningSubdivisionOp.cs" />
+    <Compile Include="Effects\Lightning\LightningVertex.cs" />
+    <Compile Include="Effects\NoiseEffect.cs" />
+    <Compile Include="Effects\PostProcess\Bloom\Bloom.cs" />
+    <Compile Include="Effects\PostProcess\Bloom\BloomSettings.cs" />
+    <Compile Include="Effects\PostProcess\Glow.cs" />
+    <Compile Include="Effects\PostProcess\HDR\AddRgb.cs" />
+    <Compile Include="Effects\PostProcess\HDR\BrightPass.cs" />
+    <Compile Include="Effects\PostProcess\HDR\DownSample4x4.cs" />
+    <Compile Include="Effects\PostProcess\HDR\GaussianBlur9x9.cs" />
+    <Compile Include="Effects\PostProcess\HDR\HighDynamicRange.cs" />
+    <Compile Include="Effects\PostProcess\IPostProcessEffect.cs" />
+    <Compile Include="Effects\PostProcess\HDR\Luminance.cs" />
+    <Compile Include="Effects\PostProcess\Luminance2.cs" />
+    <Compile Include="Effects\PostProcess\NewHDR\CustomHighDynamicRange.cs" />
+    <Compile Include="Effects\PostProcess\NewHDR\HighDynamicRange.cs" />
+    <Compile Include="Effects\PostProcess\PostProcessEffect.cs" />
+    <Compile Include="Effects\PostProcess\HDR\ToneMapping.cs" />
+    <Compile Include="Effects\RectangularEffect.cs" />
+    <Compile Include="Effects\RenderTarget2DExtensions.cs" />
+    <Compile Include="Fonts\SpriteFontExtensions.cs" />
+    <Compile Include="FramesPerSecond.cs" />
+    <Compile Include="FullscreenRenderTarget2DFactory.cs" />
+    <Compile Include="GameServiceContainerExtensions.cs" />
+    <Compile Include="GraphicsDeviceExtensions.cs" />
+    <Compile Include="IContentManagerProvider.cs" />
+    <Compile Include="IXnaContext.cs" />
+    <Compile Include="IXnaDrawContext.cs" />
+    <Compile Include="MouseInputExtensions.cs" />
+    <Compile Include="Sprites\ISpriteAsset.cs" />
+    <Compile Include="Sprites\PooledSpriteWrapper.cs" />
+    <Compile Include="RenderTarget2DFactory.cs" />
+    <Compile Include="Fonts\Font.cs" />
+    <Compile Include="Fonts\FontLoader.cs" />
+    <Compile Include="Fonts\IFont.cs" />
+    <Compile Include="Fonts\IFontLoader.cs" />
+    <Compile Include="Fonts\TextAlign.cs" />
+    <Compile Include="GlobalSuppressions.cs" />
+    <Compile Include="Assets\IAsset.cs" />
+    <Compile Include="Assets\IAssetLoader.cs" />
+    <Compile Include="Assets\ICustomAssetLoader.cs" />
+    <Compile Include="IContentLoadable.cs" />
+    <Compile Include="IRenderTarget2DFactory.cs" />
+    <Compile Include="Sprites\Animation\AnimatedSprite.cs" />
+    <Compile Include="Sprites\Animation\AnimatedSprite.ReaderWriter.cs" />
+    <Compile Include="Sprites\Animation\AnimatedSpriteFrame.cs" />
+    <Compile Include="Sprites\Animation\AnimatedSpriteFrame.ReaderWriter.cs" />
+    <Compile Include="Sprites\Animation\IAnimatedSpriteLoader.cs" />
+    <Compile Include="Sprites\IAnimatedSpriteSource.cs" />
+    <Compile Include="Sprites\INormalSpriteSource.cs" />
+    <Compile Include="Sprites\ISpriteDrawContext.cs" />
+    <Compile Include="Lights\LightMap.cs" />
+    <Compile Include="Math\ToAtomMathExtensions.cs" />
+    <Compile Include="Sprites\INormalSpriteLoader.cs" />
+    <Compile Include="Sprites\ISprite.cs" />
+    <Compile Include="Sprites\ISpriteLoader.cs" />
+    <Compile Include="Sprites\Animation\SpriteAnimation.cs" />
+    <Compile Include="Sprites\Database\SpriteDatabase.ReaderWriter.cs" />
+    <Compile Include="Sprites\ISpriteSource.cs" />
+    <Compile Include="Sprites\NullSpriteLoader.cs" />
+    <Compile Include="Sprites\Sheet\ISpriteSheet.cs" />
+    <Compile Include="Sprites\Sheet\SpriteSheet.cs" />
+    <Compile Include="Sprites\Sheet\SpriteSheet.ReaderWriter.cs" />
+    <Compile Include="Sprites\Sheet\SpriteSheetDrawComponent.cs" />
+    <Compile Include="Sprites\Sheet\ISpriteSheetLoader.cs" />
+    <Compile Include="Sprites\Sprite.cs" />
+    <Compile Include="Sprites\Sprite.ReaderWriter.cs" />
+    <Compile Include="Sprites\Atlas\SpriteAtlas.cs" />
+    <Compile Include="Sprites\Atlas\SpriteAtlas.ReaderWriter.cs" />
+    <Compile Include="Sprites\Database\SpriteDatabase.cs" />
+    <Compile Include="Sprites\Database\SpriteDatabase.SpriteLoader.cs" />
+    <Compile Include="Sprites\SpriteDrawContext.cs" />
+    <Compile Include="Sprites\SpriteLoader.cs" />
+    <Compile Include="Sprites\Sheet\SpriteSheetLoader.cs" />
+    <Compile Include="Storage\XnaDeserializationContextExtensions.cs" />
+    <Compile Include="Storage\XnaSerializationContextExtensions.cs" />
+    <Compile Include="Textures\ITexture2DLoader.cs" />
+    <Compile Include="IXnaUpdateContext.cs" />
+    <Compile Include="Math\ToXnaMathExtensions.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Textures\NullTexture2DLoader.cs" />
+    <Compile Include="Textures\Texture2DLoader.cs" />
+    <Compile Include="Textures\TextureExtensions.cs" />
+    <Compile Include="Textures\TextureUtilities.cs" />
+    <Compile Include="Textures\UncachedFromFileTexture2DLoader.cs" />
+    <Compile Include="XnaUpdateContext.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Atom.Math\Atom.Math.csproj">
+      <Project>{CC3BC455-003C-43EE-8646-B53311A89298}</Project>
+      <Name>Atom.Math</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Atom\Atom.csproj">
+      <Project>{5EAD885A-5B98-4611-A45E-E4333D40476D}</Project>
+      <Name>Atom</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.2.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 2.0 %28x86%29</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.0 %28x86%29</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.VisualBasic.PowerPacks.10.0">
+      <Visible>False</Visible>
+      <ProductName>Microsoft Visual Basic PowerPacks 10.0</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Moles Diagnostic="true" xmlns="http://schemas.microsoft.com/moles/2010/">
+  <Assembly Name="Atom" />
+  <StubGeneration>    
+  </StubGeneration>
+</Moles>
