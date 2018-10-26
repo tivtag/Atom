@@ -12,7 +12,7 @@ namespace Atom.Math
 {
     using System;
     using System.Collections.Generic;
-    using System.Diagnostics.Contracts;
+    using Atom.Diagnostics.Contracts;
 
     /// <summary>
     /// Represents a polygon in two dimensional space.
@@ -338,7 +338,7 @@ namespace Atom.Math
         public Polygon2( ICollection<Vector2> vertices )
         {
             Contract.Requires<ArgumentNullException>( vertices != null );
-            Contract.Ensures( this.VertexCount == vertices.Count );
+            // Contract.Ensures( this.VertexCount == vertices.Count );
 
             this.vertices = new List<Vector2>( vertices.Count );
             this.vertices.AddRange( vertices );
@@ -502,10 +502,10 @@ namespace Atom.Math
         [Pure]
         public int GetNextIndex( int index )
         {
-            Contract.Ensures( Contract.Result<int>() >= 0 );
-            Contract.Ensures( Contract.Result<int>() < this.VertexCount );
+            // Contract.Ensures( Contract.Result<int>() >= 0 );
+            // Contract.Ensures( Contract.Result<int>() < this.VertexCount );
 
-            if( index >= this.VertexCount - 1 )
+            if ( index >= this.VertexCount - 1 )
             {
                 return 0;
             }
@@ -527,10 +527,10 @@ namespace Atom.Math
         [Pure]
         public int GetPreviousIndex( int index )
         {
-            Contract.Ensures( Contract.Result<int>() >= 0 );
-            Contract.Ensures( Contract.Result<int>() < this.VertexCount );
+            // Contract.Ensures( Contract.Result<int>() >= 0 );
+            // Contract.Ensures( Contract.Result<int>() < this.VertexCount );
 
-            if( index <= 0 )
+            if ( index <= 0 )
             {
                 return this.VertexCount - 1;
             }

@@ -13,12 +13,12 @@ namespace Atom.Configuration
     using System;
     using System.Collections.Generic;
     using System.Reflection;
-    using System.Diagnostics.Contracts;
+    using Atom.Diagnostics.Contracts;
 
     /// <summary>
     /// Provides a mechanism that finds all configuration properties of a type.
     /// </summary>
-    [ContractClass( typeof( IConfigPropertySearcherContracts ) )]
+    // [ContractClass( typeof( IConfigPropertySearcherContracts ) )]
     public interface IConfigPropertySearcher
     {
         /// <summary>
@@ -33,18 +33,18 @@ namespace Atom.Configuration
         IEnumerable<Tuple<PropertyInfo, IConfigPropertyAttribute>> Search( Type type );
     }
 
-    /// <summary>
-    /// Defines the contracts for the IConfigPropertySearcher interface.
-    /// </summary>
-    [ContractClassFor(typeof(IConfigPropertySearcher))]
-    internal abstract class IConfigPropertySearcherContracts : IConfigPropertySearcher
-    {
-        IEnumerable<Tuple<PropertyInfo, IConfigPropertyAttribute>> IConfigPropertySearcher.Search( Type type )
-        {
-            Contract.Requires( type != null );
-            Contract.Ensures( Contract.Result<IEnumerable<Tuple<PropertyInfo, IConfigPropertyAttribute>>>() != null );
+    /////// <summary>
+    /////// Defines the contracts for the IConfigPropertySearcher interface.
+    /////// </summary>
+    ////[ContractClassFor(typeof(IConfigPropertySearcher))]
+    ////internal abstract class IConfigPropertySearcherContracts : IConfigPropertySearcher
+    ////{
+    ////    IEnumerable<Tuple<PropertyInfo, IConfigPropertyAttribute>> IConfigPropertySearcher.Search( Type type )
+    ////    {
+    ////        Contract.Requires( type != null );
+    ////        Contract.Ensures( Contract.Result<IEnumerable<Tuple<PropertyInfo, IConfigPropertyAttribute>>>() != null );
 
-            return default( IEnumerable<Tuple<PropertyInfo, IConfigPropertyAttribute>> );
-        }
-    }
+    ////        return default( IEnumerable<Tuple<PropertyInfo, IConfigPropertyAttribute>> );
+    ////    }
+    ////}
 }

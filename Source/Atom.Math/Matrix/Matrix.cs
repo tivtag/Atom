@@ -12,7 +12,7 @@ namespace Atom.Math
 {
     using System;
     using System.Threading;
-    using System.Diagnostics.Contracts;
+    using Atom.Diagnostics.Contracts;
     using System.Threading.Tasks;
 
     /// <summary>
@@ -539,10 +539,10 @@ namespace Atom.Math
             Contract.Requires<ArgumentNullException>( right != null );
             Contract.Requires<ArgumentException>( left.RowCount == right.RowCount, MathErrorStrings.MatrixRowCountMismatch );
 
-            Contract.Ensures( Contract.Result<Matrix>() != null );
-            Contract.Ensures( Contract.Result<Matrix>().RowCount == left.RowCount );
-            Contract.Ensures( Contract.Result<Matrix>().ColumnCount == (left.ColumnCount + right.ColumnCount) );
-            
+            // Contract.Ensures( Contract.Result<Matrix>() != null );
+            // Contract.Ensures( Contract.Result<Matrix>().RowCount == left.RowCount );
+            // Contract.Ensures( Contract.Result<Matrix>().ColumnCount == (left.ColumnCount + right.ColumnCount) );
+
             Matrix result = new Matrix(
                 left.RowCount,
                 left.ColumnCount + right.ColumnCount
@@ -585,8 +585,8 @@ namespace Atom.Math
         {
             Contract.Requires<ArgumentException>( row >= 0 );
             Contract.Requires<ArgumentException>( row < this.RowCount );
-            Contract.Ensures( Contract.Result<Vector>() != null );
-            Contract.Ensures( Contract.Result<Vector>().Length == this.ColumnCount );
+            // Contract.Ensures( Contract.Result<Vector>() != null );
+            // Contract.Ensures( Contract.Result<Vector>().Length == this.ColumnCount );
 
             Vector rowVector = new Vector( this.ColumnCount );
 
@@ -612,8 +612,8 @@ namespace Atom.Math
         {
             Contract.Requires<ArgumentException>( column >= 0 );
             Contract.Requires<ArgumentException>( column < this.ColumnCount );
-            Contract.Ensures( Contract.Result<Vector>() != null );
-            Contract.Ensures( Contract.Result<Vector>().Length == this.RowCount );
+            // Contract.Ensures( Contract.Result<Vector>() != null );
+            // Contract.Ensures( Contract.Result<Vector>().Length == this.RowCount );
 
             Vector columnVector = new Vector( this.RowCount );
 
@@ -656,9 +656,9 @@ namespace Atom.Math
             Contract.Requires<ArgumentException>( (rowStart + rowCount) <= this.RowCount );
             Contract.Requires<ArgumentException>( (columnStart + columnCount) <= this.ColumnCount );
 
-            Contract.Ensures( Contract.Result<Matrix>() != null );
-            Contract.Ensures( Contract.Result<Matrix>().RowCount == rowCount );
-            Contract.Ensures( Contract.Result<Matrix>().ColumnCount == columnCount );
+            // Contract.Ensures( Contract.Result<Matrix>() != null );
+            // Contract.Ensures( Contract.Result<Matrix>().RowCount == rowCount );
+            // Contract.Ensures( Contract.Result<Matrix>().ColumnCount == columnCount );
 
             Matrix subMatrix = new Matrix( rowCount, columnCount );
 
@@ -702,9 +702,9 @@ namespace Atom.Math
             Contract.Requires<ArgumentNullException>( left != null );
             Contract.Requires<ArgumentNullException>( right != null );
             Contract.Requires<ArgumentException>( left.ColumnCount == right.RowCount, MathErrorStrings.IncompatibleMatricesTimes );
-            Contract.Ensures( Contract.Result<Matrix>() != null );
-            Contract.Ensures( Contract.Result<Matrix>().RowCount == left.RowCount );
-            Contract.Ensures( Contract.Result<Matrix>().ColumnCount == right.ColumnCount );
+            // Contract.Ensures( Contract.Result<Matrix>() != null );
+            // Contract.Ensures( Contract.Result<Matrix>().RowCount == left.RowCount );
+            // Contract.Ensures( Contract.Result<Matrix>().ColumnCount == right.ColumnCount );
 
             Matrix result = new Matrix( left.RowCount, right.ColumnCount );
 
@@ -741,9 +741,9 @@ namespace Atom.Math
         public static Matrix Multiply( Matrix matrix, float scalar )
         {
             Contract.Requires<ArgumentNullException>( matrix != null );
-            Contract.Ensures( Contract.Result<Matrix>() != null );
-            Contract.Ensures( Contract.Result<Matrix>().RowCount == matrix.RowCount );
-            Contract.Ensures( Contract.Result<Matrix>().ColumnCount == matrix.ColumnCount );
+            // Contract.Ensures( Contract.Result<Matrix>() != null );
+            // Contract.Ensures( Contract.Result<Matrix>().RowCount == matrix.RowCount );
+            // Contract.Ensures( Contract.Result<Matrix>().ColumnCount == matrix.ColumnCount );
 
             Matrix result = new Matrix( matrix.RowCount, matrix.ColumnCount );
 
@@ -824,9 +824,9 @@ namespace Atom.Math
             Contract.Requires<ArgumentException>( left.RowCount == right.RowCount, MathErrorStrings.IncompatibleMatricesTimes );
             Contract.Requires<ArgumentException>( left.ColumnCount == right.ColumnCount, MathErrorStrings.IncompatibleMatricesTimes );
 
-            Contract.Ensures( Contract.Result<Matrix>() != null );
-            Contract.Ensures( Contract.Result<Matrix>().RowCount == left.RowCount );
-            Contract.Ensures( Contract.Result<Matrix>().ColumnCount == left.ColumnCount );
+            // Contract.Ensures( Contract.Result<Matrix>() != null );
+            // Contract.Ensures( Contract.Result<Matrix>().RowCount == left.RowCount );
+            // Contract.Ensures( Contract.Result<Matrix>().ColumnCount == left.ColumnCount );
 
             Matrix result = new Matrix( left.RowCount, left.ColumnCount );
 
@@ -868,9 +868,9 @@ namespace Atom.Math
             Contract.Requires<ArgumentException>( left.RowCount == right.RowCount, MathErrorStrings.IncompatibleMatricesTimes );
             Contract.Requires<ArgumentException>( left.ColumnCount == right.ColumnCount, MathErrorStrings.IncompatibleMatricesTimes );
 
-            Contract.Ensures( Contract.Result<Matrix>() != null );
-            Contract.Ensures( Contract.Result<Matrix>().RowCount == left.RowCount );
-            Contract.Ensures( Contract.Result<Matrix>().ColumnCount == left.ColumnCount );
+            // Contract.Ensures( Contract.Result<Matrix>() != null );
+            // Contract.Ensures( Contract.Result<Matrix>().RowCount == left.RowCount );
+            // Contract.Ensures( Contract.Result<Matrix>().ColumnCount == left.ColumnCount );
 
             Matrix result = new Matrix( left.RowCount, left.ColumnCount );
 
@@ -897,9 +897,9 @@ namespace Atom.Math
         public static Matrix Negate( Matrix matrix )
         {
             Contract.Requires<ArgumentNullException>( matrix != null );
-            Contract.Ensures( Contract.Result<Matrix>() != null );
-            Contract.Ensures( Contract.Result<Matrix>().RowCount == matrix.RowCount );
-            Contract.Ensures( Contract.Result<Matrix>().ColumnCount == matrix.ColumnCount );
+            // Contract.Ensures( Contract.Result<Matrix>() != null );
+            // Contract.Ensures( Contract.Result<Matrix>().RowCount == matrix.RowCount );
+            // Contract.Ensures( Contract.Result<Matrix>().ColumnCount == matrix.ColumnCount );
 
             Matrix result = new Matrix( matrix.RowCount, matrix.ColumnCount );
 
@@ -936,9 +936,9 @@ namespace Atom.Math
         /// <returns>A diagonal matrix of the specified size.</returns>
         public static Matrix Diagonal( int rowCount, int columnCount, float value )
         {
-            Contract.Ensures( Contract.Result<Matrix>() != null );
-            Contract.Ensures( Contract.Result<Matrix>().RowCount == rowCount );
-            Contract.Ensures( Contract.Result<Matrix>().ColumnCount == rowCount );
+            // Contract.Ensures( Contract.Result<Matrix>() != null );
+            // Contract.Ensures( Contract.Result<Matrix>().RowCount == rowCount );
+            // Contract.Ensures( Contract.Result<Matrix>().ColumnCount == rowCount );
 
             Matrix matrix = new Matrix( rowCount, columnCount );
             int diagonalSize = System.Math.Min( rowCount, columnCount );

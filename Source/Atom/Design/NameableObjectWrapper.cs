@@ -11,7 +11,7 @@
 namespace Atom.Design
 {
     using System;
-    using System.Diagnostics.Contracts;
+    using Atom.Diagnostics.Contracts;
 
     /// <summary>
     /// Represents an object that wraps around another object, adding naming support to it.

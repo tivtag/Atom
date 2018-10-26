@@ -7,7 +7,7 @@
 namespace Atom.Patterns.Visitor
 {
     using System.Collections.Generic;
-    using System.Diagnostics.Contracts;
+    using Atom.Diagnostics.Contracts;
 
     /// <summary>
     /// A visitor that tracks (stores) objects in the order they were visited.
@@ -44,7 +44,7 @@ namespace Atom.Patterns.Visitor
         {
             get
             {
-                Contract.Ensures( Contract.Result<IList<T>>() != null );
+                // Contract.Ensures( Contract.Result<IList<T>>() != null );
 
                 return this.tracks;
             }
@@ -85,8 +85,8 @@ namespace Atom.Patterns.Visitor
         /// </param>
         public void Visit( T obj )
         {
-            Contract.Ensures( this.TrackingList.Count == ( 1 + Contract.OldValue( this.TrackingList.Count ) ) );
-            Contract.Ensures( this.TrackingList.Contains( obj ) );
+            // Contract.Ensures( this.TrackingList.Count == ( 1 + Contract.OldValue( this.TrackingList.Count ) ) );
+            // Contract.Ensures( this.TrackingList.Contains( obj ) );
 
             this.tracks.Add( obj );
         }

@@ -12,7 +12,7 @@ namespace Atom.Math
 {
     using System;
     using System.Globalization;
-    using System.Diagnostics.Contracts;
+    using Atom.Diagnostics.Contracts;
 
     /// <summary>
     /// Defines a complex number (x,yi). C = x + yi, where i^2=(-1). 

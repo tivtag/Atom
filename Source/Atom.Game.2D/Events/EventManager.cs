@@ -13,7 +13,7 @@ namespace Atom.Events
     using System;
     using System.Collections.Generic;
     using System.Diagnostics;
-    using System.Diagnostics.Contracts;
+    using Atom.Diagnostics.Contracts;
     using System.Globalization;
 
     /// <summary>

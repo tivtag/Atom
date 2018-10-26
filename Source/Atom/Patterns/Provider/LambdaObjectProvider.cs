@@ -11,7 +11,7 @@
 namespace Atom.Patterns.Provider
 {
     using System;
-    using System.Diagnostics.Contracts;
+    using Atom.Diagnostics.Contracts;
 
     /// <summary>
     /// Implements an <see cref="IObjectProvider{TObject}"/> that delegates the resolving

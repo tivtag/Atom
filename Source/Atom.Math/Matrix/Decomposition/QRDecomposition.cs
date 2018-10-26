@@ -11,7 +11,7 @@
 namespace Atom.Math
 {
     using System;
-    using System.Diagnostics.Contracts;
+    using Atom.Diagnostics.Contracts;
 
     /// <summary>
     /// In linear algebra, the QR decomposition (also called the QR factorization) of a <see cref="Matrix"/> 

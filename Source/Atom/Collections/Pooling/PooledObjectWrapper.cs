@@ -7,7 +7,7 @@
 namespace Atom.Collections.Pooling
 {
     using System;
-    using System.Diagnostics.Contracts;
+    using Atom.Diagnostics.Contracts;
 
     /// <summary>
     /// Defines an <see cref="IPooledObject{T}"/> that wraps 
@@ -53,7 +53,7 @@ namespace Atom.Collections.Pooling
         {
             get
             {
-                Contract.Ensures( Contract.Result<T>() != null );
+                // Contract.Ensures( Contract.Result<T>() != null );
 
                 return this.pooledObject;
             }

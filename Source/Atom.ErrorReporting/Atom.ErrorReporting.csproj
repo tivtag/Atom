@@ -10,7 +10,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Atom.ErrorReporting</RootNamespace>
     <AssemblyName>Atom.ErrorReporting</AssemblyName>
-    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <FileUpgradeFlags>
     </FileUpgradeFlags>
@@ -196,10 +196,6 @@
     <ProjectReference Include="..\Atom.Mail\Atom.Mail.csproj">
       <Project>{C10B3000-E49D-4261-BDB7-48F4F1EB6F67}</Project>
       <Name>Atom.Mail</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Atom\Atom.csproj">
-      <Project>{5EAD885A-5B98-4611-A45E-E4333D40476D}</Project>
-      <Name>Atom</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

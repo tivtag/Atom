@@ -11,7 +11,7 @@
 namespace Atom.Xna.UI.Tooltips
 {
     using System;
-    using System.Diagnostics.Contracts;
+    using Atom.Diagnostics.Contracts;
 
     /// <summary>
     /// Represents an ITooltipDrawElement that delegates the drawing logic into a lambda function / delegate.

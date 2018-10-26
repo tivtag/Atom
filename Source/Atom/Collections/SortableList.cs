@@ -12,7 +12,7 @@ namespace Atom.Collections
 {
     using System;
     using System.Collections.Generic;
-    using System.Diagnostics.Contracts;
+    using Atom.Diagnostics.Contracts;
 
     /// <summary>
     /// The <see cref="SortableList{T}"/> keeps itself sorted,

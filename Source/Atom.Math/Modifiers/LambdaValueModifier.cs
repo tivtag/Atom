@@ -11,7 +11,7 @@
 namespace Atom.Math.Modifiers
 {
     using System;
-    using System.Diagnostics.Contracts;
+    using Atom.Diagnostics.Contracts;
 
     /// <summary>
     /// Represents an <see cref="IValueModifier{TInput, TOutput}"/> that uses a lambda function to modify its value.

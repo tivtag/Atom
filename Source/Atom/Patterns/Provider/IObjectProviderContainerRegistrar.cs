@@ -11,12 +11,12 @@
 namespace Atom.Patterns.Provider
 {
     using System;
-    using System.Diagnostics.Contracts;
+    using Atom.Diagnostics.Contracts;
 
     /// <summary>
     /// Provides a mechanism for receiving and registering <see cref="IObjectProvider{TObject}"/> instances.
     /// </summary>
-    [ContractClass( typeof( IObjectProviderContainerRegistrarContract ) )]
+    // [ContractClass( typeof( IObjectProviderContainerRegistrarContract ) )]
     public interface IObjectProviderContainerRegistrar : IObjectProviderContainer
     {
         /// <summary>
@@ -32,20 +32,20 @@ namespace Atom.Patterns.Provider
             where TObject : class;
     }
 
-    /// <summary>
-    /// Defines the contracts for the <see cref="IObjectProviderContainer"/> interface.
-    /// </summary>
-    [ContractClassFor( typeof( IObjectProviderContainerRegistrar ) )]
-    internal abstract class IObjectProviderContainerRegistrarContract : IObjectProviderContainerRegistrar
-    {
-        IObjectProvider<object> IObjectProviderContainer.TryGetObjectProvider( Type type )
-        {
-            return default( IObjectProvider<object> );
-        }
+    /////// <summary>
+    /////// Defines the contracts for the <see cref="IObjectProviderContainer"/> interface.
+    /////// </summary>
+    ////[ContractClassFor( typeof( IObjectProviderContainerRegistrar ) )]
+    ////internal abstract class IObjectProviderContainerRegistrarContract : IObjectProviderContainerRegistrar
+    ////{
+    ////    IObjectProvider<object> IObjectProviderContainer.TryGetObjectProvider( Type type )
+    ////    {
+    ////        return default( IObjectProvider<object> );
+    ////    }
 
-        void IObjectProviderContainerRegistrar.Register<TObject>( IObjectProvider<TObject> provider )
-        {
-            Contract.Requires<ArgumentNullException>( provider != null );
-        }
-    }
+    ////    void IObjectProviderContainerRegistrar.Register<TObject>( IObjectProvider<TObject> provider )
+    ////    {
+    ////        Contract.Requires<ArgumentNullException>( provider != null );
+    ////    }
+    ////}
 }

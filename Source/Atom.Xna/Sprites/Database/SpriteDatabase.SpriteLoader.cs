@@ -11,7 +11,7 @@
 namespace Atom.Xna
 {
     using System;
-    using System.Diagnostics.Contracts;
+    using Atom.Diagnostics.Contracts;
 
     /// <content>
     /// Defines an INormalSpriteLoader that loads <see cref="Sprite"/>s directly from an existing <see cref="SpriteDatabase"/>.

@@ -13,7 +13,7 @@ namespace Atom.Collections
     using System;
     using System.Collections.Generic;
     using System.Diagnostics;
-    using System.Diagnostics.Contracts;
+    using Atom.Diagnostics.Contracts;
     using System.Linq;
 
     /// <summary>
@@ -61,7 +61,7 @@ namespace Atom.Collections
         {
             Contract.Requires<ArgumentNullException>( collection != null );
             Contract.Requires<ArgumentNullException>( items != null );
-            Contract.Ensures( collection.Count == items.Count() );
+            // Contract.Ensures( collection.Count == items.Count() );
 
             collection.Clear();
 

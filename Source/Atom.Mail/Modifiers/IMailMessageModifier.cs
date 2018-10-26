@@ -11,12 +11,12 @@
 namespace Atom.Mail.Modifiers
 {
     using System;
-    using System.Diagnostics.Contracts;
+    using Atom.Diagnostics.Contracts;
 
     /// <summary>
     /// Provides a mechanism for modifying an existing <see cref="IMailMessage"/>.
     /// </summary>
-    [ContractClass( typeof( IMailMessageModifierContract ) )]
+    // [ContractClass( typeof( IMailMessageModifierContract ) )]
     public interface IMailMessageModifier
     {
         /// <summary>
@@ -28,17 +28,17 @@ namespace Atom.Mail.Modifiers
         void Apply( IMailMessage mail );
     }
 
-    /// <summary>
-    /// Defines the contract for the <see cref="IMailMessageModifier"/> interface.
-    /// </summary>
-    [ContractClassFor( typeof( IMailMessageModifier ) )]
-    [System.Diagnostics.CodeAnalysis.SuppressMessage( "Microsoft.StyleCop.CSharp.DocumentationRules", "SA1600:ElementsMustBeDocumented",
-        Justification = "Contract classes for interfaces aren't required to be documented." )] 
-    internal abstract class IMailMessageModifierContract : IMailMessageModifier
-    {
-        public void Apply( IMailMessage mail )
-        {
-            Contract.Requires<ArgumentNullException>( mail != null );
-        }
-    }
+    /////// <summary>
+    /////// Defines the contract for the <see cref="IMailMessageModifier"/> interface.
+    /////// </summary>
+    ////[ContractClassFor( typeof( IMailMessageModifier ) )]
+    ////[System.Diagnostics.CodeAnalysis.SuppressMessage( "Microsoft.StyleCop.CSharp.DocumentationRules", "SA1600:ElementsMustBeDocumented",
+    ////    Justification = "Contract classes for interfaces aren't required to be documented." )] 
+    ////internal abstract class IMailMessageModifierContract : IMailMessageModifier
+    ////{
+    ////    public void Apply( IMailMessage mail )
+    ////    {
+    ////        Contract.Requires<ArgumentNullException>( mail != null );
+    ////    }
+    ////}
 }

@@ -11,7 +11,7 @@
 namespace Atom.ErrorReporting.Reporters
 {
     using System;
-    using System.Diagnostics.Contracts;
+    using Atom.Diagnostics.Contracts;
     using Atom.Mail;
 
     /// <summary>

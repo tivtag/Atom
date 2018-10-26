@@ -11,7 +11,7 @@
 namespace Atom.Math
 {
     using System;
-    using System.Diagnostics.Contracts;
+    using Atom.Diagnostics.Contracts;
 
     /// <summary>
     /// Implements Singular Value decomposition of rectangular Matrices.
@@ -90,7 +90,7 @@ namespace Atom.Math
         /// <returns>The diagonal matrix of S. </returns>
         public float[] GetSingularValues()
         {
-            Contract.Ensures( Contract.Result<float[]>() != null );
+            // Contract.Ensures( Contract.Result<float[]>() != null );
 
             return (float[])values.Clone();
         }
@@ -102,7 +102,7 @@ namespace Atom.Math
         /// <returns>A new Matrix that contains the singular values of the decomposed Matrix.</returns>
         public Matrix GetDiagonalSingularValues()
         {
-            Contract.Ensures( Contract.Result<Matrix>() != null );
+            // Contract.Ensures( Contract.Result<Matrix>() != null );
 
             Matrix matrix = new Matrix( columnCount, columnCount );
 
@@ -124,7 +124,7 @@ namespace Atom.Math
         /// <returns>A new Matrix that contains the left singular vectors (U matrix).</returns>
         public Matrix GetLeftSingularVectors()
         {
-            Contract.Ensures( Contract.Result<Matrix>() != null );
+            // Contract.Ensures( Contract.Result<Matrix>() != null );
 
             return this.factorU.Clone();
         }
@@ -136,7 +136,7 @@ namespace Atom.Math
         /// <returns>A new Matrix that contains the right singular vectors (V matrix).</returns>
         public Matrix GetRightSingularVectors()
         {
-            Contract.Ensures( Contract.Result<Matrix>() != null );
+            // Contract.Ensures( Contract.Result<Matrix>() != null );
 
             return this.factorV.Clone();
         }

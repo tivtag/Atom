@@ -12,7 +12,7 @@ namespace Atom
 {
     using System;
     using System.Collections.Generic;
-    using System.Diagnostics.Contracts;
+    using Atom.Diagnostics.Contracts;
 
     /// <summary>
     /// Implements a mechanism that allows the management of the <see cref="IGameState"/>s of a game.

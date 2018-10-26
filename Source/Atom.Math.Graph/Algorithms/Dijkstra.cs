@@ -8,7 +8,7 @@ namespace Atom.Math.Graph.Algorithms
 {
     using System;
     using System.Collections.Generic;
-    using System.Diagnostics.Contracts;
+    using Atom.Diagnostics.Contracts;
     using Atom.Collections;
     using Atom.Collections.Comparers;
     using Atom.Math.Graph.Data;

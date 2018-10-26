@@ -13,7 +13,7 @@ namespace Atom.Collections
     using System;
     using System.Collections;
     using System.Collections.Generic;
-    using System.Diagnostics.Contracts;
+    using Atom.Diagnostics.Contracts;
 
     /// <summary>
     /// Represents an list of items that uses another list to 
@@ -43,7 +43,7 @@ namespace Atom.Collections
         {
             get
             {
-                Contract.Ensures( Contract.Result<IList<T>>() != null );
+                // Contract.Ensures( Contract.Result<IList<T>>() != null );
                 return this.list;
             }
         }
@@ -80,7 +80,7 @@ namespace Atom.Collections
         /// <summary>
         /// Defines the contract invariant that always holds true.
         /// </summary>
-        [ContractInvariantMethod]
+        // [ContractInvariantMethod]
         private void ObjectInvariant()
         {
             Contract.Invariant( this.list != null );

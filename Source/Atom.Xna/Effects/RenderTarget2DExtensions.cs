@@ -7,7 +7,7 @@
 namespace Atom.Xna.Effects
 {
     using System;
-    using System.Diagnostics.Contracts;
+    using Atom.Diagnostics.Contracts;
     using Atom.Xna.Effects.PostProcess;
     using Microsoft.Xna.Framework.Graphics;
 

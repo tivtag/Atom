@@ -11,7 +11,7 @@
 namespace Atom.Wpf
 {
     using System;
-    using System.Diagnostics.Contracts;
+    using Atom.Diagnostics.Contracts;
     using System.Windows.Input;
 
     /// <summary>

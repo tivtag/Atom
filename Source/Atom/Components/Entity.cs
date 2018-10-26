@@ -11,7 +11,7 @@
 namespace Atom.Components
 {
     using System;
-    using System.Diagnostics.Contracts;
+    using Atom.Diagnostics.Contracts;
 
     /// <summary>
     /// By aggregating <see cref="IComponent"/>s an Entity can loosely expose behaviour.

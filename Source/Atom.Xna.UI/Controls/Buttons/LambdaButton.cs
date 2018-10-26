@@ -11,7 +11,7 @@
 namespace Atom.Xna.UI.Controls
 {
     using System;
-    using System.Diagnostics.Contracts;
+    using Atom.Diagnostics.Contracts;
 
     /// <summary>
     /// Represents a button that redirects the update and drawing operations

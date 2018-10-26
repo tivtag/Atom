@@ -13,7 +13,7 @@ namespace Atom.Math
     using System;
     using System.Collections.Generic;
     using System.Linq;
-    using System.Diagnostics.Contracts;
+    using Atom.Diagnostics.Contracts;
 
     /// <summary>
     /// Provides extension methods for the <see cref="IRand"/> interface.

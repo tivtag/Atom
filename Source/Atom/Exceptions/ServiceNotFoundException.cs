@@ -11,7 +11,7 @@
 namespace Atom
 {
     using System;
-    using System.Diagnostics.Contracts;
+    using Atom.Diagnostics.Contracts;
 
     /// <summary> 
     /// The exception that is thrown when a Service could not be found.
@@ -27,8 +27,8 @@ namespace Atom
         {
             get
             {
-                Contract.Ensures( Contract.Result<Type>() != null );
-                
+                // Contract.Ensures( Contract.Result<Type>() != null );
+
                 return this.serviceType;
             }
         }

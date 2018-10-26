@@ -3,3 +3,7 @@ Atom
 Atom is a collection of reuseable components with the main focus on game development.
 
 The framework has been developed organically over many many years of accompanying development of experiments and games.
+
+
+:
+- Some of the test/spec projects don't build out of the box because of missing components.

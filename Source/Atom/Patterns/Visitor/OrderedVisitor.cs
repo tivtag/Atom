@@ -7,7 +7,7 @@
 namespace Atom.Patterns.Visitor
 {
     using System;
-    using System.Diagnostics.Contracts;
+    using Atom.Diagnostics.Contracts;
 
     /// <summary>
     /// Implements a visitor that visits objects in order (PreOrder, PostOrder, or InOrder).
@@ -42,7 +42,7 @@ namespace Atom.Patterns.Visitor
         {
             get
             {
-                Contract.Ensures( Contract.Result<IVisitor<T>>() != null );
+                // Contract.Ensures( Contract.Result<IVisitor<T>>() != null );
 
                 return this.visitor;
             }

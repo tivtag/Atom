@@ -11,7 +11,7 @@
 namespace Atom.Wpf
 {
     using System;
-    using System.Diagnostics.Contracts;
+    using Atom.Diagnostics.Contracts;
     using System.Windows.Input;
 
     /// <summary>
@@ -63,7 +63,7 @@ namespace Atom.Wpf
         /// </param>
         protected ViewModelCommand( TViewModel viewModel )
         {
-            Contract.Requires<ArgumentNullException>( viewModel != null );
+            // Contract.Requires<ArgumentNullException>( viewModel != null );
 
             this.viewModel = viewModel;
         }

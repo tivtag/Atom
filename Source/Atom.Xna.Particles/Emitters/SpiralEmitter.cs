@@ -7,7 +7,7 @@
 namespace Atom.Xna.Particles.Emitters
 {
     using System;
-    using System.Diagnostics.Contracts;
+    using Atom.Diagnostics.Contracts;
     using System.Threading;
     using Atom.Math;
     using Xna = Microsoft.Xna.Framework;

@@ -8,12 +8,12 @@ namespace Atom.Components
 {
     using System;
     using System.Collections.Generic;
-    using System.Diagnostics.Contracts;
+    using Atom.Diagnostics.Contracts;
 
     /// <summary>
     /// Encapsulates the list of <see cref="IComponent"/>s that compose an <see cref="IEntity"/>.
     /// </summary>
-    [ContractClass( typeof( IEntityComponentCollectionContracts ) )]
+    // [ContractClass( typeof( IEntityComponentCollectionContracts ) )]
     public interface IEntityComponentCollection : IEnumerable<IComponent>, IUpdateable, IPreUpdateable
     {
         /// <summary>

@@ -11,7 +11,7 @@
 namespace Atom.ErrorReporting.Errors
 {
     using System;
-    using System.Diagnostics.Contracts;
+    using Atom.Diagnostics.Contracts;
     
     /// <summary>
     /// Represents an IError that relates to a specific <see cref="Exception"/>.

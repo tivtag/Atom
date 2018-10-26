@@ -11,7 +11,7 @@
 namespace Atom.Math
 {
     using System;
-    using System.Diagnostics.Contracts;
+    using Atom.Diagnostics.Contracts;
 
     /// <summary>
     /// Provides utility methods related to Gaussian filtering.

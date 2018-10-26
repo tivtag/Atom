@@ -11,7 +11,7 @@
 namespace Atom.Math
 {
     using System;
-    using System.Diagnostics.Contracts;
+    using Atom.Diagnostics.Contracts;
 
     /// <summary>
     /// Represents a Circle that is defined by a center point and a radius value.

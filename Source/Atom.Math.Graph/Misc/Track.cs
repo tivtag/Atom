@@ -12,7 +12,7 @@ namespace Atom.Math.Graph
 {
     using System;
     using System.Collections.Generic;
-    using System.Diagnostics.Contracts;
+    using Atom.Diagnostics.Contracts;
     using Atom.Math.Graph.Data;
 
     /// <summary>
@@ -91,7 +91,7 @@ namespace Atom.Math.Graph
         {
             get
             {
-                Contract.Ensures( Contract.Result<Heuristic<TVertexData, TEdgeData>>() != null );
+                // Contract.Ensures( Contract.Result<Heuristic<TVertexData, TEdgeData>>() != null );
 
                 return this.heuristic;
             }
@@ -134,7 +134,7 @@ namespace Atom.Math.Graph
         {
             get
             {
-                Contract.Ensures( Contract.Result<int>() >= 0 );
+                // Contract.Ensures( Contract.Result<int>() >= 0 );
 
                 return this.numberOfEdgesVisited;
             }
@@ -150,7 +150,7 @@ namespace Atom.Math.Graph
         {
             get
             {
-                Contract.Ensures( Contract.Result<float>() >= 0.0f && Contract.Result<float>() <= 1.0f );
+                // Contract.Ensures( Contract.Result<float>() >= 0.0f && Contract.Result<float>() <= 1.0f );
 
                 return this.coefficient;
             }

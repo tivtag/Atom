@@ -11,7 +11,7 @@
 namespace Atom.ErrorReporting.Hooks
 {
     using System;
-    using System.Diagnostics.Contracts;
+    using Atom.Diagnostics.Contracts;
     using System.Threading;
     using System.Windows.Forms;
     using Atom.ErrorReporting.Errors;

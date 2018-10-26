@@ -12,7 +12,7 @@ namespace Atom.Math
 {
     using System;
     using System.Collections.Generic;
-    using System.Diagnostics.Contracts;
+    using Atom.Diagnostics.Contracts;
 
     /// <summary>
     /// A Catmull-Rom spline that can be used for interpolating translation movements in 3 dimensional space.

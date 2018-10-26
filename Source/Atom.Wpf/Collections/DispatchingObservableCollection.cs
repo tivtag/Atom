@@ -12,7 +12,7 @@ namespace Acid.Wpf.Collections
 {
     using System;
     using System.Collections.ObjectModel;
-    using System.Diagnostics.Contracts;
+    using Atom.Diagnostics.Contracts;
     using System.Windows.Threading;
 
     /// <summary>

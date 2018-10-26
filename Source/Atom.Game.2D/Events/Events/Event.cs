@@ -12,7 +12,7 @@ namespace Atom.Events
 {
     using System;
     using System.ComponentModel;
-    using System.Diagnostics.Contracts;
+    using Atom.Diagnostics.Contracts;
     using System.Globalization;
     using Atom.Events.Design;
 

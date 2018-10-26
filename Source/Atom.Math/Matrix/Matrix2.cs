@@ -11,7 +11,7 @@
 namespace Atom.Math
 {
     using System;
-    using System.Diagnostics.Contracts;
+    using Atom.Diagnostics.Contracts;
 
     /// <summary> 
     /// Represents a 2x2 homogenous single-precission floating point Matrix. 
@@ -550,9 +550,9 @@ namespace Atom.Math
         [Pure]
         public float[] GetRow( int rowIndex )
         {
-            Contract.Ensures( Contract.Result<float[]>() != null );
+            // Contract.Ensures( Contract.Result<float[]>() != null );
 
-            switch( rowIndex )
+            switch ( rowIndex )
             {
                 case 0:
                     return new float[2] { M11, M12 };
@@ -578,9 +578,9 @@ namespace Atom.Math
         /// </exception>
         public float[] GetColumn( int columnIndex )
         {
-            Contract.Ensures( Contract.Result<float[]>() != null );
+            // Contract.Ensures( Contract.Result<float[]>() != null );
 
-            switch( columnIndex )
+            switch ( columnIndex )
             {
                 case 0:
                     return new float[2] { M11, M21 };

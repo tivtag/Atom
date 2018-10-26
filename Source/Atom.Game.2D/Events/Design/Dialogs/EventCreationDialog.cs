@@ -11,7 +11,7 @@
 namespace Atom.Events.Design
 {
     using System;
-    using System.Diagnostics.Contracts;
+    using Atom.Diagnostics.Contracts;
     using System.Windows.Forms;
     
     /// <summary>

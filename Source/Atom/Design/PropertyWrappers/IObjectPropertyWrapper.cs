@@ -27,7 +27,7 @@ namespace Atom.Design
     /// </para>
     /// This also pulls all design-time related metadata, away from the object, to the IObjectPropertyWrapper.
     /// </remarks>
-    [System.Diagnostics.Contracts.ContractClass(typeof(IObjectPropertyWrapperContracts))]
+    // [Atom.Diagnostics.Contracts.ContractClass(typeof(IObjectPropertyWrapperContracts))]
     public interface IObjectPropertyWrapper : ICloneable, INotifyPropertyChanged
     {
         /// <summary>

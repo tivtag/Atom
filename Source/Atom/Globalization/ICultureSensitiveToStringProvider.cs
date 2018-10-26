@@ -10,13 +10,13 @@
 
 namespace Atom
 {
-    using System.Diagnostics.Contracts;
+    using Atom.Diagnostics.Contracts;
 
     /// <summary>
     /// Provides a mechanism that allows to receive a
     /// culture-sensitive string representation of the object.
     /// </summary>
-    [ContractClass( typeof( ICultureSensitiveToStringProviderContract ) )]
+    // [ContractClass( typeof( ICultureSensitiveToStringProviderContract ) )]
     public interface ICultureSensitiveToStringProvider
     {
         /// <summary>

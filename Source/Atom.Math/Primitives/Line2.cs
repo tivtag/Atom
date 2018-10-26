@@ -12,7 +12,7 @@ namespace Atom.Math
 {
     using System;
     using System.Globalization;
-    using System.Diagnostics.Contracts;
+    using Atom.Diagnostics.Contracts;
 
     /// <summary> 
     /// Represents a line in 2D space, descriped using the general line equation: Ax + By - c = 0.

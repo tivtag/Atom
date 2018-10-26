@@ -11,7 +11,7 @@
 namespace Atom.Math
 {
     using System;
-    using System.Diagnostics.Contracts;
+    using Atom.Diagnostics.Contracts;
 
     /// <summary>
     /// Implements Cholesky Decomposition of a rectangular <see cref="Matrix"/>.
@@ -216,8 +216,8 @@ namespace Atom.Math
             Contract.Requires<ArgumentNullException>( vector != null );
             Contract.Requires<ArgumentException>( matrix.RowCount == vector.Length );
             Contract.Requires<ArgumentException>( matrix.IsSymmetric );
-            Contract.Ensures( Contract.Result<float[]>() != null );
-            Contract.Ensures( Contract.Result<float[]>().Length == matrix.RowCount );
+            // Contract.Ensures( Contract.Result<float[]>() != null );
+            // Contract.Ensures( Contract.Result<float[]>().Length == matrix.RowCount );
 
             int n = matrix.RowCount;
             Matrix  factorL   = QuickDecompose( matrix );
@@ -262,10 +262,10 @@ namespace Atom.Math
             Contract.Requires<ArgumentNullException>( matrixB.RowCount == this.LeftFactor.RowCount );
             Contract.Requires<ArgumentNullException>( matrixB.ColumnCount == 1 );
 
-            Contract.Ensures( Contract.Result<Matrix>() != null );
-            Contract.Ensures( Contract.Result<Matrix>().RowCount == dimension );
-            Contract.Ensures( Contract.Result<Matrix>().ColumnCount == 1 );
-                        
+            // Contract.Ensures( Contract.Result<Matrix>() != null );
+            // Contract.Ensures( Contract.Result<Matrix>().RowCount == dimension );
+            // Contract.Ensures( Contract.Result<Matrix>().ColumnCount == 1 );
+
             var m = new float[dimension];
             for( int j = 0; j < dimension; ++j )
             {

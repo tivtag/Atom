@@ -8,7 +8,7 @@ namespace Atom.Collections.Comparers
 {
     using System;
     using System.Collections.Generic;
-    using System.Diagnostics.Contracts;
+    using Atom.Diagnostics.Contracts;
 
     /// <summary>
     /// A comparer that wraps the IComparer interface to reproduce the opposite comparison result.

@@ -10,7 +10,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Atom.AI</RootNamespace>
     <AssemblyName>Atom.AI</AssemblyName>
-    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <FileUpgradeFlags>
     </FileUpgradeFlags>
@@ -220,10 +220,6 @@
     <ProjectReference Include="..\Atom.Math\Atom.Math.csproj">
       <Project>{CC3BC455-003C-43EE-8646-B53311A89298}</Project>
       <Name>Atom.Math</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Atom\Atom.csproj">
-      <Project>{5EAD885A-5B98-4611-A45E-E4333D40476D}</Project>
-      <Name>Atom</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup />

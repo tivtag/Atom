@@ -11,7 +11,7 @@
 namespace Atom.Math
 {
     using System;
-    using System.Diagnostics.Contracts;
+    using Atom.Diagnostics.Contracts;
 
     /// <summary> 
     /// Represents a line( ax + by + c = 0 ) with a start point and an end point.
@@ -373,7 +373,7 @@ namespace Atom.Math
         [Pure]
         public LineSegment2 OffsetLine( float distance, bool rightOrDown )
         {
-            Contract.Ensures( Contract.Result<LineSegment2>() != null );
+            // Contract.Ensures( Contract.Result<LineSegment2>() != null );
 
             Vector2 newStartPoint = new Vector2();
             Vector2 newEndPoint = new Vector2();
@@ -574,7 +574,7 @@ namespace Atom.Math
         /// <returns>The cloned LineSegment2.</returns>
         public new LineSegment2 Clone()
         {
-            Contract.Ensures( Contract.Result<LineSegment2>() != null );
+            // Contract.Ensures( Contract.Result<LineSegment2>() != null );
 
             return new LineSegment2( this.start, this.end );
         }

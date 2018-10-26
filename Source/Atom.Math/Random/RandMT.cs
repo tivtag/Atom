@@ -11,7 +11,7 @@
 namespace Atom.Math
 {
     using System;
-    using System.Diagnostics.Contracts;
+    using Atom.Diagnostics.Contracts;
 
     /// <summary>
     /// Generates pseudo-random numbers from a uniform distribution
@@ -247,7 +247,7 @@ namespace Atom.Math
         [CLSCompliant( false )]
         public void Seed( uint value )
         {
-            Contract.Ensures( this.IsInitialized );
+            // Contract.Ensures( this.IsInitialized );
 
             this.mt[0] = value & 0xffffffffU;
 

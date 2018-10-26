@@ -12,7 +12,7 @@ namespace Atom.Math.Graph.Algorithms
 {
     using System;
     using System.Collections.Generic;
-    using System.Diagnostics.Contracts;
+    using Atom.Diagnostics.Contracts;
     using Atom.Patterns.Visitor;
 
     /// <summary>

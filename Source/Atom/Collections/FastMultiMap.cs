@@ -8,7 +8,7 @@ namespace Atom.Collections
 {
     using System;
     using System.Collections.Generic;
-    using System.Diagnostics.Contracts;
+    using Atom.Diagnostics.Contracts;
 
     /// <summary>
     /// Represents a dictionary that maps keys onto lists of elements.
@@ -153,8 +153,8 @@ namespace Atom.Collections
         public bool TryGet( TKey key, out List<TElement> elements )
         {
             Contract.Requires<ArgumentNullException>( key != null );
-            Contract.Ensures( !(Contract.Result<bool>() == false) || Contract.ValueAtReturn( out elements ) == null );
-            Contract.Ensures( !(Contract.Result<bool>() == true) || Contract.ValueAtReturn( out elements ) != null );
+            // Contract.Ensures( !(Contract.Result<bool>() == false) || Contract.ValueAtReturn( out elements ) == null );
+            // Contract.Ensures( !(Contract.Result<bool>() == true) || Contract.ValueAtReturn( out elements ) != null );
 
             return this.dictionary.TryGetValue( key, out elements );
         }

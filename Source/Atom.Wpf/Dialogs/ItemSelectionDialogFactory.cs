@@ -10,8 +10,8 @@
 
 namespace Atom.Wpf.Dialogs
 {
+    using global::Atom.Design;
     using System.Collections.Generic;
-    using Atom.Design;
 
     /// <summary>
     /// Implements a machanism for creating IItemSelectionDialog{TIem} instances.

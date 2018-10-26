@@ -12,7 +12,7 @@ namespace Atom.Math
 {
     using System;
     using Atom.Collections;
-    using System.Diagnostics.Contracts;
+    using Atom.Diagnostics.Contracts;
 
     /// <summary>
     /// Represents a NxM matrix whose elements are <see cref="Complex"/> numbers.
@@ -180,9 +180,9 @@ namespace Atom.Math
         {
             Contract.Requires<ArgumentNullException>( matrixA != null );
             Contract.Requires<ArgumentNullException>( matrixB != null );
-            Contract.Ensures( Contract.Result<ComplexMatrix>() != null );
-            Contract.Ensures( Contract.Result<ComplexMatrix>().RowCount == (matrixA.RowCount * matrixB.RowCount) );
-            Contract.Ensures( Contract.Result<ComplexMatrix>().ColumnCount == (matrixA.ColumnCount * matrixB.ColumnCount) );
+            // Contract.Ensures( Contract.Result<ComplexMatrix>() != null );
+            // Contract.Ensures( Contract.Result<ComplexMatrix>().RowCount == (matrixA.RowCount * matrixB.RowCount) );
+            // Contract.Ensures( Contract.Result<ComplexMatrix>().ColumnCount == (matrixA.ColumnCount * matrixB.ColumnCount) );
 
             var result = new ComplexMatrix( 
                 matrixA.RowCount * matrixB.RowCount,
@@ -223,9 +223,9 @@ namespace Atom.Math
         {
             Contract.Requires<ArgumentNullException>( matrix != null );
             Contract.Requires<ArgumentNullException>( scalar != null );
-            Contract.Ensures( Contract.Result<ComplexMatrix>() != null );
-            Contract.Ensures( Contract.Result<ComplexMatrix>().RowCount == matrix.RowCount );
-            Contract.Ensures( Contract.Result<ComplexMatrix>().ColumnCount == matrix.ColumnCount );
+            // Contract.Ensures( Contract.Result<ComplexMatrix>() != null );
+            // Contract.Ensures( Contract.Result<ComplexMatrix>().RowCount == matrix.RowCount );
+            // Contract.Ensures( Contract.Result<ComplexMatrix>().ColumnCount == matrix.ColumnCount );
 
             var result = new ComplexMatrix( matrix.RowCount, matrix.ColumnCount );
 
@@ -267,8 +267,8 @@ namespace Atom.Math
         {
             Contract.Requires<ArgumentException>( row >= 0 );
             Contract.Requires<ArgumentException>( row < this.RowCount );
-            Contract.Ensures( Contract.Result<ComplexVector>() != null );
-            Contract.Ensures( Contract.Result<ComplexVector>().DimensionCount == this.ColumnCount );
+            // Contract.Ensures( Contract.Result<ComplexVector>() != null );
+            // Contract.Ensures( Contract.Result<ComplexVector>().DimensionCount == this.ColumnCount );
 
             ComplexVector rowVector = new ComplexVector( this.ColumnCount );
 
@@ -294,8 +294,8 @@ namespace Atom.Math
         {
             Contract.Requires<ArgumentException>( column >= 0 );
             Contract.Requires<ArgumentException>( column < this.ColumnCount );
-            Contract.Ensures( Contract.Result<ComplexVector>() != null );
-            Contract.Ensures( Contract.Result<ComplexVector>().DimensionCount == this.RowCount );
+            // Contract.Ensures( Contract.Result<ComplexVector>() != null );
+            // Contract.Ensures( Contract.Result<ComplexVector>().DimensionCount == this.RowCount );
 
             ComplexVector columnVector = new ComplexVector( this.RowCount );
 
@@ -338,9 +338,9 @@ namespace Atom.Math
             Contract.Requires<ArgumentException>( (rowStart + rowCount) <= this.RowCount );
             Contract.Requires<ArgumentException>( (columnStart + columnCount) <= this.ColumnCount );
 
-            Contract.Ensures( Contract.Result<ComplexMatrix>() != null );
-            Contract.Ensures( Contract.Result<ComplexMatrix>().RowCount == rowCount );
-            Contract.Ensures( Contract.Result<ComplexMatrix>().ColumnCount == columnCount );
+            // Contract.Ensures( Contract.Result<ComplexMatrix>() != null );
+            // Contract.Ensures( Contract.Result<ComplexMatrix>().RowCount == rowCount );
+            // Contract.Ensures( Contract.Result<ComplexMatrix>().ColumnCount == columnCount );
 
             ComplexMatrix subMatrix = new ComplexMatrix( rowCount, columnCount );
 

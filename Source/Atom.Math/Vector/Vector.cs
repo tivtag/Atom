@@ -14,7 +14,7 @@ namespace Atom.Math
     using System.Collections.Generic;
     using System.Linq;
     using System.Runtime.Serialization;
-    using System.Diagnostics.Contracts;
+    using Atom.Diagnostics.Contracts;
 
     /// <summary>
     /// Defines a N-dimensional single-precision floating-point Vector.

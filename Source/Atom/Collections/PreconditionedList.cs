@@ -12,7 +12,7 @@ namespace Atom.Collections
 {
     using System;
     using System.Collections.Generic;
-    using System.Diagnostics.Contracts;
+    using Atom.Diagnostics.Contracts;
 
     /// <summary>
     /// Represents a <see cref="RedirectingList{T}"/> that requires items added or inserted into
@@ -160,7 +160,7 @@ namespace Atom.Collections
         /// </returns>
         protected virtual string GetPredicateFailedErrorMessage( T item )
         {
-            Contract.Ensures( Contract.Result<string>() != null );
+            // Contract.Ensures( Contract.Result<string>() != null );
 
             return ErrorStrings.ItemDoesNotFulfillPredicate;
         }

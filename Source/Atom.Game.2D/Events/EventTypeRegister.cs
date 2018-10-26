@@ -12,7 +12,7 @@ namespace Atom.Events
 {
     using System;
     using System.Collections.Generic;
-    using System.Diagnostics.Contracts;
+    using Atom.Diagnostics.Contracts;
 
     /// <summary>
     /// Static class that registers supported <see cref="Event"/>s and <see cref="EventTrigger"/>s.

@@ -12,7 +12,7 @@ namespace Atom.Math.Graph.Algorithms
 {
     using System;
     using System.Collections.Generic;
-    using System.Diagnostics.Contracts;
+    using Atom.Diagnostics.Contracts;
     using System.Linq;
 
     /// <summary>
@@ -45,7 +45,7 @@ namespace Atom.Math.Graph.Algorithms
                 where TVertexData : IEquatable<TVertexData>
         {
             Contract.Requires<ArgumentNullException>( graph != null );
-            Contract.Ensures( Contract.Result<IList<IList<Vertex<TVertexData, TEdgeData>>>>() != null );
+            // Contract.Ensures( Contract.Result<IList<IList<Vertex<TVertexData, TEdgeData>>>>() != null );
 
             var cycles = new List<IList<Vertex<TVertexData, TEdgeData>>>();
             var currentWalk = new Stack<Vertex<TVertexData, TEdgeData>>();
@@ -81,7 +81,7 @@ namespace Atom.Math.Graph.Algorithms
                 where TVertexData : IEquatable<TVertexData>
         {
             Contract.Requires<ArgumentNullException>( vertex != null );
-            Contract.Ensures( Contract.Result<IList<IList<Vertex<TVertexData, TEdgeData>>>>() != null );
+            // Contract.Ensures( Contract.Result<IList<IList<Vertex<TVertexData, TEdgeData>>>>() != null );
 
             var cycles      = new List<IList<Vertex<TVertexData, TEdgeData>>>();
             var currentWalk = new Stack<Vertex<TVertexData, TEdgeData>>();
@@ -411,7 +411,7 @@ namespace Atom.Math.Graph.Algorithms
                 where TVertexData : IEquatable<TVertexData>
         {
             Contract.Requires<ArgumentNullException>( graph != null );
-            Contract.Ensures( Contract.Result<IList<Vertex<TVertexData, TEdgeData>[]>>() != null );
+            // Contract.Ensures( Contract.Result<IList<Vertex<TVertexData, TEdgeData>[]>>() != null );
 
             var indices = new Dictionary<Vertex<TVertexData, TEdgeData>, int>();
             var lowLinks = new Dictionary<Vertex<TVertexData, TEdgeData>, int>();

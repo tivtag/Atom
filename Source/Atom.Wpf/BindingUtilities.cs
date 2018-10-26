@@ -11,10 +11,10 @@
 namespace Atom.Wpf
 {
     using System;
-    using System.Diagnostics.Contracts;
     using System.Windows;
     using System.Windows.Data;
     using System.Windows.Media;
+    using global::Atom.Diagnostics.Contracts;
 
     /// <summary>
     /// Provides utility methods related to Windows Presentation Foundation (WPF) data-binding.

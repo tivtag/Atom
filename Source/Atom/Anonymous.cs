@@ -14,7 +14,7 @@ namespace Atom
 {
     using System;
     using System.Collections.Generic;
-    using System.Diagnostics.Contracts;
+    using Atom.Diagnostics.Contracts;
     using System.Linq;
 
     /// <summary>
@@ -48,7 +48,7 @@ namespace Atom
         public static IList<T> CreateList<T>( Func<T> template )
             where T : class
         {
-            Contract.Ensures( Contract.Result<IList<T>>() != null );
+            // Contract.Ensures( Contract.Result<IList<T>>() != null );
             return new List<T>();
         }
     }

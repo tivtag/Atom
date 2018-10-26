@@ -12,7 +12,7 @@ namespace Atom
 {
     using System;
     using System.ComponentModel.Design;
-    using System.Diagnostics.Contracts;
+    using Atom.Diagnostics.Contracts;
     using Atom.Diagnostics;
     
     /// <summary>
@@ -28,7 +28,7 @@ namespace Atom
         {
             get
             {
-                Contract.Ensures( Contract.Result<ServiceContainer>() != null );
+                // Contract.Ensures( Contract.Result<ServiceContainer>() != null );
 
                 return container;
             }
@@ -56,7 +56,7 @@ namespace Atom
         public static TService GetService<TService>()
             where TService : class
         {
-            Contract.Ensures( Contract.Result<TService>() != null );
+            // Contract.Ensures( Contract.Result<TService>() != null );
 
             var service = TryGetService<TService>();
             ThrowHelper.IfServiceNull<TService>( service );
@@ -81,7 +81,7 @@ namespace Atom
         public static TService GetService<TService>( string errorMessage )
             where TService : class
         {
-            Contract.Ensures( Contract.Result<TService>() != null );
+            // Contract.Ensures( Contract.Result<TService>() != null );
 
             var service = TryGetService<TService>();
             ThrowHelper.IfServiceNull<TService>( service, errorMessage );

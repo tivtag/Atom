@@ -7,7 +7,7 @@
 namespace Atom.Collections
 {
     using System.Collections.Generic;
-    using System.Diagnostics.Contracts;
+    using Atom.Diagnostics.Contracts;
 
     /// <summary>
     /// Represents a generic collection that maps keys onto multiple values.
@@ -18,7 +18,7 @@ namespace Atom.Collections
     /// <typeparam name="TElement">
     /// The type of the elements stored in the IMultiMap.
     /// </typeparam>
-    [ContractClass( typeof( IMultiMapContract<,> ) )]
+    // [ContractClass( typeof( IMultiMapContract<,> ) )]
     public interface IMultiMap<TKey, TElement>
     {
         /// <summary>

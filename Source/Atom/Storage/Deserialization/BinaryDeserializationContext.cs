@@ -11,7 +11,7 @@
 namespace Atom.Storage
 {
     using System;
-    using System.Diagnostics.Contracts;
+    using Atom.Diagnostics.Contracts;
     using System.IO;
 
     /// <summary>

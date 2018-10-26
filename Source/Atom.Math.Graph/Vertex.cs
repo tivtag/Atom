@@ -9,7 +9,7 @@ namespace Atom.Math.Graph
     using System;
     using System.Collections.Generic;
     using System.Diagnostics;
-    using System.Diagnostics.Contracts;
+    using Atom.Diagnostics.Contracts;
 
     /// <summary> 
     /// Represents a vertex in a <see cref="Graph{TVertexData, TEdgeData}"/>.

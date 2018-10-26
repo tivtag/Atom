@@ -7,7 +7,7 @@
 namespace Atom.Collections
 {
     using System;
-    using System.Diagnostics.Contracts;
+    using Atom.Diagnostics.Contracts;
 
     /// <summary>
     /// Provides static array-related utility methods.
@@ -38,11 +38,11 @@ namespace Atom.Collections
             Contract.Requires<ArgumentException>( (columns * rows) == elements.Length );
             Contract.Requires<ArgumentNullException>( elements != null );
 
-            Contract.Ensures( Contract.Result<T[,]>() != null );
-            Contract.Ensures( Contract.Result<T[,]>().GetLowerBound( 0 ) == 0 );
-            Contract.Ensures( Contract.Result<T[,]>().GetUpperBound( 0 ) == (rows - 1) );
-            Contract.Ensures( Contract.Result<T[,]>().GetLowerBound( 1 ) == 0 );
-            Contract.Ensures( Contract.Result<T[,]>().GetUpperBound( 1 ) == (columns - 1) );
+            // Contract.Ensures( Contract.Result<T[,]>() != null );
+            // Contract.Ensures( Contract.Result<T[,]>().GetLowerBound( 0 ) == 0 );
+            // Contract.Ensures( Contract.Result<T[,]>().GetUpperBound( 0 ) == (rows - 1) );
+            // Contract.Ensures( Contract.Result<T[,]>().GetLowerBound( 1 ) == 0 );
+            // Contract.Ensures( Contract.Result<T[,]>().GetUpperBound( 1 ) == (columns - 1) );
 
             var multiArray = new T[rows, columns];
 

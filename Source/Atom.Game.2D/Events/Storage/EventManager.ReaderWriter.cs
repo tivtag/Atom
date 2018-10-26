@@ -12,7 +12,7 @@ namespace Atom.Events
 {
     using System;
     using System.Collections.Generic;
-    using System.Diagnostics.Contracts;
+    using Atom.Diagnostics.Contracts;
 
     /// <content>
     /// Contains the ReaderWriter that allows serialization and deserialization of <see cref="EventManager"/>s.

@@ -12,7 +12,7 @@ namespace Atom.Xna.Effects.Lightning
 {
     using System;
     using System.Collections.Generic;
-    using System.Diagnostics.Contracts;
+    using Atom.Diagnostics.Contracts;
     using Atom.Xna.Effects.PostProcess;
     using Microsoft.Xna.Framework;
     using Microsoft.Xna.Framework.Graphics;

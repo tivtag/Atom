@@ -12,7 +12,7 @@ namespace Atom.Events
 {
     using System;
     using System.ComponentModel;
-    using System.Diagnostics.Contracts;
+    using Atom.Diagnostics.Contracts;
 
     /// <summary>
     /// Defines the base-class of all <see cref="Event"/>s that

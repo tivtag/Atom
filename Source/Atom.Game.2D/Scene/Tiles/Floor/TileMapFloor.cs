@@ -12,7 +12,7 @@ namespace Atom.Scene.Tiles
 {
     using System;
     using System.Collections.Generic;
-    using System.Diagnostics.Contracts;
+    using Atom.Diagnostics.Contracts;
 
     /// <summary>
     /// Defines a single floor in a <see cref="TileMap"/>.

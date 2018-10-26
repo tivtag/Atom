@@ -11,7 +11,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Atom.Math.Graph.Tests</RootNamespace>
     <AssemblyName>Atom.Math.Graph.Tests</AssemblyName>
-    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <PublishUrl>publish\</PublishUrl>
@@ -131,10 +131,6 @@
     <ProjectReference Include="..\Atom.Test.Framework\Atom.Tests.Framework.csproj">
       <Project>{F9C6D41B-5C7F-4579-AA68-80F3ADF6B0BB}</Project>
       <Name>Atom.Tests.Framework</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Atom\Atom.csproj">
-      <Project>{5EAD885A-5B98-4611-A45E-E4333D40476D}</Project>
-      <Name>Atom</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

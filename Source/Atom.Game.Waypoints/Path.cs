@@ -12,7 +12,7 @@ namespace Atom.Waypoints
 {
     using System;
     using System.Collections.Generic;
-    using System.Diagnostics.Contracts;
+    using Atom.Diagnostics.Contracts;
 
     /// <summary>
     /// Represents a path of connected <see cref="Waypoint"/>s.

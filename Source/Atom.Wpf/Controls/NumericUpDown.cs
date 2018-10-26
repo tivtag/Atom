@@ -11,7 +11,7 @@
 namespace Atom.Wpf.Controls
 {
     using System;
-    using System.Diagnostics.Contracts;
+    using Atom.Diagnostics.Contracts;
     using System.Globalization;
     using System.Windows;
     using System.Windows.Automation.Peers;

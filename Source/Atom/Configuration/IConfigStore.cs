@@ -12,12 +12,12 @@ namespace Atom.Configuration
 {
     using System;
     using System.Collections.Generic;
-    using System.Diagnostics.Contracts;
+    using Atom.Diagnostics.Contracts;
 
     /// <summary>
     /// Manages saving and loading of configuration properties.
     /// </summary>
-    [ContractClass( typeof( IConfigStoreContracts ) )]
+    // [ContractClass( typeof( IConfigStoreContracts ) )]
     public interface IConfigStore
     {
         /// <summary>
@@ -39,22 +39,22 @@ namespace Atom.Configuration
         void Save( IEnumerable<Tuple<string, string, IConfigPropertyAttribute>> properties );
     }
 
-    /// <summary>
-    /// Defines the code contracts for the <see cref="IConfigStore"/> interface.
-    /// </summary>
-    [ContractClassFor(typeof(IConfigStore))]
-    internal abstract class IConfigStoreContracts : IConfigStore
-    {
-        IEnumerable<Tuple<string, string>> IConfigStore.Load()
-        {
-            Contract.Ensures( Contract.Result<IEnumerable<Tuple<string, string>>>() != null );
+    /////// <summary>
+    /////// Defines the code contracts for the <see cref="IConfigStore"/> interface.
+    /////// </summary>
+    ////[ContractClassFor(typeof(IConfigStore))]
+    ////internal abstract class IConfigStoreContracts : IConfigStore
+    ////{
+    ////    IEnumerable<Tuple<string, string>> IConfigStore.Load()
+    ////    {
+    ////        Contract.Ensures( Contract.Result<IEnumerable<Tuple<string, string>>>() != null );
 
-            return default( IEnumerable<Tuple<string, string>> );
-        }
+    ////        return default( IEnumerable<Tuple<string, string>> );
+    ////    }
 
-        void IConfigStore.Save( IEnumerable<Tuple<string, string, IConfigPropertyAttribute>> properties )
-        {
-            Contract.Requires<ArgumentNullException>( properties != null );
-        }
-    }
+    ////    void IConfigStore.Save( IEnumerable<Tuple<string, string, IConfigPropertyAttribute>> properties )
+    ////    {
+    ////        Contract.Requires<ArgumentNullException>( properties != null );
+    ////    }
+    ////}
 }

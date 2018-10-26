@@ -11,7 +11,7 @@
 namespace Atom.Math.Graph
 {
     using System;
-    using System.Diagnostics.Contracts;
+    using Atom.Diagnostics.Contracts;
     using Atom.Math.Graph.Data;
 
     /// <summary>
@@ -27,7 +27,7 @@ namespace Atom.Math.Graph
             where TVertexData : IEquatable<TVertexData>
         {
             Contract.Requires<ArgumentNullException>( graph != null );
-            Contract.Ensures( Contract.Result<Matrix>() != null );
+            // Contract.Ensures( Contract.Result<Matrix>() != null );
 
             Matrix matrix = new Matrix( graph.VertexCount, graph.VertexCount );
 
@@ -60,7 +60,7 @@ namespace Atom.Math.Graph
             where TEdgeData : IReadOnlyWeightData
         {
             Contract.Requires<ArgumentNullException>( graph != null );
-            Contract.Ensures( Contract.Result<Matrix>() != null );
+            // Contract.Ensures( Contract.Result<Matrix>() != null );
 
             Matrix matrix = new Matrix( graph.VertexCount, graph.VertexCount );
 
@@ -104,7 +104,7 @@ namespace Atom.Math.Graph
         {
             Contract.Requires<ArgumentNullException>( graph != null );
             Contract.Requires<InvalidOperationException>( graph.IsSimplistic, GraphErrorStrings.OperationOnlyValidOnSimpleGraphs );
-            Contract.Ensures( Contract.Result<Matrix>() != null );
+            // Contract.Ensures( Contract.Result<Matrix>() != null );
 
             Matrix matrix = new Matrix( graph.VertexCount, graph.VertexCount );
 
@@ -144,7 +144,7 @@ namespace Atom.Math.Graph
             where TVertexData : IEquatable<TVertexData>
         {
             Contract.Requires<ArgumentNullException>( graph != null );
-            Contract.Ensures( Contract.Result<Matrix>() != null );
+            // Contract.Ensures( Contract.Result<Matrix>() != null );
 
             Matrix matrix = new Matrix( graph.VertexCount, graph.EdgeCount );
 
@@ -214,7 +214,7 @@ namespace Atom.Math.Graph
             where TVertexData : IEquatable<TVertexData>
         {
             Contract.Requires<ArgumentNullException>( graph != null );
-            Contract.Ensures( Contract.Result<Matrix>() != null );
+            // Contract.Ensures( Contract.Result<Matrix>() != null );
 
             Matrix matrix = new Matrix( graph.VertexCount, graph.VertexCount );
 

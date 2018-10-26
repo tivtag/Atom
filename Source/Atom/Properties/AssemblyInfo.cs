@@ -1,4 +1,5 @@
 ﻿// <copyright file="AssemblyInfo.cs" company="federrot Software">
+
 //     Copyright (c) federrot Software. All rights reserved.
 // </copyright>
 // <summary>

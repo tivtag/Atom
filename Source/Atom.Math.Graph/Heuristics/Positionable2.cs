@@ -11,7 +11,7 @@
 namespace Atom.Math.Graph.Heuristics
 {
     using System;
-    using System.Diagnostics.Contracts;
+    using Atom.Diagnostics.Contracts;
 
     /// <summary>
     /// Provides heuristics for vertices that contain TVertexData that implement <see cref="IPositionable2"/>.

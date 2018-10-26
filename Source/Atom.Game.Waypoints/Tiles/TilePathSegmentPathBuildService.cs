@@ -11,7 +11,7 @@
 namespace Atom.Waypoints
 {
     using System;
-    using System.Diagnostics.Contracts;
+    using Atom.Diagnostics.Contracts;
     using Atom.AI;
     using Atom.Math;
     using Atom.Scene.Tiles;

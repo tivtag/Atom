@@ -11,7 +11,7 @@
 namespace Atom.Scene.Tiles
 {
     using System;
-    using System.Diagnostics.Contracts;
+    using Atom.Diagnostics.Contracts;
     using Atom.Storage;
 
     /// <content>

@@ -12,7 +12,7 @@ namespace Atom.Configuration
 {
     using System;
     using System.Collections.Generic;
-    using System.Diagnostics.Contracts;
+    using Atom.Diagnostics.Contracts;
     using System.Globalization;
     using System.IO;
     using System.Text;

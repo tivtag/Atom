@@ -9,7 +9,7 @@ namespace Atom.Collections
     using System;
     using System.Collections.Generic;
     using System.Collections.ObjectModel;
-    using System.Diagnostics.Contracts;
+    using Atom.Diagnostics.Contracts;
 
     /// <summary>
     /// Defines extension methods for the IList{T} interface.
@@ -61,8 +61,8 @@ namespace Atom.Collections
         public static IList<T> AsReadOnly<T>( this IList<T> list )
         {
             Contract.Requires<ArgumentNullException>( list != null );
-            Contract.Ensures( Contract.Result<IList<T>>() != null );
-            Contract.Ensures( Contract.Result<IList<T>>().IsReadOnly );
+            // Contract.Ensures( Contract.Result<IList<T>>() != null );
+            // Contract.Ensures( Contract.Result<IList<T>>().IsReadOnly );
 
             return new ReadOnlyCollection<T>( list );
         }

@@ -8,7 +8,7 @@ namespace Atom.Collections
 {
     using System;
     using System.Collections.Generic;
-    using System.Diagnostics.Contracts;
+    using Atom.Diagnostics.Contracts;
 
     /// <summary>
     /// Defines extension methods for arrays.

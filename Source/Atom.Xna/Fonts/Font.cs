@@ -11,7 +11,7 @@
 namespace Atom.Xna.Fonts
 {
     using System;
-    using System.Diagnostics.Contracts;
+    using Atom.Diagnostics.Contracts;
     using Atom.Math;
     using Microsoft.Xna.Framework.Graphics;
     using Xna = Microsoft.Xna.Framework;

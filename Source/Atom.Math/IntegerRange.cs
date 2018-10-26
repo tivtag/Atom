@@ -11,7 +11,7 @@
 namespace Atom.Math
 {
     using System;
-    using System.Diagnostics.Contracts;
+    using Atom.Diagnostics.Contracts;
 
     /// <summary>
     /// Represents a range of intergers that lie within
@@ -30,7 +30,7 @@ namespace Atom.Math
         {
             get
             {
-                Contract.Ensures( Contract.Result<int>() <= this.Maximum );
+                // Contract.Ensures( Contract.Result<int>() <= this.Maximum );
 
                 return this.minimum;
             }
@@ -50,7 +50,7 @@ namespace Atom.Math
         {
             get
             {
-                Contract.Ensures( Contract.Result<int>() >= this.Minimum );
+                // Contract.Ensures( Contract.Result<int>() >= this.Minimum );
 
                 return this.maximum;
             }
@@ -103,8 +103,8 @@ namespace Atom.Math
         public int GetRandomValue( IRand rand )
         {
             Contract.Requires<ArgumentNullException>( rand != null );
-            Contract.Ensures( Contract.Result<int>() >= this.minimum );
-            Contract.Ensures( Contract.Result<int>() <= this.maximum );
+            // Contract.Ensures( Contract.Result<int>() >= this.minimum );
+            // Contract.Ensures( Contract.Result<int>() <= this.maximum );
 
             return rand.UncheckedRandomRange( this.minimum, this.maximum );
         }

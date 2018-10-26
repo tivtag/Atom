@@ -11,7 +11,7 @@
 namespace Atom.Xna.UI.Tooltips
 {
     using System;
-    using System.Diagnostics.Contracts;
+    using Atom.Diagnostics.Contracts;
     using Microsoft.Xna.Framework.Input;
 
     /// <summary>

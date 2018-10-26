@@ -13,7 +13,7 @@ namespace Atom.Collections
     using System;
     using System.Collections.Generic;
     using System.Diagnostics;
-    using System.Diagnostics.Contracts;
+    using Atom.Diagnostics.Contracts;
     using Atom.Math;
 
     /// <summary>
@@ -263,7 +263,7 @@ namespace Atom.Collections
         {
             Contract.Requires<ArgumentException>( weight >= 0.0f );
             Contract.Requires<ArgumentException>( weightModifier >= 0.0f );
-            Contract.Ensures( Contract.Result<HatEntry<T>>() != null );
+            // Contract.Ensures( Contract.Result<HatEntry<T>>() != null );
 
             HatEntry<T> entry = new HatEntry<T>( this, item, id, weight, weightModifier, hasIndividualModifier );
 

@@ -15,7 +15,7 @@ namespace Atom.Design
     /// <summary>
     /// Provides a mechanism that allows the central creation of <see cref="IObjectPropertyWrapper"/>s.
     /// </summary>
-    [System.Diagnostics.Contracts.ContractClass(typeof(IObjectPropertyWrapperFactoryContracts))]
+    // [Atom.Diagnostics.Contracts.ContractClass(typeof(IObjectPropertyWrapperFactoryContracts))]
     public interface IObjectPropertyWrapperFactory
     {
         /// <summary>

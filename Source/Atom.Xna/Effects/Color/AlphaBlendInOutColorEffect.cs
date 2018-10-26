@@ -11,7 +11,7 @@
 namespace Atom.Xna.Effects
 {
     using System;
-    using System.Diagnostics.Contracts;
+    using Atom.Diagnostics.Contracts;
     using Atom.Math;
     using Xna = Microsoft.Xna.Framework;
 

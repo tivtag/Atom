@@ -6,7 +6,7 @@
 
 namespace Atom.Collections.Pooling
 {
-    using System.Diagnostics.Contracts;
+    using Atom.Diagnostics.Contracts;
 
     /// <summary>
     /// Represents an entry in the <see cref="Atom.Collections.Pooling.Pool{T}"/> collection.
@@ -56,7 +56,7 @@ namespace Atom.Collections.Pooling
         {
             get
             {
-                Contract.Ensures( Contract.Result<Pool<T>>() != null );
+                // Contract.Ensures( Contract.Result<Pool<T>>() != null );
                 return this.pool; 
             }
         }
@@ -102,7 +102,7 @@ namespace Atom.Collections.Pooling
         /// Defines the conditions that should hold true on each instance of a class
         /// whenever that object is visible to a client.
         /// </summary>
-        [ContractInvariantMethod]
+        ///  [ContractInvariantMethod]
         private void ObjectInvariant()
         {
             Contract.Invariant( this.Pool != null );

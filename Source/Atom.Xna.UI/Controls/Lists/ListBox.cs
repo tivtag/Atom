@@ -12,7 +12,7 @@ namespace Atom.Xna.UI.Controls
 {
     using System;
     using System.Collections.Generic;
-    using System.Diagnostics.Contracts;
+    using Atom.Diagnostics.Contracts;
     using Atom.Math;
 
     /// <summary>

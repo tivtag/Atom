@@ -15,7 +15,7 @@ namespace Atom.Collections
     /// <typeparam name="T">
     /// The type of item stored in the IHeap{T}.
     /// </typeparam>
-    [System.Diagnostics.Contracts.ContractClass( typeof( IHeapContract<> ) )]
+    // [Atom.Diagnostics.Contracts.ContractClass( typeof( IHeapContract<> ) )]
     public interface IHeap<T> : ICollection<T>
     {
         /// <summary>

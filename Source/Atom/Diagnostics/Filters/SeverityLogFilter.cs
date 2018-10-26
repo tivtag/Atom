@@ -7,7 +7,7 @@
 namespace Atom.Diagnostics.Filters
 {
     using System;
-    using System.Diagnostics.Contracts;
+    using Atom.Diagnostics.Contracts;
 
     /// <summary>
     /// Implements an <see cref="ILogFilter"/> that filters by the

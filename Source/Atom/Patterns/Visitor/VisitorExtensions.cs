@@ -13,7 +13,7 @@ namespace Atom.Patterns.Visitor
     using System;
     using System.Collections;
     using System.Collections.Generic;
-    using System.Diagnostics.Contracts;
+    using Atom.Diagnostics.Contracts;
 
     /// <summary>
     /// Provides static extension methods that make the work with <see cref="IVisitor{T}"/>s easier.

@@ -12,23 +12,39 @@ namespace Atom.Wpf
 {
     using System.Windows.Input;
 
-    /// <summary>
-    /// Represents an <see cref="ICommand"/> that is exposed by a <see cref="IViewModel&lt;TModel&gt;"/>.
-    /// </summary>
-    /// <typeparam name="TViewModel">
-    /// The concrete type of ViewModel the <see cref="ICommand"/> uses.
-    /// </typeparam>
-    /// <typeparam name="TModel">
-    /// The type of the Model stored in the <see cref="IViewModel&lt;TModel&gt;"/>.
-    /// </typeparam>
-    [System.Diagnostics.Contracts.ContractClass(typeof(IViewModelCommandContracts<,>))]
+    //    [System.Diagnostics.CodeAnalysis.SuppressMessage(
+    //        "Microsoft.StyleCop.CSharp.DocumentationRules",
+    //        "SA1600:ElementsMustBeDocumented",
+    //        Justification = "Contracts are not required to be documented. See the original class.")]
+    //    // [Atom.Diagnostics.Contracts.ContractClassFor(typeof(IViewModel<>))]
+    //    internal abstract class IViewModelContracts<TModel> : IViewModel<TModel>
+    //    {
+    //        public TModel Model
+    //        {
+    //            get
+    //            {
+    //                // Contract.Ensures(Contract.Result<TModel>() != null);
+
+    //                return default(TModel);
+    //            }
+    //        }
+
+    //        event System.ComponentModel.PropertyChangedEventHandler System.ComponentModel.INotifyPropertyChanged.PropertyChanged
+    //        {
+    //            add { }
+    //            remove { }
+    //        }
+    //    }
+    //}
+
+    // [Atom.Diagnostics.Contracts.ContractClass(typeof(IViewModelCommandContracts<,>))]
     public interface IViewModelCommand<TViewModel, TModel> : ICommand
         where TViewModel : IViewModel<TModel>
     {
         /// <summary>
         /// Gets the model the <see cref="ViewModel"/> wraps around.
         /// </summary>
-        TModel Model 
+        TModel Model
         {
             get;
         }
@@ -36,9 +52,10 @@ namespace Atom.Wpf
         /// <summary>
         /// Gets the <see cref="IViewModel&lt;TModel&gt;"/> that owns this IViewModelCommand{TViewModel, TModel}.
         /// </summary>
-        TViewModel ViewModel 
+        TViewModel ViewModel
         {
             get;
         }
     }
 }
+

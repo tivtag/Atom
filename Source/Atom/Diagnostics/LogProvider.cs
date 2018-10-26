@@ -11,7 +11,7 @@
 namespace Atom.Diagnostics
 {
     using System;
-    using System.Diagnostics.Contracts;
+    using Atom.Diagnostics.Contracts;
 
     /// <summary>
     /// Implements a mechanism to receive an <see cref="ILog"/> object
@@ -29,7 +29,7 @@ namespace Atom.Diagnostics
         {
             get
             {
-                Contract.Ensures( Contract.Result<ILog>() != null );
+                // Contract.Ensures( Contract.Result<ILog>() != null );
 
                 return this.log;
             }

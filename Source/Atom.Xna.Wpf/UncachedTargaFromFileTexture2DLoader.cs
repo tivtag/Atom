@@ -11,7 +11,7 @@
 namespace Atom.Xna
 {
     using System;
-    using System.Diagnostics.Contracts;
+    using Atom.Diagnostics.Contracts;
     using System.Drawing;
     using System.Drawing.Imaging;
     using System.IO;

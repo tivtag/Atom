@@ -11,7 +11,7 @@
 namespace Atom.Story
 {
     using System;
-    using System.Diagnostics.Contracts;
+    using Atom.Diagnostics.Contracts;
 
     /// <summary>
     /// Implements a mechanism that walks on a Timeline based on the current TickTime.

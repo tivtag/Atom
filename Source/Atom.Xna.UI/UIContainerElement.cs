@@ -12,7 +12,7 @@ namespace Atom.Xna.UI
 {
     using System;
     using System.Collections.Generic;
-    using System.Diagnostics.Contracts;
+    using Atom.Diagnostics.Contracts;
 
     /// <summary>
     /// Represents an <see cref="UIElement"/> that contains other UIElements.

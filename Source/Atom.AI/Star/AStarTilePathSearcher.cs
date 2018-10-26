@@ -11,7 +11,7 @@
 namespace Atom.AI
 {
     using System;
-    using System.Diagnostics.Contracts;
+    using Atom.Diagnostics.Contracts;
     using Atom.Math;
     using Atom.Scene.Tiles;
 

@@ -9,7 +9,7 @@ namespace Atom.Collections
     using System;
     using System.Collections.Generic;
     using System.Diagnostics;
-    using System.Diagnostics.Contracts;
+    using Atom.Diagnostics.Contracts;
     using System.Runtime.Serialization;
 
     /// <summary>
@@ -35,7 +35,7 @@ namespace Atom.Collections
             [Pure]
             get
             {
-                Contract.Ensures( Contract.Result<int>() >= 1 );
+                // Contract.Ensures( Contract.Result<int>() >= 1 );
 
                 return this.columnCount;
             }
@@ -43,7 +43,7 @@ namespace Atom.Collections
             set
             {
                 Contract.Requires<ArgumentException>( value >= 1 );
-                Contract.Ensures( this.ColumnCount == value );
+                // Contract.Ensures( this.ColumnCount == value );
 
                 this.Resize( this.rowCount, value );
             }
@@ -60,7 +60,7 @@ namespace Atom.Collections
             [Pure]
             get
             {
-                Contract.Ensures( Contract.Result<int>() >= 1 );
+                // Contract.Ensures( Contract.Result<int>() >= 1 );
 
                 return this.rowCount;
             }
@@ -68,7 +68,7 @@ namespace Atom.Collections
             set
             {
                 Contract.Requires<ArgumentException>( value >= 1 );
-                Contract.Ensures( this.RowCount == value );
+                // Contract.Ensures( this.RowCount == value );
 
                 this.Resize( value, this.columnCount );
             }
@@ -95,7 +95,7 @@ namespace Atom.Collections
 
             set
             {
-                Contract.Ensures( Object.Equals( this[row, column], value ) );
+                // Contract.Ensures( Object.Equals( this[row, column], value ) );
 
                 this.data[GetIndex(row, column)] = value;
             }
@@ -178,8 +178,8 @@ namespace Atom.Collections
         public ObjectMatrix( ObjectMatrix<T> matrix )
         {
             Contract.Requires<ArgumentNullException>( matrix != null );
-            Contract.Ensures( this.RowCount ==  matrix.RowCount );
-            Contract.Ensures( this.ColumnCount ==  matrix.ColumnCount );
+            // Contract.Ensures( this.RowCount ==  matrix.RowCount );
+            // Contract.Ensures( this.ColumnCount ==  matrix.ColumnCount );
 
             this.rowCount = matrix.rowCount;
             this.columnCount = matrix.columnCount;
@@ -222,9 +222,9 @@ namespace Atom.Collections
             Contract.Requires<ArgumentException>( rowCount > 0 );
             Contract.Requires<ArgumentException>( columnCount > 0 );
 
-            Contract.Ensures( this.rowCount == rowCount );
-            Contract.Ensures( this.columnCount == columnCount );
-            Contract.Ensures( this.data.Length == (rowCount * columnCount ) );
+            // Contract.Ensures( this.rowCount == rowCount );
+            // Contract.Ensures( this.columnCount == columnCount );
+            // Contract.Ensures( this.data.Length == (rowCount * columnCount ) );
 
             this.rowCount    = rowCount;
             this.columnCount = columnCount;
@@ -317,8 +317,8 @@ namespace Atom.Collections
             Contract.Requires<ArgumentOutOfRangeException>( row < this.RowCount );
             Contract.Requires<ArgumentOutOfRangeException>( column >= 0 );
             Contract.Requires<ArgumentOutOfRangeException>( column < this.ColumnCount );
-            Contract.Ensures( Contract.Result<int>() >= 0 );
-            Contract.Ensures( Contract.Result<int>() < this.data.Length );
+            // Contract.Ensures( Contract.Result<int>() >= 0 );
+            // Contract.Ensures( Contract.Result<int>() < this.data.Length );
 
             return (row * this.columnCount) + column;
         }
@@ -364,9 +364,9 @@ namespace Atom.Collections
             Contract.Requires<ArgumentException>( (rowStart + rowCount) <= this.RowCount );
             Contract.Requires<ArgumentException>( (columnStart + columnCount) <= this.ColumnCount );
 
-            Contract.Ensures( Contract.Result<ObjectMatrix<T>>() != null );
-            Contract.Ensures( Contract.Result<ObjectMatrix<T>>().RowCount == rowCount );
-            Contract.Ensures( Contract.Result<ObjectMatrix<T>>().ColumnCount == columnCount );
+            // Contract.Ensures( Contract.Result<ObjectMatrix<T>>() != null );
+            // Contract.Ensures( Contract.Result<ObjectMatrix<T>>().RowCount == rowCount );
+            // Contract.Ensures( Contract.Result<ObjectMatrix<T>>().ColumnCount == columnCount );
 
             var subMatrix = new ObjectMatrix<T>( rowCount, columnCount );
 
@@ -398,8 +398,8 @@ namespace Atom.Collections
         {
             Contract.Requires<ArgumentException>( row >= 0 );
             Contract.Requires<ArgumentException>( row < this.RowCount );
-            Contract.Ensures( Contract.Result<T[]>() != null );
-            Contract.Ensures( Contract.Result<T[]>().Length == this.ColumnCount );
+            // Contract.Ensures( Contract.Result<T[]>() != null );
+            // Contract.Ensures( Contract.Result<T[]>().Length == this.ColumnCount );
 
             T[] array = new T[this.columnCount];
 
@@ -425,8 +425,8 @@ namespace Atom.Collections
         {
             Contract.Requires<ArgumentException>( column >= 0 );
             Contract.Requires<ArgumentException>( column < this.ColumnCount );
-            Contract.Ensures( Contract.Result<T[]>() != null );
-            Contract.Ensures( Contract.Result<T[]>().Length == this.RowCount );
+            // Contract.Ensures( Contract.Result<T[]>() != null );
+            // Contract.Ensures( Contract.Result<T[]>().Length == this.RowCount );
 
             T[] array = new T[this.rowCount];
 
@@ -573,8 +573,8 @@ namespace Atom.Collections
         /// </summary>
         public void AddRow()
         {
-            Contract.Ensures( this.ColumnCount == Contract.OldValue<int>( this.ColumnCount ) );
-            Contract.Ensures( this.RowCount == (Contract.OldValue<int>( this.RowCount ) + 1) );
+            // Contract.Ensures( this.ColumnCount == Contract.OldValue<int>( this.ColumnCount ) );
+            // Contract.Ensures( this.RowCount == (Contract.OldValue<int>( this.RowCount ) + 1) );
 
             this.AddRows( 1 );
         }
@@ -609,8 +609,8 @@ namespace Atom.Collections
         public void AddRows( int count )
         {
             Contract.Requires<ArgumentException>( count >= 0 );
-            Contract.Ensures( this.ColumnCount == Contract.OldValue<int>( this.ColumnCount ) );
-            Contract.Ensures( this.RowCount == (Contract.OldValue<int>( this.RowCount ) + count) );
+            // Contract.Ensures( this.ColumnCount == Contract.OldValue<int>( this.ColumnCount ) );
+            // Contract.Ensures( this.RowCount == (Contract.OldValue<int>( this.RowCount ) + count) );
 
             int newRowCount = this.rowCount + count;
             T[] newData = new T[newRowCount * this.columnCount];            
@@ -625,8 +625,8 @@ namespace Atom.Collections
         /// </summary>    
         public void AddColumn()
         {
-            Contract.Ensures( this.ColumnCount == (Contract.OldValue<int>( this.ColumnCount ) + 1) );
-            Contract.Ensures( this.RowCount == Contract.OldValue<int>( this.RowCount ) );
+            // Contract.Ensures( this.ColumnCount == (Contract.OldValue<int>( this.ColumnCount ) + 1) );
+            // Contract.Ensures( this.RowCount == Contract.OldValue<int>( this.RowCount ) );
 
             this.AddColumns( 1 );
         }
@@ -661,8 +661,8 @@ namespace Atom.Collections
         public void AddColumns( int count )
         {
             Contract.Requires<ArgumentException>( count >= 0 );
-            Contract.Ensures( this.ColumnCount == (Contract.OldValue<int>( this.ColumnCount ) + count) );
-            Contract.Ensures( this.RowCount == Contract.OldValue<int>( this.RowCount ) );
+            // Contract.Ensures( this.ColumnCount == (Contract.OldValue<int>( this.ColumnCount ) + count) );
+            // Contract.Ensures( this.RowCount == Contract.OldValue<int>( this.RowCount ) );
 
             int newColumnCount = this.columnCount + count;
             T[] newData = new T[this.rowCount * newColumnCount];
@@ -700,10 +700,10 @@ namespace Atom.Collections
         {
             Contract.Requires<ArgumentException>( newRowCount > 0 );
             Contract.Requires<ArgumentException>( newColumnCount > 0 );
-            Contract.Ensures( this.RowCount == newRowCount );
-            Contract.Ensures( this.ColumnCount == newColumnCount );
+            // Contract.Ensures( this.RowCount == newRowCount );
+            // Contract.Ensures( this.ColumnCount == newColumnCount );
 
-            if( newRowCount == this.rowCount && newColumnCount == this.columnCount )
+            if ( newRowCount == this.rowCount && newColumnCount == this.columnCount )
                 return;
             
             T[] newData = new T[newRowCount * newColumnCount];
@@ -749,8 +749,8 @@ namespace Atom.Collections
             Contract.Requires<ArgumentException>( row < this.RowCount );
             Contract.Requires<InvalidOperationException>( this.RowCount > 1, ErrorStrings.MatrixDeleteOnlyRow );
 
-            Contract.Ensures( this.RowCount == (Contract.OldValue( this.RowCount ) - 1) );
-       
+            // Contract.Ensures( this.RowCount == (Contract.OldValue( this.RowCount ) - 1) );
+
             int newRowCount = this.rowCount - 1;
             T[] newData = new T[newRowCount * this.columnCount];
 
@@ -788,8 +788,8 @@ namespace Atom.Collections
             Contract.Requires<ArgumentException>( column < this.ColumnCount );
             Contract.Requires<InvalidOperationException>( this.ColumnCount > 1, ErrorStrings.MatrixDeleteOnlyRow );
 
-            Contract.Ensures( this.ColumnCount == (Contract.OldValue( this.ColumnCount ) - 1) );
-            
+            // Contract.Ensures( this.ColumnCount == (Contract.OldValue( this.ColumnCount ) - 1) );
+
             T[] newData = new T[rowCount * (columnCount - 1)];
 
             // Use an exclusion strategy:
@@ -867,12 +867,12 @@ namespace Atom.Collections
         public bool Find( T element, out int row, out int column, IEqualityComparer<T> comparer )
         {
             Contract.Requires<ArgumentNullException>( comparer != null );
-            Contract.Ensures( Contract.Result<bool>() || (Contract.ValueAtReturn<int>( out row ) == -1) );
-            Contract.Ensures( Contract.Result<bool>() || (Contract.ValueAtReturn<int>( out column ) == -1) );
-            Contract.Ensures( !Contract.Result<bool>() || (Contract.ValueAtReturn<int>( out row ) >= 0 && Contract.ValueAtReturn<int>( out row ) < this.RowCount ) );
-            Contract.Ensures( !Contract.Result<bool>() || (Contract.ValueAtReturn<int>( out column ) >= 0 && Contract.ValueAtReturn<int>( out column ) < this.ColumnCount ) );
+            // Contract.Ensures( Contract.Result<bool>() || (Contract.ValueAtReturn<int>( out row ) == -1) );
+            // Contract.Ensures( Contract.Result<bool>() || (Contract.ValueAtReturn<int>( out column ) == -1) );
+            // Contract.Ensures( !Contract.Result<bool>() || (Contract.ValueAtReturn<int>( out row ) >= 0 && Contract.ValueAtReturn<int>( out row ) < this.RowCount ) );
+            // Contract.Ensures( !Contract.Result<bool>() || (Contract.ValueAtReturn<int>( out column ) >= 0 && Contract.ValueAtReturn<int>( out column ) < this.ColumnCount ) );
 
-            for( int x = 0; x < this.rowCount; ++x )
+            for ( int x = 0; x < this.rowCount; ++x )
             {
                 for( int y = 0; y < this.columnCount; ++y )
                 {
@@ -1062,9 +1062,9 @@ namespace Atom.Collections
         [Pure]
         public ObjectMatrix<T> Clone()
         {
-            Contract.Ensures( Contract.Result<ObjectMatrix<T>>() != null );
-            Contract.Ensures( Contract.Result<ObjectMatrix<T>>().RowCount == this.RowCount );
-            Contract.Ensures( Contract.Result<ObjectMatrix<T>>().ColumnCount == this.ColumnCount );
+            // Contract.Ensures( Contract.Result<ObjectMatrix<T>>() != null );
+            // Contract.Ensures( Contract.Result<ObjectMatrix<T>>().RowCount == this.RowCount );
+            // Contract.Ensures( Contract.Result<ObjectMatrix<T>>().ColumnCount == this.ColumnCount );
 
             return new ObjectMatrix<T>( this );
         }

@@ -12,7 +12,7 @@ namespace Atom
 {
     using System;
     using System.Collections.Generic;
-    using System.Diagnostics.Contracts;
+    using Atom.Diagnostics.Contracts;
     using System.Globalization;
     using System.Linq;
     using System.Reflection;
@@ -140,8 +140,8 @@ namespace Atom
         /// </returns>
         private static ConstructorInfo[] GetConstructors( Type type )
         {
-            Contract.Ensures( Contract.Result<ConstructorInfo[]>() != null );
-            Contract.Ensures( Contract.Result<ConstructorInfo[]>().Length >= 1 );
+            // Contract.Ensures( Contract.Result<ConstructorInfo[]>() != null );
+            // Contract.Ensures( Contract.Result<ConstructorInfo[]>().Length >= 1 );
 
             ConstructorInfo[] constructors = type.GetConstructors();
 
@@ -184,8 +184,8 @@ namespace Atom
             object[] parameters, 
             ConstructorInfo[] constructors )
         {
-            Contract.Ensures( Contract.Result<List<ConstructorInfo>>() != null );
-            Contract.Ensures( Contract.Result<List<ConstructorInfo>>().Count >= 1 );
+            // Contract.Ensures( Contract.Result<List<ConstructorInfo>>() != null );
+            // Contract.Ensures( Contract.Result<List<ConstructorInfo>>().Count >= 1 );
 
             int parameterCount = parameters != null ? parameters.Length : 0;
             var countMatches = new System.Collections.Generic.List<ConstructorInfo>();

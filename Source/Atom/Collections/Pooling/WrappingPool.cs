@@ -6,7 +6,7 @@
 
 namespace Atom.Collections.Pooling
 {
-    using System.Diagnostics.Contracts;
+    using Atom.Diagnostics.Contracts;
 
     /// <summary>
     /// Represents a Pool that stores <see cref="IPooledObjectWrapper{T}"/>s instead

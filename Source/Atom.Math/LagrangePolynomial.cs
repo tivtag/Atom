@@ -12,7 +12,7 @@ namespace Atom.Math
 {
     using System;
     using System.Collections.Generic;
-    using System.Diagnostics.Contracts;
+    using Atom.Diagnostics.Contracts;
     using System.Linq;
 
     /// <summary>
@@ -51,7 +51,7 @@ namespace Atom.Math
         /// <summary>
         /// Descripes the invariant properties of the LagrangePolynomial.
         /// </summary>
-        [ContractInvariantMethod]
+        // [ContractInvariantMethod]
         private void ObjectInvariant()
         {
             Contract.Invariant( this.points != null );

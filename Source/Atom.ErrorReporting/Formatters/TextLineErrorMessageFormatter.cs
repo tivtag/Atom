@@ -11,7 +11,7 @@
 namespace Atom.ErrorReporting.Formatters
 {
     using System;
-    using System.Diagnostics.Contracts;
+    using Atom.Diagnostics.Contracts;
 
     /// <summary>
     /// Represents an <see cref="IErrorMessageFormatter"/> that always returns the same string.
@@ -25,7 +25,7 @@ namespace Atom.ErrorReporting.Formatters
         {
             get
             {
-                Contract.Ensures( Contract.Result<string>() != null );
+                // Contract.Ensures( Contract.Result<string>() != null );
 
                 return this.text;
             }

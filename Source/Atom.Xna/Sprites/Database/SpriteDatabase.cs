@@ -12,7 +12,7 @@ namespace Atom.Xna
 {
     using System;
     using System.Collections.Generic;
-    using System.Diagnostics.Contracts;
+    using Atom.Diagnostics.Contracts;
 
     /// <summary>
     /// Represents a set of <see cref="Sprite"/>s and AnimatedSprites that are

@@ -14,7 +14,7 @@ namespace Atom.Math
     using System.Collections.Generic;
     using System.Linq;
     using System.Runtime.Serialization;
-    using System.Diagnostics.Contracts;
+    using Atom.Diagnostics.Contracts;
 
     /// <summary>
     /// Defines a N-dimensional Vector whose elements are <see cref="Complex"/> numbers.
@@ -35,7 +35,7 @@ namespace Atom.Math
         {
             get 
             {
-                Contract.Ensures( Contract.Result<int>() > 0 );
+                // Contract.Ensures( Contract.Result<int>() > 0 );
 
                 return this.elements.Length;
             }

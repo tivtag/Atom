@@ -12,7 +12,7 @@ namespace Atom.Math
 {
     using System;
     using System.Collections.Generic;
-    using System.Diagnostics.Contracts;
+    using Atom.Diagnostics.Contracts;
 
     /// <summary>
     /// A class used to interpolate orientations (rotations) along a spline

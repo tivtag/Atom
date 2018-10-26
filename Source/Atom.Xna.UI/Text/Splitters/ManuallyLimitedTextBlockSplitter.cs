@@ -12,7 +12,7 @@ namespace Atom.Xna.UI
 {
     using System;
     using System.Collections.Generic;
-    using System.Diagnostics.Contracts;
+    using Atom.Diagnostics.Contracts;
     using System.Text;
     using Atom.Xna.Fonts;
 

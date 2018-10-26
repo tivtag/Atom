@@ -11,7 +11,7 @@
 namespace Atom.Xna
 {
     using System;
-    using System.Diagnostics.Contracts;
+    using Atom.Diagnostics.Contracts;
     using Atom.Xna.Batches;
     using Microsoft.Xna.Framework;
     using Microsoft.Xna.Framework.Graphics;

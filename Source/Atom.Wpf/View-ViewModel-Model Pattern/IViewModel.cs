@@ -22,7 +22,7 @@ namespace Atom.Wpf
     /// <typeparam name="TModel">
     /// The type of model.
     /// </typeparam>
-    [System.Diagnostics.Contracts.ContractClass(typeof(IViewModelContracts<>))]
+    // [Atom.Diagnostics.Contracts.ContractClass(typeof(IViewModelContracts<>))]
     public interface IViewModel<TModel> : INotifyPropertyChanged
     {
         /// <summary>

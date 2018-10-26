@@ -11,7 +11,7 @@
 namespace Atom.Storage
 {
     using System;
-    using System.Diagnostics.Contracts;
+    using Atom.Diagnostics.Contracts;
     using System.IO;
 
     /// <summary>
@@ -40,9 +40,9 @@ namespace Atom.Storage
         {
             Contract.Requires<ArgumentNullException>( filePath != null );
             Contract.Requires<ArgumentNullException>( reader != null );
-            Contract.Ensures( Contract.Result<T>() != null );
+            // Contract.Ensures( Contract.Result<T>() != null );
 
-            using( var stream = File.OpenRead( filePath ) )
+            using ( var stream = File.OpenRead( filePath ) )
             {
                 var context = new BinaryDeserializationContext( stream );
 

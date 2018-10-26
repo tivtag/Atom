@@ -15,12 +15,12 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration( "" )]
 [assembly: AssemblyCompany( "federrot Software" )]
 [assembly: AssemblyProduct( "Artificial Temporal Orbital Membran" )]
-[assembly: AssemblyCopyright( "Copyright © federrot Software 2016" )]
+[assembly: AssemblyCopyright( "Copyright © federrot Software 2018" )]
 [assembly: AssemblyTrademark( "" )]
 [assembly: AssemblyCulture( "" )]
 
 [assembly: ComVisible( false )]
-[assembly: NeutralResourcesLanguageAttribute( "en" )]
+[assembly: NeutralResourcesLanguage( "en" )]
 
-[assembly: AssemblyVersion( "2.1.*" )]
-[assembly: AssemblyFileVersion( "2.1.0.0" )]
+[assembly: AssemblyVersion( "3.0.0.0" )]
+[assembly: AssemblyFileVersion( "3.0.0.0" )]

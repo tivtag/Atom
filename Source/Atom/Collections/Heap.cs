@@ -12,7 +12,7 @@ namespace Atom.Collections
 {
     using System;
     using System.Collections.Generic;
-    using System.Diagnostics.Contracts;
+    using Atom.Diagnostics.Contracts;
     using Atom.Collections.Comparers;
 
     /// <summary>

@@ -4,3 +4,4 @@ obj
 StyleCop.Cache
 .noReferenceAssembly
 *.suo
+.vs

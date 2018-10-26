@@ -9,7 +9,7 @@ namespace Atom.Collections
     using System;
     using System.Collections;
     using System.Collections.Generic;
-    using System.Diagnostics.Contracts;
+    using Atom.Diagnostics.Contracts;
     using System.Linq;
 
     /// <summary>
@@ -45,8 +45,8 @@ namespace Atom.Collections
         {
             Contract.Requires<ArgumentNullException>( first != null );
             Contract.Requires<ArgumentNullException>( second != null );
-            Contract.Ensures( Contract.Result<IEnumerable<TDestination>>() != null );
-            Contract.Ensures( Contract.Result<IEnumerable<TDestination>>().Count() == (first.Count() + second.Count()) );
+            // Contract.Ensures( Contract.Result<IEnumerable<TDestination>>() != null );
+            // Contract.Ensures( Contract.Result<IEnumerable<TDestination>>().Count() == (first.Count() + second.Count()) );
 
             var result = new List<TDestination>();
 
@@ -101,8 +101,8 @@ namespace Atom.Collections
             Contract.Requires<ArgumentNullException>( second != null );
             Contract.Requires<ArgumentNullException>( firstConverter != null );
             Contract.Requires<ArgumentNullException>( secondConverter != null );
-            Contract.Ensures( Contract.Result<IEnumerable<TDestination>>() != null );
-            Contract.Ensures( Contract.Result<IEnumerable<TDestination>>().Count() == (first.Count() + second.Count()) );
+            // Contract.Ensures( Contract.Result<IEnumerable<TDestination>>() != null );
+            // Contract.Ensures( Contract.Result<IEnumerable<TDestination>>().Count() == (first.Count() + second.Count()) );
 
             var result = new List<TDestination>();
 
@@ -143,8 +143,8 @@ namespace Atom.Collections
         {
             Contract.Requires<ArgumentNullException>( sequence != null );
             Contract.Requires<ArgumentNullException>( converter != null );
-            Contract.Ensures( Contract.Result<IEnumerable<TResult>>() != null );
-            Contract.Ensures( Contract.Result<IEnumerable<TResult>>().Count() == sequence.Count() );
+            // Contract.Ensures( Contract.Result<IEnumerable<TResult>>() != null );
+            // Contract.Ensures( Contract.Result<IEnumerable<TResult>>().Count() == sequence.Count() );
 
             List<TResult> result = CreateFittingList<TSource, TResult>( sequence );
 
@@ -413,7 +413,7 @@ namespace Atom.Collections
         {
             Contract.Requires<ArgumentNullException>( sequence != null );
             Contract.Requires<ArgumentNullException>( predicate != null );
-            Contract.Ensures( Contract.Result<int>() == -1 || (Contract.Result<int>() >= 0 && Contract.Result<int>() < sequence.Count()) );
+            // Contract.Ensures( Contract.Result<int>() == -1 || (Contract.Result<int>() >= 0 && Contract.Result<int>() < sequence.Count()) );
 
             int index = 0;
 

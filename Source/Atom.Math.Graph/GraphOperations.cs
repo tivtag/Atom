@@ -13,7 +13,7 @@ namespace Atom.Math.Graph
     using System;
     using System.Collections.Generic;
     using System.Linq;
-    using SysContract = System.Diagnostics.Contracts.Contract;
+    using SysContract = Atom.Diagnostics.Contracts.Contract;
 
     /// <summary>
     /// Defines operations that act on <see cref="Graph{TVertexData, TEdgeData}"/>s.
@@ -210,7 +210,7 @@ namespace Atom.Math.Graph
             SysContract.Requires<ArgumentNullException>( left != null );
             SysContract.Requires<ArgumentNullException>( right != null );
             SysContract.Requires<ArgumentNullException>( vertexFunction != null );
-            SysContract.Ensures( SysContract.Result<Graph<TVertexData, TEdgeData>>() != null );
+            // SysContract.Ensures( SysContract.Result<Graph<TVertexData, TEdgeData>>() != null );
 
             // Vertex set: Vg x Vg'
             var vertexSet = new List<Tuple<Vertex<TVertexData, TEdgeData>, Vertex<TVertexData, TEdgeData>>>( left.VertexCount * right.VertexCount );
@@ -309,7 +309,7 @@ namespace Atom.Math.Graph
             SysContract.Requires<ArgumentNullException>( first != null );
             SysContract.Requires<ArgumentNullException>( second != null );
             SysContract.Requires( first.IsDirected == second.IsDirected, GraphErrorStrings.GraphDirectionMismatch );
-            SysContract.Ensures( SysContract.Result<Graph<TVertexData, TEdgeData>>() != null );
+            // SysContract.Ensures( SysContract.Result<Graph<TVertexData, TEdgeData>>() != null );
 
             var graph = new Graph<TVertexData, TEdgeData>( first.IsDirected );
             var verticesA = new List<Vertex<TVertexData, TEdgeData>>( first.VertexCount );

@@ -12,7 +12,7 @@ namespace Atom.Collections
 {
     using System;
     using System.Collections.Generic;
-    using System.Diagnostics.Contracts;
+    using Atom.Diagnostics.Contracts;
 
     /// <summary>
     /// Defines the contracts for the IHeap{T} interface.
@@ -20,7 +20,7 @@ namespace Atom.Collections
     /// <typeparam name="T">
     /// The type of item stored in the IHeap{T}.
     /// </typeparam>
-    [ContractClassFor( typeof( IHeap<> ) )]
+    // [ContractClassFor( typeof( IHeap<> ) )]
     [System.Diagnostics.CodeAnalysis.SuppressMessage( "Microsoft.StyleCop.CSharp.DocumentationRules", "SA1600:ElementsMustBeDocumented",
         Justification = "Contract classes for interfaces aren't required to be documented." )] 
     internal abstract class IHeapContract<T> : IHeap<T>
@@ -60,7 +60,7 @@ namespace Atom.Collections
         {
             get
             {
-                Contract.Ensures( Contract.Result<IComparer<T>>() != null );
+                //  Contract.Ensures( Contract.Result<IComparer<T>>() != null );
 
                 return default( IComparer<T> );
             }
@@ -76,13 +76,13 @@ namespace Atom.Collections
         {
             var @this = (IHeap<T>)this;
             Contract.Requires<InvalidOperationException>( @this.Count > 0 );
-            Contract.Ensures( @this.Count == (Contract.OldValue( @this.Count ) - 1) );
-            Contract.Ensures( object.Equals( Contract.Result<T>(), Contract.OldValue<T>( @this.Root ) ) );
-            Contract.Ensures(
-                Contract.ForAll( @this, ( element ) => {
-                    return @this.Comparer.Compare( @this.Root, element ) <= 0;                
-                })
-            );
+            // Contract.Ensures( @this.Count == (Contract.OldValue( @this.Count ) - 1) );
+            // Contract.Ensures( object.Equals( Contract.Result<T>(), Contract.OldValue<T>( @this.Root ) ) );
+            // Contract.Ensures(
+            //     Contract.ForAll( @this, ( element ) => {
+            //         return @this.Comparer.Compare( @this.Root, element ) <= 0;                
+            //     })
+            // );
 
             return default( T );
         }

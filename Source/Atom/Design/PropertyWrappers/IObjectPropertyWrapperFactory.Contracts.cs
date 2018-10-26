@@ -11,9 +11,9 @@
 namespace Atom.Design
 {
     using System;
-    using System.Diagnostics.Contracts;
+    using Atom.Diagnostics.Contracts;
 
-    [ContractClassFor( typeof( IObjectPropertyWrapperFactory ) )]
+    // [ContractClassFor( typeof( IObjectPropertyWrapperFactory ) )]
     [System.Diagnostics.CodeAnalysis.SuppressMessage( "Microsoft.StyleCop.CSharp.DocumentationRules", "SA1600:ElementsMustBeDocumented",
         Justification = "Contract classes for interfaces aren't required to be documented." )] 
     internal abstract class IObjectPropertyWrapperFactoryContracts : IObjectPropertyWrapperFactory
@@ -21,10 +21,10 @@ namespace Atom.Design
         IObjectPropertyWrapper IObjectPropertyWrapperFactory.ReceiveWrapper( object obj )
         {
             Contract.Requires<ArgumentNullException>( obj != null );
-            Contract.Ensures(
-                !(Contract.Result<IObjectPropertyWrapper>() != null) ||
-                (Contract.Result<IObjectPropertyWrapper>().WrappedObject == obj)
-            );
+            // Contract.Ensures(
+            //     !(Contract.Result<IObjectPropertyWrapper>() != null) ||
+            //     (Contract.Result<IObjectPropertyWrapper>().WrappedObject == obj)
+            // );
 
             return default( IObjectPropertyWrapper );
         }
@@ -32,14 +32,14 @@ namespace Atom.Design
         object IObjectPropertyWrapperFactory.ReceiveWrapperOrObject( object obj )
         {
             Contract.Requires<ArgumentNullException>( obj != null );
-            Contract.Ensures( Contract.Result<object>() != null ); 
-           
+            // Contract.Ensures( Contract.Result<object>() != null ); 
+
             return default( object );
         }
 
         Type[] IObjectPropertyWrapperFactory.GetObjectTypes()
         {
-            Contract.Ensures( Contract.Result<Type[]>() != null );
+            // Contract.Ensures( Contract.Result<Type[]>() != null );
 
             return default( Type[] );
         }

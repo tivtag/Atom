@@ -11,7 +11,7 @@
 namespace Atom.Collections
 {
     using System;
-    using System.Diagnostics.Contracts;
+    using Atom.Diagnostics.Contracts;
 
     /// <summary>
     /// Represents a single entry in a <see cref="Hat{T}"/>.

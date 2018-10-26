@@ -12,7 +12,7 @@ namespace Atom
 {
     using System;
     using System.ComponentModel;
-    using System.Diagnostics.Contracts;
+    using Atom.Diagnostics.Contracts;
     using System.Globalization;
 
     /// <summary>
@@ -32,8 +32,8 @@ namespace Atom
         public static string Reverse( string str )
         {
             Contract.Requires<ArgumentNullException>( str != null );
-            Contract.Ensures( Contract.Result<string>() != null );
-            
+            // Contract.Ensures( Contract.Result<string>() != null );
+
             char[] reversed = new char[str.Length];
 
             for( int i = 0, j = reversed.Length - 1; i <= j; ++i, --j )
@@ -59,7 +59,7 @@ namespace Atom
         public static string ExtractTrailingInteger( string str )
         {
             Contract.Requires<ArgumentNullException>( str != null );
-            Contract.Ensures( Contract.Result<string>() != null );
+            // Contract.Ensures( Contract.Result<string>() != null );
 
             string result = string.Empty;
 
@@ -96,7 +96,7 @@ namespace Atom
         {
             Contract.Requires<ArgumentNullException>( str != null );
             Contract.Requires<ArgumentNullException>( transform != null );
-            Contract.Ensures( Contract.Result<string>() != null );
+            // Contract.Ensures( Contract.Result<string>() != null );
 
             string trailing = ExtractTrailingInteger( str );
 
@@ -123,7 +123,7 @@ namespace Atom
         public static string IncrementTrailingInteger( string str )
         {
             Contract.Requires<ArgumentNullException>( str != null );
-            Contract.Ensures( Contract.Result<string>() != null );
+            // Contract.Ensures( Contract.Result<string>() != null );
 
             return TransformTrailingInteger( str, integer => (++integer).ToString( CultureInfo.InvariantCulture ) );
         }
@@ -140,7 +140,7 @@ namespace Atom
         public static string DecrementTrailingInteger( string str )
         {
             Contract.Requires<ArgumentNullException>( str != null );
-            Contract.Ensures( Contract.Result<string>() != null );
+            // Contract.Ensures( Contract.Result<string>() != null );
 
             return TransformTrailingInteger( str, integer => (--integer).ToString( CultureInfo.InvariantCulture ) );
         }
@@ -186,7 +186,7 @@ namespace Atom
         public static string ConvertFromValues<T>( ITypeDescriptorContext context, CultureInfo culture, T[] values )
         {
             Contract.Requires<ArgumentNullException>( values != null );
-            Contract.Ensures( Contract.Result<string>() != null );
+            // Contract.Ensures( Contract.Result<string>() != null );
 
             if( culture == null )
                 culture = CultureInfo.CurrentCulture;
@@ -221,7 +221,7 @@ namespace Atom
         {
             Contract.Requires<ArgumentNullException>( values != null );
             Contract.Requires<ArgumentNullException>( separator != null );
-            Contract.Ensures( Contract.Result<string>() != null );
+            // Contract.Ensures( Contract.Result<string>() != null );
 
             var converter = TypeDescriptor.GetConverter( typeof( T ) );
             var array = new string[values.Length];

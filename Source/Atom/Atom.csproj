@@ -1,41 +1,19 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>9.0.30729</ProductVersion>
-    <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{5EAD885A-5B98-4611-A45E-E4333D40476D}</ProjectGuid>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProjectGuid>{FD767621-6A9E-41D9-8AE1-68F39421344A}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Atom</RootNamespace>
     <AssemblyName>Atom</AssemblyName>
-    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <FileUpgradeFlags>
-    </FileUpgradeFlags>
-    <OldToolsVersion>3.5</OldToolsVersion>
-    <UpgradeBackupLocation />
-    <IsWebBootstrapper>false</IsWebBootstrapper>
-    <TargetFrameworkProfile>
-    </TargetFrameworkProfile>
-    <PublishUrl>publish\</PublishUrl>
-    <Install>true</Install>
-    <InstallFrom>Disk</InstallFrom>
-    <UpdateEnabled>false</UpdateEnabled>
-    <UpdateMode>Foreground</UpdateMode>
-    <UpdateInterval>7</UpdateInterval>
-    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
-    <UpdatePeriodically>false</UpdatePeriodically>
-    <UpdateRequired>false</UpdateRequired>
-    <MapFileExtensions>true</MapFileExtensions>
-    <ApplicationRevision>0</ApplicationRevision>
-    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
-    <UseApplicationTrust>false</UseApplicationTrust>
-    <BootstrapperEnabled>true</BootstrapperEnabled>
-    <CodeContractsAssemblyMode>1</CodeContractsAssemblyMode>
+    <Deterministic>true</Deterministic>
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -43,130 +21,40 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
-    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
-    <OutputPath>bin\Release\</OutputPath>
+    <OutputPath>..\..\Binaries\Release\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
-    <Prefer32Bit>false</Prefer32Bit>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
-    <DebugSymbols>true</DebugSymbols>
-    <OutputPath>..\Binaries\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
-    <DebugType>full</DebugType>
     <PlatformTarget>x86</PlatformTarget>
-    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
-    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
-    <ErrorReport>prompt</ErrorReport>
-    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
-    <CodeContractsEnableRuntimeChecking>True</CodeContractsEnableRuntimeChecking>
-    <CodeContractsCustomRewriterAssembly>
-    </CodeContractsCustomRewriterAssembly>
-    <CodeContractsCustomRewriterClass>
-    </CodeContractsCustomRewriterClass>
-    <CodeContractsRuntimeCheckingLevel>Full</CodeContractsRuntimeCheckingLevel>
-    <CodeContractsRuntimeOnlyPublicSurface>False</CodeContractsRuntimeOnlyPublicSurface>
-    <CodeContractsRuntimeThrowOnFailure>True</CodeContractsRuntimeThrowOnFailure>
-    <CodeContractsRuntimeCallSiteRequires>False</CodeContractsRuntimeCallSiteRequires>
-    <CodeContractsRunCodeAnalysis>False</CodeContractsRunCodeAnalysis>
-    <CodeContractsBuildReferenceAssembly>True</CodeContractsBuildReferenceAssembly>
-    <CodeContractsNonNullObligations>False</CodeContractsNonNullObligations>
-    <CodeContractsBoundsObligations>False</CodeContractsBoundsObligations>
-    <CodeContractsArithmeticObligations>False</CodeContractsArithmeticObligations>
-    <CodeContractsLibPaths>
-    </CodeContractsLibPaths>
-    <CodeContractsPlatformPath>
-    </CodeContractsPlatformPath>
-    <CodeContractsExtraAnalysisOptions>
-    </CodeContractsExtraAnalysisOptions>
-    <CodeContractsBaseLineFile>
-    </CodeContractsBaseLineFile>
-    <CodeContractsUseBaseLine>False</CodeContractsUseBaseLine>
-    <CodeContractsRunInBackground>True</CodeContractsRunInBackground>
-    <CodeContractsShowSquigglies>False</CodeContractsShowSquigglies>
-    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
-    <CodeContractsEmitXMLDocs>False</CodeContractsEmitXMLDocs>
-    <CodeContractsRedundantAssumptions>False</CodeContractsRedundantAssumptions>
-    <CodeContractsReferenceAssembly>DoNotBuild</CodeContractsReferenceAssembly>
-    <DocumentationFile>..\Binaries\Debug\Atom.xml</DocumentationFile>
-    <Prefer32Bit>false</Prefer32Bit>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
-    <OutputPath>..\..\Binaries\Release\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
-    <Optimize>true</Optimize>
-    <DebugType>pdbonly</DebugType>
-    <PlatformTarget>x86</PlatformTarget>
-    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
-    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
-    <ErrorReport>prompt</ErrorReport>
-    <DocumentationFile>..\..\Binaries\Release\Atom.xml</DocumentationFile>
-    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
-    <CodeContractsEnableRuntimeChecking>True</CodeContractsEnableRuntimeChecking>
-    <CodeContractsCustomRewriterAssembly>
-    </CodeContractsCustomRewriterAssembly>
-    <CodeContractsCustomRewriterClass>
-    </CodeContractsCustomRewriterClass>
-    <CodeContractsRuntimeCheckingLevel>Preconditions</CodeContractsRuntimeCheckingLevel>
-    <CodeContractsRuntimeOnlyPublicSurface>False</CodeContractsRuntimeOnlyPublicSurface>
-    <CodeContractsRunCodeAnalysis>False</CodeContractsRunCodeAnalysis>
-    <CodeContractsBuildReferenceAssembly>True</CodeContractsBuildReferenceAssembly>
-    <CodeContractsNonNullObligations>False</CodeContractsNonNullObligations>
-    <CodeContractsBoundsObligations>False</CodeContractsBoundsObligations>
-    <CodeContractsArithmeticObligations>False</CodeContractsArithmeticObligations>
-    <CodeContractsLibPaths>
-    </CodeContractsLibPaths>
-    <CodeContractsPlatformPath>
-    </CodeContractsPlatformPath>
-    <CodeContractsExtraAnalysisOptions>
-    </CodeContractsExtraAnalysisOptions>
-    <CodeContractsBaseLineFile>
-    </CodeContractsBaseLineFile>
-    <CodeContractsUseBaseLine>False</CodeContractsUseBaseLine>
-    <CodeContractsRunInBackground>True</CodeContractsRunInBackground>
-    <CodeContractsShowSquigglies>True</CodeContractsShowSquigglies>
-    <CodeContractsRuntimeThrowOnFailure>True</CodeContractsRuntimeThrowOnFailure>
-    <CodeContractsRuntimeCallSiteRequires>False</CodeContractsRuntimeCallSiteRequires>
-    <CodeContractsEmitXMLDocs>False</CodeContractsEmitXMLDocs>
-    <CodeContractsRedundantAssumptions>False</CodeContractsRedundantAssumptions>
-    <CodeAnalysisRuleSet>..\SourceAnalysisRules.ruleset</CodeAnalysisRuleSet>
-    <CodeContractsReferenceAssembly>Build</CodeContractsReferenceAssembly>
-    <CodeContractsExtraRewriteOptions />
-    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
-    <Reference Include="System.Core">
-      <RequiredTargetFramework>3.5</RequiredTargetFramework>
-    </Reference>
+    <Reference Include="System.Core" />
+    <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
-    <Reference Include="System.XML" />
-    <Reference Include="WindowsFormsIntegration" />
+    <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="..\SolutionInfo.cs">
       <Link>Properties\SolutionInfo.cs</Link>
     </Compile>
     <Compile Include="Anonymous.cs" />
-    <Compile Include="Math\RandListExtensions.cs" />
-    <Compile Include="Threading\Timeout.cs" />
-    <Compile Include="TypeStringConverter.cs" />
     <Compile Include="ChangedValue.cs" />
     <Compile Include="Collections\ArrayUtilities.cs" />
+    <Compile Include="Collections\Association.cs" />
     <Compile Include="Collections\Comparers\AssociationKeyComparer.cs" />
-    <Compile Include="Collections\Extensions\ArrayExtensions.cs" />
-    <Compile Include="Collections\Extensions\CollectionExtensions.cs" />
+    <Compile Include="Collections\Comparers\ReverseComparer.cs" />
     <Compile Include="Collections\Comparers\TupleItem1Comparer.cs" />
     <Compile Include="Collections\Comparers\TupleItem2Comparer.cs" />
+    <Compile Include="Collections\Extensions\ArrayExtensions.cs" />
+    <Compile Include="Collections\Extensions\CollectionExtensions.cs" />
     <Compile Include="Collections\Extensions\EnumerableExtensions.cs" />
+    <Compile Include="Collections\Extensions\ListExtensions.cs" />
     <Compile Include="Collections\FastMultiMap.cs" />
     <Compile Include="Collections\Hat.cs" />
     <Compile Include="Collections\HatEntry.cs" />
@@ -177,7 +65,6 @@
     <Compile Include="Collections\IMultiMap.Contract.cs" />
     <Compile Include="Collections\IMultiMap.cs" />
     <Compile Include="Collections\IMutableGrouping.cs" />
-    <Compile Include="Collections\Extensions\ListExtensions.cs" />
     <Compile Include="Collections\MultiMap.cs" />
     <Compile Include="Collections\MultiMap.Grouping.cs" />
     <Compile Include="Collections\NonNullList.cs" />
@@ -188,8 +75,6 @@
     <Compile Include="Collections\Pooling\PooledObjectCreator.cs" />
     <Compile Include="Collections\Pooling\PooledObjectWrapper.cs" />
     <Compile Include="Collections\Pooling\PoolNode.cs" />
-    <Compile Include="Collections\Association.cs" />
-    <Compile Include="Collections\Comparers\ReverseComparer.cs" />
     <Compile Include="Collections\Pooling\WrappingPool.cs" />
     <Compile Include="Collections\PreconditionedList.cs" />
     <Compile Include="Collections\RedirectingList.cs" />
@@ -202,45 +87,48 @@
     <Compile Include="Components\IEntity.cs" />
     <Compile Include="Components\IEntityComponentCollection.Contracts.cs" />
     <Compile Include="Components\IEntityComponentCollection.cs" />
-    <Compile Include="Configuration\ConfigPropertyAttribute.cs" />
     <Compile Include="Configuration\Config.cs" />
+    <Compile Include="Configuration\ConfigPropertyAttribute.cs" />
     <Compile Include="Configuration\ConfigPropertySearcher.cs" />
     <Compile Include="Configuration\IConfig.cs" />
     <Compile Include="Configuration\IConfigPropertyAttribute.cs" />
     <Compile Include="Configuration\IConfigPropertySearcher.cs" />
     <Compile Include="Configuration\IConfigStore.cs" />
     <Compile Include="Configuration\PlainTextConfigStore.cs" />
+    <Compile Include="Design\Descriptors\FieldPropertyDescriptor.cs" />
+    <Compile Include="Design\Descriptors\MemberPropertyDescriptor.cs" />
+    <Compile Include="Design\Descriptors\PropertyPropertyDescriptor.cs" />
+    <Compile Include="Design\Dialogs\IItemSelectionDialog.cs" />
+    <Compile Include="Design\Dialogs\IItemSelectionDialogFactory.cs" />
     <Compile Include="Design\Editors\BaseItemCreationEditor.cs" />
     <Compile Include="Design\Editors\BaseItemSelectionEditor.cs" />
     <Compile Include="Design\Editors\BaseTypeSelectionEditor.cs" />
+    <Compile Include="Design\Editors\ExistingItemCollectionEditor.cs" />
     <Compile Include="Design\Editors\ToggleEditor.cs" />
     <Compile Include="Design\NameableObjectWrapper.cs" />
     <Compile Include="Design\PropertyWrappers\BaseObjectPropertyWrapper.cs" />
     <Compile Include="Design\PropertyWrappers\BaseObjectPropertyWrapper.TObject.cs" />
-    <Compile Include="Design\Descriptors\FieldPropertyDescriptor.cs" />
-    <Compile Include="Design\Editors\ExistingItemCollectionEditor.cs" />
-    <Compile Include="Design\Dialogs\IItemSelectionDialog.cs" />
-    <Compile Include="Design\Dialogs\IItemSelectionDialogFactory.cs" />
     <Compile Include="Design\PropertyWrappers\IObjectPropertyWrapper.Contracts.cs" />
     <Compile Include="Design\PropertyWrappers\IObjectPropertyWrapper.cs" />
     <Compile Include="Design\PropertyWrappers\IObjectPropertyWrapperFactory.Contracts.cs" />
     <Compile Include="Design\PropertyWrappers\IObjectPropertyWrapperFactory.cs" />
-    <Compile Include="Design\Descriptors\MemberPropertyDescriptor.cs" />
     <Compile Include="Design\PropertyWrappers\ObjectPropertyWrapperFactory.cs" />
-    <Compile Include="Design\Descriptors\PropertyPropertyDescriptor.cs" />
     <Compile Include="Diagnostics\BaseLog.cs" />
     <Compile Include="Diagnostics\ConsoleLog.cs" />
+    <Compile Include="Diagnostics\Contract.cs" />
     <Compile Include="Diagnostics\FileLog.cs" />
-    <Compile Include="Diagnostics\ILog.cs" />
     <Compile Include="Diagnostics\Filters\ILogFilter.cs" />
+    <Compile Include="Diagnostics\Filters\SeverityLogFilter.cs" />
+    <Compile Include="Diagnostics\ILog.cs" />
     <Compile Include="Diagnostics\ILogProvider.cs" />
     <Compile Include="Diagnostics\LogExtensions.cs" />
     <Compile Include="Diagnostics\LogProvider.cs" />
     <Compile Include="Diagnostics\LogSeverities.cs" />
     <Compile Include="Diagnostics\MultiLog.cs" />
-    <Compile Include="Diagnostics\Filters\SeverityLogFilter.cs" />
+    <Compile Include="Diagnostics\PureAttribute.cs" />
     <Compile Include="Diagnostics\TextWriterLog.cs" />
     <Compile Include="Diagnostics\TraceLog.cs" />
+    <Compile Include="ErrorStrings.Designer.cs" />
     <Compile Include="EventHandlerExtensions.cs" />
     <Compile Include="Exceptions\ExceptionExtensions.cs" />
     <Compile Include="Exceptions\InvalidExtensionException.cs" />
@@ -249,58 +137,55 @@
     <Compile Include="Exceptions\ServiceNotFoundException.cs" />
     <Compile Include="Exceptions\ThrowHelper.cs" />
     <Compile Include="Globalization\ICultureSensitiveToStringProvider.Contract.cs" />
+    <Compile Include="Globalization\ICultureSensitiveToStringProvider.cs" />
     <Compile Include="GlobalServices.cs" />
     <Compile Include="GlobalSuppressions.cs" />
-    <Compile Include="Globalization\ICultureSensitiveToStringProvider.cs" />
     <Compile Include="HashCodeBuilder.cs" />
-    <Compile Include="Interfaces\IIsDisposable.cs" />
+    <Compile Include="IConverter.cs" />
     <Compile Include="Interfaces\IDrawable.cs" />
     <Compile Include="Interfaces\IDrawContext.cs" />
-    <Compile Include="Interfaces\IReadOnlyNameable.cs" />
+    <Compile Include="Interfaces\IIsDisposable.cs" />
     <Compile Include="Interfaces\INameable.cs" />
     <Compile Include="Interfaces\IOwnedBy.cs" />
     <Compile Include="Interfaces\IOwnedBy.TOwner.cs" />
     <Compile Include="Interfaces\IPreUpdateable.cs" />
+    <Compile Include="Interfaces\IReadOnlyNameable.cs" />
     <Compile Include="Interfaces\IUpdateable.cs" />
     <Compile Include="Interfaces\IUpdateContext.cs" />
-    <Compile Include="IConverter.cs" />
-    <Compile Include="IStringConverter.cs" />
-    <Compile Include="Patterns\Provider\DirectObjectProvider.cs" />
-    <Compile Include="Patterns\Provider\IObjectProvider.cs" />
-    <Compile Include="Patterns\Provider\IObjectProviderContainer.cs" />
     <Compile Include="IOUtilities.cs" />
+    <Compile Include="IStringConverter.cs" />
     <Compile Include="ITypeActivator.cs" />
     <Compile Include="ManagedDisposable.cs" />
     <Compile Include="Math\IRand.cs" />
+    <Compile Include="Math\RandListExtensions.cs" />
     <Compile Include="Math\RandRangeExtensions.cs" />
     <Compile Include="Maybe.T.cs" />
     <Compile Include="NameOf.cs" />
+    <Compile Include="Patterns\Provider\DirectObjectProvider.cs" />
+    <Compile Include="Patterns\Provider\IObjectProvider.cs" />
+    <Compile Include="Patterns\Provider\IObjectProviderContainer.cs" />
     <Compile Include="Patterns\Provider\IObjectProviderContainerRegistrar.cs" />
     <Compile Include="Patterns\Provider\LambdaObjectProvider.cs" />
     <Compile Include="Patterns\Provider\ObjectProviderContainer.cs" />
     <Compile Include="Patterns\Provider\ObjectProviderExtensions.cs" />
     <Compile Include="Patterns\Visitor\CountingVisitor.cs" />
     <Compile Include="Patterns\Visitor\EmptyVisitor.cs" />
-    <Compile Include="Patterns\Visitor\VisitorExtensions.cs" />
+    <Compile Include="Patterns\Visitor\InOrderVisitor.cs" />
     <Compile Include="Patterns\Visitor\IOrderedVisitor.cs" />
     <Compile Include="Patterns\Visitor\IVisitor.cs" />
-    <Compile Include="Patterns\Visitor\InOrderVisitor.cs" />
     <Compile Include="Patterns\Visitor\OrderedVisitor.cs" />
     <Compile Include="Patterns\Visitor\PostOrderVisitor.cs" />
     <Compile Include="Patterns\Visitor\PreOrderVisitor.cs" />
     <Compile Include="Patterns\Visitor\TrackingVisitor.cs" />
+    <Compile Include="Patterns\Visitor\VisitorExtensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ErrorStrings.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ErrorStrings.resx</DependentUpon>
-    </Compile>
     <Compile Include="ReflectionExtensions.cs" />
     <Compile Include="RelaxedEventHandler.cs" />
     <Compile Include="ServiceContainerExtensions.cs" />
     <Compile Include="ServiceProviderExtensions.cs" />
     <Compile Include="SimpleEventHandler.cs" />
     <Compile Include="Storage\BaseObjectReaderWriter.cs" />
+    <Compile Include="Storage\Deserialization\BinaryDeserializationContext.cs" />
     <Compile Include="Storage\Deserialization\IBinaryDeserializationContext.cs" />
     <Compile Include="Storage\Deserialization\IDeserializationContext.cs" />
     <Compile Include="Storage\Deserialization\IUnsignedBinaryDeserializationContext.cs" />
@@ -312,7 +197,6 @@
     <Compile Include="Storage\IObjectWriter.cs" />
     <Compile Include="Storage\IObjectWriter.TObject.cs" />
     <Compile Include="Storage\IStorable.cs" />
-    <Compile Include="Storage\Deserialization\BinaryDeserializationContext.cs" />
     <Compile Include="Storage\IStorageContextFactory.cs" />
     <Compile Include="Storage\Serialization\BinarySerializationContext.cs" />
     <Compile Include="Storage\Serialization\IBinarySerializationContext.cs" />
@@ -324,43 +208,13 @@
     <Compile Include="StringExtensions.cs" />
     <Compile Include="StringUtilities.cs" />
     <Compile Include="Swap.cs" />
+    <Compile Include="Threading\Timeout.cs" />
     <Compile Include="TypeActivator.cs" />
+    <Compile Include="TypeStringConverter.cs" />
     <Compile Include="UnmanagedDisposable.cs" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="ErrorStrings.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>ErrorStrings.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
-    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
-      <Visible>False</Visible>
-      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
-      <Install>false</Install>
-    </BootstrapperPackage>
-    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
-      <Visible>False</Visible>
-      <ProductName>.NET Framework 3.5 SP1</ProductName>
-      <Install>true</Install>
-    </BootstrapperPackage>
-    <BootstrapperPackage Include="Microsoft.VisualBasic.PowerPacks.10.0">
-      <Visible>False</Visible>
-      <ProductName>Microsoft Visual Basic PowerPacks 10.0</ProductName>
-      <Install>true</Install>
-    </BootstrapperPackage>
-    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
-      <Visible>False</Visible>
-      <ProductName>Windows Installer 3.1</ProductName>
-      <Install>true</Install>
-    </BootstrapperPackage>
+    <EmbeddedResource Include="ErrorStrings.resx" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
-       Other similar extension points exist, see Microsoft.Common.targets.
-  <Target Name="BeforeBuild">
-  </Target>
-  <Target Name="AfterBuild">
-  </Target>
-  -->
 </Project>

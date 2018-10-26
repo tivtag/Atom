@@ -11,7 +11,7 @@
 namespace Atom.Story
 {
     using System;
-    using System.Diagnostics.Contracts;
+    using Atom.Diagnostics.Contracts;
 
     /// <summary>
     /// Measures the flow of concrete tick time. 

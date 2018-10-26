@@ -11,7 +11,7 @@
 namespace Atom.Math
 {
     using System;
-    using System.Diagnostics.Contracts;
+    using Atom.Diagnostics.Contracts;
 
     /// <summary>
     /// Represents a range of single-precision floating-point numbers that lie within [Minimum; Maximum].
@@ -29,7 +29,7 @@ namespace Atom.Math
         {
             get
             {
-                Contract.Ensures( Contract.Result<float>() <= this.Maximum );
+                // Contract.Ensures( Contract.Result<float>() <= this.Maximum );
 
                 return this.minimum;
             }
@@ -49,7 +49,7 @@ namespace Atom.Math
         {
             get
             {
-                Contract.Ensures( Contract.Result<float>() >= this.Minimum );
+                // Contract.Ensures( Contract.Result<float>() >= this.Minimum );
 
                 return this.maximum;
             }
@@ -113,8 +113,8 @@ namespace Atom.Math
         public float GetRandomValue( IRand rand )
         {
             Contract.Requires<ArgumentNullException>( rand != null );
-            Contract.Ensures( Contract.Result<float>() >= this.minimum );
-            Contract.Ensures( Contract.Result<float>() <= this.maximum );
+            // Contract.Ensures( Contract.Result<float>() >= this.minimum );
+            // Contract.Ensures( Contract.Result<float>() <= this.maximum );
 
             return rand.UncheckedRandomRange( this.minimum, this.maximum );
         }

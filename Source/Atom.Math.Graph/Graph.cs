@@ -13,7 +13,7 @@ namespace Atom.Math.Graph
     using System;
     using System.Collections.Generic;
     using System.Diagnostics;
-    using System.Diagnostics.Contracts;
+    using Atom.Diagnostics.Contracts;
     using System.Globalization;
     using System.Linq;
     using Atom.Math.Graph.Algorithms;

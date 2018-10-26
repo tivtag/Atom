@@ -8,7 +8,7 @@ namespace Atom.Math.Graph
 {
     using System;
     using System.Collections.Generic;
-    using System.Diagnostics.Contracts;
+    using Atom.Diagnostics.Contracts;
 
     /// <summary>
     /// Provides static methods to create various different <see cref="Graph{TVertexData, TEdgeData}"/>s.

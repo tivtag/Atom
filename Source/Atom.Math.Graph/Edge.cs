@@ -11,7 +11,7 @@
 namespace Atom.Math.Graph
 {
     using System;
-    using System.Diagnostics.Contracts;
+    using Atom.Diagnostics.Contracts;
 
     /// <summary>
     /// Represents an weighted edge in a graph. 
@@ -37,7 +37,7 @@ namespace Atom.Math.Graph
         {
             get
             {
-                Contract.Ensures( Contract.Result<Vertex<TVertexData, TEdgeData>>() != null );
+                // Contract.Ensures( Contract.Result<Vertex<TVertexData, TEdgeData>>() != null );
 
                 return this.from;
             }
@@ -51,7 +51,7 @@ namespace Atom.Math.Graph
         {
             get
             {
-                Contract.Ensures( Contract.Result<Vertex<TVertexData, TEdgeData>>() != null );
+                // Contract.Ensures( Contract.Result<Vertex<TVertexData, TEdgeData>>() != null );
 
                 return this.to;
             }

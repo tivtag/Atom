@@ -7,7 +7,6 @@
 namespace Atom.Collections
 {
     using System.Collections.Generic;
-    using System.Diagnostics.Contracts;
     using System.Linq;
 
     /// <summary>
@@ -223,7 +222,7 @@ namespace Atom.Collections
         /// </returns>
         protected virtual IMutableGrouping<TKey, TElement> CreateGrouping( TKey key )
         {
-            Contract.Ensures( Contract.Result<IMutableGrouping<TKey, TElement>>() != null );        
+            // Contract.Ensures( Contract.Result<IMutableGrouping<TKey, TElement>>() != null );        
             return new Grouping( key );
         }
 

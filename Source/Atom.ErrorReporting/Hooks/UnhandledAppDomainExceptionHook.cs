@@ -11,7 +11,7 @@
 namespace Atom.ErrorReporting.Hooks
 {
     using System;
-    using System.Diagnostics.Contracts;
+    using Atom.Diagnostics.Contracts;
 
     /// <summary>
     /// Implements an <see cref="IErrorHook"/> that hooks onto <see cref="AppDomain.UnhandledException"/> to

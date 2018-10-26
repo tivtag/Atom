@@ -12,12 +12,12 @@ namespace Atom
 {
     using System;
     using System.Collections.Generic;
-    using System.Diagnostics.Contracts;
+    using Atom.Diagnostics.Contracts;
 
     /// <summary> 
     /// Provides a mechanism that allows the management of the <see cref="IGameState"/>s of a game.
     /// </summary>
-    [ContractClass( typeof( IGameStateManagerContracts ) )]
+    // [ContractClass( typeof( IGameStateManagerContracts ) )]
     public interface IGameStateManager : IEnumerable<IGameState>
     {
         /// <summary>

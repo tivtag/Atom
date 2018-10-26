@@ -12,7 +12,7 @@ namespace Atom.Waypoints
 {
     using System;
     using System.Collections.Generic;
-    using System.Diagnostics.Contracts;
+    using Atom.Diagnostics.Contracts;
     using System.Linq;
     using Atom.Math;
     using Atom.Math.Graph;

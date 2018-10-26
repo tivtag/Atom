@@ -11,7 +11,7 @@
 namespace Atom.Scene.Xna
 {
     using System;
-    using System.Diagnostics.Contracts;
+    using Atom.Diagnostics.Contracts;
     using Atom.Math;
     using Atom.Xna;
     using Atom.Xna.Batches;

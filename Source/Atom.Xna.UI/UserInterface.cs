@@ -13,7 +13,7 @@ namespace Atom.Xna.UI
     using System;
     using System.Collections.Generic;
     using System.Diagnostics;
-    using System.Diagnostics.Contracts;
+    using Atom.Diagnostics.Contracts;
     using System.Linq;
     using Atom.Math;
     using Microsoft.Xna.Framework.Graphics;

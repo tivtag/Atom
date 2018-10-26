@@ -40,7 +40,7 @@ namespace Atom.Collections.Pooling
     using System;
     using System.Collections;
     using System.Collections.Generic;
-    using System.Diagnostics.Contracts;
+    using Atom.Diagnostics.Contracts;
 
     /// <summary>
     /// Represents a pool of available items that can be removed as needed
@@ -80,7 +80,7 @@ namespace Atom.Collections.Pooling
         {
             get 
             {
-                Contract.Ensures( Contract.Result<int>() >= 0 );
+                // Contract.Ensures( Contract.Result<int>() >= 0 );
 
                 return this.available.Count;
             }
@@ -99,7 +99,7 @@ namespace Atom.Collections.Pooling
         {
             get
             {
-                Contract.Ensures( Contract.Result<int>() >= 0 );
+                // Contract.Ensures( Contract.Result<int>() >= 0 );
                 return this.pool.Count - this.available.Count;
             }
         }
@@ -117,7 +117,7 @@ namespace Atom.Collections.Pooling
         {
             get
             {
-                Contract.Ensures( Contract.Result<int>() >= 0 );
+                // Contract.Ensures( Contract.Result<int>() >= 0 );
 
                 return this.pool.Count;
             }
@@ -222,7 +222,7 @@ namespace Atom.Collections.Pooling
         /// Defines the conditions that should hold true on each instance of a class
         /// whenever that object is visible to a client.
         /// </summary>
-        [ContractInvariantMethod]
+        // [ContractInvariantMethod]
         private void ObjectInvariant()
         {
             Contract.Invariant( 0 <= this.available.Count );
@@ -271,7 +271,7 @@ namespace Atom.Collections.Pooling
             }
 
             int nodeIndex = this.available.Dequeue();
-            Contract.Assume( 0 <= nodeIndex && nodeIndex < this.pool.Count );
+            // Contract.Assume( 0 <= nodeIndex && nodeIndex < this.pool.Count );
 
             var node = this.pool[nodeIndex];
             node.IsActive = true;

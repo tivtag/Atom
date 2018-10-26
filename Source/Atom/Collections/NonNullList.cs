@@ -12,7 +12,7 @@ namespace Atom.Collections
 {
     using System;
     using System.Collections.Generic;
-    using System.Diagnostics.Contracts;
+    using Atom.Diagnostics.Contracts;
 
     /// <summary>
     /// Represents a <see cref="PreconditionedList{T}"/> that requires its items to be non-null.
@@ -46,7 +46,7 @@ namespace Atom.Collections
         /// <summary>
         /// Defines the object invariant of the NonNullList class.
         /// </summary>
-        [ContractInvariantMethod]
+        // [ContractInvariantMethod]
         private void ObjectInvariant()
         {
             Contract.Invariant( Contract.ForAll<T>( this, NonNullPredicate ) );

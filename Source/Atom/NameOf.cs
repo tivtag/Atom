@@ -11,7 +11,7 @@
 namespace Atom
 {
     using System;
-    using System.Diagnostics.Contracts;
+    using Atom.Diagnostics.Contracts;
     using System.Linq.Expressions;
 
     /// <summary>
