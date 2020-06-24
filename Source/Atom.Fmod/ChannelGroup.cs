@@ -30,12 +30,12 @@ namespace Atom.Fmod
         {
             get
             {
-                var sb = new StringBuilder( 255 );
+                string name;
 
-                RESULT result = nativeGroup.getName( sb, 255 );
+                RESULT result = nativeGroup.getName( out name, 255 );
                 ThrowOnError( result );
 
-                return sb.ToString();
+                return name;
             }
         }
 
@@ -56,9 +56,9 @@ namespace Atom.Fmod
         {
             get
             {
-                float volume = 0.0f;
+                float volume;
 
-                RESULT result = nativeGroup.getVolume( ref volume );
+                RESULT result = nativeGroup.getVolume( out volume );
                 ThrowOnError( result );
 
                 return volume;
@@ -89,9 +89,9 @@ namespace Atom.Fmod
         {
             get
             {
-                float pitch = 0.0f;
+                float pitch;
 
-                RESULT result = nativeGroup.getPitch( ref pitch );
+                RESULT result = nativeGroup.getPitch(out pitch );
                 ThrowOnError( result );
                 
                 return pitch;
@@ -111,9 +111,9 @@ namespace Atom.Fmod
         {
             get
             {
-                bool isMuted = false;
+                bool isMuted;
 
-                RESULT result = nativeGroup.getMute( ref isMuted );
+                RESULT result = nativeGroup.getMute(out isMuted );
                 ThrowOnError( result );
 
                 return isMuted;
@@ -133,9 +133,9 @@ namespace Atom.Fmod
         {
             get
             {
-                bool isPaused = false;
+                bool isPaused;
 
-                RESULT result = nativeGroup.getPaused( ref isPaused );
+                RESULT result = nativeGroup.getPaused( out isPaused );
                 ThrowOnError( result );
 
                 return isPaused;
@@ -155,9 +155,9 @@ namespace Atom.Fmod
         {
             get
             {
-                int channelCount = 0;
+                int channelCount;
 
-                RESULT result = nativeGroup.getNumChannels( ref channelCount );
+                RESULT result = nativeGroup.getNumChannels(out channelCount );
                 ThrowOnError( result );
 
                 return channelCount;
@@ -183,8 +183,8 @@ namespace Atom.Fmod
         {
             get
             {
-                IntPtr ptr = IntPtr.Zero;
-                RESULT result = nativeGroup.getUserData( ref ptr );
+                IntPtr ptr;
+                RESULT result = nativeGroup.getUserData( out ptr );
 
                 return ptr;
             }
@@ -236,9 +236,8 @@ namespace Atom.Fmod
                 throw new ArgumentNullException( "audioSystem" );
             
             this.audioSystem = audioSystem;
-            this.nativeGroup = new Atom.Fmod.Native.ChannelGroup();
 
-            RESULT result = audioSystem.NativeSystem.createChannelGroup( name, ref nativeGroup );
+            RESULT result = audioSystem.NativeSystem.createChannelGroup( name, out nativeGroup );
             ThrowOnError( result );
         }
 
@@ -289,9 +288,9 @@ namespace Atom.Fmod
         /// <param name="volume">
         /// A linear volume level, from 0.0 to 1.0 inclusive. 0.0 = silent, 1.0 = full volume. Default = 1.0. 
         /// </param>
-        public void OverrideVolume( float volume )
+        public void SetVolume( float volume )
         {
-            RESULT result = nativeGroup.overrideVolume( volume );
+            RESULT result = nativeGroup.setVolume( volume );
             ThrowOnError( result );
         }
 
@@ -304,36 +303,50 @@ namespace Atom.Fmod
         /// <param name="pan">
         /// A pan position, from 0.0 to 1.0 inclusive. 0.0 = left, 1.0 = right. Default = 0.5. 
         /// </param>
-        public void OverridePan( float pan )
+        public void SetPan( float pan )
         {
-            RESULT result = nativeGroup.overridePan( pan );
+            RESULT result = nativeGroup.setPan( pan );
             ThrowOnError( result );
         }
 
-        /// <summary>
-        /// Overrides the frequency or playback rate, in HZ of all channels within this channel group and those of any sub channelgroups.
-        /// </summary>
-        /// <remarks>
-        /// When a sound is played, it plays at the default frequency of the sound which can be set by Sound::setDefaults.
-        /// For most file formats, the volume is determined by the audio format.
-        /// <para>
-        /// Frequency limitations for sounds created with FMOD_HARDWARE in DirectSound.
-        /// Every hardware device has a minimum and maximum frequency. This means setting the frequency above the maximum and below the minimum will have no effect.
-        /// FMOD clamps frequencies to these values when playing back on hardware, so if you are setting the frequency outside of this range, the frequency will stay at either the minimum or maximum.
-        /// Note that FMOD_SOFTWARE based sounds do not have this limitation.
-        /// To find out the minimum and maximum value before initializing FMOD (maybe to decide whether to use a different soundcard, output mode, or drop back fully to software mixing), you can use the System::getDriverCaps function. 
-        /// </para>
-        /// </remarks>
-        /// <param name="frequency">
-        /// A frequency value in HZ. This value can also be negative to play the sound backwards 
-        /// (negative frequencies allowed with FMOD_SOFTWARE based non-stream sounds only).
-        /// DirectSound hardware voices have limited frequency range on some soundcards. Please see remarks for more on this.
-        /// </param>
-        public void OverrideFrequency( float frequency )
+
+        public void SetPitch(float pan)
         {
-            RESULT result = nativeGroup.overrideFrequency( frequency );
-            ThrowOnError( result );
+            RESULT result = nativeGroup.setPitch(pan);
+            ThrowOnError(result);
         }
+
+
+        public void SetVolumeRamp(bool ramp)
+        {
+            RESULT result = nativeGroup.setVolumeRamp(ramp);
+            ThrowOnError(result);
+        }
+
+        /////// <summary>
+        /////// Overrides the frequency or playback rate, in HZ of all channels within this channel group and those of any sub channelgroups.
+        /////// </summary>
+        /////// <remarks>
+        /////// When a sound is played, it plays at the default frequency of the sound which can be set by Sound::setDefaults.
+        /////// For most file formats, the volume is determined by the audio format.
+        /////// <para>
+        /////// Frequency limitations for sounds created with FMOD_HARDWARE in DirectSound.
+        /////// Every hardware device has a minimum and maximum frequency. This means setting the frequency above the maximum and below the minimum will have no effect.
+        /////// FMOD clamps frequencies to these values when playing back on hardware, so if you are setting the frequency outside of this range, the frequency will stay at either the minimum or maximum.
+        /////// Note that FMOD_SOFTWARE based sounds do not have this limitation.
+        /////// To find out the minimum and maximum value before initializing FMOD (maybe to decide whether to use a different soundcard, output mode, or drop back fully to software mixing), you can use the System::getDriverCaps function. 
+        /////// </para>
+        /////// </remarks>
+        /////// <param name="frequency">
+        /////// A frequency value in HZ. This value can also be negative to play the sound backwards 
+        /////// (negative frequencies allowed with FMOD_SOFTWARE based non-stream sounds only).
+        /////// DirectSound hardware voices have limited frequency range on some soundcards. Please see remarks for more on this.
+        /////// </param>
+        ////public void OverrideFrequency( float frequency )
+        ////{
+        ////    RESULT result = nativeGroup.setPan( frequency );
+        ////    ThrowOnError( result );
+        ////}
 
         /// <summary>
         /// Adds a channel group as a child of the current channel group.  

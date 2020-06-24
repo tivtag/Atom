@@ -67,11 +67,11 @@ namespace Atom.Fmod
         {
             get
             {
-                if( nativeSound == null )
+                if( !nativeSound.hasHandle() )
                     throw new InvalidOperationException( Properties.Resources.Error_NativeSoundObjectIsNull );
 
-                MODE mode = MODE.DEFAULT;
-                RESULT result = nativeSound.getMode( ref mode );
+                MODE mode;
+                RESULT result = nativeSound.getMode( out mode );
                 ThrowOnError( result );
 
                 return mode;
@@ -79,7 +79,7 @@ namespace Atom.Fmod
 
             set
             {
-                if( nativeSound == null )
+                if (!nativeSound.hasHandle())
                     throw new InvalidOperationException( Properties.Resources.Error_NativeSoundObjectIsNull );
 
                 RESULT result = nativeSound.setMode( value );
@@ -117,7 +117,7 @@ namespace Atom.Fmod
         {
             set
             {
-                if( this.nativeSound == null )
+                if (!nativeSound.hasHandle())
                     throw new InvalidOperationException( Properties.Resources.Error_NativeSoundObjectIsNull );
 
                 RESULT result = this.nativeSound.setLoopCount( value );
@@ -126,11 +126,11 @@ namespace Atom.Fmod
 
             get
             {
-                if( this.nativeSound == null )
+                if (!nativeSound.hasHandle())
                     throw new InvalidOperationException( Properties.Resources.Error_NativeSoundObjectIsNull );
 
-                int loopCount = 0;
-                RESULT result = this.nativeSound.getLoopCount( ref loopCount );
+                int loopCount;
+                RESULT result = this.nativeSound.getLoopCount( out loopCount );
                 ThrowOnError( result );
 
                 return loopCount;
@@ -148,11 +148,11 @@ namespace Atom.Fmod
         {
             get
             {
-                if( nativeSound == null )
+                if (!nativeSound.hasHandle())
                     throw new InvalidOperationException( Properties.Resources.Error_NativeSoundObjectIsNull );
 
-                int count = 0;
-                RESULT result = nativeSound.getNumSubSounds( ref count );
+                int count;
+                RESULT result = nativeSound.getNumSubSounds( out count );
                 ThrowOnError( result );
 
                 return count;
@@ -202,7 +202,7 @@ namespace Atom.Fmod
             if( isLoaded )
                 return;
 
-            RESULT result = audioSystem.NativeSystem.createSound( this.fullPath, mode, ref nativeSound );
+            RESULT result = audioSystem.NativeSystem.createSound( this.fullPath, mode, out nativeSound );
             ThrowOnError( result );
 
             if( this.soundGroup != null )
@@ -229,7 +229,7 @@ namespace Atom.Fmod
         /// </returns>
         public Sound LoadAsSample( bool isLooping = false )
         {
-            MODE mode = MODE.SOFTWARE | MODE.CREATESAMPLE | MODE._2D;
+            MODE mode = MODE.CREATESAMPLE | MODE._2D;
             if( isLooping )
                 mode |= MODE.LOOP_NORMAL;
             else
@@ -267,7 +267,7 @@ namespace Atom.Fmod
         /// </exception>
         public void LoadAsMusic( bool isLooping = true )
         {
-            MODE mode = MODE.HARDWARE | MODE.CREATESTREAM | MODE._2D;
+            MODE mode = MODE.CREATESTREAM | MODE._2D;
             if( isLooping )
                 mode |= MODE.LOOP_NORMAL;
             else
@@ -307,11 +307,13 @@ namespace Atom.Fmod
         /// </returns>
         public Channel Play( bool startPaused )
         {
-            if( this.nativeSound == null )
-                throw new InvalidOperationException( Properties.Resources.Error_NativeSoundObjectIsNull );
+            if (!this.nativeSound.hasHandle())
+            {
+                throw new InvalidOperationException(Properties.Resources.Error_NativeSoundObjectIsNull);
+            }
 
-            Native.Channel nativeChannel = null;
-            RESULT result = audioSystem.NativeSystem.playSound( CHANNELINDEX.FREE, nativeSound, startPaused, ref nativeChannel );
+            Native.Channel nativeChannel;
+            RESULT result = audioSystem.NativeSystem.playSound( nativeSound, nativeChannelGroup, startPaused, out nativeChannel );
             ThrowOnError( result );
                
             Channel channel = new Channel( this, nativeChannel );
@@ -335,11 +337,13 @@ namespace Atom.Fmod
         /// </returns>
         public Channel Play( float volume )
         {
-            if( this.nativeSound == null )
-                throw new InvalidOperationException( Properties.Resources.Error_NativeSoundObjectIsNull );
+            if (!this.nativeSound.hasHandle())
+            {
+                throw new InvalidOperationException(Properties.Resources.Error_NativeSoundObjectIsNull);
+            }
 
-            Native.Channel nativeChannel = null;
-            RESULT result = audioSystem.NativeSystem.playSound( CHANNELINDEX.FREE, nativeSound, true, ref nativeChannel );
+            Native.Channel nativeChannel;
+            RESULT result = audioSystem.NativeSystem.playSound( nativeSound, nativeChannelGroup, true, out nativeChannel );
             ThrowOnError( result );
 
             Channel channel = new Channel( this, nativeChannel );
@@ -364,13 +368,12 @@ namespace Atom.Fmod
         {
             if( isLoaded )
             {
-                if( nativeSound != null )
+                if( nativeSound.hasHandle() )
                 {
                     Thread.BeginCriticalRegion(); 
 
                     RESULT result = nativeSound.release();
                     ThrowOnError( result );
-                    nativeSound = null;
 
                     Thread.EndCriticalRegion(); 
                 }
@@ -412,15 +415,18 @@ namespace Atom.Fmod
               out int priority
             )
         {
-            if( nativeSound == null )
-                throw new InvalidOperationException( Properties.Resources.Error_NativeSoundObjectIsNull );
+            if (!this.nativeSound.hasHandle())
+            {
+                throw new InvalidOperationException(Properties.Resources.Error_NativeSoundObjectIsNull);
+            }
 
             frequency = 0.0f;
             volume    = 0.0f;
             pan       = 0.0f;
             priority  = 1;
 
-            RESULT result = nativeSound.getDefaults( ref frequency, ref volume, ref pan, ref priority );
+            // ref volume, ref pan,
+            RESULT result = nativeSound.getDefaults( out frequency, out priority );
             ThrowOnError( result );
         }
 
@@ -453,10 +459,13 @@ namespace Atom.Fmod
               int priority
             )
         {
-            if( nativeSound == null )
-                throw new InvalidOperationException( Properties.Resources.Error_NativeSoundObjectIsNull );
+            if (!this.nativeSound.hasHandle())
+            {
+                throw new InvalidOperationException(Properties.Resources.Error_NativeSoundObjectIsNull);
+            }
 
-            RESULT result = nativeSound.setDefaults( frequency, volume, pan, priority );
+            /// volume, pan,
+            RESULT result = nativeSound.setDefaults( frequency, priority );
             ThrowOnError( result );
         }
 
@@ -479,14 +488,12 @@ namespace Atom.Fmod
         /// <exception cref="AudioException">If an native FMOD error has occured.</exception>
         public void GetFormat( out SOUND_TYPE type, out SOUND_FORMAT format, out int channelCount, out int bits )
         {
-            if( nativeSound == null )
-                throw new InvalidOperationException( Properties.Resources.Error_NativeSoundObjectIsNull );
+            if (!this.nativeSound.hasHandle())
+            {
+                throw new InvalidOperationException(Properties.Resources.Error_NativeSoundObjectIsNull);
+            }
 
-            type         = SOUND_TYPE.UNKNOWN;
-            format       = SOUND_FORMAT.NONE;
-            channelCount = bits = 0;
-
-            RESULT result = nativeSound.getFormat( ref type, ref format, ref channelCount, ref bits  );
+            RESULT result = nativeSound.getFormat( out type, out format, out channelCount, out bits );
             ThrowOnError( result );
         }
 
@@ -506,11 +513,13 @@ namespace Atom.Fmod
         [CLSCompliant(false)]
         public uint GetLength( TIMEUNIT lengthType )
         {
-            if( nativeSound == null )
-                throw new InvalidOperationException( Properties.Resources.Error_NativeSoundObjectIsNull );
-         
-            uint length = 0;
-            RESULT result = nativeSound.getLength( ref length, lengthType );
+            if (!this.nativeSound.hasHandle())
+            {
+                throw new InvalidOperationException(Properties.Resources.Error_NativeSoundObjectIsNull);
+            }
+
+            uint length;
+            RESULT result = nativeSound.getLength( out length, lengthType );
             ThrowOnError( result );
 
             return length;
@@ -527,11 +536,13 @@ namespace Atom.Fmod
         /// </returns>
         public int GetLengthInt( TIMEUNIT lengthType )
         {
-            if( nativeSound == null )
-                throw new InvalidOperationException( Properties.Resources.Error_NativeSoundObjectIsNull );
+            if (!this.nativeSound.hasHandle())
+            {
+                throw new InvalidOperationException(Properties.Resources.Error_NativeSoundObjectIsNull);
+            }
 
-            uint length = 0;
-            RESULT result = nativeSound.getLength( ref length, lengthType );
+            uint length;
+            RESULT result = nativeSound.getLength( out length, lengthType );
             ThrowOnError( result );
 
             return (int)length;
@@ -554,11 +565,12 @@ namespace Atom.Fmod
         /// <exception cref="AudioException">If an native FMOD error has occured.</exception>
         public void GetTagCount( out int tagCount, out int updatedTagCount )
         {
-            if( nativeSound == null )
-                throw new InvalidOperationException( Properties.Resources.Error_NativeSoundObjectIsNull );
+            if (!this.nativeSound.hasHandle())
+            {
+                throw new InvalidOperationException(Properties.Resources.Error_NativeSoundObjectIsNull);
+            }
 
-            tagCount = updatedTagCount = 0;
-            RESULT result = nativeSound.getNumTags( ref tagCount, ref updatedTagCount );
+            RESULT result = nativeSound.getNumTags( out tagCount, out updatedTagCount );
             ThrowOnError( result );
         }
 
@@ -588,8 +600,10 @@ namespace Atom.Fmod
         [CLSCompliant(false)]
         public void SetLoopPoints( uint start, TIMEUNIT startType, uint end, TIMEUNIT endType )
         {
-            if( nativeSound == null )
-                throw new InvalidOperationException( Properties.Resources.Error_NativeSoundObjectIsNull );
+            if (!this.nativeSound.hasHandle())
+            {
+                throw new InvalidOperationException(Properties.Resources.Error_NativeSoundObjectIsNull);
+            }
 
             RESULT result = nativeSound.setLoopPoints( start, startType, end, endType );
             ThrowOnError( result );
@@ -616,8 +630,10 @@ namespace Atom.Fmod
         /// </remarks>
         public void SetLoopPointsInt( int start, TIMEUNIT startType, int end, TIMEUNIT endType )
         {
-            if( nativeSound == null )
-                throw new InvalidOperationException( Properties.Resources.Error_NativeSoundObjectIsNull );
+            if (!this.nativeSound.hasHandle())
+            {
+                throw new InvalidOperationException(Properties.Resources.Error_NativeSoundObjectIsNull);
+            }
 
             RESULT result = nativeSound.setLoopPoints( (uint)start, startType, (uint)end, endType );
             ThrowOnError( result );
@@ -645,13 +661,12 @@ namespace Atom.Fmod
         [CLSCompliant( false )]
         public void GetLoopPoints( out uint start, TIMEUNIT startType, out uint end, TIMEUNIT endType )
         {
-            if( nativeSound == null )
-                throw new InvalidOperationException( Properties.Resources.Error_NativeSoundObjectIsNull );
+            if (!this.nativeSound.hasHandle())
+            {
+                throw new InvalidOperationException(Properties.Resources.Error_NativeSoundObjectIsNull);
+            }
 
-            start = 0;
-            end   = 0;
-
-            RESULT result = nativeSound.getLoopPoints( ref start, startType, ref end, endType );
+            RESULT result = nativeSound.getLoopPoints( out start, startType, out end, endType );
             ThrowOnError( result );
         }
 
@@ -676,15 +691,17 @@ namespace Atom.Fmod
         /// </remarks>
         public void GetLoopPointsInt( out int start, TIMEUNIT startType, out int end, TIMEUNIT endType )
         {
-            if( nativeSound == null )
-                throw new InvalidOperationException( Properties.Resources.Error_NativeSoundObjectIsNull );
+            if (!this.nativeSound.hasHandle())
+            {
+                throw new InvalidOperationException(Properties.Resources.Error_NativeSoundObjectIsNull);
+            }
 
             uint start2 = 0;
                  start  = 0;
             uint end2   = 0;
                  end    = 0; 
 
-            RESULT result = nativeSound.getLoopPoints( ref start2, startType, ref end2, endType );
+            RESULT result = nativeSound.getLoopPoints( out start2, startType, out end2, endType );
             ThrowOnError( result );
 
             start = (int)start2;
@@ -693,77 +710,79 @@ namespace Atom.Fmod
 
         #endregion
 
-        #region - Get/Set Variations -
+        ////#region - Get/Set Variations -
 
-        /// <summary>
-        /// Sets the current playback behaviour variations of this Sound resource.  
-        /// </summary>
-        /// <param name="frequencyVariation">
-        /// The frequency variation in hz. 
-        /// Frequency will play at its default frequency, plus or minus a random value within this range.
-        /// Default = 0.0.
-        /// </param>
-        /// <param name="volumeVariation">
-        /// Tthe volume variation. 0.0 to 1.0.
-        /// Sound will play at its default volume, plus or minus a random value within this range. 
-        /// Default = 0.0. 
-        /// </param>
-        /// <param name="panVariation">
-        /// The pan variation. 0.0 to 2.0. 
-        /// Sound will play at its default pan, plus or minus a random value within this range.
-        /// Pan is from -1.0 to +1.0 normally so the range can be a maximum of 2.0 in this case. 
-        /// Default = 0. Specify 0 or NULL to ignore.
-        /// </param>
-        /// <exception cref="InvalidOperationException">If the native Sound object is null, consider loading the Sound resource.</exception>
-        /// <exception cref="AudioException">If an native FMOD error has occured.</exception>
-        public void SetVariations( float frequencyVariation, float volumeVariation, float panVariation )
-        {
-            if( nativeSound == null )
-                throw new InvalidOperationException( Properties.Resources.Error_NativeSoundObjectIsNull );
+        /////// <summary>
+        /////// Sets the current playback behaviour variations of this Sound resource.  
+        /////// </summary>
+        /////// <param name="frequencyVariation">
+        /////// The frequency variation in hz. 
+        /////// Frequency will play at its default frequency, plus or minus a random value within this range.
+        /////// Default = 0.0.
+        /////// </param>
+        /////// <param name="volumeVariation">
+        /////// Tthe volume variation. 0.0 to 1.0.
+        /////// Sound will play at its default volume, plus or minus a random value within this range. 
+        /////// Default = 0.0. 
+        /////// </param>
+        /////// <param name="panVariation">
+        /////// The pan variation. 0.0 to 2.0. 
+        /////// Sound will play at its default pan, plus or minus a random value within this range.
+        /////// Pan is from -1.0 to +1.0 normally so the range can be a maximum of 2.0 in this case. 
+        /////// Default = 0. Specify 0 or NULL to ignore.
+        /////// </param>
+        /////// <exception cref="InvalidOperationException">If the native Sound object is null, consider loading the Sound resource.</exception>
+        /////// <exception cref="AudioException">If an native FMOD error has occured.</exception>
+        ////public void SetVariations( float frequencyVariation, float volumeVariation, float panVariation )
+        ////{
+        ////    if (!this.nativeSound.hasHandle())
+        ////    {
+        ////        throw new InvalidOperationException(Properties.Resources.Error_NativeSoundObjectIsNull);
+        ////    }
 
-            RESULT result = nativeSound.setVariations( frequencyVariation, volumeVariation, panVariation );
-            ThrowOnError( result );
-        }
+        ////    RESULT result = nativeSound.( frequencyVariation, volumeVariation, panVariation );
+        ////    ThrowOnError( result );
+        ////}
 
-        /// <summary>
-        /// Retrieves the current playback behaviour variations of this Sound resource.  
-        /// </summary>
-        /// <param name="frequencyVariation">
-        /// Address of a variable to receive the frequency variation in hz. 
-        /// Frequency will play at its default frequency, plus or minus a random value within this range.
-        /// Default = 0.0.
-        /// </param>
-        /// <param name="volumeVariation">
-        /// Address of a variable to receive the volume variation. 0.0 to 1.0.
-        /// Sound will play at its default volume, plus or minus a random value within this range. 
-        /// Default = 0.0. 
-        /// </param>
-        /// <param name="panVariation">
-        /// Address of a variable to receive the pan variation. 0.0 to 2.0. 
-        /// Sound will play at its default pan, plus or minus a random value within this range.
-        /// Pan is from -1.0 to +1.0 normally so the range can be a maximum of 2.0 in this case. 
-        /// Default = 0. Specify 0 or NULL to ignore.
-        /// </param>
-        /// <exception cref="InvalidOperationException">If the native Sound object is null, consider loading the Sound resource.</exception>
-        /// <exception cref="AudioException">If an native FMOD error has occured.</exception>
-        public void GetVariations(
-              out float frequencyVariation,
-              out float volumeVariation,
-              out float panVariation
-        )
-        {
-            if( this.nativeSound == null )
-                throw new InvalidOperationException( Properties.Resources.Error_NativeSoundObjectIsNull );
+        /////// <summary>
+        /////// Retrieves the current playback behaviour variations of this Sound resource.  
+        /////// </summary>
+        /////// <param name="frequencyVariation">
+        /////// Address of a variable to receive the frequency variation in hz. 
+        /////// Frequency will play at its default frequency, plus or minus a random value within this range.
+        /////// Default = 0.0.
+        /////// </param>
+        /////// <param name="volumeVariation">
+        /////// Address of a variable to receive the volume variation. 0.0 to 1.0.
+        /////// Sound will play at its default volume, plus or minus a random value within this range. 
+        /////// Default = 0.0. 
+        /////// </param>
+        /////// <param name="panVariation">
+        /////// Address of a variable to receive the pan variation. 0.0 to 2.0. 
+        /////// Sound will play at its default pan, plus or minus a random value within this range.
+        /////// Pan is from -1.0 to +1.0 normally so the range can be a maximum of 2.0 in this case. 
+        /////// Default = 0. Specify 0 or NULL to ignore.
+        /////// </param>
+        /////// <exception cref="InvalidOperationException">If the native Sound object is null, consider loading the Sound resource.</exception>
+        /////// <exception cref="AudioException">If an native FMOD error has occured.</exception>
+        ////public void GetVariations(
+        ////      out float frequencyVariation,
+        ////      out float volumeVariation,
+        ////      out float panVariation
+        ////)
+        ////{
+        ////    if( this.nativeSound == null )
+        ////        throw new InvalidOperationException( Properties.Resources.Error_NativeSoundObjectIsNull );
 
-            frequencyVariation = 0.0f;
-            volumeVariation    = 0.0f;
-            panVariation       = 0.0f;
+        ////    frequencyVariation = 0.0f;
+        ////    volumeVariation    = 0.0f;
+        ////    panVariation       = 0.0f;
 
-            RESULT result = this.nativeSound.getVariations( ref frequencyVariation, ref volumeVariation, ref panVariation );
-            ThrowOnError( result );
-        }
+        ////    RESULT result = this.nativeSound.getVariations( ref frequencyVariation, ref volumeVariation, ref panVariation );
+        ////    ThrowOnError( result );
+        ////}
 
-        #endregion
+        ////#endregion
 
         /// <summary>
         /// Helper function that throws an <see cref="AudioException"/>
@@ -794,6 +813,11 @@ namespace Atom.Fmod
         /// The underlying sound object.
         /// </summary>
         private Native.Sound nativeSound;
+
+        /// <summary>
+        /// The channel group on which the sound plays.
+        /// </summary>
+        private readonly Native.ChannelGroup nativeChannelGroup = new Native.ChannelGroup();
 
         /// <summary>
         /// The name of the sound file. 

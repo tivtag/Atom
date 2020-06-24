@@ -119,8 +119,8 @@ namespace Atom.Fmod
         {
             get
             {
-                uint version = 0;
-                RESULT result = system.getVersion( ref version );
+                uint version;
+                RESULT result = system.getVersion( out version );
                 ThrowOnError( result );
 
                 return version.ToString( "X", CultureInfo.CurrentCulture );
@@ -137,17 +137,25 @@ namespace Atom.Fmod
         {
             get
             {
-                var nameBuilder = new StringBuilder( 512 );
-                Atom.Fmod.Native.GUID driverGuid = new Atom.Fmod.Native.GUID();
+                string name;
+                global::System.Guid driverGuid;
 
-                int driverId = 0;
-                RESULT result = system.getDriver( ref driverId );
+                int driver;
+                RESULT result = system.getDriver( out driver );
                 ThrowOnError( result );
 
-                result = system.getDriverInfo( driverId, nameBuilder, 512, ref driverGuid );
+                result = system.getDriverInfo( 
+                    driver, 
+                    out name,
+                    512, 
+                    out driverGuid, 
+                    out int systemrate, 
+                    out SPEAKERMODE speakerMode,
+                    out int speakermodechannels
+                );
                 ThrowOnError( result );
 
-                return nameBuilder.ToString();
+                return name.ToString();
             }
         }
 
@@ -161,18 +169,32 @@ namespace Atom.Fmod
         {
             get
             {
-                SPEAKERMODE mode = SPEAKERMODE.STEREO;
-                RESULT result = system.getSpeakerMode( ref mode );
-                ThrowOnError( result );
+                string name;
+                global::System.Guid driverGuid;
 
-                return mode;
+                int driver;
+                RESULT result = system.getDriver(out driver);
+                ThrowOnError(result);
+
+                result = system.getDriverInfo(
+                    driver,
+                    out name,
+                    512,
+                    out driverGuid,
+                    out int systemrate,
+                    out SPEAKERMODE speakerMode,
+                    out int speakermodechannels
+                );
+                ThrowOnError(result);
+
+                return speakerMode;
             }
 
-            set
-            {
-                RESULT result = system.setSpeakerMode( value );
-                ThrowOnError( result );
-            }
+            ////set
+            ////{
+            ////    RESULT result = system.setSpeakerMode( value );
+            ////    ThrowOnError( result );
+            ////}
         }
 
         /// <summary>
@@ -291,11 +313,11 @@ namespace Atom.Fmod
             RESULT result;
 
             // 1.) Create FmodSystem
-            result = Factory.System_Create( ref system );
+            result = Factory.System_Create( out system );
             ThrowOnError( result );
 
             // 2.) Check whether the version of the native dll is supported:
-            result = system.getVersion( ref version );
+            result = system.getVersion(out version );
             ThrowOnError( result );
 
             if( version < VERSION.number )
@@ -303,8 +325,8 @@ namespace Atom.Fmod
                 OnInvalidDllVersion( version, VERSION.number );
             }
 
-            int driverCount = 0;
-            result = system.getNumDrivers( ref driverCount );
+            int driverCount;
+            result = system.getNumDrivers( out driverCount );
             ThrowOnError( result );
 
             if( driverCount == 0 )
@@ -314,62 +336,63 @@ namespace Atom.Fmod
                 result = system.setOutput( OUTPUTTYPE.NOSOUND );
                 ThrowOnError( result );
             }
-            else
-            {
-                SPEAKERMODE systemSpeakerMode = SPEAKERMODE.STEREO;
-                CAPS caps = CAPS.NONE;
-                int controlpaneloutputrate = 0;
+            ////else
+            ////{
+            ////    SPEAKERMODE systemSpeakerMode = SPEAKERMODE.STEREO;
+            ////    CAPS caps = CAPS.NONE;
+            ////    int controlpaneloutputrate = 0;
 
-                system.getDriverCaps( 0, ref caps, ref controlpaneloutputrate, ref systemSpeakerMode );
+            ////    system.getDriverCaps( 0, ref caps, ref controlpaneloutputrate, ref systemSpeakerMode );
 
-                //result = system.getDriverCaps( 0, ref caps, ref controlpaneloutputrate, ref systemSpeakerMode );
-                ThrowOnError( result );
+            ////    //result = system.getDriverCaps( 0, ref caps, ref controlpaneloutputrate, ref systemSpeakerMode );
+            ////    ThrowOnError( result );
 
-                var choosenSpeakerMode = speakerMode.HasValue ? speakerMode.Value : systemSpeakerMode;
-                result = system.setSpeakerMode( choosenSpeakerMode );  /* Set the user selected speaker mode. */
-                ThrowOnError( result );
+            ////    var choosenSpeakerMode = speakerMode.HasValue ? speakerMode.Value : systemSpeakerMode;
+            ////    result = system.setSpeakerMode( choosenSpeakerMode );  /* Set the user selected speaker mode. */
+            ////    ThrowOnError( result );
 
-                if( (caps & CAPS.HARDWARE_EMULATED) != 0 )
-                {
-                    /* The user has the 'Acceleration' slider set to off!  This is really bad for latency!. */
-                    /* You might want to warn the user about this. */
-                    /* At 48khz, the latency between issuing an fmod command and hearing it will now be about 213ms. */
-                    result = system.setDSPBufferSize( 1024, 10 );
-                    ThrowOnError( result );
-                }
+            ////    if( (caps & CAPS.HARDWARE_EMULATED) != 0 )
+            ////    {
+            ////        /* The user has the 'Acceleration' slider set to off!  This is really bad for latency!. */
+            ////        /* You might want to warn the user about this. */
+            ////        /* At 48khz, the latency between issuing an fmod command and hearing it will now be about 213ms. */
+            ////        result = system.setDSPBufferSize( 1024, 10 );
+            ////        ThrowOnError( result );
+            ////    }
 
-                var nameBuilder = new StringBuilder( 512 );
-                var driverGuid = new Atom.Fmod.Native.GUID();
+            ////    var nameBuilder = new StringBuilder( 512 );
+            ////    var driverGuid = new Atom.Fmod.Native.GUID();
 
-                result = system.getDriverInfo( 0, nameBuilder, 512, ref driverGuid );
-                ThrowOnError( result );
+            ////    result = system.getDriverInfo( 0, nameBuilder, 512, ref driverGuid );
+            ////    ThrowOnError( result );
 
-                string driverName = nameBuilder.ToString();
-                if( driverName.Equals( "SigmaTel", StringComparison.OrdinalIgnoreCase ) )
-                {
-                    /* Sigmatel sound devices crackle for some reason if the format is PCM 16bit. 
-                     * PCM floating point output seems to solve it. */
-                    result = system.setSoftwareFormat(
-                        48000,
-                        SOUND_FORMAT.PCMFLOAT,
-                        0,
-                        0,
-                        DSP_RESAMPLER.LINEAR
-                    );
+            ////    string driverName = nameBuilder.ToString();
+            ////    if( driverName.Equals( "SigmaTel", StringComparison.OrdinalIgnoreCase ) )
+            ////    {
+            ////        /* Sigmatel sound devices crackle for some reason if the format is PCM 16bit. 
+            ////         * PCM floating point output seems to solve it. */
+            ////        result = system.setSoftwareFormat(
+            ////            48000,
+            ////            SOUND_FORMAT.PCMFLOAT,
+            ////            0,
+            ////            0,
+            ////            DSP_RESAMPLER.LINEAR
+            ////        );
 
-                    ThrowOnError( result );
-                }
-            }
+            ////        ThrowOnError( result );
+            ////    }
+            ////}
 
             result = system.init( maxChannels, flags, IntPtr.Zero );
 
             if( result == RESULT.ERR_OUTPUT_CREATEBUFFER )
             {
-                /* Ok, the speaker mode selected isn't supported by this soundcard.
-                 * Switch it back to stereo... */
-                result = system.setSpeakerMode( SPEAKERMODE.STEREO );
-                ThrowOnError( result );
+                /////* Ok, the speaker mode selected isn't supported by this soundcard.
+                //// * Switch it back to stereo... */
+                ////result = system.setSpeakerMode( SPEAKERMODE.STEREO );
+                ////ThrowOnError( result );
 
+                // Try again
                 result = system.init( maxChannels, INITFLAGS.NORMAL, IntPtr.Zero );
                 ThrowOnError( result );
             }
@@ -384,13 +407,13 @@ namespace Atom.Fmod
 
         private void CreateGroups()
         {
-            var nativeMasterChannelGroup = new Atom.Fmod.Native.ChannelGroup();
-            system.getMasterChannelGroup( ref nativeMasterChannelGroup );
+            Native.ChannelGroup nativeMasterChannelGroup;
+            system.getMasterChannelGroup( out nativeMasterChannelGroup );
 
             this.masterChannelGroup = new ChannelGroup( nativeMasterChannelGroup, this );
 
-            var nativeMasterSoundGroup = new Atom.Fmod.Native.SoundGroup();
-            system.getMasterSoundGroup( ref nativeMasterSoundGroup );
+            Native.SoundGroup nativeMasterSoundGroup;
+            system.getMasterSoundGroup(out nativeMasterSoundGroup );
 
             this.masterGroup = new SoundGroup( nativeMasterSoundGroup, this );
             this.musicGroup = new SoundGroup( "Music", this );
@@ -449,7 +472,6 @@ namespace Atom.Fmod
             result = this.system.release();
             ThrowOnError( result );
 
-            this.system = null;
             this.isInitialized = false;
         }
 
@@ -725,11 +747,7 @@ namespace Atom.Fmod
         /// </param>
         public void Get3DSettings( out float dopplerScale, out float distanceFactor, out float rolloffScale )
         {
-            dopplerScale = 1.0f;
-            distanceFactor = 1.0f;
-            rolloffScale = 1.0f;
-
-            RESULT result = this.system.get3DSettings( ref dopplerScale, ref distanceFactor, ref rolloffScale );
+            RESULT result = this.system.get3DSettings( out dopplerScale, out distanceFactor, out rolloffScale );
             ThrowOnError( result );
         }
 

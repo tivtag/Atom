@@ -30,12 +30,12 @@ namespace Atom.Fmod
         {
             get
             {
-                var sb = new StringBuilder( 255 );
+                string name;
 
-                RESULT result = nativeGroup.getName( sb, 255 );
+                RESULT result = nativeGroup.getName( out name, 255 );
                 ThrowOnError( result );
 
-                return sb.ToString();
+                return name;
             }
         }
 
@@ -58,7 +58,7 @@ namespace Atom.Fmod
             {
                 float volume = 0.0f;
 
-                RESULT result = nativeGroup.getVolume( ref volume );
+                RESULT result = nativeGroup.getVolume( out volume );
                 ThrowOnError( result );
 
                 return volume;
@@ -78,9 +78,9 @@ namespace Atom.Fmod
         {
             get
             {
-                int SoundCount = 0;
+                int SoundCount;
 
-                RESULT result = nativeGroup.getNumSounds( ref SoundCount );
+                RESULT result = nativeGroup.getNumSounds( out SoundCount );
                 ThrowOnError( result );
 
                 return SoundCount;
@@ -95,8 +95,8 @@ namespace Atom.Fmod
         {
             get
             {
-                IntPtr ptr = IntPtr.Zero;
-                RESULT result = nativeGroup.getUserData( ref ptr );
+                IntPtr ptr;
+                RESULT result = nativeGroup.getUserData( out ptr );
 
                 return ptr;
             }
@@ -148,9 +148,8 @@ namespace Atom.Fmod
                 throw new ArgumentNullException( "audioSystem" );
 
             this.audioSystem = audioSystem;
-            this.nativeGroup = new Atom.Fmod.Native.SoundGroup();
 
-            RESULT result = audioSystem.NativeSystem.createSoundGroup( name, ref nativeGroup );
+            RESULT result = audioSystem.NativeSystem.createSoundGroup( name, out nativeGroup );
             ThrowOnError( result );
         }
 

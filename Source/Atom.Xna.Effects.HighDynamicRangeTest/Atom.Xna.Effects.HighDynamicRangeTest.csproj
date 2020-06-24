@@ -8,7 +8,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Atom.Xna.Effects.HighDynamicRangeTest</RootNamespace>
     <AssemblyName>Atom.Xna.Effects.HighDynamicRangeTest</AssemblyName>
-    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <ApplicationIcon>
     </ApplicationIcon>
     <IsWebBootstrapper>false</IsWebBootstrapper>
