@@ -21,7 +21,7 @@ namespace Atom.Fmod.Native
     */
     public class VERSION
     {
-        public const int number = 0x00020009;
+        public const int number = 0x00020010;
 #if (UNITY_IPHONE || UNITY_TVOS || UNITY_SWITCH || UNITY_WEBGL) && !UNITY_EDITOR
         public const string dll    = "__Internal";
 #elif (UNITY_PS4) && DEVELOPMENT_BUILD
