@@ -11,7 +11,6 @@
 namespace Atom.Tests
 {
     using System;
-    using Microsoft.Pex.Framework;
     using Microsoft.VisualStudio.TestTools.UnitTesting;
 
     /// <summary>
@@ -29,16 +28,6 @@ namespace Atom.Tests
             // Act & Assert
             Assert.IsTrue( TestString.Contains( "world", StringComparison.OrdinalIgnoreCase ) );
             Assert.IsTrue( TestString.Contains( "WORLD", StringComparison.OrdinalIgnoreCase ) );
-        }
-
-        [PexMethod]
-        public void Contains_Self_ReturnsTrue( [PexAssumeNotNull]string str, StringComparison comparison )
-        {
-            // Act
-            bool containsSelf = str.Contains( str, comparison );
-
-            // Assert
-            Assert.IsTrue( containsSelf );
         }
     }
 }

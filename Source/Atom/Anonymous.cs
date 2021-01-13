@@ -14,8 +14,6 @@ namespace Atom
 {
     using System;
     using System.Collections.Generic;
-    using Atom.Diagnostics.Contracts;
-    using System.Linq;
 
     /// <summary>
     /// Contains static helper methods related to anonymous types.
@@ -48,7 +46,6 @@ namespace Atom
         public static IList<T> CreateList<T>( Func<T> template )
             where T : class
         {
-            // Contract.Ensures( Contract.Result<IList<T>>() != null );
             return new List<T>();
         }
     }

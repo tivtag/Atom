@@ -11,14 +11,12 @@
 namespace Atom.Design.Tests
 {
     using System;
-    using Microsoft.Pex.Framework;
     using Microsoft.VisualStudio.TestTools.UnitTesting;
 
     /// <summary>
     /// Tests the usage of the <see cref="ObjectPropertyWrapperFactory"/> class.
     /// </summary>
     [TestClass]
-    [PexClass( typeof( ObjectPropertyWrapperFactory ) )]
     public sealed partial class ObjectPropertyWrapperFactoryTests
     {
         [TestMethod]
@@ -146,36 +144,6 @@ namespace Atom.Design.Tests
             );
         }
 
-        [PexMethod]
-        public void ReceiveWrapper_WhenPassedKnownObject_ReturnsWrapper( [PexAssumeNotNull]string obj )
-        {
-            // Arrange
-            var factory = new ObjectPropertyWrapperFactory();
-            factory.RegisterWrapper( new TestIntegerPropertyWrapper() );
-            factory.RegisterWrapper( new TestStringPropertyWrapper() );
-            
-            // Act
-            var wrapper = factory.ReceiveWrapper( obj );
-
-            // Assert
-            Assert.IsNotNull( wrapper );
-            Assert.AreEqual( obj, wrapper.WrappedObject );
-            Assert.AreEqual( typeof(string), wrapper.WrappedType );
-        }
-
-        [PexMethod]
-        public void ReceiveWrapperOrObject_WhenPassedUnknownObject_ReturnsObject( [PexAssumeNotNull]object obj )
-        {
-            // Arrange
-            var factory = new ObjectPropertyWrapperFactory();
-
-            // Act
-            var wrapperOrObject = factory.ReceiveWrapperOrObject( obj );
-
-            // Assert
-            Assert.AreEqual( obj, wrapperOrObject );
-        }
-
         [TestMethod]
         public void ReceiveWrapperOrObject_WhenPassedNull_Throws()
         {
@@ -189,25 +157,6 @@ namespace Atom.Design.Tests
                     factory.ReceiveWrapperOrObject( null );
                 }
             );
-        }
-
-        [PexMethod]
-        public void ReceiveWrapperOrObject_WhenPassedKnownObject_ReturnsWrapper( [PexAssumeNotNull]string obj )
-        {
-            // Arrange
-            var factory = new ObjectPropertyWrapperFactory();
-            factory.RegisterWrapper( new TestIntegerPropertyWrapper() );
-            factory.RegisterWrapper( new TestStringPropertyWrapper() );
-
-            // Act
-            var wrapperOrObject = factory.ReceiveWrapperOrObject( obj );
-            var wrapper = wrapperOrObject as IObjectPropertyWrapper;
-
-            // Assert
-            Assert.IsNotNull( wrapperOrObject );
-            Assert.IsNotNull( wrapper );
-            Assert.AreEqual( obj, wrapper.WrappedObject );
-            Assert.AreEqual( typeof( string ), wrapper.WrappedType );
         }
     }
 }

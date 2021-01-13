@@ -11,7 +11,7 @@
 namespace Atom.Tests
 {
     using System;
-    using Microsoft.VisualStudio.TestTools.UnitTesting;    
+    using Microsoft.VisualStudio.TestTools.UnitTesting;
 
     /// <summary>
     /// Tests the usage of the <see cref="EventHandlerExtension"/> class.

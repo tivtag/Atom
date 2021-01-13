@@ -32,7 +32,7 @@ namespace Atom.Collections.Comparers.Tests
             list.Add( pairNull );
             list.Add( pairC );
             list.Add( pairNull );
-                        
+
             var comparer = new TupleItem2Comparer<int, string>();
             
             // Act

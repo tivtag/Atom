@@ -26,7 +26,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Game", "Game", "{64520F61-2
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{1A38DCE2-B5DD-4BB5-BCF9-371BFF08BDF1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Atom.Math", "Atom.Math\Atom.Math.csproj", "{CC3BC455-003C-43EE-8646-B53311A89298}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Atom.Math", "Atom.Math\Atom.Math.csproj", "{CC3BC455-003C-43EE-8646-B53311A89298}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Atom.Wpf", "Atom.Wpf\Atom.Wpf.csproj", "{3D499900-B7EB-45F9-A278-2768AD8E2762}"
 EndProject
@@ -74,7 +74,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Specifications", "Specifica
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Atom.Scripting.Specs", "Atom.Scripting.Specs\Atom.Scripting.Specs.csproj", "{48161CB8-519B-446E-A8FF-B20A1B6F8BE8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Atom.Tests", "..\Tests\Atom.Tests\Atom.Tests.csproj", "{4A22DDEF-E447-416A-BAB1-27A9B0A9786B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Atom.Tests", "..\Tests\Atom.Tests\Atom.Tests.csproj", "{4A22DDEF-E447-416A-BAB1-27A9B0A9786B}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Atom.Tests.Manual.Console", "..\Tests\Atom.Tests.Console\Atom.Tests.Manual.Console.csproj", "{32F3E659-6F33-4F1B-9E19-50C73361036F}"
 EndProject
@@ -82,7 +82,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Atom.Tests.Manual.Forms", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Atom.Tests.Framework", "Atom.Test.Framework\Atom.Tests.Framework.csproj", "{F9C6D41B-5C7F-4579-AA68-80F3ADF6B0BB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Atom", "Atom\Atom.csproj", "{FD767621-6A9E-41D9-8AE1-68F39421344A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Atom", "Atom\Atom.csproj", "{FD767621-6A9E-41D9-8AE1-68F39421344A}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Atom.Scripting", "Atom.Scripting\Atom.Scripting.csproj", "{2AD99929-0526-4755-A302-5B1B4BB14B4E}"
 EndProject
@@ -99,8 +99,8 @@ Global
 		{CC3BC455-003C-43EE-8646-B53311A89298}.Debug|Any CPU.ActiveCfg = Debug|x86
 		{CC3BC455-003C-43EE-8646-B53311A89298}.Debug|x86.ActiveCfg = Debug|x86
 		{CC3BC455-003C-43EE-8646-B53311A89298}.Debug|x86.Build.0 = Debug|x86
-		{CC3BC455-003C-43EE-8646-B53311A89298}.Release|Any CPU.ActiveCfg = Release|x86
-		{CC3BC455-003C-43EE-8646-B53311A89298}.Release|Any CPU.Build.0 = Release|x86
+		{CC3BC455-003C-43EE-8646-B53311A89298}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CC3BC455-003C-43EE-8646-B53311A89298}.Release|Any CPU.Build.0 = Release|Any CPU
 		{CC3BC455-003C-43EE-8646-B53311A89298}.Release|x86.ActiveCfg = Release|x86
 		{CC3BC455-003C-43EE-8646-B53311A89298}.Release|x86.Build.0 = Release|x86
 		{3D499900-B7EB-45F9-A278-2768AD8E2762}.Debug|Any CPU.ActiveCfg = Debug|x86
@@ -261,8 +261,8 @@ Global
 		{FD767621-6A9E-41D9-8AE1-68F39421344A}.Debug|Any CPU.ActiveCfg = Debug|x86
 		{FD767621-6A9E-41D9-8AE1-68F39421344A}.Debug|x86.ActiveCfg = Debug|x86
 		{FD767621-6A9E-41D9-8AE1-68F39421344A}.Debug|x86.Build.0 = Debug|x86
-		{FD767621-6A9E-41D9-8AE1-68F39421344A}.Release|Any CPU.ActiveCfg = Release|x86
-		{FD767621-6A9E-41D9-8AE1-68F39421344A}.Release|Any CPU.Build.0 = Release|x86
+		{FD767621-6A9E-41D9-8AE1-68F39421344A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FD767621-6A9E-41D9-8AE1-68F39421344A}.Release|Any CPU.Build.0 = Release|Any CPU
 		{FD767621-6A9E-41D9-8AE1-68F39421344A}.Release|x86.ActiveCfg = Release|x86
 		{FD767621-6A9E-41D9-8AE1-68F39421344A}.Release|x86.Build.0 = Release|x86
 		{2AD99929-0526-4755-A302-5B1B4BB14B4E}.Debug|Any CPU.ActiveCfg = Debug|x86

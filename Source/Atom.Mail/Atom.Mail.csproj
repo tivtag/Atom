@@ -1,65 +1,23 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
-    <ProjectGuid>{C10B3000-E49D-4261-BDB7-48F4F1EB6F67}</ProjectGuid>
-    <OutputType>Library</OutputType>
-    <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Atom.Mail</RootNamespace>
-    <AssemblyName>Atom.Mail</AssemblyName>
-    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
-    <FileAlignment>512</FileAlignment>
-    <Deterministic>true</Deterministic>
+    <AssemblyTitle>Atom.Mail</AssemblyTitle>
+    <Description>A simple library for sending e-mail.</Description>
+    <TargetFramework>net48</TargetFramework>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
-    <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
+    <OutputPath>bin\$(Configuration)\</OutputPath>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
     <DebugType>pdbonly</DebugType>
-    <Optimize>true</Optimize>
-    <OutputPath>..\..\Binaries\Release\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-    <PlatformTarget>x86</PlatformTarget>
-    <DocumentationFile>..\..\Binaries\Release\Atom.Mail.xml</DocumentationFile>
+    <OutputPath>..\..\Binaries\$(Configuration)\</OutputPath>
+    <DocumentationFile>..\..\Binaries\$(Configuration)\Atom.Mail.xml</DocumentationFile>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="System" />
-    <Reference Include="System.Core" />
+    <Compile Include="..\SolutionInfo.cs" Link="Properties\SolutionInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="..\SolutionInfo.cs">
-      <Link>Properties\SolutionInfo.cs</Link>
-    </Compile>
-    <Compile Include="GlobalSuppressions.cs" />
-    <Compile Include="IMailMessage.cs" />
-    <Compile Include="Modifiers\AddAttachmentModifier.cs" />
-    <Compile Include="Modifiers\IMailMessageModifier.cs" />
-    <Compile Include="MailMessage.cs" />
-    <Compile Include="MailException.cs" />
-    <Compile Include="IMailSender.cs" />
-    <Compile Include="MailTo\MailToMailSender.cs" />
-    <Compile Include="Mapi\MapiMailSender.cs" />
-    <Compile Include="Mapi\NativeMapiFileDesc.cs" />
-    <Compile Include="Mapi\NativeMapiMessage.cs" />
-    <Compile Include="Mapi\NativeMapiRecipDesc.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SafeMailSender.cs" />
+    <ProjectReference Include="..\Atom\Atom.csproj" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Atom\Atom.csproj">
-      <Project>{fd767621-6a9e-41d9-8ae1-68f39421344a}</Project>
-      <Name>Atom</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

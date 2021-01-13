@@ -11,12 +11,8 @@
 namespace Atom.Tests
 {
     using System;
-    using System.Text;
-    using System.Collections.Generic;
-    using System.Linq;
-    using Microsoft.VisualStudio.TestTools.UnitTesting;
     using Atom.Diagnostics;
-    using Atom.Diagnostics.Moles;
+    using Microsoft.VisualStudio.TestTools.UnitTesting;
 
     [TestClass]
     public class GlobalServicesTests
@@ -45,36 +41,6 @@ namespace Atom.Tests
         public void TryLog_WithNoLogProvider_DoesntThrow()
         {
             CustomAssert.DoesNotThrow( () => GlobalServices.TryLog( "" ) );
-        }
-
-        [TestMethod]
-        public void TryLog_WithLogProvider_WritesToLog()
-        {
-            bool wasLogged = false;
-            const string ExpectedMessage = "Roawr!";
-            
-            // Arrange
-            var logProvider = new SILogProvider();
-
-            logProvider.LogGet = () => {
-                var log = new SILog();
-
-                log.WriteLineString = (message) => {
-                    Assert.AreEqual( ExpectedMessage, message );
-                    Assert.IsFalse( wasLogged );
-                    wasLogged = true;
-                };
-
-                return log;
-            };
-
-            GlobalServices.Container.AddService( typeof( ILogProvider ), logProvider );
- 
-            // Act
-            GlobalServices.TryLog( ExpectedMessage );
-
-            // Assert
-            Assert.IsTrue( wasLogged );
         }
 
         [TestMethod, ExpectedException(typeof(ArgumentNullException))]
@@ -171,21 +137,6 @@ namespace Atom.Tests
             } );
 
             Assert.AreEqual( ErrorMessage, exception.Message );
-        }
-
-        [TestMethod]
-        public void GetServiceOfT_WithErrorMessage_RequestingKnownService_ReturnsService()
-        {
-            ILog service = new SILog();
-
-            // Arrange
-            GlobalServices.Container.AddService( typeof(ILog), service );
-            
-            // Act
-            var returnedService = GlobalServices.GetService<ILog>( "Hello!" );
-
-            // Assert
-            Assert.AreEqual( service, returnedService );
         }
     }
 }

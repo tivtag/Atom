@@ -1,161 +1,39 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
-    <ProjectGuid>{CC3BC455-003C-43EE-8646-B53311A89298}</ProjectGuid>
-    <OutputType>Library</OutputType>
-    <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Atom.Math</RootNamespace>
-    <AssemblyName>Atom.Math</AssemblyName>
-    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
-    <FileAlignment>512</FileAlignment>
-    <Deterministic>true</Deterministic>
+    <AssemblyTitle>Atom.Math</AssemblyTitle>
+    <Description>The math library of the Atom framework.</Description>
+    <TargetFramework>net48</TargetFramework>
+    <UseWindowsForms>true</UseWindowsForms>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
-    <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
+    <OutputPath>bin\$(Configuration)\</OutputPath>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
     <DebugType>pdbonly</DebugType>
-    <Optimize>true</Optimize>
-    <OutputPath>..\..\Binaries\Release\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-    <PlatformTarget>x86</PlatformTarget>
-    <DocumentationFile>..\..\Binaries\Release\Atom.Math.xml</DocumentationFile>
+    <OutputPath>..\..\Binaries\$(Configuration)\</OutputPath>
+    <DocumentationFile>..\..\Binaries\$(Configuration)\Atom.Math.xml</DocumentationFile>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="System" />
-    <Reference Include="System.Core" />
     <Reference Include="Microsoft.CSharp" />
-    <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
-    <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="..\SolutionInfo.cs">
-      <Link>Properties\SolutionInfo.cs</Link>
-    </Compile>
-    <Compile Include="Complex\Complex.cs" />
-    <Compile Include="Complex\Octonion.cs" />
-    <Compile Include="Complex\Quaternion.cs" />
-    <Compile Include="Constants.cs" />
-    <Compile Include="Constantsd.cs" />
-    <Compile Include="Curve\CachedCurve.cs" />
-    <Compile Include="Curve\Curve.cs" />
-    <Compile Include="Curve\CurveKey.cs" />
-    <Compile Include="Curve\CurveKeyCollection.cs" />
-    <Compile Include="DelaunyTriangulation.cs" />
-    <Compile Include="Design\BoxConverter.cs" />
-    <Compile Include="Design\CircleConverter.cs" />
-    <Compile Include="Design\ComplexConverter.cs" />
-    <Compile Include="Design\FloatRangeConverter.cs" />
-    <Compile Include="Design\IntegerRangeConverter.cs" />
-    <Compile Include="Design\MathTypeConverter.cs" />
-    <Compile Include="Design\Matrix4Converter.cs" />
-    <Compile Include="Design\Plane3Converter.cs" />
-    <Compile Include="Design\Point2Converter.cs" />
-    <Compile Include="Design\Point3Converter.cs" />
-    <Compile Include="Design\Point4Converter.cs" />
-    <Compile Include="Design\QuaternionConverter.cs" />
-    <Compile Include="Design\Ray2Converter.cs" />
-    <Compile Include="Design\Ray3Converter.cs" />
-    <Compile Include="Design\RectangleConverter.cs" />
-    <Compile Include="Design\RectangleFConverter.cs" />
-    <Compile Include="Design\SphereConverter.cs" />
-    <Compile Include="Design\Vector2Converter.cs" />
-    <Compile Include="Design\Vector3Converter.cs" />
-    <Compile Include="Design\Vector4Converter.cs" />
-    <Compile Include="Enums.cs" />
-    <Compile Include="FloatRange.cs" />
-    <Compile Include="GlobalSuppressions.cs" />
-    <Compile Include="IntegerRange.cs" />
-    <Compile Include="Interfaces\IPositionable2.cs" />
-    <Compile Include="Interfaces\IPositionable3.cs" />
-    <Compile Include="Interfaces\ISizeable2.cs" />
-    <Compile Include="LagrangePolynomial.cs" />
-    <Compile Include="Modifiers\BaseValueModifier.cs" />
-    <Compile Include="Modifiers\IValueModifier.cs" />
-    <Compile Include="Modifiers\LambdaValueModifier.cs" />
-    <Compile Include="Primitives\FastLineSegment2.cs" />
-    <Compile Include="Primitives\IReadOnlyLine2.cs" />
-    <Compile Include="Primitives\IReadOnlyLineSegment2.cs" />
-    <Compile Include="Primitives\OrientedRectangleF.cs" />
-    <Compile Include="RollingAverage.cs" />
-    <Compile Include="Splines\PositionalSpline3.cs" />
-    <Compile Include="Splines\RotationalSpline3.cs" />
-    <Compile Include="Storage\MathDeserializationContextExtensions.cs" />
-    <Compile Include="Storage\MathSerializationContextExtensions.cs" />
-    <Compile Include="Matrix\ComplexMatrix.cs" />
-    <Compile Include="Matrix\Decomposition\CholeskyDecomposition.cs" />
-    <Compile Include="Matrix\Decomposition\EigenvalueDecomposition.cs" />
-    <Compile Include="Matrix\Decomposition\LUDecomposition.cs" />
-    <Compile Include="Matrix\Decomposition\QRDecomposition.cs" />
-    <Compile Include="Matrix\Decomposition\SingularValueDecomposition.cs" />
-    <Compile Include="Matrix\Matrix.cs" />
-    <Compile Include="Matrix\Matrix2.cs" />
-    <Compile Include="Matrix\Matrix3.cs" />
-    <Compile Include="Matrix\Matrix4.cs" />
-    <Compile Include="Plane3.cs" />
-    <Compile Include="Point\Point2.cs" />
-    <Compile Include="Point\Point3.cs" />
-    <Compile Include="Point\Point4.cs" />
-    <Compile Include="Primitives\Box.cs" />
-    <Compile Include="Primitives\Circle.cs" />
-    <Compile Include="Primitives\IndexedEdge.cs" />
-    <Compile Include="Primitives\IndexedTriangle.cs" />
-    <Compile Include="Primitives\Line2.cs" />
-    <Compile Include="Primitives\LineSegment2.cs" />
-    <Compile Include="Primitives\Polygon2.cs" />
-    <Compile Include="Primitives\Rectangle.cs" />
-    <Compile Include="Primitives\RectangleF.cs" />
-    <Compile Include="Primitives\Sphere.cs" />
-    <Compile Include="Primitives\Triangle2.cs" />
-    <Compile Include="Ray\Ray2.cs" />
-    <Compile Include="Ray\Ray3.cs" />
-    <Compile Include="Utilities and Extensions\DirectionExtensions.cs" />
-    <Compile Include="Utilities and Extensions\GaussianUtilities.cs" />
-    <Compile Include="Utilities and Extensions\MathExtensions.cs" />
-    <Compile Include="Utilities and Extensions\MathUtilities.cs" />
-    <Compile Include="Utilities and Extensions\NumberUtilities.cs" />
-    <Compile Include="MathErrorStrings.Designer.cs">
+    <Compile Include="..\SolutionInfo.cs" Link="Properties\SolutionInfo.cs" />
+    <Compile Update="MathErrorStrings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>MathErrorStrings.resx</DependentUpon>
     </Compile>
-    <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Random\RandExtensions.cs" />
-    <Compile Include="Random\RandMT.cs" />
-    <Compile Include="Random\RandSys.cs" />
-    <Compile Include="Utilities and Extensions\SpecialFunctions.cs" />
-    <Compile Include="Utilities and Extensions\SpecialNumbers.cs" />
-    <Compile Include="VariableFloat.cs" />
-    <Compile Include="Vector\ComplexVector.cs" />
-    <Compile Include="Vector\ComplexVector2.cs" />
-    <Compile Include="Vector\Vector.cs" />
-    <Compile Include="Vector\Vector2.cs" />
-    <Compile Include="Vector\Vector3.cs" />
-    <Compile Include="Vector\Vector4.cs" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="MathErrorStrings.resx">
+    <EmbeddedResource Update="MathErrorStrings.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>MathErrorStrings.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Atom\Atom.csproj">
-      <Project>{fd767621-6a9e-41d9-8ae1-68f39421344a}</Project>
-      <Name>Atom</Name>
-    </ProjectReference>
+    <ProjectReference Include="..\Atom\Atom.csproj" />
   </ItemGroup>
-  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

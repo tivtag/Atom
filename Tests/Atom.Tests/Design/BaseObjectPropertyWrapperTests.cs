@@ -7,7 +7,6 @@
 namespace Atom.Design.Tests
 {
     using Microsoft.VisualStudio.TestTools.UnitTesting;
-    using Microsoft.Pex.Framework;
 
     /// <summary>
     /// Tests the usage of the <see cref="BaseObjectPropertyWrapper"/> class.
@@ -84,23 +83,6 @@ namespace Atom.Design.Tests
 
             // Assert
             Assert.IsNull( clone.WrappedObject );
-        }
-
-        [PexMethod]
-        public void SetWrappedObject_WhenPassedObjectOfInvalidType_Throws( [PexAssumeNotNull]object obj )
-        {
-            // Arrange
-            IObjectPropertyWrapper wrapper = new TestStringPropertyWrapper();
-
-            // Assume
-            PexAssume.AreNotEqual( wrapper.WrappedType, obj.GetType() );
-            
-            // Act & Assert
-            CustomAssert.Throws<System.ArgumentException>(
-                () => {
-                    wrapper.WrappedObject = true;
-                }
-            );
         }
     }
 }

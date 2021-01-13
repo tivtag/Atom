@@ -12,13 +12,11 @@ namespace Atom.Tests
 {
     using System;
     using Microsoft.VisualStudio.TestTools.UnitTesting;
-    using Microsoft.Pex.Framework;
 
     /// <summary>
     /// Tests the usage of the <see cref="Maybe{T}"/> class.
     /// </summary>
     [TestClass]
-    [PexClass( typeof( Maybe<> ) )]
     public sealed partial class MaybeTests
     {
         [TestMethod]
@@ -41,16 +39,6 @@ namespace Atom.Tests
 
             // Assert
             Assert.IsFalse( maybe.HasValue );
-        }
-
-        [PexMethod]
-        public void GetValue_ConstructionWithValue_ReturnsValue<T>( T value )
-        {
-            // Arrange
-            var maybe = new Maybe<T>( value );
-
-            // Assert
-            Assert.AreEqual( value, maybe.Value );
         }
 
         [TestMethod]
@@ -105,17 +93,6 @@ namespace Atom.Tests
             Assert.IsTrue( maybeA.Equals( maybeB ) );
         }
 
-        [PexMethod]
-        public void AreEqual_ConstructionWithSameValue_ReturnsTrue<T>( T value )
-        {
-            // Arrange
-            var maybeA = new Maybe<T>( value );
-            var maybeB = new Maybe<T>( value );
-
-            // Assert
-            Assert.IsTrue( maybeA.Equals( maybeB ) );
-        }
-
         [TestMethod]
         public void AreEqual_WithNullObject_ReturnsFalse()
         {
@@ -124,31 +101,6 @@ namespace Atom.Tests
 
             // Assert
             Assert.IsFalse( maybe.Equals( (object)null ) );
-        }
-
-
-        [PexMethod]
-        public void AreEqual_ConstructionWithDifferentValues_ReturnsFalse<T>( T valueA, T valueB )
-        {
-            // Assume
-            PexAssume.AreNotEqual( valueA, valueB );
-
-            // Arrange
-            var maybeA = new Maybe<T>( valueA );
-            var maybeB = new Maybe<T>( valueB );
-
-            // Assert
-            Assert.IsFalse( maybeA.Equals( maybeB ) );
-        }
-
-        [PexMethod]
-        public void GetHashCode_ConstructionWithValue_ReturnsSameHashCodeAsGetHashCodeOnValue<T>( [PexAssumeNotNull]T value )
-        {
-            // Arrange
-            var maybe = new Maybe<T>( value );
-
-            // Assert
-            Assert.AreEqual( value.GetHashCode(), maybe.GetHashCode() );
         }
 
         [TestMethod]

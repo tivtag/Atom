@@ -10,7 +10,7 @@
 
 namespace Atom.Tests
 {
-    using Microsoft.VisualStudio.TestTools.UnitTesting;    
+    using Microsoft.VisualStudio.TestTools.UnitTesting;
 
     /// <summary>
     /// Tests the usage of the <see cref="Anonymous"/> class.

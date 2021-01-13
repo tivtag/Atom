@@ -92,7 +92,7 @@ namespace Atom.Mail
                 catch( Exception exc )
                 {
                     exceptions.Add( exc );
-                }                
+                }
             }
 
             if( this.ThrowsOnError )

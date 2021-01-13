@@ -11,7 +11,6 @@
 namespace Atom.Tests
 {
     using System;
-    using Microsoft.Pex.Framework;
     using Microsoft.VisualStudio.TestTools.UnitTesting;
 
     /// <summary>
@@ -54,20 +53,6 @@ namespace Atom.Tests
             CustomAssert.Throws<TypeLoadException>( () => {
                 typeActivator.CreateInstance( "HelloNu" );
             } );
-        }
-
-        [PexMethod]
-        public void CreateInstance_IfPassedValidTypeName_CreatesObject<T>()
-        {
-            // Arrange
-            var typeActivator = new TypeActivator();
-            var typeName = typeof( T ).GetTypeName();
-
-            // Act
-            T obj = (T)typeActivator.CreateInstance( typeName );
-
-            // Assert
-            Assert.IsNotNull( obj );
         }
     }
 }
