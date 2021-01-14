@@ -12,9 +12,6 @@ using System;
 using System.Reflection;
 using System.Resources;
 using System.Runtime.InteropServices;
-
-[assembly: AssemblyTitle( "Atom.ErrorReporting" )]
-[assembly: AssemblyDescription( "A library that implements a flexible mechanism for adding robust error reporting functionality to an application." )]
 [assembly: Guid( "67e09957-99b7-4b1f-84c7-109fa0279012" )]
 
 [assembly: CLSCompliant( true )]

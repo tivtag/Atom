@@ -1,82 +1,48 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
-    <ProjectGuid>{CD6ADDF9-7920-4897-AB85-A34440840A56}</ProjectGuid>
-    <OutputType>Library</OutputType>
-    <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Atom.ErrorReporting.Forms</RootNamespace>
-    <AssemblyName>Atom.ErrorReporting.Forms</AssemblyName>
-    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
-    <FileAlignment>512</FileAlignment>
-    <Deterministic>true</Deterministic>
+    <AssemblyTitle>Atom.ErrorReporting.Forms</AssemblyTitle>
+    <Description>A library that implements a flexible mechanism for adding robust error reporting functionality to a Windows Forms application.</Description>
+    <TargetFramework>net48</TargetFramework>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <UseWindowsForms>true</UseWindowsForms>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
-    <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
+    <OutputPath>bin\$(Configuration)\</OutputPath>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
     <DebugType>pdbonly</DebugType>
-    <Optimize>true</Optimize>
-    <OutputPath>..\..\Binaries\Release\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-    <PlatformTarget>x86</PlatformTarget>
-    <DocumentationFile>..\..\Binaries\Release\Atom.ErrorReporting.Forms.xml</DocumentationFile>
+    <OutputPath>..\..\Binaries\$(Configuration)\</OutputPath>
+    <DocumentationFile>..\..\Binaries\$(Configuration)\Atom.ErrorReporting.Forms.xml</DocumentationFile>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="System" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="..\SolutionInfo.cs">
-      <Link>Properties\SolutionInfo.cs</Link>
-    </Compile>
-    <Compile Include="Dialogs\ErrorReportDialog.cs">
+    <ProjectReference Include="..\Atom.ErrorReporting\Atom.ErrorReporting.csproj" />
+    <ProjectReference Include="..\Atom\Atom.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\SolutionInfo.cs" Link="Properties\SolutionInfo.cs" />
+    <Compile Update="Dialogs\ErrorReportDialog.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Dialogs\ErrorReportDialog.Designer.cs">
+    <Compile Update="Dialogs\ErrorReportDialog.Designer.cs">
       <DependentUpon>ErrorReportDialog.cs</DependentUpon>
     </Compile>
-    <Compile Include="Dialogs\WinFormsErrorReportDialogFactory.cs" />
-    <Compile Include="Dialogs\ExceptionDetailsDialog.cs">
+    <Compile Update="Dialogs\ExceptionDetailsDialog.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Dialogs\ExceptionDetailsDialog.Designer.cs">
+    <Compile Update="Dialogs\ExceptionDetailsDialog.Designer.cs">
       <DependentUpon>ExceptionDetailsDialog.cs</DependentUpon>
     </Compile>
-    <Compile Include="GlobalSuppressions.cs" />
-    <Compile Include="Hooks\ApplicationThreadExceptionHook.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="WinFormsShutdownLogic.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Atom.ErrorReporting\Atom.ErrorReporting.csproj">
-      <Project>{D75C8834-5EAD-414A-A1E0-FBE785676803}</Project>
-      <Name>Atom.ErrorReporting</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Atom\Atom.csproj">
-      <Project>{fd767621-6a9e-41d9-8ae1-68f39421344a}</Project>
-      <Name>Atom</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Dialogs\ErrorReportDialog.resx">
+    <EmbeddedResource Update="Dialogs\ErrorReportDialog.resx">
       <DependentUpon>ErrorReportDialog.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Dialogs\ExceptionDetailsDialog.resx">
+    <EmbeddedResource Update="Dialogs\ExceptionDetailsDialog.resx">
       <DependentUpon>ExceptionDetailsDialog.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
-  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -1,90 +1,35 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
-    <ProjectGuid>{D75C8834-5EAD-414A-A1E0-FBE785676803}</ProjectGuid>
-    <OutputType>Library</OutputType>
-    <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Atom.ErrorReporting</RootNamespace>
-    <AssemblyName>Atom.ErrorReporting</AssemblyName>
-    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
-    <FileAlignment>512</FileAlignment>
-    <Deterministic>true</Deterministic>
+    <AssemblyTitle>Atom.ErrorReporting</AssemblyTitle>
+    <Description>A library that implements a flexible mechanism for adding robust error reporting functionality to an application.</Description>
+    <TargetFramework>net48</TargetFramework>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
-    <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
+    <OutputPath>bin\$(Configuration)\</OutputPath>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
     <DebugType>pdbonly</DebugType>
-    <Optimize>true</Optimize>
-    <OutputPath>..\..\Binaries\Release\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-    <PlatformTarget>x86</PlatformTarget>
-    <DocumentationFile>..\..\Binaries\Release\Atom.ErrorReporting.xml</DocumentationFile>
+    <OutputPath>..\..\Binaries\$(Configuration)\</OutputPath>
+    <DocumentationFile>..\..\Binaries\$(Configuration)\Atom.ErrorReporting.xml</DocumentationFile>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="System" />
-    <Reference Include="System.Core">
-      <RequiredTargetFramework>3.5</RequiredTargetFramework>
-    </Reference>
+    <ProjectReference Include="..\Atom.Mail\Atom.Mail.csproj" />
+    <ProjectReference Include="..\Atom\Atom.csproj" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="..\SolutionInfo.cs">
-      <Link>Properties\SolutionInfo.cs</Link>
-    </Compile>
-    <Compile Include="Dialogs\IErrorReportDialog.cs" />
-    <Compile Include="Dialogs\IErrorReportDialogFactory.cs" />
-    <Compile Include="ErrorResources.Designer.cs">
+    <Compile Include="..\SolutionInfo.cs" Link="Properties\SolutionInfo.cs" />
+    <Compile Update="ErrorResources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>ErrorResources.resx</DependentUpon>
     </Compile>
-    <Compile Include="Errors\ExceptionError.cs" />
-    <Compile Include="Errors\Factories\ExceptionErrorFactory.cs" />
-    <Compile Include="Formatters\MailBodyErrorFormatter.cs" />
-    <Compile Include="Formatters\MultiErrorMessageFormatter.cs" />
-    <Compile Include="Formatters\TextFileErrorMessageFormatter.cs" />
-    <Compile Include="Formatters\TextLineErrorMessageFormatter.cs" />
-    <Compile Include="GlobalSuppressions.cs" />
-    <Compile Include="IShutdownLogic.cs" />
-    <Compile Include="IError.cs" />
-    <Compile Include="IErrorFactory.cs" />
-    <Compile Include="IErrorHook.cs" />
-    <Compile Include="IErrorMessageFormatter.cs" />
-    <Compile Include="IErrorReporter.cs" />
-    <Compile Include="IExceptionError.cs" />
-    <Compile Include="IExceptionErrorFactory.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Hooks\UnhandledAppDomainExceptionHook.cs" />
-    <Compile Include="Reporters\BaseMailErrorReporter.cs" />
-    <Compile Include="Reporters\LogErrorReporter.cs" />
-    <Compile Include="Reporters\MailErrorReporter.cs" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="ErrorResources.resx">
+    <EmbeddedResource Update="ErrorResources.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>ErrorResources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Atom.Mail\Atom.Mail.csproj">
-      <Project>{C10B3000-E49D-4261-BDB7-48F4F1EB6F67}</Project>
-      <Name>Atom.Mail</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Atom\Atom.csproj">
-      <Project>{fd767621-6a9e-41d9-8ae1-68f39421344a}</Project>
-      <Name>Atom</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

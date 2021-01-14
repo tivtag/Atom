@@ -279,7 +279,7 @@ namespace Atom.Fmod.Native
         {
             get
             {
-                var buffer = new float[numchannels][];
+                float[][] buffer = new float[numchannels][];
 
                 for( int i = 0; i < numchannels; ++i )
                 {
@@ -293,7 +293,7 @@ namespace Atom.Fmod.Native
 
         public void getSpectrum( ref float[][] buffer )
         {
-            int bufferLength = Math.Min( buffer.Length, numchannels );
+            int bufferLength = global::System.Math.Min( buffer.Length, numchannels );
             for( int i = 0; i < bufferLength; ++i )
             {
                 getSpectrum( i, ref buffer[i] );
@@ -302,7 +302,7 @@ namespace Atom.Fmod.Native
 
         public void getSpectrum( int channel, ref float[] buffer )
         {
-            int bufferLength = Math.Min( buffer.Length, length );
+            int bufferLength = global::System.Math.Min( buffer.Length, length );
             Marshal.Copy( spectrum_internal[channel], buffer, 0, bufferLength );
         }
     }
