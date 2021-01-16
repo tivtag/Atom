@@ -14,10 +14,10 @@
     <EnableNETAnalyzers>true</EnableNETAnalyzers>
   </PropertyGroup>
   
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|Any Cpu'">
     <DebugType>full</DebugType>
   </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|Any Cpu'">
     <DebugType>pdbonly</DebugType>
   </PropertyGroup>
   

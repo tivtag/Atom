@@ -230,7 +230,7 @@ namespace Atom
             List<ConstructorInfo> countMatches,
             object[] parameters )
         {
-            Contract.Requires( countMatches != null );
+            Contract.NotNull( countMatches, nameof( countMatches ) );
             Contract.Requires( 0 < countMatches.Count  );
 
             int indexOfBest = 0;

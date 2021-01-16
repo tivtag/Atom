@@ -52,8 +52,6 @@ namespace Atom.Collections.Pooling
     /// </typeparam>
     public class Pool<T> : IEnumerable<T>
     {
-        #region [ Properties ]
-
         /// <summary>
         /// Gets or sets a value indicating whether this Pool{T}
         /// is of fixed size; and as such doesn't resize itself when required.
@@ -140,7 +138,7 @@ namespace Atom.Collections.Pooling
             {
                 for( int i = 0; i < this.pool.Count; ++i )
                 {
-                    var node = this.pool[i];
+                    PoolNode<T> node = this.pool[i];
 
                     if( node.IsActive )
                     {
@@ -160,17 +158,7 @@ namespace Atom.Collections.Pooling
         /// <value>
         /// A new enumerator over all items in the Pool{T}.
         /// </value>
-        public IEnumerable<PoolNode<T>> AllNodes
-        {
-            get
-            {
-                return this.pool;
-            }
-        }
-
-        #endregion
-
-        #region [ Constructors ]
+        public IEnumerable<PoolNode<T>> AllNodes => pool;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="Pool{T}"/> class.
@@ -187,7 +175,7 @@ namespace Atom.Collections.Pooling
         public Pool( int initialCapacity, PooledObjectCreator<T> creator )
         {
             Contract.Requires<ArgumentException>( initialCapacity >= 0 );
-            Contract.Requires<ArgumentNullException>( creator != null );
+            Contract.NotNull( creator, nameof( creator ) );
 
             this.creator = creator;
             this.pool = new List<PoolNode<T>>( initialCapacity );
@@ -213,10 +201,6 @@ namespace Atom.Collections.Pooling
 
             return pool;
         }
-
-        #endregion
-
-        #region [ Methods ]
 
         /// <summary>
         /// Defines the conditions that should hold true on each instance of a class
@@ -273,7 +257,7 @@ namespace Atom.Collections.Pooling
             int nodeIndex = this.available.Dequeue();
             // Contract.Assume( 0 <= nodeIndex && nodeIndex < this.pool.Count );
 
-            var node = this.pool[nodeIndex];
+            PoolNode<T> node = this.pool[nodeIndex];
             node.IsActive = true;
             return node;
         }
@@ -321,7 +305,7 @@ namespace Atom.Collections.Pooling
         {
             for( int i = 0; i < this.pool.Count; ++i )
             {
-                var node = this.pool[i];
+                PoolNode<T> node = this.pool[i];
 
                 if( node.IsActive )
                 {
@@ -382,12 +366,8 @@ namespace Atom.Collections.Pooling
         /// </param>
         protected virtual void OnCreated( PoolNode<T> node )
         {
-            Contract.Requires( node != null );
+            Contract.NotNull( node, nameof( node ) );
         }
-
-        #endregion
-
-        #region [ Fields ]
 
         /// <summary>
         /// The method that is used to create new Objects for this Pool{T}.
@@ -403,7 +383,5 @@ namespace Atom.Collections.Pooling
         /// The queue of available item node indices.
         /// </summary>
         private readonly Queue<int> available;
-
-        #endregion
     }
 }

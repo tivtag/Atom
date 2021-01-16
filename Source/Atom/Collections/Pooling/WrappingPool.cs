@@ -30,7 +30,7 @@ namespace Atom.Collections.Pooling
             : base( initialSize, creator )
         {
             Contract.Requires( initialSize >= 0 );
-            Contract.Requires( creator != null );
+            Contract.NotNull( creator, nameof( creator ) );
         }
 
         /// <summary>
@@ -43,7 +43,7 @@ namespace Atom.Collections.Pooling
         /// </param>
         protected override void OnCreated( PoolNode<IPooledObjectWrapper<T>> node )
         {
-            var wrapper = node.Item;
+            IPooledObjectWrapper<T> wrapper = node.Item;
             wrapper.PoolNode = node;
         }
     }

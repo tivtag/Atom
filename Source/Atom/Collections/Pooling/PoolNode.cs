@@ -87,7 +87,7 @@ namespace Atom.Collections.Pooling
         /// </param>
         internal PoolNode( T item, int nodeIndex, Pool<T> pool )
         {
-            Contract.Requires( pool != null );
+            Contract.NotNull( pool, nameof( pool ) );
 
             this.item      = item;
             this.nodeIndex = nodeIndex;
