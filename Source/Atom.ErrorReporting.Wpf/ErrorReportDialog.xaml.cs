@@ -36,7 +36,7 @@ namespace Atom.ErrorReporting.Wpf
                 this.buttonSendReport.Visibility = Visibility.Hidden;
             }
         }
-        
+
         /// <summary>
         /// 
         /// </summary>
@@ -55,13 +55,13 @@ namespace Atom.ErrorReporting.Wpf
             this.mailReporter.Report( this.error );
             this.buttonSendReport.IsEnabled = false;
 
-            MessageBox.Show( 
+            MessageBox.Show(
                 ErrorResources.ReportSent,
                 string.Empty,
                 MessageBoxButton.OK,
                 MessageBoxImage.Information,
-                MessageBoxResult.OK, 
-                MessageBoxOptions.None 
+                MessageBoxResult.OK,
+                MessageBoxOptions.None
             );
         }
 

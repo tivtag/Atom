@@ -71,8 +71,10 @@ namespace Atom.Math.Design
         public override object ConvertTo( ITypeDescriptorContext context, CultureInfo culture, object value, Type destinationType )
         {
             if( destinationType == null )
+            {
                 throw new ArgumentNullException( "destinationType" );
-            
+            }
+
             if( value is Circle )
             {
                 Circle circle = (Circle)value;
@@ -85,10 +87,12 @@ namespace Atom.Math.Design
                 }
                 else if( destinationType == typeof( InstanceDescriptor ) )
                 {
-                    var constructor = typeof( Circle ).GetConstructor( new Type[] { typeof( Vector2 ), typeof( float ) } );
-                    
+                    ConstructorInfo constructor = typeof( Circle ).GetConstructor( new Type[] { typeof( Vector2 ), typeof( float ) } );
+
                     if( constructor != null )
+                    {
                         return new InstanceDescriptor( constructor, new object[] { circle.Center, circle.Radius } );
+                    }
                 }
             }
 
@@ -108,7 +112,9 @@ namespace Atom.Math.Design
         public override object CreateInstance( ITypeDescriptorContext context, System.Collections.IDictionary propertyValues )
         {
             if( propertyValues == null )
+            {
                 throw new ArgumentNullException( "propertyValues" );
+            }
 
             return new Circle( (Vector2)propertyValues["Center"], (float)propertyValues["Radius"] );
         }

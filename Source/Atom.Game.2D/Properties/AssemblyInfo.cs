@@ -12,9 +12,6 @@ using System;
 using System.Reflection;
 using System.Resources;
 using System.Runtime.InteropServices;
-
-[assembly: AssemblyTitle( "Atom.Game" )]
-[assembly: AssemblyDescription( "An arbitrary library that implements concepts useful the creation of (2D) games." )]
 [assembly: Guid( "867c74d0-7576-4a95-8bc6-8a0b29dfbe1c" )]
 
 [assembly: CLSCompliant( false )]

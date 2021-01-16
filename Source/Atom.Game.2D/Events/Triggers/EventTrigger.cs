@@ -23,17 +23,11 @@ namespace Atom.Events
     [TypeConverter( typeof( ExpandableObjectConverter ) )]
     public class EventTrigger : INotifyPropertyChanged, IReadOnlyNameable
     {
-        #region [ Events ]
-
         /// <summary>
         /// Fired when a property of this <see cref="EventTrigger"/> has changed.
         /// Not all properties have to implement this kind of notification.
         /// </summary>
         public event PropertyChangedEventHandler PropertyChanged;
-
-        #endregion
-
-        #region [ Properties ]
 
         /// <summary>
         /// Gets the type-name of the <see cref="EventTrigger"/>
@@ -76,7 +70,9 @@ namespace Atom.Events
                 else
                 {
                     if( value == name )
+                    {
                         return;
+                    }
 
                     if( this.EventManager.ContainsTrigger( value ) )
                     {
@@ -96,7 +92,7 @@ namespace Atom.Events
                     this.EventManager.InternalInformTriggerNameHasChanged( this, oldName );
                 }
 
-                this.OnPropertyChanged( "Name" );
+                this.OnPropertyChanged( nameof( Name ) );
             }
         }
 
@@ -110,7 +106,7 @@ namespace Atom.Events
         [LocalizedDisplayName( "PropDisp_Event" )]
         [LocalizedCategory( "PropCate_Settings" )]
         [LocalizedDescription( "PropDesc_ET_Event" )]
-        [Editor( typeof( Design.EventCreationEditor ), typeof( System.Drawing.Design.UITypeEditor ) )]
+        [Editor( "Atom.Events.Design.EventCreationEditor, Atom.Game.Design", "System.Drawing.Design.UITypeEditor, System.Windows.Forms" )]
         public Event Event
         {
             get 
@@ -121,10 +117,12 @@ namespace Atom.Events
             set 
             {
                 if( value == this.e )
+                {
                     return;
+                }
 
                 this.e = value;
-                this.OnPropertyChanged( "Event" );
+                this.OnPropertyChanged( nameof( Event ) );
             }
         }
 
@@ -146,7 +144,9 @@ namespace Atom.Events
             set
             {
                 if( value == this.isActive )
+                {
                     return;
+                }
 
                 this.isActive = value;
                 this.OnPropertyChanged( "IsActive" );
@@ -188,10 +188,6 @@ namespace Atom.Events
             set;
         }
 
-        #endregion
-
-        #region [ Constructors ]
-
         /// <summary>
         /// Initializes a new instance of the <see cref="EventTrigger"/> class.
         /// </summary>
@@ -213,12 +209,6 @@ namespace Atom.Events
         {
         }
 
-        #endregion
-
-        #region [ Methods ]
-
-        #region > Trigger <
-
         /// <summary>
         /// Gets whether the specified Object can trigger the <see cref="EventTrigger"/>.
         /// </summary>
@@ -232,7 +222,9 @@ namespace Atom.Events
         public virtual bool CanBeTriggeredBy( TriggerContext context )
         {
             if( this.e == null )
+            {
                 return false;
+            }
 
             return this.e.CanBeTriggeredBy( context.Object );
         }
@@ -250,10 +242,6 @@ namespace Atom.Events
                 this.e.Trigger( obj );
             }
         }
-
-        #endregion
-
-        #region > Storage <
         
         /// <summary>
         /// Serializes this EventTrigger using the specified IEventSerializationContext.
@@ -269,9 +257,13 @@ namespace Atom.Events
             context.Write( this.isActive );
 
             if( this.e == null )
+            {
                 context.Write( string.Empty );
+            }
             else
+            {
                 context.Write( e.Name );
+            }
         }
         
         /// <summary>
@@ -307,10 +299,6 @@ namespace Atom.Events
             }
         }
 
-        #endregion
-
-        #region > Misc <
-
         /// <summary>
         /// Overriden to return a short human-readable description name of this <see cref="EventTrigger"/>.
         /// </summary>
@@ -343,12 +331,6 @@ namespace Atom.Events
             }
         }
 
-        #endregion
-
-        #endregion
-
-        #region [ Fields ]
-
         /// <summary>
         /// The name of the <see cref="EventTrigger"/>. May be null.
         /// </summary>
@@ -363,7 +345,5 @@ namespace Atom.Events
         /// States whether the <see cref="EventTrigger"/> is currently active.
         /// </summary>
         private bool isActive = true;
-
-        #endregion
     }
 }

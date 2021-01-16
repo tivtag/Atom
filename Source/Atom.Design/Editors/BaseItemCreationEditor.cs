@@ -44,13 +44,15 @@ namespace Atom.Design
 
             if( maybeSelectedType.HasValue )
             {
-                var selectedType = maybeSelectedType.Value.Object;     
+                Type selectedType = maybeSelectedType.Value.Object;     
                 if( type == selectedType )
+                {
                     return value;
+                }
 
                 if( selectedType != null )
                 {
-                    var obj = this.CreateObject( selectedType );
+                    object obj = this.CreateObject( selectedType );
                     this.SetupCreatedObject( obj );
 
                     return obj;

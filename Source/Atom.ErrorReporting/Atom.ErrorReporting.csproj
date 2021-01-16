@@ -2,22 +2,31 @@
   <PropertyGroup>
     <AssemblyTitle>Atom.ErrorReporting</AssemblyTitle>
     <Description>A library that implements a flexible mechanism for adding robust error reporting functionality to an application.</Description>
-    <TargetFramework>net48</TargetFramework>
-    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <TargetFramework>netstandard2.0</TargetFramework>
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+
+  <PropertyGroup>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <LangVersion>latest</LangVersion>
+    <EnableNETAnalyzers>true</EnableNETAnalyzers>
+  </PropertyGroup>
+  
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|Any CPU' ">
     <DebugType>full</DebugType>
     <OutputPath>bin\$(Configuration)\</OutputPath>
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|Any CPU' ">
     <DebugType>pdbonly</DebugType>
     <OutputPath>..\..\Binaries\$(Configuration)\</OutputPath>
     <DocumentationFile>..\..\Binaries\$(Configuration)\Atom.ErrorReporting.xml</DocumentationFile>
   </PropertyGroup>
+  
   <ItemGroup>
     <ProjectReference Include="..\Atom.Mail\Atom.Mail.csproj" />
     <ProjectReference Include="..\Atom\Atom.csproj" />
   </ItemGroup>
+  
   <ItemGroup>
     <Compile Include="..\SolutionInfo.cs" Link="Properties\SolutionInfo.cs" />
     <Compile Update="ErrorResources.Designer.cs">

@@ -27,8 +27,6 @@ namespace Atom.Events.Design
     /// </summary>
     public abstract class BaseEventCreationEditor : UITypeEditor
     {
-        #region [ Constructors ]
-
         /// <summary>
         /// Initializes a new instance of the <see cref="BaseEventCreationEditor"/> class.
         /// </summary>
@@ -39,10 +37,6 @@ namespace Atom.Events.Design
         {
             this.mode = mode;
         }
-
-        #endregion
-
-        #region [ Methods ]
 
         /// <summary>
         /// Gets called when the user tries to edit the value
@@ -186,15 +180,9 @@ namespace Atom.Events.Design
             return UITypeEditorEditStyle.Modal;
         }
 
-        #endregion
-
-        #region [ Fields ]
-
         /// <summary>
         /// States what kind of EventData this Editor is editting.
         /// </summary>
         private readonly EventDataType mode;
-
-        #endregion
     }
 }

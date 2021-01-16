@@ -2,13 +2,13 @@
 //     Copyright (c) federrot Software. All rights reserved.
 // </copyright>
 // <summary>
-//     Defines the Atom.Wpf.Dialogs.ItemSelectionDialog{TItem} class.
+//     Defines the Atom.Wpf.Design.ItemSelectionDialog{TItem} class.
 // </summary>
 // <author>
 //     Paul Ennemoser (Tick)
 // </author>
 
-namespace Atom.Wpf.Dialogs
+namespace Atom.Wpf.Design
 {
     using System.Collections.Generic;
     using System.Linq;

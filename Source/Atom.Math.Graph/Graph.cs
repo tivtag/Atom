@@ -13,9 +13,9 @@ namespace Atom.Math.Graph
     using System;
     using System.Collections.Generic;
     using System.Diagnostics;
-    using Atom.Diagnostics.Contracts;
     using System.Globalization;
     using System.Linq;
+    using Atom.Diagnostics.Contracts;
     using Atom.Math.Graph.Algorithms;
     using Atom.Patterns.Visitor;
 

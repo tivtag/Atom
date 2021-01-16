@@ -370,12 +370,12 @@ namespace Atom.Fmod
             {
                 if( nativeSound.hasHandle() )
                 {
-                    Thread.BeginCriticalRegion(); 
+                    global::System.Threading.Thread.BeginCriticalRegion(); 
 
                     RESULT result = nativeSound.release();
                     ThrowOnError( result );
 
-                    Thread.EndCriticalRegion(); 
+                    global::System.Threading.Thread.EndCriticalRegion(); 
                 }
 
                 isLoaded = false;

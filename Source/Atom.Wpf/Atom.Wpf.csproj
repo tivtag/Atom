@@ -1,183 +1,46 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
-    <ProjectGuid>{3D499900-B7EB-45F9-A278-2768AD8E2762}</ProjectGuid>
-    <OutputType>Library</OutputType>
-    <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Atom.Wpf</RootNamespace>
-    <AssemblyName>Atom.Wpf</AssemblyName>
-    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
-    <FileAlignment>512</FileAlignment>
-    <Deterministic>true</Deterministic>
+    <AssemblyTitle>Atom.Wpf</AssemblyTitle>
+    <Description>A support library that extends the functionallity of WPF (Windows Presentation Foundation).</Description>
+    <TargetFramework>net5.0-windows</TargetFramework>
+    <UseWpf>true</UseWpf>
+    <UseWindowsForms>true</UseWindowsForms>
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
-    <DebugSymbols>true</DebugSymbols>
+
+  <PropertyGroup>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <LangVersion>latest</LangVersion>
+    <EnableNETAnalyzers>true</EnableNETAnalyzers>
+  </PropertyGroup>
+  
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|Any CPU' ">
     <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
+    <OutputPath>bin\$(Configuration)\</OutputPath>
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|Any CPU' ">
     <DebugType>pdbonly</DebugType>
-    <Optimize>true</Optimize>
-    <OutputPath>..\..\Binaries\Release\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-    <PlatformTarget>x86</PlatformTarget>
-    <DocumentationFile>..\..\Binaries\Release\Atom.Wpf.xml</DocumentationFile>
+    <OutputPath>..\..\Binaries\$(Configuration)\</OutputPath>
+    <DocumentationFile>..\..\Binaries\$(Configuration)\Atom.Wpf.xml</DocumentationFile>
   </PropertyGroup>
+  
   <ItemGroup>
-    <Reference Include="PresentationCore">
-    </Reference>
-    <Reference Include="PresentationFramework">
-    </Reference>
-    <Reference Include="System" />
-    <Reference Include="System.Core">
-    </Reference>
-    <Reference Include="System.Windows.Forms" />
-    <Reference Include="System.Windows.Presentation">
-    </Reference>
-    <Reference Include="System.Xaml" />
-    <Reference Include="UIAutomationProvider">
-    </Reference>
-    <Reference Include="UIAutomationTypes">
-    </Reference>
-    <Reference Include="WindowsBase">
-    </Reference>
-    <Reference Include="WindowsFormsIntegration">
-    </Reference>
+    <ProjectReference Include="..\Atom.Math\Atom.Math.csproj" />
+    <ProjectReference Include="..\Atom\Atom.csproj" />
+    <ProjectReference Include="..\Atom\Atom.Design.csproj" />
   </ItemGroup>
+
   <ItemGroup>
-    <Compile Include="..\SolutionInfo.cs">
-      <Link>Properties\SolutionInfo.cs</Link>
-    </Compile>
-    <Compile Include="BaseCommand.cs" />
-    <Compile Include="BindingUtilities.cs" />
-    <Compile Include="Collections\DispatchingObservableCollection.cs" />
-    <Compile Include="Controls\ColorPicker.cs" />
-    <Compile Include="Controls\ColorSpectrumSlider.cs" />
-    <Compile Include="Controls\ColorThumb.cs" />
-    <Compile Include="Controls\NumericTextBox.cs" />
-    <Compile Include="Controls\NumericUpDown.cs" />
-    <Compile Include="Controls\NumericUpDownAutomationPeer.cs" />
-    <Compile Include="Controls\PropertyGridControl.xaml.cs">
-      <DependentUpon>PropertyGridControl.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Controls\RectangleInputControl.cs" />
-    <Compile Include="Controls\Vector2InputControl.cs" />
-    <Compile Include="Converters\ColorToBrushConverter.cs" />
-    <Compile Include="Converters\ObjectToSimpleTypeStringConverter.cs" />
-    <Compile Include="Converters\RadiansToDegreesConverter.cs" />
-    <Compile Include="Converters\RadiansToDegreesStringConverter.cs" />
-    <Compile Include="Converters\ToStringConverter.cs" />
-    <Compile Include="Converters\ValueConverterGroup.cs" />
-    <Compile Include="Dialogs\ItemSelectionDialog.TItem.cs" />
-    <Compile Include="Dialogs\ItemSelectionDialog.xaml.cs">
-      <DependentUpon>ItemSelectionDialog.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Dialogs\ColorPickerDialog.xaml.cs">
-      <DependentUpon>ColorPickerDialog.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Dialogs\ItemSelectionDialogFactory.cs" />
-    <Compile Include="Dialogs\OverwritePromptDialog.xaml.cs">
-      <DependentUpon>OverwritePromptDialog.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="QuestionMessageBox.cs" />
-    <Compile Include="SafeExecute.cs" />
-    <Compile Include="GameLoop.cs" />
-    <Compile Include="GameLoopUpdateEventHandler.cs" />
-    <Compile Include="GlobalSuppressions.cs" />
-    <Compile Include="HsvColor.cs" />
-    <Compile Include="MathExtensions.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Properties\Resources.Designer.cs">
+    <Compile Include="..\SolutionInfo.cs" Link="Properties\SolutionInfo.cs" />
+    <Compile Update="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Page Include="Dialogs\ItemSelectionDialog.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Themes\Vector2InputControl.generic.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Compile Include="LambdaCommand.cs" />
-    <Compile Include="View-ViewModel-Model Pattern\IViewModel.Contracts.cs" />
-    <Compile Include="View-ViewModel-Model Pattern\IViewModel.cs" />
-    <Compile Include="View-ViewModel-Model Pattern\IViewModelCommand.cs" />
-    <Compile Include="View-ViewModel-Model Pattern\IViewModelCommand.Contracts.cs" />
-    <Compile Include="View-ViewModel-Model Pattern\ViewModel.cs" />
-    <Compile Include="View-ViewModel-Model Pattern\ViewModelCommand.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Atom.Math\Atom.Math.csproj">
-      <Project>{CC3BC455-003C-43EE-8646-B53311A89298}</Project>
-      <Name>Atom.Math</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Atom\Atom.csproj">
-      <Project>{fd767621-6a9e-41d9-8ae1-68f39421344a}</Project>
-      <Name>Atom</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Properties\Resources.resx">
+    <EmbeddedResource Update="Properties\Resources.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
-  <ItemGroup>
-    <Page Include="Controls\PropertyGridControl.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Dialogs\ColorPickerDialog.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Dialogs\OverwritePromptDialog.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Themes\ColorPicker.generic.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Themes\generic.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Themes\NumericUpDown.generic.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Themes\RectangleInputControl.generic.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-  </ItemGroup>
-  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+ 
 </Project>

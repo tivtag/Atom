@@ -29,14 +29,14 @@ namespace Atom.Events.Design
         /// <returns>
         /// The <see cref="Atom.Design.IItemSelectionDialog{Event}"/> that should be used by this ExistingItemCollectionEditor{TItem}.
         /// </returns>
-        protected override IItemSelectionDialog<Event> CreateSelectionDialog()
+        public override IItemSelectionDialog<Event> CreateSelectionDialog()
         {
-            var service = GlobalServices.GetService<IEventManagerService>();
+            IEventManagerService service = GlobalServices.GetService<IEventManagerService>();
 
-            var eventManager = service.EventManager;
+            EventManager eventManager = service.EventManager;
             ThrowHelper.IfServiceNull<EventManager>( eventManager, EventStrings.Error_EventManagerReturnedByEventServiceIsNull );
 
-            var selectionDialogFactory = GlobalServices.GetService<IItemSelectionDialogFactory>();
+            IItemSelectionDialogFactory selectionDialogFactory = GlobalServices.GetService<IItemSelectionDialogFactory>();
             return selectionDialogFactory.Build<Event>( eventManager.Events );
         }
     }

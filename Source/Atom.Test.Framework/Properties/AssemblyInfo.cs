@@ -11,9 +11,6 @@
 using System;
 using System.Reflection;
 using System.Runtime.InteropServices;
-
-[assembly: AssemblyTitle( "Atom.Test.Framework" )]
-[assembly: AssemblyDescription( "A library that extends the Microsoft testing framework." )]
 [assembly: Guid( "87a0a5da-ff7e-48af-af69-5b07f4c30d16" )]
 
 [assembly: CLSCompliant( true )]

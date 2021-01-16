@@ -19,8 +19,6 @@ namespace Atom.Events
     /// </summary>
     public class TimedEvent : LongTermEvent
     {
-        #region [ Properties ]
-
         /// <summary>
         /// Gets or sets the time (in seconds) until the TimedEvent
         /// delegates the trigger call to the <see cref="TimedEvent.Event"/>.
@@ -41,15 +39,12 @@ namespace Atom.Events
         [LocalizedDisplayName( "PropDisp_TimedEvent_Event" )]
         [LocalizedCategory( "PropCate_Settings" )]
         [LocalizedDescription( "PropDesc_TimedEvent_Event" )]
-        [Editor( typeof( EventCreationEditor ), typeof( System.Drawing.Design.UITypeEditor ) )]
+        [Editor( "Atom.Events.Design.EventCreationEditor, Atom.Game.Design", "System.Drawing.Design.UITypeEditor, System.Windows.Forms" )]
         public Event Event
         {
             get;
             set;
         }
-        #endregion
-
-        #region [ Methods ]
 
         /// <summary>
         /// Updates this TimedEvent.
@@ -125,15 +120,9 @@ namespace Atom.Events
             this.Event = context.GetEvent( context.ReadString() );
         }
 
-        #endregion
-
-        #region [ Fields ]
-
         /// <summary>
         /// The time left until the TimedEvent delegates the trigger call.
         /// </summary>
         private float timeLeft;
-
-        #endregion
     }
 }

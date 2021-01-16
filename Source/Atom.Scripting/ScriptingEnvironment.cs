@@ -85,6 +85,21 @@ namespace Atom.Scripting
         /// <param name="code">
         /// The code to execute.
         /// </param>
+        /// <returns>
+        /// This IScriptingEnvironment for method chaining.
+        /// </returns>
+        public IScriptingEnvironment Execute( CompiledCode code )
+        {
+            code.Execute( this.globalScope );
+            return this;
+        }
+
+        /// <summary>
+        /// Compiles and executes the given code under this IScriptingEnvironment.
+        /// </summary>
+        /// <param name="code">
+        /// The code to execute.
+        /// </param>
         /// <param name="scope">
         /// The variable scope under which the script is executed.
         /// </param>

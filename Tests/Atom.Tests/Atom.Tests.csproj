@@ -1,114 +1,35 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <ProductVersion />
-    <ProjectGuid>{4A22DDEF-E447-416A-BAB1-27A9B0A9786B}</ProjectGuid>
     <TargetFramework>net48</TargetFramework>
     <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
-    <IsWebBootstrapper>false</IsWebBootstrapper>
-    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
   </PropertyGroup>
+  
+  <PropertyGroup>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <LangVersion>latest</LangVersion>
+    <EnableNETAnalyzers>true</EnableNETAnalyzers>
+  </PropertyGroup>
+  
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugType>full</DebugType>
     <OutputPath>bin\$(Configuration)\</OutputPath>
-    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
     <OutputPath>bin\$(Configuration)\</OutputPath>
-    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
-    <OutputPath>bin\$(Platform)\$(Configuration)\</OutputPath>
-    <DebugType>full</DebugType>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
-    <OutputPath>bin\$(Platform)\$(Configuration)\</OutputPath>
-    <DebugType>pdbonly</DebugType>
-  </PropertyGroup>
+  
   <ItemGroup>
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.8.3" />
     <PackageReference Include="MSTest.TestAdapter" Version="2.1.2" />
     <PackageReference Include="MSTest.TestFramework" Version="2.1.2" />
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="System.Configuration" />
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Update="Collections\Comparers\ReverseComparerTests.CompareAB_WithReverseComparer_Returns_Same_As_CompareBA_WithDefaultComparer.g.cs">
-      <DependentUpon>ReverseComparerTests.cs</DependentUpon>
-    </Compile>
-    <Compile Update="Collections\Comparers\ReverseComparerTests.Compare_AlwaysReturns_0_When_Comparing_SameElement.g.cs">
-      <DependentUpon>ReverseComparerTests.cs</DependentUpon>
-    </Compile>
-    <Compile Update="Collections\Comparers\ReverseComparerTests.Compare_WithReverseComparer_WithReverseComparer_ReturnsSame_AsDefaultComparer.g.cs">
-      <DependentUpon>ReverseComparerTests.cs</DependentUpon>
-    </Compile>
-    <Compile Update="Design\BaseObjectPropertyWrapperTests.SetWrappedObject_WhenPassedObjectOfInvalidType_Throws.g.cs">
-      <DependentUpon>BaseObjectPropertyWrapperTests.cs</DependentUpon>
-    </Compile>
-    <Compile Update="Design\ObjectPropertyWrapperFactoryTests.ReceiveWrapperOrObject_WhenPassedKnownObject_ReturnsWrapper.g.cs">
-      <DependentUpon>ObjectPropertyWrapperFactoryTests.cs</DependentUpon>
-    </Compile>
-    <Compile Update="Design\ObjectPropertyWrapperFactoryTests.ReceiveWrapperOrObject_WhenPassedUnknownObject_ReturnsObject.g.cs">
-      <DependentUpon>ObjectPropertyWrapperFactoryTests.cs</DependentUpon>
-    </Compile>
-    <Compile Update="Design\ObjectPropertyWrapperFactoryTests.ReceiveWrapper_WhenPassedKnownObject_ReturnsWrapper.g.cs">
-      <DependentUpon>ObjectPropertyWrapperFactoryTests.cs</DependentUpon>
-    </Compile>
-    <Compile Update="HashCodeBuilderTests.GetHashCode_AfterAppendingIntegers_ReturnsDifferentValue.g.cs">
-      <DependentUpon>HashCodeBuilderTests.cs</DependentUpon>
-    </Compile>
-    <Compile Update="HashCodeBuilderTests.GetHashCode_AfterAppendingObjects_ReturnsDifferentValue.g.cs">
-      <DependentUpon>HashCodeBuilderTests.cs</DependentUpon>
-    </Compile>
-    <Compile Update="IOUtilitiesTests.CopyStream_Copies_TheExact_InputData.g.cs">
-      <DependentUpon>IOUtilitiesTests.cs</DependentUpon>
-    </Compile>
-    <Compile Update="MaybeTests.AreEqual_ConstructionWithDifferentValues_ReturnsFalse.g.cs">
-      <DependentUpon>MaybeTests.cs</DependentUpon>
-    </Compile>
-    <Compile Update="MaybeTests.AreEqual_ConstructionWithSameValue_ReturnsTrue.g.cs">
-      <DependentUpon>MaybeTests.cs</DependentUpon>
-    </Compile>
-    <Compile Update="MaybeTests.GetHashCode_ConstructionWithValue_ReturnsSameHashCodeAsGetHashCodeOnValue.g.cs">
-      <DependentUpon>MaybeTests.cs</DependentUpon>
-    </Compile>
-    <Compile Update="MaybeTests.GetValue_ConstructionWithValue_ReturnsValue.g.cs">
-      <DependentUpon>MaybeTests.cs</DependentUpon>
-    </Compile>
-    <Compile Update="StringExtensionsTests.Contains_Self_ReturnsTrue.g.cs">
-      <DependentUpon>StringExtensionsTests.cs</DependentUpon>
-    </Compile>
-    <Compile Update="StringUtilitiesTests.ConvertFromValues_IntegratesWith_ConvertToValues.g.cs">
-      <DependentUpon>StringUtilitiesTests.cs</DependentUpon>
-    </Compile>
-    <Compile Update="StringUtilitiesTests.ConvertFromValues_IntegratesWith_ConvertToValues_AndBackWith_ConvertFromValues.g.cs">
-      <DependentUpon>StringUtilitiesTests.cs</DependentUpon>
-    </Compile>
-    <Compile Update="StringUtilitiesTests.ConvertFromValues_Returns_String_That_Contains_All_Inputs.g.cs">
-      <DependentUpon>StringUtilitiesTests.cs</DependentUpon>
-    </Compile>
-    <Compile Update="StringUtilitiesTests.ConvertToValues_Returns_Array_WithExpected_Values.g.cs">
-      <DependentUpon>StringUtilitiesTests.cs</DependentUpon>
-    </Compile>
-    <Compile Update="StringUtilitiesTests.DecrementTrailingInteger_WithStringThatHasNumbers_WorkAsExpected.g.cs">
-      <DependentUpon>StringUtilitiesTests.cs</DependentUpon>
-    </Compile>
-    <Compile Update="StringUtilitiesTests.DecrementTrailingInteger_WorkAsExpected.g.cs">
-      <DependentUpon>StringUtilitiesTests.cs</DependentUpon>
-    </Compile>
-    <Compile Update="StringUtilitiesTests.IncrementTrailingInteger_WithStringThatHasNumbers_WorkAsExpected.g.cs">
-      <DependentUpon>StringUtilitiesTests.cs</DependentUpon>
-    </Compile>
-    <Compile Update="StringUtilitiesTests.IncrementTrailingInteger_WorkAsExpected.g.cs">
-      <DependentUpon>StringUtilitiesTests.cs</DependentUpon>
-    </Compile>
-    <Compile Update="TypeActivatorTests.CreateInstance_IfPassedValidTypeName_CreatesObject.g.cs">
-      <DependentUpon>TypeActivatorTests.cs</DependentUpon>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\..\Source\Atom.Test.Framework\Atom.Tests.Framework.csproj" />
     <ProjectReference Include="..\..\Source\Atom\Atom.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System.Configuration" />
   </ItemGroup>
 </Project>

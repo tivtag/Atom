@@ -78,7 +78,9 @@ namespace Atom.Math.Design
         public override object ConvertTo( ITypeDescriptorContext context, CultureInfo culture, object value, Type destinationType )
         {
             if( destinationType == null )
+            {
                 throw new ArgumentNullException( "destinationType" );
+            }
 
             if( value is Point4 )
             {
@@ -91,10 +93,12 @@ namespace Atom.Math.Design
                 else if( destinationType == typeof( InstanceDescriptor ) )
                 {
                     var constructorArgs = new Type[] { typeof( int ), typeof( int ), typeof( int ), typeof( int ) };
-                    var constructor     = typeof( Point4 ).GetConstructor( constructorArgs );
+                    ConstructorInfo constructor     = typeof( Point4 ).GetConstructor( constructorArgs );
 
                     if( constructor != null )
+                    {
                         return new InstanceDescriptor( constructor, new object[] { point.X, point.Y, point.Z, point.W } );
+                    }
                 }
                 else if( destinationType == typeof( Vector4 ) )
                 {
@@ -114,7 +118,9 @@ namespace Atom.Math.Design
         public override bool CanConvertFrom( ITypeDescriptorContext context, Type sourceType )
         {
             if( sourceType == typeof( Vector4 ) )
+            {
                 return true;
+            }
 
             return base.CanConvertFrom( context, sourceType );
         }
@@ -128,7 +134,9 @@ namespace Atom.Math.Design
         public override bool CanConvertTo( ITypeDescriptorContext context, Type destinationType )
         {
             if( destinationType == typeof( Vector4 ) )
+            {
                 return true;
+            }
 
             return base.CanConvertTo( context, destinationType );
         }

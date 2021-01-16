@@ -2,16 +2,16 @@
 //     Copyright (c) federrot Software. All rights reserved.
 // </copyright>
 // <summary>
-//     Defines the Atom.Wpf.Dialogs.ItemSelectionDialogFactory class.
+//     Defines the Atom.Wpf.Design.ItemSelectionDialogFactory class.
 // </summary>
 // <author>
 //     Paul Ennemoser (Tick)
 // </author>
 
-namespace Atom.Wpf.Dialogs
+namespace Atom.Wpf.Design
 {
-    using global::Atom.Design;
     using System.Collections.Generic;
+    using Atom.Design;
 
     /// <summary>
     /// Implements a machanism for creating IItemSelectionDialog{TIem} instances.

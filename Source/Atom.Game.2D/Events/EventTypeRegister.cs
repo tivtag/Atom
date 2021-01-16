@@ -35,7 +35,10 @@ namespace Atom.Events
             Contract.Requires<ArgumentException>( typeof( Event ).IsAssignableFrom( type ) );
 
             if( eventRegister.Contains( type ) )
+            {
                 return;
+            }
+
             eventRegister.Add( type );
         }
 
@@ -55,7 +58,10 @@ namespace Atom.Events
             Contract.Requires<ArgumentException>( typeof( EventTrigger ).IsAssignableFrom( type ) );
 
             if( triggerRegister.Contains( type ) )
+            {
                 return;
+            }
+
             triggerRegister.Add( type );
         }
 

@@ -23,8 +23,6 @@ namespace Atom.Events
     /// </remarks>
     public class MultiEvent : Event
     {
-        #region [ Properties ]
-
         /// <summary>
         /// Gets the list of events this <see cref="MultiEvent"/> delegates all calls to <see cref="Trigger"/> over.
         /// </summary>
@@ -40,10 +38,6 @@ namespace Atom.Events
             }
         }
 
-        #endregion
-
-        #region [ Methods ]
-
         /// <summary>
         /// Triggers this MultiEvent.
         /// </summary>
@@ -53,11 +47,13 @@ namespace Atom.Events
         public override void Trigger( object obj )
         {
             if( !this.CanBeTriggeredBy( obj ) )
+            {
                 return;
+            }
 
             for( int i = 0; i < this.events.Count; ++i )
             {
-                var e = this.events[i];
+                Event e = this.events[i];
 
                 if( e != null )
                 {
@@ -85,7 +81,7 @@ namespace Atom.Events
 
             for( int i = 0; i < this.events.Count; ++i )
             {
-                var e = this.events[i];
+                Event e = this.events[i];
 
                 if( e != null )
                 {
@@ -125,7 +121,7 @@ namespace Atom.Events
 
                 if( eventName.Length > 0 )
                 {
-                    var e = context.GetEvent( eventName );
+                    Event e = context.GetEvent( eventName );
 
                     if( e != null )
                     {
@@ -149,15 +145,9 @@ namespace Atom.Events
             }
         }
 
-        #endregion
-
-        #region [ Fields ]
-
         /// <summary>
         /// The list of events.
         /// </summary>
         private readonly List<Event> events = new List<Event>();
-
-        #endregion
     }
 }

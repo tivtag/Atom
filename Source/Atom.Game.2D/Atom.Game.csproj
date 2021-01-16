@@ -1,146 +1,29 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
-    <ProjectGuid>{57A8DD5A-A41D-4498-81FF-803B56C13C9C}</ProjectGuid>
-    <OutputType>Library</OutputType>
-    <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Atom.Game</RootNamespace>
-    <AssemblyName>Atom.Game</AssemblyName>
-    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
-    <FileAlignment>512</FileAlignment>
-    <Deterministic>true</Deterministic>
+    <AssemblyTitle>Atom.Game</AssemblyTitle>
+    <Description>An arbitrary library that implements concepts useful the creation of (2D) games.</Description>
+    <TargetFramework>netstandard2.0</TargetFramework>
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
-    <DebugSymbols>true</DebugSymbols>
+
+  <PropertyGroup>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <LangVersion>latest</LangVersion>
+    <EnableNETAnalyzers>true</EnableNETAnalyzers>
+  </PropertyGroup>
+  
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|Any CPU' ">
     <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
+    <OutputPath>bin\$(Configuration)\</OutputPath>
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|Any CPU' ">
     <DebugType>pdbonly</DebugType>
-    <Optimize>true</Optimize>
-    <OutputPath>..\..\Binaries\Release\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-    <PlatformTarget>x86</PlatformTarget>
-    <DocumentationFile>..\..\Binaries\Release\Atom.Game.xml</DocumentationFile>
+    <OutputPath>..\..\Binaries\$(Configuration)\</OutputPath>
+    <DocumentationFile>..\..\Binaries\$(Configuration)\Atom.Game.xml</DocumentationFile>
   </PropertyGroup>
+  
   <ItemGroup>
-    <Reference Include="System" />
-    <Reference Include="System.Core" />
-    <Reference Include="Microsoft.CSharp" />
-    <Reference Include="System.Drawing" />
-    <Reference Include="System.Windows.Forms" />
+    <ProjectReference Include="..\Atom.Math\Atom.Math.csproj" />
+    <ProjectReference Include="..\Atom\Atom.csproj" />
   </ItemGroup>
-  <ItemGroup>
-    <Compile Include="Components\Collision\Collision2.cs" />
-    <Compile Include="Components\Collision\ICollision2.cs" />
-    <Compile Include="Components\Collision\StaticCollision2.cs" />
-    <Compile Include="Components\Transform\HierarchicalTransform2.cs" />
-    <Compile Include="Components\Transform\ITransform2.cs" />
-    <Compile Include="Components\Transform\Transform2.cs" />
-    <Compile Include="Events\Design\BaseEventCreationEditor.cs" />
-    <Compile Include="Events\Design\Dialogs\EventCreationDialog.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Events\Design\Dialogs\EventCreationDialog.designer.cs">
-      <DependentUpon>EventCreationDialog.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Events\Design\Dialogs\EventSelectionOrCreationDialog.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Events\Design\Dialogs\EventSelectionOrCreationDialog.designer.cs">
-      <DependentUpon>EventSelectionOrCreationDialog.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Events\Design\EventCreationEditor.cs" />
-    <Compile Include="Events\Design\ExistingEventCollectionEditor.cs" />
-    <Compile Include="Events\Design\LocalizedCategoryAttribute.cs" />
-    <Compile Include="Events\Design\LocalizedDescriptionAttribute.cs" />
-    <Compile Include="Events\Design\LocalizedDisplayNameAttribute.cs" />
-    <Compile Include="Events\Design\TriggerCreationEditor.cs" />
-    <Compile Include="Events\EventDataType.cs" />
-    <Compile Include="Events\EventManager.cs" />
-    <Compile Include="Events\EventStrings.Designer.cs" />
-    <Compile Include="Events\Events\DualSwitchEvent.cs" />
-    <Compile Include="Events\Events\Event.cs" />
-    <Compile Include="Events\Events\LongTermEvent.cs" />
-    <Compile Include="Events\Events\LongTermLambdaEvent.cs" />
-    <Compile Include="Events\Events\MultiEvent.cs" />
-    <Compile Include="Events\Events\NullEvent.cs" />
-    <Compile Include="Events\Events\PermanentEvent.cs" />
-    <Compile Include="Events\Events\TimedEvent.cs" />
-    <Compile Include="Events\EventTypeRegister.cs" />
-    <Compile Include="Events\IEventManagerService.cs" />
-    <Compile Include="Events\Storage\EventDeserializationContext.cs" />
-    <Compile Include="Events\Storage\EventManager.ReaderWriter.cs" />
-    <Compile Include="Events\Storage\EventSerializationContext.cs" />
-    <Compile Include="Events\Storage\IEventDeserializationContext.cs" />
-    <Compile Include="Events\Storage\IEventSerializationContext.cs" />
-    <Compile Include="Events\Storage\IEventStorageContext.cs" />
-    <Compile Include="Events\Storage\IEventStorageContextFactory.cs" />
-    <Compile Include="Events\TileEventManager.cs" />
-    <Compile Include="Events\TriggerContext.cs" />
-    <Compile Include="Events\Triggers\AreaEventTrigger.cs" />
-    <Compile Include="Events\Triggers\EventTrigger.cs" />
-    <Compile Include="Events\Triggers\TileAreaEventTrigger.cs" />
-    <Compile Include="GlobalSuppressions.cs" />
-    <Compile Include="IAction.cs" />
-    <Compile Include="IFloorDrawable.cs" />
-    <Compile Include="ISwitchable.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Scene\IFloorObject.cs" />
-    <Compile Include="Scene\IScene.cs" />
-    <Compile Include="Scene\ISceneEntity.cs" />
-    <Compile Include="Scene\ISceneObject.cs" />
-    <Compile Include="Scene\ISceneProvider.cs" />
-    <Compile Include="Scene\Tiles\Floor\TileMapFloor.cs" />
-    <Compile Include="Scene\Tiles\Floor\TileMapFloor.ReaderWriter.cs" />
-    <Compile Include="Scene\Tiles\Floor\TileMapFloorTag.cs" />
-    <Compile Include="Scene\Tiles\ITileHandler.cs" />
-    <Compile Include="Scene\Tiles\ITileMapProvider.cs" />
-    <Compile Include="Scene\Tiles\Path\TilePath.cs" />
-    <Compile Include="Scene\Tiles\Path\TilePathState.cs" />
-    <Compile Include="Scene\Tiles\TileMap.cs" />
-    <Compile Include="Scene\Tiles\TileMap.ReaderWriter.cs" />
-    <Compile Include="Scene\Tiles\TileMapDataLayer.cs" />
-    <Compile Include="Scene\Tiles\TileMapDataLayerType.cs" />
-    <Compile Include="Scene\Trees\IQuadTreeItem2.cs" />
-    <Compile Include="Scene\Trees\QuadTree2.cs" />
-    <Compile Include="Scene\Trees\QuadTreeItem2.cs" />
-    <Compile Include="Scene\Trees\QuadTreeNode2.cs" />
-    <Compile Include="State\GameStateManager.cs" />
-    <Compile Include="State\GameStateManagerExtensions.cs" />
-    <Compile Include="State\IGameState.cs" />
-    <Compile Include="State\IGameStateManager.cs" />
-    <Compile Include="State\IGameStateManagerContracts.cs" />
-    <Compile Include="Story\Design\TimeTickConverter.cs" />
-    <Compile Include="Story\Frame.cs" />
-    <Compile Include="Story\Incident.cs" />
-    <Compile Include="Story\Storyboard.cs" />
-    <Compile Include="Story\TickTimer.cs" />
-    <Compile Include="Story\Timeline.cs" />
-    <Compile Include="Story\TimelineWalker.cs" />
-    <Compile Include="Story\TimeTick.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Events\EventStrings.resx" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Atom.Math\Atom.Math.csproj">
-      <Project>{cc3bc455-003c-43ee-8646-b53311a89298}</Project>
-      <Name>Atom.Math</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Atom\Atom.csproj">
-      <Project>{fd767621-6a9e-41d9-8ae1-68f39421344a}</Project>
-      <Name>Atom</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

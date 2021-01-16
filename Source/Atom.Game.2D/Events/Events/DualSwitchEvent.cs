@@ -18,17 +18,11 @@ namespace Atom.Events
     /// Represents an on/off switch which triggers <see cref="Event"/>s based on its current state.
     /// </summary>
     public class DualSwitchEvent : Event, ISwitchable
-    {
-        #region [ Events ]
-        
+    {        
         /// <summary>
         /// Fired when the <see cref="IsSwitched"/> state of this DualSwitchEvent has changed.
         /// </summary>
         public event EventHandler IsSwitchedChanged;
-
-        #endregion
-
-        #region [ Properties ]
 
         /// <summary>
         /// Gets or sets a value indicating whether this DualSwitchEvent
@@ -49,7 +43,9 @@ namespace Atom.Events
             set
             {
                 if( value == this.isSwitched )
+                {
                     return;
+                }
 
                 this.isSwitched = value;
                 
@@ -88,7 +84,7 @@ namespace Atom.Events
         [LocalizedDisplayName( "PropDisp_DSEvent_EventOn" )]
         [LocalizedCategory( "PropCate_Settings" )]
         [LocalizedDescription( "PropDesc_DSEvent_EventOn" )]
-        [Editor( typeof( Design.EventCreationEditor ), typeof( System.Drawing.Design.UITypeEditor ) )]
+        [Editor( "Atom.Events.Design.EventCreationEditor, Atom.Game.Design", "System.Drawing.Design.UITypeEditor, System.Windows.Forms" )]
         public Event EventWhenEnabled
         {
             get 
@@ -110,7 +106,7 @@ namespace Atom.Events
         [LocalizedDisplayName( "PropDisp_DSEvent_EventOff" )]
         [LocalizedCategory( "PropCate_Settings" )]
         [LocalizedDescription( "PropDesc_DSEvent_EventOff" )]
-        [Editor( typeof( Design.EventCreationEditor ), typeof( System.Drawing.Design.UITypeEditor ) )]
+        [Editor( "Atom.Events.Design.EventCreationEditor, Atom.Game.Design", "System.Drawing.Design.UITypeEditor, System.Windows.Forms" )]
         public Event EventWhenDisabled
         {
             get 
@@ -123,10 +119,6 @@ namespace Atom.Events
                 this.eventOffState = value;
             }
         }
-
-        #endregion
-
-        #region [ Methods ]
 
         /// <summary>
         /// Toggles the <see cref="DualSwitchEvent"/> from 'on to off' or from 'off to on'.
@@ -151,12 +143,18 @@ namespace Atom.Events
         public override bool CanBeTriggeredBy( object obj )
         {
             if( !this.IsSwitchable )
+            {
                 return false;
+            }
 
             if( this.isSwitched )
+            {
                 return this.eventOnState == null ? true : this.eventOnState.CanBeTriggeredBy( obj );
+            }
             else
+            {
                 return this.eventOffState == null ? true : this.eventOffState.CanBeTriggeredBy( obj );
+            }
         }
 
         /// <summary>
@@ -170,13 +168,11 @@ namespace Atom.Events
         {
             if( this.isSwitched )
             {
-                if( this.eventOnState != null )
-                    this.eventOnState.Trigger( obj );
+                this.eventOnState?.Trigger( obj );
             }
             else
             {
-                if( this.eventOffState != null )
-                    this.eventOffState.Trigger( obj );
+                this.eventOffState?.Trigger( obj );
             }
         }
         
@@ -213,19 +209,23 @@ namespace Atom.Events
             string eventOffName = context.ReadString();
 
             if( eventOnName.Length == 0 )
+            {
                 this.eventOnState = null;
+            }
             else
+            {
                 this.eventOnState = context.GetEvent( eventOnName );
+            }
 
             if( eventOffName.Length == 0 )
+            {
                 this.eventOffState = null;
+            }
             else
+            {
                 this.eventOffState = context.GetEvent( eventOffName );
+            }
         }
-
-        #endregion
-
-        #region [ Fields ]
 
         /// <summary> 
         /// Specifies whether the DualSwitchEvent is currently set to on or off. 
@@ -246,7 +246,5 @@ namespace Atom.Events
         /// Identifies the event that is fired when the DualSwitchEvent is disabled.
         /// </summary>
         private Event eventOffState;
-
-        #endregion
     }
 }

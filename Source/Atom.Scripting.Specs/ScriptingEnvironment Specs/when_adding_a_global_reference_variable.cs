@@ -14,7 +14,7 @@ namespace Atom.Scripting.ScriptingEnvironmentSpecs
 
         static ScriptingEnvironment env;
         static TestClass var;
-        static ScriptingEnvironment returnedEnv;
+        static IScriptingEnvironment returnedEnv;
 
         Establish context = () => {
             env = new ScriptingEnvironment();
@@ -24,13 +24,13 @@ namespace Atom.Scripting.ScriptingEnvironmentSpecs
         };
 
         Because of = () =>
-            returnedEnv = env.AddGlobalVariable( VariableName, var );
+            returnedEnv = env.SetGlobal( VariableName, var );
 
         It should_contain_the_global_variable = () =>
-            env.HasGlobalVariable( VariableName ).ShouldBeTrue();
+            env.HasGlobal( VariableName ).ShouldBeTrue();
 
         It should_not_contain_another_global_variable = () =>
-            env.HasGlobalVariable( VariableName + "-no" ).ShouldBeFalse();
+            env.HasGlobal( VariableName + "-no" ).ShouldBeFalse();
 
         It should_fluently_return_the_original_scripting_environment = () =>
             returnedEnv.ShouldEqual( env );

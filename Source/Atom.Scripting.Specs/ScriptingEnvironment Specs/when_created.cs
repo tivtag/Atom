@@ -13,6 +13,6 @@ namespace Atom.Scripting.ScriptingEnvironmentSpecs
             env = new ScriptingEnvironment();
 
         It should_not_contain_a_global_variable = () =>
-            env.HasGlobalVariable( "Any" ).ShouldBeFalse();
+            env.HasGlobal( "Any" ).ShouldBeFalse();
     }
 }

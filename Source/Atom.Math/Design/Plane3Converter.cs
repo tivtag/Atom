@@ -54,7 +54,9 @@ namespace Atom.Math.Design
         public override object ConvertTo( ITypeDescriptorContext context, CultureInfo culture, object value, Type destinationType )
         {
             if( destinationType == null )
+            {
                 throw new ArgumentNullException( "destinationType" );
+            }
 
             if( destinationType == typeof( InstanceDescriptor ) && value is Plane3 )
             {
@@ -62,7 +64,9 @@ namespace Atom.Math.Design
                 
                 ConstructorInfo constructor = typeof( Plane3 ).GetConstructor( new Type[] { typeof( Vector3 ), typeof( float ) } );
                 if( constructor != null )
+                {
                     return new InstanceDescriptor( constructor, new object[] { plane.Normal, plane.Distance } );
+                }
             }
 
             return base.ConvertTo( context, culture, value, destinationType );
@@ -78,7 +82,9 @@ namespace Atom.Math.Design
         public override object CreateInstance( ITypeDescriptorContext context, System.Collections.IDictionary propertyValues )
         {
             if( propertyValues == null )
+            {
                 throw new ArgumentNullException( "propertyValues" );
+            }
 
             return new Plane3( (Vector3)propertyValues["Normal"], (float)propertyValues["Distance"] );
         }

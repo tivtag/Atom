@@ -1,0 +1,25 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0-windows</TargetFramework>
+    <UseWindowsForms>true</UseWindowsForms>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Atom\Atom.csproj" />
+    <ProjectReference Include="..\Atom.Design\Atom.Design.csproj" />
+    <ProjectReference Include="..\Atom.Game.2D\Atom.Game.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="\Dialogs\EventCreationDialog.cs" />
+    <Compile Update="\Dialogs\EventCreationDialog.designer.cs">
+      <DependentUpon>EventCreationDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Update="\Dialogs\EventSelectionOrCreationDialog.cs" />
+    <Compile Update="\Dialogs\EventSelectionOrCreationDialog.designer.cs">
+      <DependentUpon>EventSelectionOrCreationDialog.cs</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+</Project>

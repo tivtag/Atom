@@ -78,7 +78,9 @@ namespace Atom.Components.Transform
             get
             {
                 if( parent == null )
+                {
                     return null;
+                }
 
                 return parent.Owner;
             }
@@ -115,7 +117,9 @@ namespace Atom.Components.Transform
             set
             {
                 if( value.X == this.relativePosition.X && value.Y == this.relativePosition.Y )
+                {
                     return;
+                }
 
                 Vector2 oldValue = this.relativePosition;
                 this.relativePosition = value;
@@ -141,7 +145,9 @@ namespace Atom.Components.Transform
             set
             {
                 if( value.X == this.relativeScale.X && value.Y == this.relativeScale.Y )
+                {
                     return;
+                }
 
                 Vector2 oldValue = this.relativeScale;
                 this.relativeScale = value;
@@ -168,7 +174,9 @@ namespace Atom.Components.Transform
             set
             {
                 if( value == this.relativeRotation )
+                {
                     return;
+                }
 
                 float oldValue = this.relativeRotation;
                 this.relativeRotation = value;
@@ -186,7 +194,9 @@ namespace Atom.Components.Transform
             get
             {
                 if( this.isTransformUpdateNeeded )
+                {
                     this.UpdateTransformNoCheck();
+                }
 
                 return base.Position;
             }
@@ -206,7 +216,9 @@ namespace Atom.Components.Transform
             get
             {
                 if( this.isTransformUpdateNeeded )
+                {
                     this.UpdateTransformNoCheck();
+                }
 
                 return base.Scale;
             }
@@ -225,7 +237,9 @@ namespace Atom.Components.Transform
             get
             {
                 if( this.isTransformUpdateNeeded )
+                {
                     this.UpdateTransformNoCheck();
+                }
 
                 return base.Rotation;
             }

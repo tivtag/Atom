@@ -74,8 +74,8 @@ namespace Atom.Design
         /// </returns>
         protected Maybe<TItem> ShowSelectionDialog( TItem value )
         {
-            var dialogFactory = GlobalServices.GetService<IItemSelectionDialogFactory>();
-            var dialog = dialogFactory.Build<TItem>( this.GetSelectableItems() );
+            IItemSelectionDialogFactory dialogFactory = GlobalServices.GetService<IItemSelectionDialogFactory>();
+            IItemSelectionDialog<TItem> dialog = dialogFactory.Build<TItem>( this.GetSelectableItems() );
             dialog.SelectedItem = value;
 
             if( dialog.ShowDialog() )

@@ -12,21 +12,21 @@
             <RowDefinition Height="Auto" MinHeight="20" />
             <RowDefinition Height="5"/>
         </Grid.RowDefinitions>
-        
+
         <StackPanel>
             <TextBlock Margin="10" FontSize="24">
             An error has occurred ...
             </TextBlock>
         </StackPanel>
-        
+
         <TextBox x:Name="textBoxErrorMessage" Grid.Row="1" Width="300" Height="214"
                  Background="LightGray" IsReadOnly="True" Foreground="White"
                  Margin="10,5,10,10" HorizontalAlignment="Left" VerticalAlignment="Top" />
-        
+
         <Button x:Name="buttonSendReport" Click="OnSendReportButtonClicked" Grid.Row="2" Margin="10,0,0,0" Width="100" Height="20" HorizontalAlignment="Left">
             Send Report
         </Button>
-        
+
         <Button Grid.Row="2" Margin="0,0,10,0" Width="60" Height="20" HorizontalAlignment="Right" >
             Close
         </Button>

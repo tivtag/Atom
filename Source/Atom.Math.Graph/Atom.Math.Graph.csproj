@@ -1,101 +1,38 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
-    <ProjectGuid>{C46B05FD-BB6D-4D71-85B3-1CCBDDD70F54}</ProjectGuid>
-    <OutputType>Library</OutputType>
-    <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Atom.Math.Graph</RootNamespace>
-    <AssemblyName>Atom.Math.Graph</AssemblyName>
-    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
-    <FileAlignment>512</FileAlignment>
-    <Deterministic>true</Deterministic>
+    <AssemblyTitle>Atom.Math.Graph</AssemblyTitle>
+    <Description>A library that allows the creation, manipulation and analysis of graphs.</Description>
+    <TargetFramework>net48</TargetFramework>
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
-    <DebugSymbols>true</DebugSymbols>
+
+  <PropertyGroup>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <LangVersion>latest</LangVersion>
+    <EnableNETAnalyzers>true</EnableNETAnalyzers>
+  </PropertyGroup>
+
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|Any CPU' ">
     <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
+    <OutputPath>bin\$(Configuration)\</OutputPath>
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|Any CPU' ">
     <DebugType>pdbonly</DebugType>
-    <Optimize>true</Optimize>
-    <OutputPath>..\..\Binaries\Release\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-    <PlatformTarget>x86</PlatformTarget>
-    <DocumentationFile>..\..\Binaries\Release\Atom.Math.Graph.xml</DocumentationFile>
+    <OutputPath>..\..\Binaries\$(Configuration)\</OutputPath>
+    <DocumentationFile>..\..\Binaries\$(Configuration)\Atom.Math.Graph.xml</DocumentationFile>
   </PropertyGroup>
+  
   <ItemGroup>
-    <Reference Include="System" />
-    <Reference Include="System.Core" />
-    <Reference Include="Microsoft.CSharp" />
-    <Reference Include="System.Drawing" />
-    <Reference Include="System.Windows.Forms" />
-    <Reference Include="System.Xml" />
+    <ProjectReference Include="..\Atom.Math\Atom.Math.csproj" />
+    <ProjectReference Include="..\Atom\Atom.csproj" />
   </ItemGroup>
+  
   <ItemGroup>
-    <Compile Include="..\SolutionInfo.cs">
-      <Link>Properties\SolutionInfo.cs</Link>
-    </Compile>
-    <Compile Include="Algorithms\AStar.cs" />
-    <Compile Include="Algorithms\Cycles.cs" />
-    <Compile Include="Algorithms\Dijkstra.cs" />
-    <Compile Include="Algorithms\MinimalSpanningTree.cs" />
-    <Compile Include="Algorithms\Traversal.cs" />
-    <Compile Include="Algorithms\Voltage.cs" />
-    <Compile Include="Data\Edge\VoltageData.cs" />
-    <Compile Include="Data\IDistanceData.cs" />
-    <Compile Include="Data\IReadOnlyDistanceData.cs" />
-    <Compile Include="Data\IReadOnlyWeightData.cs" />
-    <Compile Include="Data\ISignData.cs" />
-    <Compile Include="Data\IVoltageData.cs" />
-    <Compile Include="Data\IWeightData.cs" />
-    <Compile Include="Data\Vertex\NameableData.cs" />
-    <Compile Include="Data\Vertex\Positonal2VertexData.cs" />
-    <Compile Include="Data\Factory\DefaultGraphDataFactory.cs" />
-    <Compile Include="Edge.cs" />
-    <Compile Include="GlobalSuppressions.cs" />
-    <Compile Include="GraphFactory.cs" />
-    <Compile Include="GraphOperations.cs" />
-    <Compile Include="GraphMatrices.cs" />
-    <Compile Include="Data\Factory\IGraphDataFactory.cs" />
-    <Compile Include="Misc\EdgeWeightComparer.cs" />
-    <Compile Include="Graph.cs" />
-    <Compile Include="Heuristics\Heuristic.cs" />
-    <Compile Include="Heuristics\Positionable2.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="GraphErrorStrings.Designer.cs">
+    <Compile Include="..\SolutionInfo.cs" Link="Properties\SolutionInfo.cs" />
+    <Compile Update="GraphErrorStrings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>GraphErrorStrings.resx</DependentUpon>
     </Compile>
-    <Compile Include="Misc\Track.cs" />
-    <Compile Include="Vertex.cs" />
-    <Compile Include="Misc\VertexCreationFunction.cs" />
-    <Compile Include="Misc\VertexInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="GraphErrorStrings.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>GraphErrorStrings.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Atom.Math\Atom.Math.csproj">
-      <Project>{CC3BC455-003C-43EE-8646-B53311A89298}</Project>
-      <Name>Atom.Math</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Atom\Atom.csproj">
-      <Project>{fd767621-6a9e-41d9-8ae1-68f39421344a}</Project>
-      <Name>Atom</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -23,17 +23,11 @@ namespace Atom.Events
     [TypeConverter( typeof( System.ComponentModel.ExpandableObjectConverter ) )]
     public abstract class Event : INotifyPropertyChanged, IReadOnlyNameable
     {
-        #region [ Events ]
-
         /// <summary>
         /// Fired when a property of this <see cref="Event"/> has changed.
         /// Not all properties have to implement this kind of notification.
         /// </summary>
         public event PropertyChangedEventHandler PropertyChanged;
-
-        #endregion
-
-        #region [ Properties ]
 
         /// <summary>
         /// Gets an <see cref="Event"/> instance that does nothing.
@@ -87,7 +81,9 @@ namespace Atom.Events
                 Contract.Requires<ArgumentNullException>( value != null );
 
                 if( value == this.name )
+                {
                     return;
+                }
 
                 if( this.EventManager != null )
                 {
@@ -112,7 +108,7 @@ namespace Atom.Events
                     this.name = value;
                 }
 
-                this.OnPropertyChanged( "Name" );
+                this.OnPropertyChanged( nameof( Name ) );
             }
         }
 
@@ -134,10 +130,6 @@ namespace Atom.Events
             get;
             internal set;
         }
-
-        #endregion
-
-        #region [ Methods ]
 
         /// <summary>
         /// Gets a value that indicates whether the 
@@ -161,8 +153,6 @@ namespace Atom.Events
         /// The object which is triggering this event.
         /// </param>
         public abstract void Trigger( object obj );
-
-        #region > Storage <
 
         /// <summary>
         /// Serializes this Event using the specified IEventSerializationContext.
@@ -203,10 +193,6 @@ namespace Atom.Events
         {
         }
 
-        #endregion
-
-        #region > Misc <
-
         /// <summary>
         /// Overriden to return a short human-readable description name of the <see cref="Event"/>.
         /// </summary>
@@ -239,17 +225,9 @@ namespace Atom.Events
             }
         }
 
-        #endregion
-
-        #endregion
-
-        #region [ Fields ]
-
         /// <summary>
         /// The name of the <see cref="Event"/>. May be null.
         /// </summary>
         private string name;
-
-        #endregion
     }
 }

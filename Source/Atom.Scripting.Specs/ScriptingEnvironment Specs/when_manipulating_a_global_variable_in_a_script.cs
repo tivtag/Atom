@@ -13,7 +13,7 @@ namespace Atom.Scripting.ScriptingEnvironmentSpecs
         const string VariableName = "person";
 
         static ScriptingEnvironment env;
-        static ScriptingEnvironment returnedEnv;
+        static IScriptingEnvironment returnedEnv;
         static TestClass var;
 
         Establish context = () => {
@@ -22,12 +22,12 @@ namespace Atom.Scripting.ScriptingEnvironmentSpecs
                 Name = "Meow"
             };
 
-            env.AddGlobalVariable( VariableName, var );
+            env.SetGlobal( VariableName, var );
         };
 
         Because of = () => {
             string ruby = "person.Name = 'Woof'";
-            returnedEnv = env.ExecuteScript( ruby );
+            returnedEnv = env.Execute( ruby );
         };
 
         It should_modify_the_outside_variable = () =>

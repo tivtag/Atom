@@ -12,16 +12,13 @@ namespace Atom.Events
 {
     using System;
     using System.ComponentModel;
-    using Atom.Diagnostics.Contracts;
 
     /// <summary>
     /// Defines the base-class of all <see cref="Event"/>s that
     /// are active for a longer period of time.
     /// </summary>
     public abstract class LongTermEvent : Event
-    {
-        #region [ Events ]
-        
+    {        
         /// <summary>
         /// The events which are fired when the <see cref="LongTermEvent"/> has been triggered.
         /// </summary>
@@ -31,10 +28,6 @@ namespace Atom.Events
         /// The events which are fired when the <see cref="LongTermEvent"/> has stopped.
         /// </summary>
         public event SimpleEventHandler<LongTermEvent> Stopped;
-
-        #endregion
-
-        #region [ Properties ]
 
         /// <summary>
         /// Gets a value indicating whether this <see cref="LongTermEvent"/> is in a triggered state.
@@ -66,10 +59,6 @@ namespace Atom.Events
                 return this.obj;
             }
         }
-
-        #endregion
-
-        #region [ Methods ]
 
         /// <summary> 
         /// Triggers this <see cref="LongTermEvent"/>, 
@@ -179,10 +168,6 @@ namespace Atom.Events
             return true;
         }
 
-        #endregion
-
-        #region [ Fields ]
-
         /// <summary>
         /// The object which has triggered this <see cref="LongTermEvent"/>. If any.
         /// </summary>
@@ -192,7 +177,5 @@ namespace Atom.Events
         /// States whether this <see cref="LongTermEvent"/> is in a triggered state.
         /// </summary>
         private bool isTriggered;
-
-        #endregion
     }
 }

@@ -14,7 +14,7 @@ namespace Atom.Scripting.ScriptingEnvironmentSpecs
         const string VariableName = "person";
 
         static ScriptingEnvironment env;
-        static ScriptingEnvironment returnedEnv;
+        static IScriptingEnvironment returnedEnv;
         static TestClass var;
         static CompiledCode script;
 
@@ -24,13 +24,13 @@ namespace Atom.Scripting.ScriptingEnvironmentSpecs
             var = new TestClass() { };
             
             string ruby = "person.Counter = person.Counter + 1";
-            script = env.CompileScript( ruby );
+            script = env.CompileCode( ruby );
 
-            env.AddGlobalVariable( VariableName, var );
+            env.SetGlobal( VariableName, var );
         };
 
         Because of = () =>
-            returnedEnv = env.ExecuteScript( script );
+            returnedEnv = env.Execute( script );
 
         It should_modify_the_outside_variable = () =>
             var.Counter.ShouldEqual( 1 );
