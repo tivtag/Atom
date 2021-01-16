@@ -10,7 +10,6 @@
 
 namespace Atom.Events.Design
 {
-    using System;
     using Atom.Design;
 
     /// <summary>

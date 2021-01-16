@@ -1,37 +1,29 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
-    <ProjectGuid>{A68D9F32-4B38-49AA-AD99-8A98EEF80584}</ProjectGuid>
-    <OutputType>Library</OutputType>
-    <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Atom.Xna.Wpf</RootNamespace>
-    <AssemblyName>Atom.Xna.Wpf</AssemblyName>
-    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
-    <FileAlignment>512</FileAlignment>
-    <Deterministic>true</Deterministic>
+    <AssemblyTitle>Atom.Xna.Wpf</AssemblyTitle>
+    <Description>A interopability library between the Xna framework, Windows Presentation Foundation (WPF) and Atom.</Description>
+    <TargetFramework>net5.0-windows</TargetFramework>
+    <UseWpf>true</UseWpf>
+    <UseWindowsForms>true</UseWindowsForms>
   </PropertyGroup>
+
+  <PropertyGroup>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <LangVersion>latest</LangVersion>
+    <EnableNETAnalyzers>true</EnableNETAnalyzers>
+  </PropertyGroup>
+  
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
-    <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
+    <OutputPath>bin\$(Configuration)\</OutputPath>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
     <DebugType>pdbonly</DebugType>
-    <Optimize>true</Optimize>
-    <OutputPath>..\..\Binaries\Release\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-    <PlatformTarget>x86</PlatformTarget>
-    <DocumentationFile>..\..\Binaries\Release\Atom.Xna.Wpf.xml</DocumentationFile>
+    <OutputPath>..\..\Binaries\$(Configuration)\</OutputPath>
+    <DocumentationFile>..\..\Binaries\$(Configuration)\Atom.Xna.Wpf.xml</DocumentationFile>
   </PropertyGroup>
+  
   <ItemGroup>
     <Reference Include="Microsoft.Xna.Framework">
       <HintPath>..\..\Dependencies\Microsoft.Xna.Framework.dll</HintPath>
@@ -42,46 +34,14 @@
     <Reference Include="Microsoft.Xna.Framework.Graphics">
       <HintPath>..\..\Dependencies\Microsoft.Xna.Framework.Graphics.dll</HintPath>
     </Reference>
-    <Reference Include="PresentationCore">
-    </Reference>
-    <Reference Include="PresentationFramework">
-    </Reference>
-    <Reference Include="System" />
-    <Reference Include="System.Core">
-    </Reference>
-    <Reference Include="System.Drawing" />
-    <Reference Include="System.Windows.Forms" />
-    <Reference Include="System.Xaml" />
-    <Reference Include="UIAutomationProvider">
-    </Reference>
-    <Reference Include="WindowsBase">
-    </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="..\SolutionInfo.cs">
-      <Link>Properties\SolutionInfo.cs</Link>
-    </Compile>
-    <Compile Include="GlobalSuppressions.cs" />
-    <Compile Include="HiddenXnaGame.cs" />
-    <Compile Include="TargaImageLoader.cs" />
-    <Compile Include="ToXnaWpfExtensionMethods.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="UncachedTargaFromFileTexture2DLoader.cs" />
-    <Compile Include="XnaWpfGame.cs" />
+    <ProjectReference Include="..\Atom\Atom.csproj" />
+    <ProjectReference Include="..\Atom.Math\Atom.Math.csproj" />
+    <ProjectReference Include="..\Atom.Xna\Atom.Xna.csproj" />
   </ItemGroup>
+
   <ItemGroup>
-    <ProjectReference Include="..\Atom.Math\Atom.Math.csproj">
-      <Project>{CC3BC455-003C-43EE-8646-B53311A89298}</Project>
-      <Name>Atom.Math</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Atom.Xna\Atom.Xna.csproj">
-      <Project>{68DE8DA7-DBBD-4EAF-B992-E431DD88B4B4}</Project>
-      <Name>Atom.Xna</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Atom\Atom.csproj">
-      <Project>{fd767621-6a9e-41d9-8ae1-68f39421344a}</Project>
-      <Name>Atom</Name>
-    </ProjectReference>
+    <Compile Include="..\SolutionInfo.cs" Link="Properties\SolutionInfo.cs" />
   </ItemGroup>
-  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

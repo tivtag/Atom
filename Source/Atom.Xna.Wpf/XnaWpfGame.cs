@@ -27,24 +27,12 @@ namespace Atom.Xna.Wpf
         /// <remarks>
         /// This value can't change because of limitation of the Xna framework.
         /// </remarks>
-        public Point2 WindowSize
-        {
-            get
-            {
-                return this.windowSize;
-            }
-        }
+        public Point2 WindowSize { get; }
 
         /// <summary>
         /// Gets the <see cref="GraphicsDeviceManager"/> of this WpfGame.
         /// </summary>
-        public GraphicsDeviceManager Graphics
-        {
-            get
-            {
-                return this.graphics;
-            }
-        }
+        public GraphicsDeviceManager Graphics { get; }
 
         /// <summary>
         /// Initializes a new instance of the XnaWpfGame class.
@@ -57,11 +45,11 @@ namespace Atom.Xna.Wpf
         /// </param>
         protected XnaWpfGame( Point2 windowSize, IntPtr controlHandle )
         {
-            this.windowSize = windowSize;
+            this.WindowSize = windowSize;
             this.controlHandle = controlHandle;
 
-            this.graphics = new GraphicsDeviceManager( this );
-            this.graphics.PreparingDeviceSettings += this.OnGraphicsPreparingDeviceSettings;
+            this.Graphics = new GraphicsDeviceManager( this );
+            this.Graphics.PreparingDeviceSettings += this.OnGraphicsPreparingDeviceSettings;
         }
 
         /// <summary>
@@ -75,9 +63,9 @@ namespace Atom.Xna.Wpf
         /// </param>
         private void OnGraphicsPreparingDeviceSettings( object sender, PreparingDeviceSettingsEventArgs e )
         {
-            var presentParams = e.GraphicsDeviceInformation.PresentationParameters;
-            presentParams.BackBufferWidth = this.windowSize.X;
-            presentParams.BackBufferHeight = this.windowSize.Y;
+            Microsoft.Xna.Framework.Graphics.PresentationParameters presentParams = e.GraphicsDeviceInformation.PresentationParameters;
+            presentParams.BackBufferWidth = this.WindowSize.X;
+            presentParams.BackBufferHeight = this.WindowSize.Y;
             presentParams.DeviceWindowHandle = this.controlHandle;
 
             this.OnPreparingDeviceSettings( e );
@@ -109,19 +97,8 @@ namespace Atom.Xna.Wpf
         }
 
         /// <summary>
-        /// The size of the window/control xna is drawing.
-        /// This value can't change because of limitation of the Xna framework.
-        /// </summary>
-        private readonly Point2 windowSize;
-
-        /// <summary>
         /// The handle of the Control into which Xna is drawing.
         /// </summary>
         private readonly IntPtr controlHandle;
-
-        /// <summary>
-        /// The Xna GraphicsDeviceManager object.
-        /// </summary>
-        private readonly GraphicsDeviceManager graphics;
     }
 }

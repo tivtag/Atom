@@ -11,10 +11,10 @@
 namespace Atom.Xna
 {
     using System;
-    using Atom.Diagnostics.Contracts;
     using System.Drawing;
     using System.Drawing.Imaging;
     using System.IO;
+    using Atom.Diagnostics.Contracts;
     using Atom.Xna.Wpf;
     using Microsoft.Xna.Framework.Graphics;
 

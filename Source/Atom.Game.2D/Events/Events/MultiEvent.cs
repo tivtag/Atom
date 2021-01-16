@@ -29,7 +29,7 @@ namespace Atom.Events
         [LocalizedDisplayName( "PropDisp_MultiEvent_Events" )]
         [LocalizedCategory( "PropCate_Settings" )]
         [LocalizedDescription( "PropDesc_MultiEvent_Events" )]
-        [Editor( typeof( Atom.Events.Design.ExistingEventCollectionEditor ), typeof( System.Drawing.Design.UITypeEditor ) )]
+        [Editor( "Atom.Events.Design.ExistingEventCollectionEditor, Atom.Game.Design", "System.Drawing.Design.UITypeEditor, System.Windows.Forms" )]
         public IList<Event> Events
         {
             get 

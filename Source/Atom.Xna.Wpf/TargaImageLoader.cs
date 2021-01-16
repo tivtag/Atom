@@ -468,11 +468,11 @@ namespace Atom.Xna.Wpf
                         this.eTGAFormat = TGAFormat.ORIGINAL_TGA;
                     }
                 }
-                catch( Exception ex )
+                catch
                 {
                     // clear all 
                     this.ClearAll();
-                    throw ex;
+                    throw;
                 }
             }
             else
@@ -480,8 +480,6 @@ namespace Atom.Xna.Wpf
                 this.ClearAll();
                 throw new Exception( @"Error loading file, could not read file from disk." );
             }
-
-
         }
 
         /// <summary>
@@ -541,12 +539,11 @@ namespace Atom.Xna.Wpf
                         this.objTargaHeader.SetImageIDValue( System.Text.Encoding.ASCII.GetString( ImageIDValueBytes ).TrimEnd( '\0' ) );
                     }
                 }
-                catch( Exception ex )
+                catch
                 {
                     this.ClearAll();
-                    throw ex;
+                    throw;
                 }
-
 
                 // load color map if it's included and/or needed
                 // Only needed for UNCOMPRESSED_COLOR_MAPPED and RUN_LENGTH_ENCODED_COLOR_MAPPED
@@ -602,14 +599,11 @@ namespace Atom.Xna.Wpf
 
                                 }
                             }
-                            catch( Exception ex )
+                            catch
                             {
                                 this.ClearAll();
-                                throw ex;
+                                throw;
                             }
-
-
-
                         }
                         else
                         {
@@ -617,8 +611,6 @@ namespace Atom.Xna.Wpf
                             throw new Exception( "Image Type requires a Color Map and Color Map Length is zero." );
                         }
                     }
-
-
                 }
                 else
                 {
@@ -629,8 +621,6 @@ namespace Atom.Xna.Wpf
                         throw new Exception( "Image Type requires a Color Map and there was not a Color Map included in the file." );
                     }
                 }
-
-
             }
             else
             {
@@ -742,10 +732,10 @@ namespace Atom.Xna.Wpf
                             }
                         }
                     }
-                    catch( Exception ex )
+                    catch
                     {
                         this.ClearAll();
-                        throw ex;
+                        throw;
                     }
                 }
             }
@@ -1400,23 +1390,15 @@ namespace Atom.Xna.Wpf
                     {
                         this.bmpImageThumbnail.Dispose();
                     }
-
-                    if( this.ImageByteHandle != null )
+                  
+                    if( this.ImageByteHandle.IsAllocated )
                     {
-                        if( this.ImageByteHandle.IsAllocated )
-                        {
-                            this.ImageByteHandle.Free();
-                        }
-
+                        this.ImageByteHandle.Free();
                     }
-
-                    if( this.ThumbnailByteHandle != null )
+                 
+                    if( this.ThumbnailByteHandle.IsAllocated )
                     {
-                        if( this.ThumbnailByteHandle.IsAllocated )
-                        {
-                            this.ThumbnailByteHandle.Free();
-                        }
-
+                        this.ThumbnailByteHandle.Free();
                     }
                 }
                 // Release unmanaged resources. If disposing is false, 

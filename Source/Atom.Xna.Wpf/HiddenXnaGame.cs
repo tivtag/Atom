@@ -22,21 +22,15 @@ namespace Atom.Xna.Wpf
         /// <summary>
         /// Gets the <see cref="GraphicsDeviceManager"/> this HiddenXnaGame uses.
         /// </summary>
-        public GraphicsDeviceManager Graphics
-        {
-            get
-            {
-                return this.graphics;
-            }
-        }
+        public GraphicsDeviceManager Graphics { get; }
 
         /// <summary>
         /// Initializes a new instance of the HiddenXnaGame class.
         /// </summary>
         protected HiddenXnaGame()
         {
-            this.graphics = new GraphicsDeviceManager( this );
-            this.graphics.PreparingDeviceSettings += this.OnGraphicsPreparingDeviceSettings;
+            this.Graphics = new GraphicsDeviceManager( this );
+            this.Graphics.PreparingDeviceSettings += this.OnGraphicsPreparingDeviceSettings;
         }
 
         /// <summary>
@@ -50,7 +44,7 @@ namespace Atom.Xna.Wpf
         /// </param>
         private void OnGraphicsPreparingDeviceSettings( object sender, PreparingDeviceSettingsEventArgs e )
         {
-            var presentParams = e.GraphicsDeviceInformation.PresentationParameters;
+            Microsoft.Xna.Framework.Graphics.PresentationParameters presentParams = e.GraphicsDeviceInformation.PresentationParameters;
             presentParams.BackBufferWidth = 1;
             presentParams.BackBufferHeight = 1;
 
@@ -81,10 +75,5 @@ namespace Atom.Xna.Wpf
                 xnaForm.Visible = false;
             };
         }
-
-        /// <summary>
-        /// The Xna GraphicsDeviceManager object.
-        /// </summary>
-        private readonly GraphicsDeviceManager graphics;
     }
 }

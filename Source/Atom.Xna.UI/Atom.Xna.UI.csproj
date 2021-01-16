@@ -1,37 +1,27 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
-    <ProjectGuid>{AD153F26-3718-44CE-AD10-B8ADE52F8548}</ProjectGuid>
-    <OutputType>Library</OutputType>
-    <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Atom.Xna.UI</RootNamespace>
-    <AssemblyName>Atom.Xna.UI</AssemblyName>
-    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
-    <FileAlignment>512</FileAlignment>
-    <Deterministic>true</Deterministic>
+    <AssemblyTitle>Atom.Xna.UI</AssemblyTitle>
+    <Description>A simple GUI (Graphical User Interface) library for the Microsoft Xna framework.</Description>
+    <TargetFramework>netstandard2.1</TargetFramework>
   </PropertyGroup>
+  
+  <PropertyGroup>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <LangVersion>latest</LangVersion>
+    <EnableNETAnalyzers>true</EnableNETAnalyzers>
+  </PropertyGroup>
+  
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
-    <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
+    <OutputPath>bin\$(Configuration)\</OutputPath>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
     <DebugType>pdbonly</DebugType>
-    <Optimize>true</Optimize>
-    <OutputPath>..\..\Binaries\Release\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-    <PlatformTarget>x86</PlatformTarget>
-    <DocumentationFile>..\..\Binaries\Release\Atom.Xna.UI.xml</DocumentationFile>
+    <OutputPath>..\..\Binaries\$(Configuration)\</OutputPath>
+    <DocumentationFile>..\..\Binaries\$(Configuration)\Atom.Xna.UI.xml</DocumentationFile>
   </PropertyGroup>
+  
   <ItemGroup>
     <Reference Include="Microsoft.Xna.Framework">
       <HintPath>..\..\Dependencies\Microsoft.Xna.Framework.dll</HintPath>
@@ -42,78 +32,20 @@
     <Reference Include="Microsoft.Xna.Framework.Graphics">
       <HintPath>..\..\Dependencies\Microsoft.Xna.Framework.Graphics.dll</HintPath>
     </Reference>
-    <Reference Include="System" />
-    <Reference Include="System.Core">
-      <RequiredTargetFramework>3.5</RequiredTargetFramework>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="..\SolutionInfo.cs">
-      <Link>Properties\SolutionInfo.cs</Link>
-    </Compile>
-    <Compile Include="Controls\Buttons\Button.cs" />
-    <Compile Include="Controls\Buttons\DynamicSpriteButton.cs" />
-    <Compile Include="Controls\Buttons\SpriteButton.cs" />
-    <Compile Include="Controls\Buttons\LambdaButton.cs" />
-    <Compile Include="Controls\Buttons\SpriteTextButton.cs" />
-    <Compile Include="Controls\Buttons\TextButton.cs" />
-    <Compile Include="Controls\Lists\ListBox.cs" />
-    <Compile Include="Controls\Lists\ListItem.cs" />
-    <Compile Include="Controls\Scrolling\ScrollBar.cs" />
-    <Compile Include="Controls\Scrolling\ScrollBarDragDropCapturer.cs" />
-    <Compile Include="Controls\SpriteTextField.cs" />
-    <Compile Include="Controls\TextField.cs" />
-    <Compile Include="DragDropCapturer.cs" />
-    <Compile Include="Tooltips\BaseTooltipDrawElement.cs" />
-    <Compile Include="Tooltips\TextFieldTooltipDrawElement.cs" />
-    <Compile Include="GlobalSuppressions.cs" />
-    <Compile Include="IUIColorProvider.cs" />
-    <Compile Include="IUISpriteProvider.cs" />
-    <Compile Include="KeyboardInputEventHandler.cs" />
-    <Compile Include="MouseInputEventHandler.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Text\AnimatedTypeWriterText.cs" />
-    <Compile Include="Text\PartiallyShownText.cs" />
-    <Compile Include="Text\Splitters\DefaultBlockSplitter.cs" />
-    <Compile Include="Text\Splitters\ITextBlockSplitter.cs" />
-    <Compile Include="Text\Splitters\ManuallyLimitedTextBlockSplitter.cs" />
-    <Compile Include="Text\Text.cs" />
-    <Compile Include="Tooltips\ITooltipDrawElement.cs" />
-    <Compile Include="Tooltips\LambdaTooltipDrawElement.cs" />
-    <Compile Include="Tooltips\TextTooltip.cs" />
-    <Compile Include="Tooltips\Tooltip.cs" />
-    <Compile Include="UIContainerElement.cs" />
-    <Compile Include="UIElement.cs" />
-    <Compile Include="UIErrorStrings.Designer.cs">
+    <ProjectReference Include="..\Atom.Game.2D\Atom.Game.csproj" />
+    <ProjectReference Include="..\Atom.Math\Atom.Math.csproj" />
+    <ProjectReference Include="..\Atom.Xna\Atom.Xna.csproj" />
+    <ProjectReference Include="..\Atom\Atom.csproj" />
+  </ItemGroup>
+  
+  <ItemGroup>
+    <Compile Include="..\SolutionInfo.cs" Link="Properties\SolutionInfo.cs" />
+    <Compile Update="UIErrorStrings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>UIErrorStrings.resx</DependentUpon>
     </Compile>
-    <Compile Include="UserInterface.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Atom.Game.2D\Atom.Game.csproj">
-      <Project>{C4399B62-FBE2-4F55-A46A-C298BC0F6207}</Project>
-      <Name>Atom.Game</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Atom.Math\Atom.Math.csproj">
-      <Project>{CC3BC455-003C-43EE-8646-B53311A89298}</Project>
-      <Name>Atom.Math</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Atom.Xna\Atom.Xna.csproj">
-      <Project>{68DE8DA7-DBBD-4EAF-B992-E431DD88B4B4}</Project>
-      <Name>Atom.Xna</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Atom\Atom.csproj">
-      <Project>{fd767621-6a9e-41d9-8ae1-68f39421344a}</Project>
-      <Name>Atom</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="UIErrorStrings.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>UIErrorStrings.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-  </ItemGroup>
-  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

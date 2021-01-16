@@ -2,14 +2,14 @@
   <PropertyGroup>
     <AssemblyTitle>Atom.Fmod</AssemblyTitle>
     <Description>A library that contains an object oriented wrapper around the C++ audio libary FMOD Studio Suite 2.01.17. (http://www.fmod.org/)</Description>
-    <TargetFramework>net48</TargetFramework>
+    <TargetFramework>netstandard2.1</TargetFramework>
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|Any CPU' ">
     <DebugType>full</DebugType>
     <OutputPath>bin\$(Configuration)\</OutputPath>
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|Any CPU' ">
     <DebugType>pdbonly</DebugType>
     <OutputPath>..\..\Binaries\$(Configuration)\</OutputPath>
     <DocumentationFile>..\..\Binaries\$(Configuration)\Atom.Fmod.xml</DocumentationFile>

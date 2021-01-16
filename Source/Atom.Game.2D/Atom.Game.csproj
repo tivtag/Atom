@@ -1,8 +1,9 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <AssemblyTitle>Atom.Game</AssemblyTitle>
+    <RootNamespace>Atom</RootNamespace>
     <Description>An arbitrary library that implements concepts useful the creation of (2D) games.</Description>
-    <TargetFramework>netstandard2.0</TargetFramework>
+    <TargetFramework>netstandard2.1</TargetFramework>
   </PropertyGroup>
 
   <PropertyGroup>
@@ -25,5 +26,20 @@
   <ItemGroup>
     <ProjectReference Include="..\Atom.Math\Atom.Math.csproj" />
     <ProjectReference Include="..\Atom\Atom.csproj" />
+  </ItemGroup>
+  
+  <ItemGroup>
+    <Compile Update="Events\EventStrings.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>EventStrings.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  
+  <ItemGroup>
+    <EmbeddedResource Update="Events\EventStrings.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>EventStrings.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
   </ItemGroup>
 </Project>

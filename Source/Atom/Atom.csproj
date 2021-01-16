@@ -2,7 +2,7 @@
   <PropertyGroup>
     <AssemblyTitle>Atom</AssemblyTitle>
     <Description>The core dynamic link library of the Atom framework.</Description>
-    <TargetFramework>netstandard2.0</TargetFramework>
+    <TargetFramework>netstandard2.1</TargetFramework>
     <UseWindowsForms>true</UseWindowsForms>
   </PropertyGroup>
 

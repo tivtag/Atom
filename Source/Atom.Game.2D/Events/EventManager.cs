@@ -57,10 +57,7 @@ namespace Atom.Events
         /// A read-only collection that contains all <see cref="Event"/>s managed 
         /// by the <see cref="EventManager"/>.
         /// </value>
-        public ICollection<Event> Events
-        {
-            get { return events.Values; }
-        }
+        public ICollection<Event> Events => events.Values;
 
         /// <summary>
         /// Gets a read-only collection that contains all <see cref="EventTrigger"/>s managed 
@@ -70,10 +67,7 @@ namespace Atom.Events
         /// A read-only collection that contains all <see cref="EventTrigger"/>s managed 
         /// by the <see cref="EventManager"/>.
         /// </value>
-        public ICollection<EventTrigger> Triggers
-        {
-            get { return triggers.Values; }
-        }
+        public ICollection<EventTrigger> Triggers => triggers.Values;
 
         /// <summary>
         /// Gets or sets the delegate that determines whether it's needed for an <see cref="Event"/> to get saved.
@@ -92,7 +86,9 @@ namespace Atom.Events
             set
             {
                 if( value == null )
-                    throw new ArgumentNullException( "value" );
+                {
+                    throw new ArgumentNullException( nameof( value ) );
+                }
 
                 this.eventSaveNeededDecider = value;
             }
@@ -115,7 +111,9 @@ namespace Atom.Events
             set
             {
                 if( value == null )
-                    throw new ArgumentNullException( "value" );
+                {
+                    throw new ArgumentNullException( nameof( value ) );
+                }
 
                 this.triggerSaveNeededDecider = value;
             }
@@ -239,12 +237,13 @@ namespace Atom.Events
 
             var permanentEvent = e as PermanentEvent;
             if( permanentEvent != null )
+            {
                 this.activePermanentEvents.Add( permanentEvent );
+            }
 
             // Notify
             OnEventAdded( e );
-            if( EventAdded != null )
-                EventAdded( this, e );
+            EventAdded?.Invoke( this, e );
         }
 
         /// <summary>
@@ -275,8 +274,7 @@ namespace Atom.Events
 
             // Notify
             OnTriggerAdded( trigger );
-            if( TriggerAdded != null )
-                TriggerAdded( this, trigger );
+            TriggerAdded?.Invoke( this, trigger );
         }
 
         #endregion
@@ -304,12 +302,13 @@ namespace Atom.Events
 
                 var permanentEvent = e as PermanentEvent;
                 if( permanentEvent != null )
+                {
                     this.activePermanentEvents.Remove( permanentEvent );
+                }
 
                 // Notify
                 OnEventRemoved( e );
-                if( EventRemoved != null )
-                    EventRemoved( this, e );
+                EventRemoved?.Invoke( this, e );
                 return e;
             }
 
@@ -337,9 +336,7 @@ namespace Atom.Events
 
                 // Notify
                 OnTriggerRemoved( trigger );
-
-                if( TriggerRemoved != null )
-                    TriggerRemoved( this, trigger );
+                TriggerRemoved?.Invoke( this, trigger );
 
                 return trigger;
             }
@@ -365,7 +362,9 @@ namespace Atom.Events
         public bool ContainsEvent( string name )
         {
             if( name == null )
+            {
                 return false;
+            }
 
             return events.ContainsKey( name );
         }
@@ -384,7 +383,9 @@ namespace Atom.Events
         public bool ContainsTrigger( string name )
         {
             if( name == null )
+            {
                 return false;
+            }
 
             return triggers.ContainsKey( name );
         }
@@ -427,10 +428,10 @@ namespace Atom.Events
         /// <returns>The list of events which need to be saved.</returns>
         public IList<Event> GetEventsToSave()
         {
-            var events = this.events.Values;
+            Dictionary<string, Event>.ValueCollection events = this.events.Values;
             var list = new List<Event>( events.Count );
 
-            foreach( var e in events )
+            foreach( Event e in events )
             {
                 if( this.eventSaveNeededDecider( e ) )
                 {
@@ -447,10 +448,10 @@ namespace Atom.Events
         /// <returns>The list of triggers which need to be saved.</returns>
         public IList<EventTrigger> GetTriggersToSave()
         {
-            var triggers = this.triggers.Values;
+            Dictionary<string, EventTrigger>.ValueCollection triggers = this.triggers.Values;
             var list = new List<EventTrigger>( triggers.Count );
 
-            foreach( var trigger in triggers )
+            foreach( EventTrigger trigger in triggers )
             {
                 if( this.triggerSaveNeededDecider( trigger ) )
                 {
@@ -477,10 +478,14 @@ namespace Atom.Events
         public virtual void Update( IUpdateContext updateContext )
         {
             for( int i = 0; i < activeLongTermEvents.Count; ++i )
+            {
                 activeLongTermEvents[i].Update( updateContext );
+            }
 
             for( int i = 0; i < activePermanentEvents.Count; ++i )
+            {
                 activePermanentEvents[i].Update( updateContext );
+            }
         }
 
         #endregion
@@ -504,13 +509,12 @@ namespace Atom.Events
         {
             ClearActiveLongTermEvents();
 
-            foreach( var e in events.Values )
+            foreach( Event e in events.Values )
             {
                 e.EventManager = null;
 
                 OnEventRemoved( e );
-                if( EventRemoved != null )
-                    EventRemoved( this, e );
+                EventRemoved?.Invoke( this, e );
             }
 
             this.events.Clear();
@@ -521,13 +525,12 @@ namespace Atom.Events
         /// </summary>
         public void ClearTriggers()
         {
-            foreach( var trigger in triggers.Values )
+            foreach( EventTrigger trigger in triggers.Values )
             {
                 trigger.EventManager = null;
 
                 OnTriggerRemoved( trigger );
-                if( TriggerRemoved != null )
-                    TriggerRemoved( this, trigger );
+                TriggerRemoved?.Invoke( this, trigger );
             }
 
             this.triggers.Clear();
@@ -539,8 +542,10 @@ namespace Atom.Events
         /// </summary>
         public void ClearActiveLongTermEvents()
         {
-            foreach( var e in activeLongTermEvents )
+            foreach( LongTermEvent e in activeLongTermEvents )
+            {
                 e.InternalStopForce();
+            }
 
             activeLongTermEvents.Clear();
         }
@@ -682,7 +687,9 @@ namespace Atom.Events
         private void ValidateEventForAddInternal( Event e )
         {
             if( e == null )
-                throw new ArgumentNullException( "e" );
+            {
+                throw new ArgumentNullException( nameof( e ) );
+            }
 
             if( e.EventManager != null )
             {
@@ -692,12 +699,14 @@ namespace Atom.Events
                         EventStrings.Error_EventXAlreadyAddedToAnEventManager,
                         e.Name
                     ),
-                    "e"
+                    nameof( e )
                  );
             }
 
             if( e.Name == null )
-                throw new ArgumentException( EventStrings.Error_EventNameIsNull, "e" );
+            {
+                throw new ArgumentException( EventStrings.Error_EventNameIsNull, nameof( e ) );
+            }
 
             if( events.ContainsKey( e.Name ) )
             {
@@ -707,7 +716,7 @@ namespace Atom.Events
                         EventStrings.Error_ThereAlreadyExistsAnEventNamedX,
                         e.Name
                     ),
-                    "e"
+                    nameof( e )
                 );
             }
 
@@ -723,7 +732,9 @@ namespace Atom.Events
         private void ValidateTriggerForAddInternal( EventTrigger trigger )
         {
             if( trigger == null )
-                throw new ArgumentNullException( "trigger" );
+            {
+                throw new ArgumentNullException( nameof( trigger ) );
+            }
 
             if( trigger.EventManager != null )
             {
@@ -733,12 +744,14 @@ namespace Atom.Events
                         EventStrings.Error_EventTriggerXAlreadyAddedToAnEventManager,
                         trigger.Name
                     ),
-                    "trigger"
+                    nameof( trigger )
                 );
             }
 
             if( trigger.Name == null )
+            {
                 throw new ArgumentException( EventStrings.Error_EventTriggerNameIsNull, "trigger" );
+            }
 
             if( triggers.ContainsKey( trigger.Name ) )
             {
@@ -748,7 +761,7 @@ namespace Atom.Events
                         EventStrings.Error_ThereAlreadyExistsAnEventTriggerNamedX,
                         trigger.Name
                     ),
-                    "trigger"
+                    nameof( trigger )
                 );
             }
 
@@ -766,7 +779,9 @@ namespace Atom.Events
         private static bool DefaultEventSaveDecider_Method( Event e )
         {
             if( e == null )
+            {
                 return false;
+            }
 
             return true;
         }
@@ -782,7 +797,9 @@ namespace Atom.Events
         private static bool DefaultTriggerSaveDecider_Method( EventTrigger trigger )
         {
             if( trigger == null )
+            {
                 return false;
+            }
 
             return true;
         }

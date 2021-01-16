@@ -25,9 +25,9 @@
   </PropertyGroup>
   
   <ItemGroup>
-    <ProjectReference Include="..\Atom.Math\Atom.Math.csproj" />
     <ProjectReference Include="..\Atom\Atom.csproj" />
-    <ProjectReference Include="..\Atom\Atom.Design.csproj" />
+    <ProjectReference Include="..\Atom.Design\Atom.Design.csproj" />
+    <ProjectReference Include="..\Atom.Math\Atom.Math.csproj" />
   </ItemGroup>
 
   <ItemGroup>

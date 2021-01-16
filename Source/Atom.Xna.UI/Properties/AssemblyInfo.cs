@@ -11,9 +11,6 @@
 using System;
 using System.Reflection;
 using System.Runtime.InteropServices;
-
-[assembly: AssemblyTitle( "Atom.Xna.UI" )]
-[assembly: AssemblyDescription( "A simple GUI (Graphical User Interface) library for the Microsoft Xna framework." )]
 [assembly: Guid( "2fb7e246-67e5-499a-b6b5-d7aa614c9793" )]
 
 [assembly: CLSCompliant( false )]

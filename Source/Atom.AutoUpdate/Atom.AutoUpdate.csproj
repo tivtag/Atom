@@ -2,7 +2,7 @@
   <PropertyGroup>
     <AssemblyTitle>Atom.AutoUpdate</AssemblyTitle>
     <Description>A library that implements a simple auto update functionallity for client applications.</Description>
-    <TargetFramework>netstandard2.0</TargetFramework>
+    <TargetFramework>netstandard2.1</TargetFramework>
   </PropertyGroup>
   
   <PropertyGroup>

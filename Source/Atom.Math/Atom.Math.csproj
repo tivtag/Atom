@@ -2,7 +2,7 @@
   <PropertyGroup>
     <AssemblyTitle>Atom.Math</AssemblyTitle>
     <Description>The math library of the Atom framework.</Description>
-    <TargetFramework>netstandard2.0</TargetFramework>
+    <TargetFramework>netstandard2.1</TargetFramework>
   </PropertyGroup>
 
   <PropertyGroup>

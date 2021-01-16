@@ -2,7 +2,7 @@
   <PropertyGroup>
     <AssemblyTitle>Atom.ErrorReporting.Forms</AssemblyTitle>
     <Description>A library that implements a flexible mechanism for adding robust error reporting functionality to a Windows Forms application.</Description>
-    <TargetFramework>net48</TargetFramework>
+    <TargetFramework>net5.0-windows</TargetFramework>
     <UseWindowsForms>true</UseWindowsForms>
   </PropertyGroup>
   
@@ -23,10 +23,7 @@
     <OutputPath>..\..\Binaries\$(Configuration)\</OutputPath>
     <DocumentationFile>..\..\Binaries\$(Configuration)\Atom.ErrorReporting.Forms.xml</DocumentationFile>
   </PropertyGroup>
-  
-  <ItemGroup>
-    <Reference Include="System.Windows.Forms" />
-  </ItemGroup>
+
   <ItemGroup>
     <ProjectReference Include="..\Atom.ErrorReporting\Atom.ErrorReporting.csproj" />
     <ProjectReference Include="..\Atom\Atom.csproj" />

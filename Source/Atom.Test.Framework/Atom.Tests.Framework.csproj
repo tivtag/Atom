@@ -4,7 +4,7 @@
     <AssemblyName>Atom.Test.Framework</AssemblyName>
     <AssemblyTitle>Atom.Test.Framework</AssemblyTitle>
     <Description>A library that extends the Microsoft testing framework.</Description>
-    <TargetFramework>net48</TargetFramework>
+    <TargetFramework>netstandard2.1</TargetFramework>
   </PropertyGroup>
 
   <PropertyGroup>
