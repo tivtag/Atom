@@ -5,7 +5,7 @@
 //     Defines the Atom.Wpf.ViewModelCommand{TViewModel, TModel} class.
 // </summary>
 // <author>
-//     Paul Ennemoser (Tick)
+//     Paul Ennemoser
 // </author>
 
 namespace Atom.Wpf

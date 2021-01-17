@@ -5,7 +5,7 @@
 //     Defines the Atom.Story.Timeline structure.
 // </summary>
 // <author>
-//     Paul Ennemoser (Tick)
+//     Paul Ennemoser
 // </author>
 
 namespace Atom.Story

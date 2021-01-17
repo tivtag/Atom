@@ -5,7 +5,7 @@
 //     Defines the Atom.Anonymous class.
 // </summary>
 // <author>
-//     Paul Ennemoser (Tick)
+//     Paul Ennemoser
 //     original version by Rinat Abdullin 
 //         (http://abdullin.com/journal/2009/10/6/zen-development-practices-c-maybe-monad.html)
 // </author>

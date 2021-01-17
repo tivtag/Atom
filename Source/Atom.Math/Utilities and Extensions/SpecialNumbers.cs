@@ -5,7 +5,7 @@
 //     Defines the Atom.Math.SpecialNumbers class.
 // </summary>
 // <author>
-//     Paul Ennemoser (Tick)
+//     Paul Ennemoser
 // </author>
 
 #region Math.NET Iridium (LGPL) by Ruegg + Contributors

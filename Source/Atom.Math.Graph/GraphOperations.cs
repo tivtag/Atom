@@ -5,7 +5,7 @@
 //     Defines the Atom.Math.Graph.GraphOperations class.
 // </summary>
 // <author>
-//     Paul Ennemoser (Tick)
+//     Paul Ennemoser
 // </author>
 
 namespace Atom.Math.Graph

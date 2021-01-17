@@ -5,7 +5,7 @@
 //     Defines the Atom.Story.Incident class.
 // </summary>
 // <author>
-//     Paul Ennemoser (Tick)
+//     Paul Ennemoser
 // </author>
 
 namespace Atom.Story

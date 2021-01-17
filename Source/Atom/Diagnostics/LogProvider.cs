@@ -5,7 +5,7 @@
 //     Defines the Atom.Diagnostics.LogProvider class.
 // </summary>
 // <author>
-//     Paul Ennemoser (Tick)
+//     Paul Ennemoser
 // </author>
 
 namespace Atom.Diagnostics

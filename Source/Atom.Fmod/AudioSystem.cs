@@ -5,7 +5,7 @@
 //     Defines the Atom.Fmod.AudioSystem class.
 // </summary>
 // <author>
-//     Paul Ennemoser (Tick)
+//     Paul Ennemoser
 // </author>
 
 namespace Atom.Fmod

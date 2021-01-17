@@ -5,7 +5,7 @@
 //     Defines the Atom.Design.BaseTypeSelectionEditor class.
 // </summary>
 // <author>
-//     Paul Ennemoser (Tick)
+//     Paul Ennemoser
 // </author>
 
 namespace Atom.Design

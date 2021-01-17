@@ -5,7 +5,7 @@
 //     Defines the Atom.Xna.Fonts.IFontLoader interface.
 // </summary>
 // <author>
-//     Paul Ennemoser (Tick)
+//     Paul Ennemoser
 // </author>
 
 namespace Atom.Xna.Fonts

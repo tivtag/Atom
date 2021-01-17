@@ -5,7 +5,7 @@
 //     Defines various enumerations provided by the Atom.Math libary.
 // </summary>
 // <author>
-//     Paul Ennemoser (Tick)
+//     Paul Ennemoser
 // </author>
 
 namespace Atom.Math

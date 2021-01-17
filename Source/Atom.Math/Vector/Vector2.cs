@@ -5,7 +5,7 @@
 //     Defines the Atom.Math.Vector2 structure.
 // </summary>
 // <author>
-//     Paul Ennemoser (Tick)
+//     Paul Ennemoser
 // </author>
 
 namespace Atom.Math

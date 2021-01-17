@@ -5,7 +5,7 @@
 //     Defines the Atom.StringUtilities class.
 // </summary>
 // <author>
-//     Paul Ennemoser (Tick)
+//     Paul Ennemoser
 // </author>
 
 namespace Atom

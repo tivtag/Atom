@@ -5,7 +5,7 @@
 //     Defines the Atom.Collections.MultiMap{Tkey, TElement}.Grouping class.
 // </summary>
 // <author>
-//     Paul Ennemoser (Tick)
+//     Paul Ennemoser
 // </author>
 
 namespace Atom.Collections

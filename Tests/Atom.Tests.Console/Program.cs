@@ -4,7 +4,7 @@
 // <summary>
 // This console application allows one to easily create some random temporary tests.
 // </summary>
-// <author>Paul Ennemoser (Tick)</author>
+// <author>Paul Ennemoser</author>
 
 namespace Atom.Tests.Console
 {

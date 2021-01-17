@@ -5,7 +5,7 @@
 //     Defines the Atom.Collections.IMutableGrouping{Tkey, TElement} interface.
 // </summary>
 // <author>
-//     Paul Ennemoser (Tick)
+//     Paul Ennemoser
 // </author>
 
 namespace Atom.Collections

@@ -5,7 +5,7 @@
 //     Defines the Atom.Math.Graph.Data.IGraphDataFactory{TVertexData, TEdgeData} interface.
 // </summary>
 // <author>
-//     Paul Ennemoser (Tick)
+//     Paul Ennemoser
 // </author>
 
 namespace Atom.Math.Graph

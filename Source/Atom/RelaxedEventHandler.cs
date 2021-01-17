@@ -5,7 +5,7 @@
 //     Defines the Atom.RelaxedEventHandler{TEventArgs} and Atom.RelaxedEventHandler{TSender, TEventArgs} delegates.
 // </summary>
 // <author>
-//     Paul Ennemoser (Tick)
+//     Paul Ennemoser
 // </author>
 
 namespace Atom

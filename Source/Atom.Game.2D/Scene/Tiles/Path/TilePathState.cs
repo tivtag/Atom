@@ -5,7 +5,7 @@
 //     Defines the Atom.Scene.Tiles.TilePathState enumeration.
 // </summary>
 // <author>
-//     Paul Ennemoser (Tick)
+//     Paul Ennemoser
 // </author>
 
 namespace Atom.Scene.Tiles

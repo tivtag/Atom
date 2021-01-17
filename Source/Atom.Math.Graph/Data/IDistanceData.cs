@@ -5,7 +5,7 @@
 //     Defines the Atom.Math.Graph.Data.IDistanceData interface.
 // </summary>
 // <author>
-//     Paul Ennemoser (Tick)
+//     Paul Ennemoser
 // </author>
 
 namespace Atom.Math.Graph.Data

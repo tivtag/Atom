@@ -5,7 +5,7 @@
 //     Defines the Atom.Xna.UI.Controls.ListItem{T} class.
 // </summary>
 // <author>
-//     Paul Ennemoser (Tick)
+//     Paul Ennemoser
 // </author>
 
 namespace Atom.Xna.UI.Controls

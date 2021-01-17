@@ -5,7 +5,7 @@
 //     Defines the Atom.Math.Design.Point2Converter class.
 // </summary>
 // <author>
-//     Paul Ennemoser (Tick)
+//     Paul Ennemoser
 // </author>
 
 namespace Atom.Math.Design

@@ -5,7 +5,7 @@
 //     Defines the Atom.Events.TimedEvent class.
 // </summary>
 // <author>
-//     Paul Ennemoser (Tick)
+//     Paul Ennemoser
 // </author>
 
 namespace Atom.Events

@@ -5,7 +5,7 @@
 //     Defines the Atom.Patterns.Provider.ObjectProviderContainer class.
 // </summary>
 // <author>
-//     Paul Ennemoser (Tick)
+//     Paul Ennemoser
 // </author>
 
 namespace Atom.Patterns.Provider

@@ -5,7 +5,7 @@
 //     Contains all solution wide settings of the Atom framework.
 // </summary>
 // <author>
-//     Paul Ennemoser (Tick)
+//     Paul Ennemoser
 // </author>
 
 using System.Reflection;

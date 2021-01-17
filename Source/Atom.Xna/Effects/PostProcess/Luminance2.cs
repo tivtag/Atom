@@ -5,7 +5,7 @@
 //     Defines the Atom.Xna.Effects.PostProcess.Luminance2 class.
 // </summary>
 // <author>
-//     Paul Ennemoser (Tick)
+//     Paul Ennemoser
 // </author>
 
 //using System;

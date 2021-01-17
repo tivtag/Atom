@@ -5,7 +5,7 @@
 //     Defines the Atom.AI.Fuzzy.MembershipFunction{TInput} delegate.
 // </summary>
 // <author>
-//     Paul Ennemoser (Tick)
+//     Paul Ennemoser
 // </author>
 
 namespace Atom.AI.Fuzzy

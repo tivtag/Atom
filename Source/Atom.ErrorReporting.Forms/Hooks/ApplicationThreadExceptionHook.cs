@@ -5,7 +5,7 @@
 //     Defines the Atom.ErrorReporting.Hooks.ApplicationThreadExceptionHook class.
 // </summary>
 // <author>
-//     Paul Ennemoser (Tick)
+//     Paul Ennemoser
 // </author>
 
 namespace Atom.ErrorReporting.Hooks

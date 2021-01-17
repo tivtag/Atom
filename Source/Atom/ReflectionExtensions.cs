@@ -5,7 +5,7 @@
 //     Defines the Atom.ReflectionExtensions class.
 // </summary>
 // <author>
-//     Paul Ennemoser (Tick)
+//     Paul Ennemoser
 // </author>
 
 namespace Atom

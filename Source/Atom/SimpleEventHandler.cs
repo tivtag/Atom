@@ -5,7 +5,7 @@
 //     Defines the Atom.SimpleEventHandler{TSender} delegate.
 // </summary>
 // <author>
-//     Paul Ennemoser (Tick)
+//     Paul Ennemoser
 // </author>
 
 namespace Atom

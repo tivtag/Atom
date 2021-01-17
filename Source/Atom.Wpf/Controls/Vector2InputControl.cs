@@ -5,7 +5,7 @@
 //     Defines the Atom.Wpf.Controls.Vector2InputControl class.
 // </summary>
 // <author>
-//     Paul Ennemoser (Tick)
+//     Paul Ennemoser
 // </author>
 
 namespace Atom.Wpf.Controls

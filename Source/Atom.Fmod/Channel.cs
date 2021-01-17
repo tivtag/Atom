@@ -5,7 +5,7 @@
 //     Defines the Atom.Fmod.Channel class.
 // </summary>
 // <author>
-//     Paul Ennemoser (Tick)
+//     Paul Ennemoser
 // </author>
 
 namespace Atom.Fmod

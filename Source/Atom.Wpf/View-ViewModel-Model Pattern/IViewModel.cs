@@ -5,7 +5,7 @@
 //     Defines the Atom.Wpf.IViewModel{TModel} interface.
 // </summary>
 // <author>
-//     Paul Ennemoser (Tick)
+//     Paul Ennemoser
 // </author>
 
 namespace Atom.Wpf

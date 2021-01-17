@@ -5,7 +5,7 @@
 //     Defines the Atom.Scene.IQuadTreeItem2 interface.
 // </summary>
 // <author>
-//     Paul Ennemoser (Tick)
+//     Paul Ennemoser
 // </author>
 
 namespace Atom.Scene

@@ -5,7 +5,7 @@
 //     Defines the Atom.Story.Design.TimeTickConverter class.
 // </summary>
 // <author>
-//     Paul Ennemoser (Tick)
+//     Paul Ennemoser
 // </author>
 
 namespace Atom.Story.Design

@@ -5,7 +5,7 @@
 //     Defines the Atom.ErrorReporting.Dialogs.IErrorReportDialog interface.
 // </summary>
 // <author>
-//     Paul Ennemoser (Tick)
+//     Paul Ennemoser
 // </author>
 
 namespace Atom.ErrorReporting.Dialogs

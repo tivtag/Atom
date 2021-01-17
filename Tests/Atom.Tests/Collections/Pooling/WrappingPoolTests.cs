@@ -5,7 +5,7 @@
 //     Defines the Atom.Collections.Pooling.Tests.PoolTests class.
 // </summary>
 // <author>
-//     Paul Ennemoser (Tick)
+//     Paul Ennemoser
 // </author>
 
 namespace Atom.Collections.Pooling.Tests

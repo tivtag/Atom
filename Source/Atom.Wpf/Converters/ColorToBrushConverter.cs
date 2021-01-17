@@ -5,7 +5,7 @@
 //     Defines the Atom.Wpf.Converters.ColorToBrushConverter class.
 // </summary>
 // <author>
-//     Paul Ennemoser (Tick)
+//     Paul Ennemoser
 // </author>
 
 namespace Atom.Wpf.Converters

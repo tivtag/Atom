@@ -5,7 +5,7 @@
 //     Defines the Atom.Scene.QuadTree2 class.
 // </summary>
 // <author>
-//     Paul Ennemoser (Tick)
+//     Paul Ennemoser
 // </author>
 
 namespace Atom.Scene

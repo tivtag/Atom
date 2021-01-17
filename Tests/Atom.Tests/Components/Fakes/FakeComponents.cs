@@ -5,7 +5,7 @@
 //     Defines the fake Component classes that are used for testing.
 // </summary>
 // <author>
-//     Paul Ennemoser (Tick)
+//     Paul Ennemoser
 // </author>
 
 namespace Atom.Components.Tests

@@ -5,7 +5,7 @@
 //     Defines the Atom.Xna.Effects.ITimedColorEffect interface.
 // </summary>
 // <author>
-//     Paul Ennemoser (Tick)
+//     Paul Ennemoser
 // </author>
 
 namespace Atom.Xna.Effects

@@ -5,7 +5,7 @@
 //     Defines the Atom.Wpf.Dialogs.OverwritePromptDialog class and OverwritePromptResult enumeration.
 // </summary>
 // <author>
-//     Paul Ennemoser (Tick)
+//     Paul Ennemoser
 // </author>
 
 namespace Atom.Wpf.Dialogs

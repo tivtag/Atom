@@ -5,7 +5,7 @@
 //     Defines the Atom.Events.EventTypeRegister class.
 // </summary>
 // <author>
-//     Paul Ennemoser (Tick)
+//     Paul Ennemoser
 // </author>
 
 namespace Atom.Events

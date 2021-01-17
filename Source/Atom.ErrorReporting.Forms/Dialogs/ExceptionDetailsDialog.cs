@@ -5,7 +5,7 @@
 //     Defines the Atom.ErrorReporting.Dialogs.ExceptionDetailsDialog class.
 // </summary>
 // <author>
-//     Paul Ennemoser (Tick)
+//     Paul Ennemoser
 // </author>
 
 namespace Atom.ErrorReporting.Dialogs

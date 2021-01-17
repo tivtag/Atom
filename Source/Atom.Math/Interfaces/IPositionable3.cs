@@ -5,7 +5,7 @@
 //     Defines the Atom.Math.IPositionable3 interface.
 // </summary>
 // <author>
-//     Paul Ennemoser (Tick)
+//     Paul Ennemoser
 // </author>
 
 namespace Atom.Math

@@ -9,7 +9,7 @@
 // <author>
 //      Paul Bourke (pbourke@swin.edu.au), 
 //      Morten Nielsen (www.iter.dk), 
-//      Paul Ennemoser (Tick)
+//      Paul Ennemoser
 // </author>
 
 namespace Atom.Math

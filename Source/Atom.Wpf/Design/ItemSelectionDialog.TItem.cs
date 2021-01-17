@@ -5,7 +5,7 @@
 //     Defines the Atom.Wpf.Design.ItemSelectionDialog{TItem} class.
 // </summary>
 // <author>
-//     Paul Ennemoser (Tick)
+//     Paul Ennemoser
 // </author>
 
 namespace Atom.Wpf.Design

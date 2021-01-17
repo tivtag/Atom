@@ -5,7 +5,7 @@
 //     Defines the Atom.Design.Tests.ObjectPropertyWrapperFactoryTests class.
 // </summary>
 // <author>
-//     Paul Ennemoser (Tick)
+//     Paul Ennemoser
 // </author>
 
 namespace Atom.Design.Tests

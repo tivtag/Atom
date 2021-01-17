@@ -5,7 +5,7 @@
 //     Defines the Atom.Waypoints.PathSegmentWaypoint enumeration.
 // </summary>
 // <author>
-//     Paul Ennemoser (Tick)
+//     Paul Ennemoser
 // </author>
 
 namespace Atom.Waypoints

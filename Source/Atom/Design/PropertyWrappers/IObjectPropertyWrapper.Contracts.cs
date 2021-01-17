@@ -5,7 +5,7 @@
 //////     Defines the Atom.Design.IObjectPropertyWrapperContracts class.
 ////// </summary>
 ////// <author>
-//////     Paul Ennemoser (Tick)
+//////     Paul Ennemoser
 ////// </author>
 
 ////namespace Atom.Design

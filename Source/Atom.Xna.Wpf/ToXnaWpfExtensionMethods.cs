@@ -5,7 +5,7 @@
 //     Defines the Atom.Xna.Wpf.ToXnaWpfExtensionMethods class.
 // </summary>
 // <author>
-//     Paul Ennemoser (Tick)
+//     Paul Ennemoser
 // </author>
 
 namespace Atom.Xna.Wpf

@@ -5,7 +5,7 @@
 //     Defines the Atom.Math.Graph.Heuristics.Positionable2 class.
 // </summary>
 // <author>
-//     Paul Ennemoser (Tick)
+//     Paul Ennemoser
 // </author>
 
 namespace Atom.Math.Graph.Heuristics

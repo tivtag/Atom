@@ -5,7 +5,7 @@
 //     Defines the Atom.Mail.Mapi.NativeMapiRecipDesc class.
 // </summary>
 // <author>
-//     Paul Ennemoser (Tick)
+//     Paul Ennemoser
 // </author>
 
 namespace Atom.Mail.Mapi

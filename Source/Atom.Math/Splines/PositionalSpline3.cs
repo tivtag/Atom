@@ -5,7 +5,7 @@
 //     Defines the Atom.Math.PositionalSpline3 class.
 // </summary>
 // <author>
-//     Paul Ennemoser (Tick)
+//     Paul Ennemoser
 // </author>
 
 namespace Atom.Math

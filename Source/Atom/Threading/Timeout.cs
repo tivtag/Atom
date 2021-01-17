@@ -5,7 +5,7 @@
 //     Defines the  Atom.Threading.Timeout class.
 // </summary>
 // <author>
-//     Paul Ennemoser (Tick)
+//     Paul Ennemoser
 // </author>
 
 namespace Atom.Threading

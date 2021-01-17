@@ -5,7 +5,7 @@
 //     Defines the Atom.Components.Component class.
 // </summary>
 // <author>
-//     Paul Ennemoser (Tick)
+//     Paul Ennemoser
 // </author>
 
 namespace Atom.Components

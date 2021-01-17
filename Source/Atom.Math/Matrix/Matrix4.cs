@@ -5,7 +5,7 @@
 //     Defines the Atom.Math.Matrix4 structure.
 // </summary>
 // <author>
-//     Paul Ennemoser (Tick)
+//     Paul Ennemoser
 // </author>
 
 namespace Atom.Math

@@ -5,7 +5,7 @@
 //     Defines the Atom.Math.RotationalSpline3 class.
 // </summary>
 // <author>
-//     Paul Ennemoser (Tick)
+//     Paul Ennemoser
 // </author>
 
 namespace Atom.Math

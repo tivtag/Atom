@@ -5,5 +5,5 @@
 //     Defines the Atom.Math.Octonion structure.
 // </summary>
 // <author>
-//     Paul Ennemoser (Tick)
+//     Paul Ennemoser
 // </author>

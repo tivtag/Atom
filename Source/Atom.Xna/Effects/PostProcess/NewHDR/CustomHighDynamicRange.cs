@@ -5,7 +5,7 @@
 ////     Defines the Atom.Xna.Effects.PostProcess.NewHDR.HighDynamicRange class.
 //// </summary>
 //// <author>
-////     Paul Ennemoser (Tick)
+////     Paul Ennemoser
 //// </author>
 
 //#pragma warning disable 1591

@@ -5,7 +5,7 @@
 //     Defines the Atom.ErrorReporting.Wpf.ErrorReportDialog class.
 // </summary>
 // <author>
-//     Paul Ennemoser (Tick)
+//     Paul Ennemoser
 // </author>
 
 namespace Atom.ErrorReporting.Wpf

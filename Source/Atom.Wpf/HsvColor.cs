@@ -5,7 +5,7 @@
 //     Defines the Atom.Wpf.HsvColor structure.
 // </summary>
 // <author>
-//     Paul Ennemoser (Tick)
+//     Paul Ennemoser
 // </author>
 
 namespace Atom.Wpf

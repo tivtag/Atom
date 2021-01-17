@@ -5,7 +5,7 @@
 //     Defines the Atom.Mail.IMailSender interface.
 // </summary>
 // <author>
-//     Paul Ennemoser (Tick)
+//     Paul Ennemoser
 // </author>
 
 namespace Atom.Mail

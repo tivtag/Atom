@@ -5,7 +5,7 @@
 //     Defines the Atom.ISizeable2 interface.
 // </summary>
 // <author>
-//     Paul Ennemoser (Tick)
+//     Paul Ennemoser
 // </author>
 
 namespace Atom.Math

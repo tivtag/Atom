@@ -5,7 +5,7 @@
 //     Defines the Atom.Configuration.IConfig interface.
 // </summary>
 // <author>
-//     Paul Ennemoser (Tick)
+//     Paul Ennemoser
 // </author>
 
 namespace Atom.Configuration

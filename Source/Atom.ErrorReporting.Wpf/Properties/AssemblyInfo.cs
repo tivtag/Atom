@@ -5,7 +5,7 @@
 //     Contains all assembly wide settings of the Atom.ErrorReporting.Wpf.dll.
 // </summary>
 // <author>
-//     Paul Ennemoser (Tick)
+//     Paul Ennemoser
 // </author>
 
 using System;

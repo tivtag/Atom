@@ -5,7 +5,7 @@
 //     Defines the Atom.Diagnostics.MultiLog class.
 // </summary>
 // <author>
-//     Paul Ennemoser (Tick)
+//     Paul Ennemoser
 // </author>
 
 namespace Atom.Diagnostics

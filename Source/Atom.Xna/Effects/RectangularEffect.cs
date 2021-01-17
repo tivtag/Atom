@@ -5,7 +5,7 @@
 //     Defines the Atom.Xna.Effects.RectangularEffect class.
 // </summary>
 // <author>
-//     Paul Ennemoser (Tick)
+//     Paul Ennemoser
 // </author>
 
 namespace Atom.Xna.Effects

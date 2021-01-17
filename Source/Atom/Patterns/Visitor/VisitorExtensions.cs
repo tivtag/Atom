@@ -5,7 +5,7 @@
 //     Defines the Atom.Patterns.Visitor.VisitorExtensions class.
 // </summary>
 // <author>
-//     Paul Ennemoser (Tick)
+//     Paul Ennemoser
 // </author>
 
 namespace Atom.Patterns.Visitor

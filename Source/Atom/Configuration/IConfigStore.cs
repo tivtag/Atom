@@ -5,7 +5,7 @@
 //     Defines the Atom.Configuration.IConfigStore interface.
 // </summary>
 // <author>
-//     Paul Ennemoser (Tick)
+//     Paul Ennemoser
 // </author>
 
 namespace Atom.Configuration

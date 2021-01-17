@@ -5,7 +5,7 @@
 //     Defines the Atom.Xna.Effects.Lightning.LightningDescriptor class.
 // </summary>
 // <author>
-//     Paul Ennemoser (Tick)
+//     Paul Ennemoser
 // </author>
 
 

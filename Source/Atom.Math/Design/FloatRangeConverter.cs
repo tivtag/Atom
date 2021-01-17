@@ -5,7 +5,7 @@
 //     Defines the Atom.Math.Design.FloatRangeConverter class.
 // </summary>
 // <author>
-//     Paul Ennemoser (Tick)
+//     Paul Ennemoser
 // </author>
 
 namespace Atom.Math.Design

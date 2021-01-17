@@ -5,7 +5,7 @@
 //     Defines the Atom.Story.TimeTick structure.
 // </summary>
 // <author>
-//     Paul Ennemoser (Tick)
+//     Paul Ennemoser
 // </author>
 
 namespace Atom.Story

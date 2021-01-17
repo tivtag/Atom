@@ -5,7 +5,7 @@
 //     Defines the Atom.Xna.UI.IUISpriteProvider interface.
 // </summary>
 // <author>
-//     Paul Ennemoser (Tick)
+//     Paul Ennemoser
 // </author>
 
 namespace Atom.Xna.UI

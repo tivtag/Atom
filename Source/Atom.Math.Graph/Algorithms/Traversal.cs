@@ -5,7 +5,7 @@
 //     Defines the Atom.Math.Graph.Algorithms.Traversal class.
 // </summary>
 // <author>
-//     Paul Ennemoser (Tick)
+//     Paul Ennemoser
 // </author>
 
 namespace Atom.Math.Graph.Algorithms

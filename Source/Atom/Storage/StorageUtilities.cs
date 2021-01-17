@@ -5,7 +5,7 @@
 //     Defines the Atom.Storage.StorageUtilities class.
 // </summary>
 // <author>
-//     Paul Ennemoser (Tick)
+//     Paul Ennemoser
 // </author>
 
 namespace Atom.Storage

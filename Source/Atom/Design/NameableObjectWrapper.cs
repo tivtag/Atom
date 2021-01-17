@@ -5,7 +5,7 @@
 //     Defines the Atom.Design.NameableObjectWrapper{TObject} class.
 // </summary>
 // <author>
-//     Paul Ennemoser (Tick)
+//     Paul Ennemoser
 // </author>
 
 namespace Atom.Design

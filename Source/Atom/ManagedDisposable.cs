@@ -5,7 +5,7 @@
 //     Defines the Atom.ManagedDisposable class.
 // </summary>
 // <author>
-//     Paul Ennemoser (Tick)
+//     Paul Ennemoser
 // </author>
 
 namespace Atom

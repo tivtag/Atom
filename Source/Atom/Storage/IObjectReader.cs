@@ -5,7 +5,7 @@
 //     Defines the Atom.Storage.IObjectReader interface.
 // </summary>
 // <author>
-//     Paul Ennemoser (Tick)
+//     Paul Ennemoser
 // </author>
 
 namespace Atom.Storage

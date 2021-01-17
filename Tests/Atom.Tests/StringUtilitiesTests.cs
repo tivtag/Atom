@@ -5,7 +5,7 @@
 //     Defines the Atom.Tests.StringUtilitiesTests class.
 // </summary>
 // <author>
-//     Paul Ennemoser (Tick)
+//     Paul Ennemoser
 // </author>
 
 namespace Atom.Tests

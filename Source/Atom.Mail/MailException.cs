@@ -5,7 +5,7 @@
 //     Defines the Atom.Mail.MailException class.
 // </summary>
 // <author>
-//     Paul Ennemoser (Tick)
+//     Paul Ennemoser
 // </author>
 
 namespace Atom.Mail

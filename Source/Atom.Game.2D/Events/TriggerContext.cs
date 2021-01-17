@@ -5,7 +5,7 @@
 //     Defines the Atom.Events.TriggerContext structure.
 // </summary>
 // <author>
-//     Paul Ennemoser (Tick)
+//     Paul Ennemoser
 // </author>
 
 namespace Atom.Events

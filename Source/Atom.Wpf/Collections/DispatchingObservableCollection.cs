@@ -5,7 +5,7 @@
 //     Defines the Atom.Wpf.Collections.DispatchingObservableCollection class.
 // </summary>
 // <author>
-//     Paul Ennemoser (Tick)
+//     Paul Ennemoser
 // </author>
 
 namespace Acid.Wpf.Collections

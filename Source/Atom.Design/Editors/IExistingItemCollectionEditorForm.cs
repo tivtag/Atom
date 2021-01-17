@@ -5,7 +5,7 @@
 //     Defines the Atom.Design.IExistingItemCollectionEditorForm interface.
 // </summary>
 // <author>
-//     Paul Ennemoser (Tick)
+//     Paul Ennemoser
 // </author>
 
 namespace Atom.Design

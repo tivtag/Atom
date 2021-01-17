@@ -5,7 +5,7 @@
 //     Defines the Atom.Components.Transform.HierarchicalTransform2 interface.
 // </summary>
 // <author>
-//     Paul Ennemoser (Tick)
+//     Paul Ennemoser
 // </author>
 
 namespace Atom.Components.Transform

@@ -5,7 +5,7 @@
 //     Defines the Atom.Scene.Tiles.TileMapDataLayer class.
 // </summary>
 // <author>
-//     Paul Ennemoser (Tick)
+//     Paul Ennemoser
 // </author>
 
 namespace Atom.Scene.Tiles

@@ -5,7 +5,7 @@
 //     Defines the Atom.Diagnostics.ILog interface.
 // </summary>
 // <author>
-//     Paul Ennemoser (Tick)
+//     Paul Ennemoser
 // </author>
 
 namespace Atom.Diagnostics

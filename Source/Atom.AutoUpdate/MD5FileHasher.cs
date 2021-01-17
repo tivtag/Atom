@@ -5,7 +5,7 @@
 //     Defines the Atom.AutoUpdate.MD5FileHasher class.
 // </summary>
 // <author>
-//     Paul Ennemoser (Tick)
+//     Paul Ennemoser
 // </author>
 
 namespace Atom.AutoUpdate

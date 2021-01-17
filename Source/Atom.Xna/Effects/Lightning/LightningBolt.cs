@@ -5,7 +5,7 @@
 //     Defines the Atom.Xna.Effects.Lightning.LightningBolt class.
 // </summary>
 // <author>
-//     Paul Ennemoser (Tick)
+//     Paul Ennemoser
 // </author>
 
 namespace Atom.Xna.Effects.Lightning

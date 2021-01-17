@@ -5,7 +5,7 @@
 //     Defines the Atom.Xna.ColorHelper class.
 // </summary>
 // <author>
-//     Paul Ennemoser (Tick)
+//     Paul Ennemoser
 // </author>
 
 

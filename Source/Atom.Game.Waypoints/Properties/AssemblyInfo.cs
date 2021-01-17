@@ -5,7 +5,7 @@
 //     Contains all assembly wide settings of the Atom.Game.Waypoints.dll.
 // </summary>
 // <author>
-//     Paul Ennemoser (Tick)
+//     Paul Ennemoser
 // </author>
 
 using System;

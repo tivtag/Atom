@@ -5,7 +5,7 @@
 //     Defines the Atom.AI.Fuzzy.FuzzySet{TMappedValue, TInput} class.
 // </summary>
 // <author>
-// Paul Ennemoser (Tick)
+// Paul Ennemoser
 // </author>
 
 namespace Atom.AI.Fuzzy

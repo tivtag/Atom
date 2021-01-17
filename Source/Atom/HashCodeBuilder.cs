@@ -5,7 +5,7 @@
 //     Defines the Atom.HashCodeBuilder{T} structure.
 // </summary>
 // <author>
-//     Paul Ennemoser (Tick)
+//     Paul Ennemoser
 // </author>
 
 namespace Atom

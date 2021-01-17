@@ -5,7 +5,7 @@
 //     Defines the Atom.IObjectProvider{TObject} interface.
 // </summary>
 // <author>
-//     Paul Ennemoser (Tick)
+//     Paul Ennemoser
 // </author>
 
 namespace Atom

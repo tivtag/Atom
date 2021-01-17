@@ -5,7 +5,7 @@
 //     Defines the Atom.Wpf.Dialogs.ColorPickerDialog class.
 // </summary>
 // <author>
-//     Paul Ennemoser (Tick)
+//     Paul Ennemoser
 // </author>
 
 namespace Atom.Wpf.Dialogs

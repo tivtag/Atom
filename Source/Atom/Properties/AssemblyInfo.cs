@@ -6,7 +6,7 @@
 //     Contains all assembly wide settings of the Atom.dll.
 // </summary>
 // <author>
-//     Paul Ennemoser (Tick)
+//     Paul Ennemoser
 // </author>
 
 using System;

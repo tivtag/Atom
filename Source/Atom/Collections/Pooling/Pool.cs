@@ -32,7 +32,7 @@
 //     Defines the Atom.Collections.Pooling.Pool{T} class.
 // </summary>
 // <author>
-//     Paul Ennemoser (Tick)
+//     Paul Ennemoser
 // </author>
 
 namespace Atom.Collections.Pooling

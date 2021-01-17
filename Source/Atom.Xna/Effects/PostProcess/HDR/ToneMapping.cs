@@ -4,7 +4,7 @@
 //// <summary>
 ////     Defines the Atom.Xna.Effects.PostProcess.ToneMapping class.
 //// </summary>
-//// <author>Paul Ennemoser (Tick)</author>
+//// <author>Paul Ennemoser</author>
 
 //namespace Atom.Xna.Effects.PostProcess
 //{

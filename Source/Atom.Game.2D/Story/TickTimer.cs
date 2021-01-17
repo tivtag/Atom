@@ -5,7 +5,7 @@
 //     Defines the Atom.Story.TickTimer class.
 // </summary>
 // <author>
-//     Paul Ennemoser (Tick)
+//     Paul Ennemoser
 // </author>
 
 namespace Atom.Story
