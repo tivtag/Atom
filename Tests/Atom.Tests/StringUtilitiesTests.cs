@@ -12,7 +12,6 @@ namespace Atom.Tests
 {
     using System;
     using System.Globalization;
-    using Atom.Collections;
     using Microsoft.VisualStudio.TestTools.UnitTesting;
 
     /// <summary>
@@ -24,7 +23,7 @@ namespace Atom.Tests
         [TestMethod]
         public void Reverse_WithPalindroms_ReturnsSameString()
         {
-            var palindroms = new string[] {
+            string[] palindroms = new string[] {
                 "neozoen",
                 "lagerregal",
                 "otto",
@@ -34,7 +33,7 @@ namespace Atom.Tests
                 "rotor"
             };
 
-            foreach( var palindrom in palindroms )
+            foreach( string palindrom in palindroms )
             {
                 Assert.AreEqual( palindrom, StringUtilities.Reverse( palindrom ) );
             }
@@ -104,7 +103,7 @@ namespace Atom.Tests
         public void ConvertToValues_Throws_WhenExpectedValueCountAndActualValueCountDiffer()
         {
             // Act & Assert
-            var exception = CustomAssert.Throws<ArgumentException>( () => {
+            ArgumentException exception = CustomAssert.Throws<ArgumentException>( () => {
                 StringUtilities.ConvertToValues<int>(
                     null,
                     CultureInfo.InvariantCulture,
