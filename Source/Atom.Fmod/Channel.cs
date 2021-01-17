@@ -76,7 +76,9 @@ namespace Atom.Fmod
             set
             {
                 if( value == null )
-                    throw new ArgumentNullException( "value" );
+                {
+                    throw new ArgumentNullException( nameof( value ) );
+                }
 
                 RESULT result = nativeChannel.setChannelGroup( value.NativeGroup );
                 ThrowOnError( result );
@@ -101,12 +103,16 @@ namespace Atom.Fmod
             get
             {
                 if( !this.nativeChannel.hasHandle() )
+                {
                     return false;
+                }
 
                 bool state = false;
                 RESULT result = this.nativeChannel.isPlaying( out state );
                 if( result == RESULT.ERR_INVALID_HANDLE || result == RESULT.ERR_CHANNEL_STOLEN )
+                {
                     return false;
+                }
 
                 ThrowOnError( result );
                 return state;
@@ -500,7 +506,7 @@ namespace Atom.Fmod
             if( this.endCallback == null )
             {
                 this.endCallback = new CHANNELCONTROL_CALLBACK( CHANNEL_CALLBACK_END );
-                var result = nativeChannel.setCallback( endCallback );
+                RESULT result = nativeChannel.setCallback( endCallback );
                 ThrowOnError( result );
             }
         }
@@ -524,8 +530,10 @@ namespace Atom.Fmod
         {
             RESULT result = nativeChannel.stop();
             if( result == RESULT.ERR_INVALID_HANDLE || result == RESULT.ERR_CHANNEL_STOLEN )
+            {
                 return;
-            
+            }
+
             ThrowOnError( result );
         }
 
@@ -654,12 +662,44 @@ namespace Atom.Fmod
 
         #region - Get/Set Delay -
 
+        /// <summary>
+        /// Sets a start (and/or stop) time relative to the parent channel group DSP clock, with sample accuracy.
+        /// </summary>
+        /// <param name="dspclockStart">
+        /// DSP clock of the parent channel group to audibly start playing sound at, a value of 0 indicates no delay.
+        /// </param>
+        /// <param name="dspclockEnd">
+        /// DSP clock of the parent channel group to audibly stop playing sound at, a value of 0 indicates no delay.
+        /// </param>
+        /// <param name="stopChannels">
+        /// TRUE = stop according to ChannelControl::isPlaying. FALSE = remain 'active' and a new start delay could start playback again at a later time.
+        /// </param>
         public void SetDelay( ulong dspclockStart, ulong dspclockEnd, bool stopChannels)
         {
             RESULT result = nativeChannel.setDelay(dspclockStart, dspclockEnd, stopChannels);
             ThrowOnError( result );
         }
 
+        /// <summary>
+        /// Gets the currently set delay values. 
+        /// </summary>
+        /// <remarks>
+        /// Note! Only works with sounds created with FMOD_SOFTWARE.
+        /// If FMOD_DELAYTYPE_DSPCLOCK_START is used, this will be the value of the DSP clock time at the time System::playSound was called,
+        /// if the user has not called Channel::setDelay.
+        /// What is the 'dsp clock'
+        /// The DSP clock represents the output stream to the soundcard, and is incremented by the output rate every second 
+        /// (though of course with much finer granularity than this).
+        /// So if your output rate is 48khz, the DSP clock will increment by 48000 per second.
+        /// The hi and lo values represent this 64bit number,
+        /// with the delaylo representing the least significant 32bits and the delayhi value representing the most significant 32bits.
+        /// </remarks>
+        /// <param name="dspclockStart">
+        /// Address of a variable to receive the top (most significant) 32 bits of a 64bit number representing the time.
+        /// </param>
+        /// <param name="dspclockEnd">
+        /// Address of a variable to receive the bottom (least significant) 32 bits of a 64bit number representing the time.
+        /// </param>
         public void GetDelay( out ulong dspclockStart, out ulong dspclockEnd )
         {
             RESULT result = nativeChannel.getDelay( out dspclockStart, out dspclockEnd);
@@ -946,257 +986,16 @@ namespace Atom.Fmod
 
         #endregion
 
-        ////#region - Get/Set SpeakerMix -
-
-        /////// <summary>
-        /////// Gets the channel's speaker volume levels for each speaker individually.
-        /////// </summary>
-        /////// <param name="frontLeft">
-        /////// Address of a variable to receive the current volume level for this channel
-        /////// in the front left speaker of a multichannel speaker setup.
-        /////// 0.0 = silent, 1.0 = full volume, up to 5.0 = 5x amplification.
-        /////// </param>
-        /////// <param name="frontRight">
-        /////// Address of a variable to receive the current volume level for this channel
-        /////// in the front right speaker of a multichannel speaker setup.
-        /////// 0.0 = silent, 1.0 = full volume, up to 5.0 = 5x amplification.
-        /////// </param>
-        /////// <param name="center">
-        /////// Address of a variable to receive the current volume level for this channel
-        /////// in the center speaker of a multichannel speaker setup.
-        /////// 0.0 = silent, 1.0 = full volume, up to 5.0 = 5x amplification.
-        /////// </param>
-        /////// <param name="lfe">
-        /////// Address of a variable to receive the current volume level for this channel
-        /////// in the subwoofer speaker of a multichannel speaker setup.
-        /////// 0.0 = silent, 1.0 = full volume, up to 5.0 = 5x amplification.
-        /////// </param>
-        /////// <param name="backLeft">
-        /////// Address of a variable to receive the current volume level for this channel
-        /////// in the back left speaker of a multichannel speaker setup.
-        /////// 0.0 = silent, 1.0 = full volume, up to 5.0 = 5x amplification.
-        /////// </param>
-        /////// <param name="backRight">
-        /////// Address of a variable to receive the current volume level for this channel
-        /////// in the back right speaker of a multichannel speaker setup.
-        /////// 0.0 = silent, 1.0 = full volume, up to 5.0 = 5x amplification.
-        /////// </param>
-        /////// <param name="sideLeft">
-        /////// Address of a variable to receive the current volume level for this channel
-        /////// in the side left speaker of a multichannel speaker setup.
-        /////// 0.0 = silent, 1.0 = full volume, up to 5.0 = 5x amplification.
-        /////// </param>
-        /////// <param name="sideRight">
-        /////// Address of a variable to receive the current volume level for this channel
-        /////// in the side right speaker of a multichannel speaker setup.
-        /////// 0.0 = silent, 1.0 = full volume, up to 5.0 = 5x amplification.
-        /////// </param>
-        ////public void GetSpeakerMix(
-        ////      out float frontLeft,
-        ////      out float frontRight,
-        ////      out float center,
-        ////      out float lfe,
-        ////      out float backLeft,
-        ////      out float backRight,
-        ////      out float sideLeft,
-        ////      out float sideRight )
-        ////{
-        ////    frontLeft = frontRight = center = lfe = backLeft = backRight = sideLeft = sideRight = 0.0f;
-        ////    RESULT result = nativeChannel.getspea( 
-        ////        ref frontLeft,
-        ////        ref frontRight, 
-        ////        ref center,
-        ////        ref lfe,
-        ////        ref backLeft,
-        ////        ref backRight, 
-        ////        ref sideLeft,
-        ////        ref sideRight 
-        ////    );
-
-        ////    ThrowOnError( result );
-        ////}
-
-        /////// <summary>
-        /////// Sets the channel's speaker volume levels for each speaker individually.
-        /////// </summary>
-        /////// <param name="frontLeft">
-        /////// Volume level for this channel
-        /////// in the front left speaker of a multichannel speaker setup.
-        /////// 0.0 = silent, 1.0 = full volume, up to 5.0 = 5x amplification.
-        /////// </param>
-        /////// <param name="frontRight">
-        /////// Volume level for this channel
-        /////// in the front right speaker of a multichannel speaker setup.
-        /////// 0.0 = silent, 1.0 = full volume, up to 5.0 = 5x amplification.
-        /////// </param>
-        /////// <param name="center">
-        /////// Volume level for this channel
-        /////// in the center speaker of a multichannel speaker setup.
-        /////// 0.0 = silent, 1.0 = full volume, up to 5.0 = 5x amplification.
-        /////// </param>
-        /////// <param name="lfe">
-        /////// Volume level for this channel
-        /////// in the subwoofer speaker of a multichannel speaker setup.
-        /////// 0.0 = silent, 1.0 = full volume, up to 5.0 = 5x amplification.
-        /////// </param>
-        /////// <param name="backLeft">
-        /////// Volume level for this channel
-        /////// in the back left speaker of a multichannel speaker setup.
-        /////// 0.0 = silent, 1.0 = full volume, up to 5.0 = 5x amplification.
-        /////// </param>
-        /////// <param name="backRight">
-        /////// Volume level for this channel
-        /////// in the back right speaker of a multichannel speaker setup.
-        /////// 0.0 = silent, 1.0 = full volume, up to 5.0 = 5x amplification.
-        /////// </param>
-        /////// <param name="sideLeft">
-        /////// Volume level for this channel
-        /////// in the side left speaker of a multichannel speaker setup.
-        /////// 0.0 = silent, 1.0 = full volume, up to 5.0 = 5x amplification.
-        /////// </param>
-        /////// <param name="sideRight">
-        /////// Volume level for this channel
-        /////// in the side right speaker of a multichannel speaker setup.
-        /////// 0.0 = silent, 1.0 = full volume, up to 5.0 = 5x amplification.
-        /////// </param>
-        /////// <remarks>
-        /////// This function only fully works on sounds created with FMOD_2D and FMOD_SOFTWARE. 
-        /////// FMOD_3D based sounds only allow setting of LFE channel, as all other speaker levels are calculated
-        /////// by FMOD's 3D engine. Speakers specified that don't exist will simply be ignored.
-        /////// For more advanced speaker control, including sending the different channels of a stereo sound 
-        /////// to arbitrary speakers, see Channel::setSpeakerLevels.
-        /////// This function allows amplification! You can go up to 5 times the volume of a normal sound, 
-        /////// but warning this may cause clipping/distortion! Useful for LFE boosting. 
-        /////// </remarks>
-        ////public void SetSpeakerMix(
-        ////      float frontLeft,
-        ////      float frontRight,
-        ////      float center,
-        ////      float lfe,
-        ////      float backLeft,
-        ////      float backRight,
-        ////      float sideLeft,
-        ////      float sideRight )
-        ////{
-        ////    RESULT result = nativeChannel.setSpeakerMix(
-        ////        frontLeft, 
-        ////        frontRight,
-        ////        center,
-        ////        lfe,
-        ////        backLeft, 
-        ////        backRight,
-        ////        sideLeft,
-        ////        sideRight 
-        ////    );
-
-        ////    ThrowOnError( result );
-        ////}
-
-        ////#endregion
-
-        /////// <summary>
-        /////// Receives the PCM data that represents the currently playing waveform on this channel.
-        /////// This function is useful for a very easy way to plot an oscilliscope.  
-        /////// <para>
-        /////// Note: This function only displays data for sounds playing that were created with FMOD_SOFTWARE.
-        /////// FMOD_HARDWARE based sounds are played using the sound card driver and are not accessable
-        /////// </para>
-        /////// </summary>
-        /////// <remarks>
-        /////// This is the actual resampled pcm data window at the time the function is called.
-        /////// <para>
-        /////// Do not use this function to try and display the whole waveform of the sound, 
-        /////// as this is more of a 'snapshot' of the current waveform at the time it is called, 
-        /////// and could return the same data if it is called very quickly in succession.
-        /////// See the DSP API to capture a continual stream of wave data as it plays, 
-        /////// or see Sound::lock / Sound::unlock if you want to simply display the waveform of a sound.
-        /////// </para>
-        /////// This function allows retrieval of left and right data for a stereo sound individually.
-        /////// To combine them into one signal, simply add the entries of each seperate buffer together and then divide them by 2.
-        /////// </remarks>
-        /////// <param name="waveArray">
-        /////// The existing array to fill with data.
-        /////// </param>
-        /////// <param name="valueCount">
-        /////// The number of floats to write to the array. Maximum value = 16384.
-        /////// </param>
-        /////// <param name="channelOffset">
-        /////// The offset into multichannel data. Mono channels use 0.
-        /////// Stereo channels use 0 = left, 1 = right. More than stereo use the appropriate index.
-        /////// </param>
-        ////public void GetWaveData( float[] waveArray, int valueCount, int channelOffset )
-        ////{
-        ////    RESULT result = nativeChannel.getWaveData( waveArray, valueCount, channelOffset );
-        ////    ThrowOnError( result );
-        ////}
-
-        /////// <summary>
-        /////// Retrieves the spectrum from the currently playing output signal for the current channel only.  
-        /////// </summary>
-        /////// <remarks>
-        /////// <para>
-        /////// The larger the spectrumArray, the more CPU the FFT will take; 
-        /////// choose the right value to trade off between accuracy / speed.
-        /////// The larger the spectrumArray, the more 'lag' the spectrum will seem to inherit.
-        /////// This is because the FFT window size stretches the analysis back in time to what was already played. 
-        /////// For example if the spectrumArray size happened to be 44100 and the output rate was 44100 it would 
-        /////// be analyzing the past second of data, and giving you the average spectrum over that time period.
-        /////// If you are not displaying the result in dB, then the data may seem smaller than it should be.
-        /////// To display it you may want to normalize the data - that is, find the maximum value in the resulting spectrum,
-        /////// and scale all values in the array by 1 / max. (ie if the max was 0.5f, then it would become 1).
-        /////// To get the spectrum for both channels of a stereo signal, call this function twice, once with channeloffset = 0,
-        /////// and again with channeloffset = 1.
-        /////// Then add the spectrums together and divide by 2 to get the average spectrum for both channels.
-        /////// </para>
-        /////// <para>
-        /////// What the data represents.
-        /////// To work out what each entry in the array represents, use this formula
-        /////// <para>
-        /////// entry_hz = (output_rate / 2) / valueCount
-        /////// </para>
-        /////// <para>
-        /////// The array represents amplitudes of each frequency band from 0hz to the nyquist rate.
-        /////// The nyquist rate is equal to the output rate divided by 2.
-        /////// For example when FMOD is set to 44100hz output, the range of represented frequencies will be 0hz to 22049hz, 
-        /////// a total of 22050hz represented.
-        /////// </para>
-        /////// If in the same example, 1024 was passed to this function as the valueCount, 
-        /////// each entry's contribution would be as follows. 
-        /////// entry_hz = (44100 / 2) / 1024
-        /////// entry_hz = 21.53 hz
-        /////// </para>
-        /////// </remarks>
-        /////// <param name="spectrumArray">
-        /////// The array that will be filled with the spectrum data. 
-        /////// The data will range from 0.0 to 1.0. Decibels = 10.0f * (float)log10(val) * 2.0f;
-        /////// See remarks for what the data represents.
-        /////// </param>
-        /////// <param name="valueCount">
-        /////// The number of spectrum values requested. Must be a power of 2. (ie 128/256/512 etc). Min = 64. Max = 8192. 
-        /////// </param>
-        /////// <param name="channelOffset">
-        /////// Channel of the signal to analyze. If the signal is multichannel (such as a stereo output), 
-        /////// then this value represents which channel to analyze. On a stereo signal 0 = left, 1 = right.
-        /////// </param>
-        /////// <param name="windowType">
-        /////// Pre-FFT" window method. This filters the PCM data before entering the spectrum analyzer to
-        /////// reduce transient frequency error for more accurate results.
-        /////// See FMOD_DSP_FFT_WINDOW for different types of fft window techniques possible and
-        /////// for a more detailed explanation. 
-        /////// </param>
-        ////public void GetSpectrum( float[] spectrumArray, int valueCount, int channelOffset, DSP_FFT_WINDOW windowType )
-        ////{
-        ////    RESULT result = nativeChannel.getSpectrum( spectrumArray, valueCount, channelOffset, windowType );
-        ////    ThrowOnError( result );
-        ////}
-
         /// <summary>
         /// Called by native FMOD when the native Channel reaches the end.
         /// </summary>
-        /// <param name="channelRaw">
+        /// <param name="channelControl">
         /// A pointer to the raw FMOD channel the callback is related to.
         /// </param>
-        /// <param name="type">
+        /// <param name="controlType">
+        /// Identifies the type of control pointer.
+        /// </param>
+        /// <param name="callbackType">
         /// Identifies the type of the callback.
         /// </param>
         /// <param name="commandData1">
@@ -1209,13 +1008,13 @@ namespace Atom.Fmod
         /// The result of the callback.
         /// </returns>
         private RESULT CHANNEL_CALLBACK_END(
-            IntPtr channelcontrol, 
-            CHANNELCONTROL_TYPE controltype, 
-            CHANNELCONTROL_CALLBACK_TYPE callbacktype,
-            IntPtr commanddata1,
-            IntPtr commanddata2)
+            IntPtr channelControl, 
+            CHANNELCONTROL_TYPE controlType, 
+            CHANNELCONTROL_CALLBACK_TYPE callbackType,
+            IntPtr commandData1,
+            IntPtr commandData2 )
         {
-            if(callbacktype == CHANNELCONTROL_CALLBACK_TYPE.END )
+            if(callbackType == CHANNELCONTROL_CALLBACK_TYPE.END )
             {
                 this.sound.AudioSystem.AddChannelEnd( this );
             }
@@ -1239,7 +1038,9 @@ namespace Atom.Fmod
         private static void ThrowOnError( Native.RESULT result )
         {
             if( result != Native.RESULT.OK )
+            {
                 throw new AudioException( Native.Error.String( result ) );
+            }
         }
 
         #endregion

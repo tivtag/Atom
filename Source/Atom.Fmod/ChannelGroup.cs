@@ -12,7 +12,6 @@ namespace Atom.Fmod
 {
     using global::System;
     using global::System.Collections.Generic;
-    using global::System.Text;
     using Atom.Fmod.Native;
     using Atom.Math;
 
@@ -91,9 +90,9 @@ namespace Atom.Fmod
             {
                 float pitch;
 
-                RESULT result = nativeGroup.getPitch(out pitch );
+                RESULT result = nativeGroup.getPitch( out pitch );
                 ThrowOnError( result );
-                
+
                 return pitch;
             }
 
@@ -113,7 +112,7 @@ namespace Atom.Fmod
             {
                 bool isMuted;
 
-                RESULT result = nativeGroup.getMute(out isMuted );
+                RESULT result = nativeGroup.getMute( out isMuted );
                 ThrowOnError( result );
 
                 return isMuted;
@@ -157,7 +156,7 @@ namespace Atom.Fmod
             {
                 int channelCount;
 
-                RESULT result = nativeGroup.getNumChannels(out channelCount );
+                RESULT result = nativeGroup.getNumChannels( out channelCount );
                 ThrowOnError( result );
 
                 return channelCount;
@@ -202,7 +201,7 @@ namespace Atom.Fmod
         public AudioSystem AudioSystem
         {
             get
-            { 
+            {
                 return this.audioSystem;
             }
         }
@@ -217,7 +216,7 @@ namespace Atom.Fmod
                 return this.nativeGroup;
             }
         }
-        
+
         /// <summary>
         /// Initializes a new instance of the <see cref="ChannelGroup"/> class.
         /// </summary>
@@ -230,11 +229,15 @@ namespace Atom.Fmod
         public ChannelGroup( string name, AudioSystem audioSystem )
         {
             if( name == null )
-                throw new ArgumentNullException( "name" );
+            {
+                throw new ArgumentNullException( nameof( name ) );
+            }
 
             if( audioSystem == null )
-                throw new ArgumentNullException( "audioSystem" );
-            
+            {
+                throw new ArgumentNullException( nameof( audioSystem ) );
+            }
+
             this.audioSystem = audioSystem;
 
             RESULT result = audioSystem.NativeSystem.createChannelGroup( name, out nativeGroup );
@@ -255,7 +258,7 @@ namespace Atom.Fmod
             this.nativeGroup = nativeGroup;
             this.audioSystem = audioSystem;
         }
-        
+
         /// <summary>
         /// Warning: This function should in theory set the ChannelGroup
         /// of all associated Channels to the MasterChannelGroup. But it does not. Not implemented.
@@ -281,8 +284,12 @@ namespace Atom.Fmod
         /// Panning only works on sounds created with FMOD_2D. 3D sounds are not pannable.
         /// Only sounds that are mono or stereo can be panned. Multichannel sounds (ie >2 channels) cannot be panned.
         /// <para>
-        /// Mono sounds are panned from left to right using constant power panning. This means when pan = 0.0, the balance for the sound in each speaker is 71% left and 71% right, not 50% left and 50% right. This gives (audibly) smoother pans.
-        /// Stereo sounds heave each left/right value faded up and down according to the specified pan position. This means when pan = 0.0, the balance for the sound in each speaker is 100% left and 100% right. When pan = -1.0, only the left channel of the stereo sound is audible, when pan = 1.0, only the right channel of the stereo sound is audible.
+        /// Mono sounds are panned from left to right using constant power panning.
+        /// This means when pan = 0.0, the balance for the sound in each speaker is 71% left and 71% right, not 50% left and 50% right.
+        /// This gives (audibly) smoother pans.
+        /// Stereo sounds heave each left/right value faded up and down according to the specified pan position.
+        /// This means when pan = 0.0, the balance for the sound in each speaker is 100% left and 100% right.
+        /// When pan = -1.0, only the left channel of the stereo sound is audible, when pan = 1.0, only the right channel of the stereo sound is audible.
         /// </para>
         /// </remarks>
         /// <param name="volume">
@@ -309,44 +316,33 @@ namespace Atom.Fmod
             ThrowOnError( result );
         }
 
-
-        public void SetPitch(float pan)
+        /// <summary>
+        /// Sets the pitch value.
+        /// </summary>
+        /// <param name="pan">
+        /// Pitch value, 0.5 = half pitch, 2.0 = double pitch, etc default = 1.0.
+        /// </param>
+        public void SetPitch( float pan )
         {
-            RESULT result = nativeGroup.setPitch(pan);
-            ThrowOnError(result);
+            RESULT result = nativeGroup.setPitch( pan );
+            ThrowOnError( result );
         }
 
-
-        public void SetVolumeRamp(bool ramp)
+        /// <summary>
+        /// Sets whether the channel automatically ramps when setting volumes.
+        /// </summary>
+        /// <remarks>
+        /// When changing volumes on a non-paused channel, FMOD normally adds a small ramp to avoid a pop sound.
+        /// This function allows that setting to be overriden and volume changes to be applied immediately.
+        /// </remarks>
+        /// <param name="ramp">
+        /// Whether to enable volume ramping.
+        /// </param>
+        public void SetVolumeRamp( bool ramp )
         {
-            RESULT result = nativeGroup.setVolumeRamp(ramp);
-            ThrowOnError(result);
+            RESULT result = nativeGroup.setVolumeRamp( ramp );
+            ThrowOnError( result );
         }
-
-        /////// <summary>
-        /////// Overrides the frequency or playback rate, in HZ of all channels within this channel group and those of any sub channelgroups.
-        /////// </summary>
-        /////// <remarks>
-        /////// When a sound is played, it plays at the default frequency of the sound which can be set by Sound::setDefaults.
-        /////// For most file formats, the volume is determined by the audio format.
-        /////// <para>
-        /////// Frequency limitations for sounds created with FMOD_HARDWARE in DirectSound.
-        /////// Every hardware device has a minimum and maximum frequency. This means setting the frequency above the maximum and below the minimum will have no effect.
-        /////// FMOD clamps frequencies to these values when playing back on hardware, so if you are setting the frequency outside of this range, the frequency will stay at either the minimum or maximum.
-        /////// Note that FMOD_SOFTWARE based sounds do not have this limitation.
-        /////// To find out the minimum and maximum value before initializing FMOD (maybe to decide whether to use a different soundcard, output mode, or drop back fully to software mixing), you can use the System::getDriverCaps function. 
-        /////// </para>
-        /////// </remarks>
-        /////// <param name="frequency">
-        /////// A frequency value in HZ. This value can also be negative to play the sound backwards 
-        /////// (negative frequencies allowed with FMOD_SOFTWARE based non-stream sounds only).
-        /////// DirectSound hardware voices have limited frequency range on some soundcards. Please see remarks for more on this.
-        /////// </param>
-        ////public void OverrideFrequency( float frequency )
-        ////{
-        ////    RESULT result = nativeGroup.setPan( frequency );
-        ////    ThrowOnError( result );
-        ////}
 
         /// <summary>
         /// Adds a channel group as a child of the current channel group.  
@@ -357,13 +353,18 @@ namespace Atom.Fmod
         public void AddChildGroup( ChannelGroup group )
         {
             if( group == null )
-                throw new ArgumentNullException( "group" );
+            {
+                throw new ArgumentNullException( nameof( group ) );
+            }
 
             RESULT result = this.nativeGroup.addGroup( group.nativeGroup );
             ThrowOnError( result );
-            
+
             if( this.childGroups == null )
+            {
                 this.childGroups = new List<ChannelGroup>();
+            }
+
             this.childGroups.Add( group );
         }
 
@@ -379,11 +380,13 @@ namespace Atom.Fmod
         public ChannelGroup GetChildGroup( int index )
         {
             if( this.childGroups == null )
+            {
                 throw new InvalidOperationException( Properties.Resources.Error_TheChannelGroupHasNoChildGroups );
+            }
 
             return this.childGroups[index];
         }
-        
+
         /// <summary>
         /// Helper function that throws an <see cref="AudioException"/>
         /// if the given native <see cref="RESULT"/> is not OK.
@@ -394,7 +397,7 @@ namespace Atom.Fmod
             if( result != Native.RESULT.OK )
                 throw new AudioException( Native.Error.String( result ) );
         }
-        
+
         /// <summary>
         /// The list that stores the child groups of this ChannelGroup.
         /// </summary>

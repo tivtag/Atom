@@ -5,15 +5,18 @@
     <TargetFramework>netstandard2.1</TargetFramework>
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|Any CPU' ">
-    <DebugType>full</DebugType>
-    <OutputPath>bin\$(Configuration)\</OutputPath>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|Any CPU' ">
-    <DebugType>pdbonly</DebugType>
+
+  <PropertyGroup>
+    <DebugType>portable</DebugType>
     <OutputPath>..\..\Binaries\$(Configuration)\</OutputPath>
     <DocumentationFile>..\..\Binaries\$(Configuration)\Atom.Fmod.xml</DocumentationFile>
   </PropertyGroup>
+  
+  <ItemGroup>
+    <ProjectReference Include="..\Atom.Math\Atom.Math.csproj" />
+    <ProjectReference Include="..\Atom\Atom.csproj" />
+  </ItemGroup>
+
   <ItemGroup>
     <Compile Include="..\SolutionInfo.cs" Link="Properties\SolutionInfo.cs" />
     <Compile Update="Properties\Resources.Designer.cs">
@@ -21,9 +24,5 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Atom.Math\Atom.Math.csproj" />
-    <ProjectReference Include="..\Atom\Atom.csproj" />
   </ItemGroup>
 </Project>

@@ -12,8 +12,15 @@ namespace Atom.Design
 {
     using System;
 
+    /// <summary>
+    /// Represents a form that gets displayed when the user wants to edit a collection
+    /// at design time.
+    /// </summary>
     public interface IExistingItemCollectionEditorForm : IDisposable
     {
+        /// <summary>
+        /// Shows the dialog.
+        /// </summary>
         void ShowDialog();
     }
 }
