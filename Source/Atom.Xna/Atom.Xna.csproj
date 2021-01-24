@@ -20,16 +20,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Reference Include="Microsoft.Xna.Framework">
-      <HintPath>..\..\Dependencies\Microsoft.Xna.Framework.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.Xna.Framework.Game">
-      <HintPath>..\..\Dependencies\Microsoft.Xna.Framework.Game.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.Xna.Framework.Graphics">
-      <HintPath>..\..\Dependencies\Microsoft.Xna.Framework.Graphics.dll</HintPath>
-    </Reference>
+    <PackageReference Include="MonoGame.Framework.DesktopGL" Version="3.8.0.1641" />
   </ItemGroup>
+
   <ItemGroup>
     <ProjectReference Include="..\Atom.Math\Atom.Math.csproj" />
     <ProjectReference Include="..\Atom\Atom.csproj" />

@@ -18,12 +18,11 @@
     <OutputPath>..\..\Binaries\$(Configuration)\</OutputPath>
     <DocumentationFile>..\..\Binaries\$(Configuration)\Atom.Game.Xna.xml</DocumentationFile>
   </PropertyGroup>
-  
+
   <ItemGroup>
-    <Reference Include="Microsoft.Xna.Framework, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=x86" />
-    <Reference Include="Microsoft.Xna.Framework.Game, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=x86" />
-    <Reference Include="Microsoft.Xna.Framework.Graphics, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=x86" />
+    <PackageReference Include="MonoGame.Framework.DesktopGL" Version="3.8.0.1641" />
   </ItemGroup>
+  
   <ItemGroup>
     <ProjectReference Include="..\Atom\Atom.csproj" />
     <ProjectReference Include="..\Atom.Math\Atom.Math.csproj" />

@@ -16,15 +16,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Reference Include="Microsoft.Xna.Framework">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\Dependencies\Microsoft.Xna.Framework.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.Xna.Framework.Game">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\Dependencies\Microsoft.Xna.Framework.Game.dll</HintPath>
-    </Reference>
+    <PackageReference Include="MonoGame.Framework.WindowsDX" Version="3.8.0.1641" />
   </ItemGroup>
+
   <ItemGroup>
     <ProjectReference Include="..\Atom.Game.2D\Atom.Game.csproj" />
     <ProjectReference Include="..\Atom.Math\Atom.Math.csproj" />
