@@ -1,6 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <AssemblyTitle>Atom.Fmod</AssemblyTitle>
+    <Product>Atom Framework</Product>
     <Description>A library that contains an object oriented wrapper around the C++ audio libary FMOD Studio Suite 2.01.17. (http://www.fmod.org/)</Description>
     <TargetFramework>netstandard2.1</TargetFramework>
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>

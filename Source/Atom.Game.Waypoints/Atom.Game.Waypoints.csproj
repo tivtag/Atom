@@ -1,9 +1,10 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <RootNamespace>Atom.Waypoints</RootNamespace>
     <AssemblyTitle>Atom.Game.Waypoints</AssemblyTitle>
+    <Product>Atom Framework</Product>
     <Description>A library that extends the graphing functionallity of the Atom.Math.Graph library to be easily used as Waypoints in a 2D game.</Description>
     <TargetFramework>netstandard2.1</TargetFramework>
+    <RootNamespace>Atom.Waypoints</RootNamespace>
   </PropertyGroup>
   
   <PropertyGroup>

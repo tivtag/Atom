@@ -1,6 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <AssemblyTitle>Atom.Mail</AssemblyTitle>
+    <Product>Atom Framework</Product>
     <Description>A simple library for sending e-mail.</Description>
     <TargetFramework>netstandard2.1</TargetFramework>
   </PropertyGroup>

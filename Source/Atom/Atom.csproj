@@ -1,6 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <AssemblyTitle>Atom</AssemblyTitle>
+    <Product>Atom Framework</Product>
     <Description>The core dynamic link library of the Atom framework.</Description>
     <TargetFramework>netstandard2.1</TargetFramework>
     <UseWindowsForms>true</UseWindowsForms>

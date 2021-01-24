@@ -1,6 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <AssemblyTitle>Atom.Wpf</AssemblyTitle>
+    <Product>Atom Framework</Product>
     <Description>A support library that extends the functionallity of WPF (Windows Presentation Foundation).</Description>
     <TargetFramework>net5.0-windows</TargetFramework>
     <UseWpf>true</UseWpf>

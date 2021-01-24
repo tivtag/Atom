@@ -1,10 +1,11 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <RootNamespace>Atom.Test.Framework</RootNamespace>
     <AssemblyName>Atom.Test.Framework</AssemblyName>
     <AssemblyTitle>Atom.Test.Framework</AssemblyTitle>
     <Description>A library that extends the Microsoft testing framework.</Description>
+    <Product>Atom Framework</Product>
     <TargetFramework>netstandard2.1</TargetFramework>
+    <RootNamespace>Atom.Test.Framework</RootNamespace>
   </PropertyGroup>
 
   <PropertyGroup>

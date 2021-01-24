@@ -1,8 +1,9 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <AssemblyTitle>Atom.Game</AssemblyTitle>
-    <RootNamespace>Atom</RootNamespace>
+    <Product>Atom Framework</Product>
     <Description>An arbitrary library that implements concepts useful the creation of (2D) games.</Description>
+    <RootNamespace>Atom</RootNamespace>
     <TargetFramework>netstandard2.1</TargetFramework>
   </PropertyGroup>
 

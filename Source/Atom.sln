@@ -34,9 +34,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Atom.Math.Graph", "Atom.Mat
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Atom.Fmod", "Atom.Fmod\Atom.Fmod.csproj", "{D7CDC846-347A-4CE4-B681-7D9FB1F28100}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Atom.Xna.Particles", "Atom.Xna.Particles\Atom.Xna.Particles.csproj", "{4191D06D-FEC2-484E-B974-C7DBCF2FB6CF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Atom.Xna.Particles", "Atom.Xna.Particles\Atom.Xna.Particles.csproj", "{4191D06D-FEC2-484E-B974-C7DBCF2FB6CF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Atom.Xna", "Atom.Xna\Atom.Xna.csproj", "{68DE8DA7-DBBD-4EAF-B992-E431DD88B4B4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Atom.Xna", "Atom.Xna\Atom.Xna.csproj", "{68DE8DA7-DBBD-4EAF-B992-E431DD88B4B4}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Atom.ErrorReporting", "Atom.ErrorReporting\Atom.ErrorReporting.csproj", "{D75C8834-5EAD-414A-A1E0-FBE785676803}"
 EndProject
@@ -46,13 +46,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Atom.AutoUpdate", "Atom.Aut
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Atom.Xna.Effects.HighDynamicRangeTest", "Atom.Xna.Effects.HighDynamicRangeTest\Atom.Xna.Effects.HighDynamicRangeTest.csproj", "{0568AE0C-2FE5-4FCC-8F94-A0F6CD845E4C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Atom.Xna.Wpf", "Atom.Xna.Wpf\Atom.Xna.Wpf.csproj", "{A68D9F32-4B38-49AA-AD99-8A98EEF80584}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Atom.Xna.Wpf", "Atom.Xna.Wpf\Atom.Xna.Wpf.csproj", "{A68D9F32-4B38-49AA-AD99-8A98EEF80584}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Atom.AI", "Atom.AI\Atom.AI.csproj", "{1FB22529-5D11-4FA5-9A53-A3246E23B059}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Atom.AI", "Atom.AI\Atom.AI.csproj", "{1FB22529-5D11-4FA5-9A53-A3246E23B059}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Atom.Xna.UI", "Atom.Xna.UI\Atom.Xna.UI.csproj", "{AD153F26-3718-44CE-AD10-B8ADE52F8548}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Atom.Xna.UI", "Atom.Xna.UI\Atom.Xna.UI.csproj", "{AD153F26-3718-44CE-AD10-B8ADE52F8548}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Atom.Game.Waypoints", "Atom.Game.Waypoints\Atom.Game.Waypoints.csproj", "{9D9E505B-917F-483C-8A94-4740EF06631B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Atom.Game.Waypoints", "Atom.Game.Waypoints\Atom.Game.Waypoints.csproj", "{9D9E505B-917F-483C-8A94-4740EF06631B}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Atom.Math.Graph.Tests", "Atom.Math.Graph.Tests\Atom.Math.Graph.Tests.csproj", "{043CFCC8-B64F-48BF-8966-C3EEE62C82EE}"
 EndProject
@@ -76,7 +76,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Atom.Scripting.Specs", "Ato
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Atom.Tests", "..\Tests\Atom.Tests\Atom.Tests.csproj", "{4A22DDEF-E447-416A-BAB1-27A9B0A9786B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Atom.Tests.Manual.Console", "..\Tests\Atom.Tests.Console\Atom.Tests.Manual.Console.csproj", "{32F3E659-6F33-4F1B-9E19-50C73361036F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Atom.Tests.Manual.Console", "..\Tests\Atom.Tests.Console\Atom.Tests.Manual.Console.csproj", "{32F3E659-6F33-4F1B-9E19-50C73361036F}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Atom.Tests.Framework", "Atom.Test.Framework\Atom.Tests.Framework.csproj", "{F9C6D41B-5C7F-4579-AA68-80F3ADF6B0BB}"
 EndProject
@@ -326,7 +326,6 @@ Global
 		{C10B3000-E49D-4261-BDB7-48F4F1EB6F67} = {D13CC5D3-1556-469B-81EC-6D8DEA1A7D70}
 		{6A6C85E0-C878-46F1-AEE9-9DDE7FFBA75F} = {64520F61-2FEC-4DDD-B019-D064B209C862}
 		{D855B2A3-6752-48A3-B157-78212608E9A6} = {6A6C85E0-C878-46F1-AEE9-9DDE7FFBA75F}
-		{AD77F5E3-28BF-4D69-88FE-E66686BFBB1A} = {D13CC5D3-1556-469B-81EC-6D8DEA1A7D70}
 		{48161CB8-519B-446E-A8FF-B20A1B6F8BE8} = {AD77F5E3-28BF-4D69-88FE-E66686BFBB1A}
 		{4A22DDEF-E447-416A-BAB1-27A9B0A9786B} = {C4EF0C35-AD06-4362-80C6-AE7C8C7718E7}
 		{32F3E659-6F33-4F1B-9E19-50C73361036F} = {C4EF0C35-AD06-4362-80C6-AE7C8C7718E7}

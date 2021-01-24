@@ -1,6 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <AssemblyTitle>Atom.Xna.UI</AssemblyTitle>
+    <Product>Atom Framework</Product>
     <Description>A simple GUI (Graphical User Interface) library for the Microsoft Xna framework.</Description>
     <TargetFramework>netstandard2.1</TargetFramework>
   </PropertyGroup>

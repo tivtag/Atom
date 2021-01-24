@@ -1,6 +1,9 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
+    <AssemblyTitle>Atom.Design</AssemblyTitle>
+    <Product>Atom Framework</Product>
+    <Description>Defines design-time components for the Atom library.</Description>
     <TargetFramework>net5.0-windows</TargetFramework>
     <UseWindowsForms>true</UseWindowsForms>
   </PropertyGroup>

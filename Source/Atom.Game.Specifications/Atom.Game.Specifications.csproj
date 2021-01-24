@@ -1,195 +1,29 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>
-    </ProductVersion>
-    <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{D855B2A3-6752-48A3-B157-78212608E9A6}</ProjectGuid>
-    <OutputType>Library</OutputType>
-    <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Atom.Game.Specifications</RootNamespace>
-    <AssemblyName>Atom.Game.Specifications</AssemblyName>
-    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
-    <FileAlignment>512</FileAlignment>
-    <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
-    <CodeContractsAssemblyMode>1</CodeContractsAssemblyMode>
+    <AssemblyTitle>Atom.Game.Specifications</AssemblyTitle>
+    <Product>Atom Framework</Product>
+    <TargetFramework>net5.0-windows</TargetFramework>
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <DebugSymbols>true</DebugSymbols>
-    <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
+
+  <PropertyGroup>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <LangVersion>latest</LangVersion>
+    <EnableNETAnalyzers>true</EnableNETAnalyzers>
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <DebugType>pdbonly</DebugType>
-    <Optimize>true</Optimize>
-    <OutputPath>bin\Release\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
-    <DebugSymbols>true</DebugSymbols>
-    <OutputPath>bin\x86\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
-    <DebugType>full</DebugType>
-    <PlatformTarget>x86</PlatformTarget>
-    <CodeAnalysisLogFile>bin\Debug\Atom.Game.Specifications.dll.CodeAnalysisLog.xml</CodeAnalysisLogFile>
-    <CodeAnalysisInputAssembly>bin\x86\Debug\Atom.Game.Specifications.dll</CodeAnalysisInputAssembly>
-    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
-    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
-    <ErrorReport>prompt</ErrorReport>
-    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
-    <CodeAnalysisRuleSetDirectories>;C:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\\Rule Sets</CodeAnalysisRuleSetDirectories>
-    <CodeAnalysisIgnoreBuiltInRuleSets>true</CodeAnalysisIgnoreBuiltInRuleSets>
-    <CodeAnalysisRuleDirectories>;C:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\FxCop\\Rules</CodeAnalysisRuleDirectories>
-    <CodeAnalysisIgnoreBuiltInRules>true</CodeAnalysisIgnoreBuiltInRules>
-    <CodeAnalysisFailOnMissingRules>false</CodeAnalysisFailOnMissingRules>
-    <NoWarn>0169</NoWarn>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
-    <OutputPath>bin\x86\Release\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
-    <Optimize>true</Optimize>
-    <DebugType>pdbonly</DebugType>
-    <PlatformTarget>x86</PlatformTarget>
-    <CodeAnalysisLogFile>bin\Release\Atom.Game.Specifications.dll.CodeAnalysisLog.xml</CodeAnalysisLogFile>
-    <CodeAnalysisInputAssembly>bin\x86\Release\Atom.Game.Specifications.dll</CodeAnalysisInputAssembly>
-    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
-    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
-    <ErrorReport>prompt</ErrorReport>
-    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
-    <CodeAnalysisRuleSetDirectories>;C:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\\Rule Sets</CodeAnalysisRuleSetDirectories>
-    <CodeAnalysisRuleDirectories>;C:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\FxCop\\Rules</CodeAnalysisRuleDirectories>
-    <NoWarn>0169</NoWarn>
-    <CodeContractsEnableRuntimeChecking>False</CodeContractsEnableRuntimeChecking>
-    <CodeContractsRuntimeOnlyPublicSurface>False</CodeContractsRuntimeOnlyPublicSurface>
-    <CodeContractsRuntimeThrowOnFailure>True</CodeContractsRuntimeThrowOnFailure>
-    <CodeContractsRuntimeCallSiteRequires>False</CodeContractsRuntimeCallSiteRequires>
-    <CodeContractsRunCodeAnalysis>False</CodeContractsRunCodeAnalysis>
-    <CodeContractsNonNullObligations>False</CodeContractsNonNullObligations>
-    <CodeContractsBoundsObligations>False</CodeContractsBoundsObligations>
-    <CodeContractsArithmeticObligations>False</CodeContractsArithmeticObligations>
-    <CodeContractsRedundantAssumptions>False</CodeContractsRedundantAssumptions>
-    <CodeContractsRunInBackground>True</CodeContractsRunInBackground>
-    <CodeContractsShowSquigglies>False</CodeContractsShowSquigglies>
-    <CodeContractsUseBaseLine>False</CodeContractsUseBaseLine>
-    <CodeContractsEmitXMLDocs>False</CodeContractsEmitXMLDocs>
-    <CodeContractsCustomRewriterAssembly />
-    <CodeContractsCustomRewriterClass />
-    <CodeContractsLibPaths />
-    <CodeContractsExtraRewriteOptions />
-    <CodeContractsExtraAnalysisOptions />
-    <CodeContractsBaseLineFile />
-    <CodeContractsRuntimeCheckingLevel>Full</CodeContractsRuntimeCheckingLevel>
-    <CodeContractsReferenceAssembly>%28none%29</CodeContractsReferenceAssembly>
-  </PropertyGroup>
+
   <ItemGroup>
-    <Reference Include="Atom.Game.Moles, Version=1.5.3895.37017, Culture=neutral, processorArchitecture=MSIL" />
-    <Reference Include="Atom.Moles, Version=1.5.3913.23369, Culture=neutral, processorArchitecture=MSIL" />
-    <Reference Include="Machine.Specifications">
-      <HintPath>..\..\..\..\..\..\..\..\Programming\MSpec\Machine.Specifications.dll</HintPath>
-    </Reference>
-    <Reference Include="Machine.Specifications.Contrib">
-      <HintPath>..\..\..\OpenSource\machine.specifications.contrib\Build\Release\Machine.Specifications.Contrib.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.Moles.Framework, Version=0.92.50603.1, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\..\..\..\Program Files (x86)\Microsoft Moles\PublicAssemblies\Microsoft.Moles.Framework.dll</HintPath>
-    </Reference>
-    <Reference Include="System" />
-    <Reference Include="System.Core">
-      <RequiredTargetFramework>3.5</RequiredTargetFramework>
-    </Reference>
+    <PackageReference Include="Machine.Specifications" Version="1.0.0" />
+    <PackageReference Include="Machine.Specifications.Should" Version="1.0.0" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.0.1" />
+    <PackageReference Include="MSTest.TestAdapter" Version="1.4.0" />
+    <PackageReference Include="MSTest.TestFramework" Version="1.4.0" />
   </ItemGroup>
+  
   <ItemGroup>
-    <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Scene\Tiles\TileMatrix Specifications\when_a_new_layer_is_added.cs" />
-    <Compile Include="Scene\Tiles\TileMatrix Specifications\when_its_height_it_set_to_a_value_less_than_1.cs" />
-    <Compile Include="Scene\Tiles\TileMatrix Specifications\when_newly_created.cs" />
-    <Compile Include="Scene\Tiles\TileMatrix Specifications\when_its_size_is_set.cs" />
-    <Compile Include="Scene\Tiles\TileMatrix Specifications\when_its_width_it_set_to_a_value_less_than_1.cs" />
-    <Compile Include="Scene\Tiles\TileMatrixLayer Specifications\when_attempting_to_get_a_tile_at_an_invalid_position.cs" />
-    <Compile Include="Scene\Tiles\TileMatrixLayer Specifications\when_attempting_to_set_a_tile_at_an_invalid_position.cs" />
-    <Compile Include="Scene\Tiles\TileMatrixLayer Specifications\when_newly_created.cs" />
-    <Compile Include="Scene\Tiles\TileMatrixLayer Specifications\when_setting_a_single_tile.cs" />
-    <Compile Include="Scene\Tiles\TileMatrixMapInserter Specifications\TileMatrixMapInserterSpecification.cs" />
-    <Compile Include="Scene\Tiles\TileMatrixMapInserter Specifications\when_attempting_to_insert_into_no_map.cs" />
-    <Compile Include="Scene\Tiles\TileMatrixMapInserter Specifications\when_attempting_to_insert_no_matrix.cs" />
-    <Compile Include="Scene\Tiles\TileMatrixMapInserter Specifications\when_inserting_at_a_x_position_greater_than_the_map_width.cs" />
-    <Compile Include="Scene\Tiles\TileMatrixMapInserter Specifications\when_inserting_at_a_x_position_less_than_zero.cs" />
-    <Compile Include="Scene\Tiles\TileMatrixMapInserter Specifications\when_inserting_at_a_y_position_greater_than_the_map_height.cs" />
-    <Compile Include="Scene\Tiles\TileMatrixMapInserter Specifications\when_inserting_at_a_y_position_less_than_zero.cs" />
-    <Compile Include="Scene\Tiles\TileMatrixMapInserter Specifications\when_inserting_a_matrix_whose_end_x_position_is_greater_than_the_map_width.cs" />
-    <Compile Include="Scene\Tiles\TileMatrixMapInserter Specifications\when_inserting_a_matrix_whose_end_y_position_is_greater_than_the_map_height.cs" />
-    <Compile Include="Story\Incident Specifications\when_newly_created.cs" />
-    <Compile Include="Story\Storyboard Specifications\when_newly_created.cs" />
-    <Compile Include="Story\Storyboard Specifications\when_updated.cs" />
-    <Compile Include="Story\Timeline Specifications\when_changing_the_relative_time_tick_of_an_owned_incident.cs" />
-    <Compile Include="Story\Timeline Specifications\when_changing_the_relative_time_tick_of_an_owned_incident_and_then_rebuilding_it.cs" />
-    <Compile Include="Story\Timeline Specifications\when_inserting_incidents.cs" />
-    <Compile Include="Story\Timeline Specifications\when_newly_created.cs" />
-    <Compile Include="Stubs\Atom.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTimeSharedInput>True</DesignTimeSharedInput>
-      <DependentUpon>Atom.moles</DependentUpon>
-    </Compile>
-    <Compile Include="Stubs\Atom.Game.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTimeSharedInput>True</DesignTimeSharedInput>
-      <DependentUpon>Atom.Game.moles</DependentUpon>
-    </Compile>
+    <ProjectReference Include="..\Atom.Game.2D\Atom.Game.csproj" />
+    <ProjectReference Include="..\Atom.Math\Atom.Math.csproj" />
+    <ProjectReference Include="..\Atom\Atom.csproj" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Atom.Game.2D\Atom.Game.csproj">
-      <Project>{C4399B62-FBE2-4F55-A46A-C298BC0F6207}</Project>
-      <Name>Atom.Game</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Atom.Math\Atom.Math.csproj">
-      <Project>{CC3BC455-003C-43EE-8646-B53311A89298}</Project>
-      <Name>Atom.Math</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Atom\Atom.csproj">
-      <Project>{5EAD885A-5B98-4611-A45E-E4333D40476D}</Project>
-      <Name>Atom</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup />
-  <ItemGroup>
-    <None Include="Stubs\Atom.Game.moles">
-      <Generator>MolesGenerator</Generator>
-      <LastGenOutput>Atom.Game.Designer.cs</LastGenOutput>
-    </None>
-    <None Include="Stubs\Atom.moles">
-      <Generator>MolesGenerator</Generator>
-      <LastGenOutput>Atom.Designer.cs</LastGenOutput>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Stubs\Atom.Game.Moles.dll">
-      <DependentUpon>Atom.Game.moles</DependentUpon>
-    </Content>
-    <Content Include="Stubs\Atom.Game.Moles.xml">
-      <DependentUpon>Atom.Game.moles</DependentUpon>
-    </Content>
-    <Content Include="Stubs\Atom.Moles.dll">
-      <DependentUpon>Atom.moles</DependentUpon>
-    </Content>
-    <Content Include="Stubs\Atom.Moles.xml">
-      <DependentUpon>Atom.moles</DependentUpon>
-    </Content>
-  </ItemGroup>
-  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
-  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
-       Other similar extension points exist, see Microsoft.Common.targets.
-  <Target Name="BeforeBuild">
-  </Target>
-  <Target Name="AfterBuild">
-  </Target>
-  -->
 </Project>
+      

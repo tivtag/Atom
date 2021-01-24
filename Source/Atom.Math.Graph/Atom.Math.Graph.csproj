@@ -1,6 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <AssemblyTitle>Atom.Math.Graph</AssemblyTitle>
+    <Product>Atom Framework</Product>
     <Description>A library that allows the creation, manipulation and analysis of graphs.</Description>
     <TargetFramework>netstandard2.1</TargetFramework>
   </PropertyGroup>
