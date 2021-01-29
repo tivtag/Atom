@@ -11,7 +11,6 @@
 namespace Atom.Xna.Particles
 {
     using System;
-    using Microsoft.Xna.Framework;
     using Microsoft.Xna.Framework.Content;
     using Microsoft.Xna.Framework.Graphics;
 
@@ -35,7 +34,9 @@ namespace Atom.Xna.Particles
         protected ParticleRenderer( IGraphicsDeviceService graphicsDeviceService )
         {
             if( graphicsDeviceService == null )
-                throw new ArgumentNullException( "graphicsDeviceService" );
+            {
+                throw new ArgumentNullException( nameof( graphicsDeviceService ) );
+            }
 
             this.GraphicsDeviceService = graphicsDeviceService;
         }

@@ -274,7 +274,9 @@ namespace Atom.Xna.UI
         public void Draw( ISpriteDrawContext drawContext )
         {
             if( !this.isVisible )
+            {
                 return;
+            }
 
             Debug.Assert( drawContext != null, "The DrawContext is null." );
             Debug.Assert( drawContext.Batch != null, "The SpriteBatch of the DrawContext is null." );
@@ -286,7 +288,7 @@ namespace Atom.Xna.UI
 
             // The elements are first sorted by their FloorNumber
             // and then by their RelativeDrawOrder.
-            var batch = drawContext.Batch;
+            Batches.IComposedSpriteBatch batch = drawContext.Batch;
 
             // Indicates whether the execution is 
             // currently in a SpriteBatch.Begin/End block.
@@ -303,7 +305,9 @@ namespace Atom.Xna.UI
                 foreach( UIElement element in this.elements )
                 {
                     if( !element.IsVisible )
+                    {
                         continue;
+                    }
 
                     int floor = element.FloorNumber;
 
@@ -312,7 +316,9 @@ namespace Atom.Xna.UI
                     if( floor != currentFloor )
                     {
                         if( isBeginEndBlock )
+                        {
                             batch.End();
+                        }
 
                         drawContext.Begin( BlendState.NonPremultiplied, SamplerState.PointClamp, SpriteSortMode.FrontToBack );
 
@@ -331,7 +337,9 @@ namespace Atom.Xna.UI
             finally
             {
                 if( isBeginEndBlock )
+                {
                     batch.End();
+                }
             }
         }
 
@@ -344,10 +352,14 @@ namespace Atom.Xna.UI
         public void Update( IUpdateContext updateContext )
         {
             if( !this.HasFocus )
+            {
                 return;
+            }
 
             if( this.isElementSortNeeded )
+            {
                 this.SortElements();
+            }
 
             for( int i = 0; i < this.elements.Count; ++i )
             {
@@ -393,7 +405,9 @@ namespace Atom.Xna.UI
         private void AddElementUnsafe( UIElement element )
         {
             if( element.Owner == this )
+            {
                 return;
+            }
 
             this.elements.Add( element );
             element.Owner = this;
@@ -414,7 +428,7 @@ namespace Atom.Xna.UI
             Contract.Requires<ArgumentException>( Contract.ForAll<UIElement>( elementsToAdd, element => elementsToAdd != null ) );
             Contract.Requires<ArgumentException>( Contract.ForAll<UIElement>( elementsToAdd, element => element.Owner == this || !this.ContainsElement( element ) ) );
 
-            foreach( var element in elementsToAdd )
+            foreach( UIElement element in elementsToAdd )
             {
                 this.AddElementUnsafe( element );
             }
@@ -461,9 +475,9 @@ namespace Atom.Xna.UI
             Contract.Requires<ArgumentNullException>( elementsToRemove != null );
             Contract.Requires<ArgumentException>( Contract.ForAll<UIElement>( elementsToRemove, element => elementsToRemove != null ) );
 
-            foreach( var element in elementsToRemove )
+            foreach( UIElement element in elementsToRemove )
             {
-                this.RemoveElement( element );                
+                this.RemoveElement( element );
             }
         }
 
@@ -472,13 +486,13 @@ namespace Atom.Xna.UI
         /// </summary>
         public void RemoveAllElements()
         {
-            var oldElements = this.elements.ToArray();
+            UIElement[] oldElements = this.elements.ToArray();
 
             this.focusedElement = null;
             this.elements.Clear();
             this.elementsInRange.Clear();
 
-            foreach( var element in oldElements )
+            foreach( UIElement element in oldElements )
             {
                 element.Owner = null;
                 element.OnRemovedInternal( this );
@@ -497,7 +511,9 @@ namespace Atom.Xna.UI
         public UIElement GetElement( string name )
         {
             if( name == null )
+            {
                 return null;
+            }
 
             return this.elements.First( element => name.Equals( element.Name, StringComparison.Ordinal ) );
         }
@@ -589,19 +605,25 @@ namespace Atom.Xna.UI
             int floorY = y.FloorNumber;
 
             if( floorX < floorY )
+            {
                 return -1;
+            }
             else if( floorX > floorY )
+            {
                 return 1;
+            }
 
             float relativeDrawOrderX = x.RelativeDrawOrder;
             float relativeDrawOrderY = y.RelativeDrawOrder;
 
             if( relativeDrawOrderX < relativeDrawOrderY )
+            {
                 return -1;
-            else if( relativeDrawOrderX > relativeDrawOrderY )
-                return 1;
+            }
             else
-                return 0;
+            {
+                return relativeDrawOrderX > relativeDrawOrderY ? 1 : 0;
+            }
         }
 
         #endregion
@@ -714,22 +736,26 @@ namespace Atom.Xna.UI
 
             for( int i = this.elementsInRange.Count - 1; i >= 0; --i )
             {
-                var element = this.elementsInRange[i];
+                UIElement element = this.elementsInRange[i];
                 bool pass = element.MouseOverInternal( ref mouseState );
 
                 if( !pass )
+                {
                     break;
+                }
             }
 
             if( this.mouseState != this.oldMouseState )
             {
                 for( int i = this.elementsInRange.Count - 1; i >= 0; --i )
                 {
-                    var element = this.elementsInRange[i];
+                    UIElement element = this.elementsInRange[i];
                     bool pass = element.HandleRelatedMouseInputCore( ref this.mouseState, ref this.oldMouseState );
 
                     if( !pass )
+                    {
                         break;
+                    }
                 }
             }
 
@@ -764,10 +790,14 @@ namespace Atom.Xna.UI
             keyState = Keyboard.GetState();
 
             if( KeyboardInput != null )
+            {
                 KeyboardInput( this, ref keyState, ref oldKeyState );
+            }
 
             if( focusedElement != null )
+            {
                 focusedElement.HandleKeyInputCore( ref keyState, ref oldKeyState );
+            }
 
             oldKeyState = keyState;
         }
@@ -787,7 +817,9 @@ namespace Atom.Xna.UI
                 UIElement element = elements[i];
 
                 if( element.IsEnabled && element.ClientArea.Contains( mouseX, mouseY ) )
+                {
                     elementsInRange.Add( element );
+                }
             }
 
             elementsInRange.Sort( ElementSortComparision );

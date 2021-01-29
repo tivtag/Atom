@@ -90,7 +90,9 @@ namespace Atom.Xna.Particles
         public override void LoadContent( Microsoft.Xna.Framework.Content.ContentManager content )
         {
             if( this.batch == null )
+            {
                 this.batch = new SpriteBatch( this.GraphicsDeviceService.GraphicsDevice );
+            }
         }
 
         /// <inheritdoc />

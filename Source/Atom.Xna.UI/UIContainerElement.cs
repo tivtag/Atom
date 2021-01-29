@@ -90,7 +90,7 @@ namespace Atom.Xna.UI
         {
             bool isVisible = this.IsVisible;
 
-            foreach( var child in this.children )
+            foreach( UIElement child in this.children )
             {
                 child.IsVisible = isVisible;
             }
@@ -106,7 +106,7 @@ namespace Atom.Xna.UI
         {
             bool isEnabled = this.IsEnabled;
 
-            foreach( var child in this.children )
+            foreach( UIElement child in this.children )
             {
                 child.IsEnabled = isEnabled;
             }
@@ -134,7 +134,7 @@ namespace Atom.Xna.UI
         /// </param>
         protected override void OnRemoved( UserInterface userInterface )
         {
-            foreach( var child in this.children )
+            foreach( UIElement child in this.children )
             {
                 userInterface.RemoveElement( child );
             }

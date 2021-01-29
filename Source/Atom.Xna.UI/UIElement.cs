@@ -94,8 +94,10 @@ namespace Atom.Xna.UI
             set
             {
                 if( value == this._isEnabled )
+                {
                     return;
-                
+                }
+
                 this._isEnabled = value;
 
                 if( !value )
@@ -121,7 +123,9 @@ namespace Atom.Xna.UI
             set
             {
                 if( value == this._isVisible )
+                {
                     return;
+                }
 
                 this._isVisible = value;
                 this.OnIsVisibleChangedPrivate();
@@ -148,7 +152,9 @@ namespace Atom.Xna.UI
             get
             {
                 if( !this._isEnabled )
+                {
                     return true;
+                }
 
                 return this.passInputToSubElements;
             }
@@ -177,7 +183,9 @@ namespace Atom.Xna.UI
             set
             {
                 if( value == this._floorNumber )
+                {
                     return;
+                }
 
                 this._floorNumber = value;
                 this.FloorNumberChanged.Raise( this );
@@ -206,7 +214,9 @@ namespace Atom.Xna.UI
                 this._relativeDrawOrder = value;
 
                 if( this.Owner != null )
+                {
                     this.Owner.NotifyElementSortNeeded();
+                }
             }
         }
 
@@ -228,7 +238,9 @@ namespace Atom.Xna.UI
             set
             {
                 if( value == this._position )
+                {
                     return;
+                }
 
                 this._position = value;
                 this.RefreshClientArea();
@@ -274,7 +286,9 @@ namespace Atom.Xna.UI
             set
             {
                 if( value == this._offset )
+                {
                     return;
+                }
 
                 this._offset = value;
                 this.RefreshClientArea();
@@ -295,7 +309,9 @@ namespace Atom.Xna.UI
             set
             {
                 if( value == this._size )
+                {
                     return;
+                }
 
                 this._size = value;
                 this.RefreshClientArea();
@@ -406,7 +422,9 @@ namespace Atom.Xna.UI
         public void Update( IUpdateContext updateContext )
         {
             if( !_isEnabled )
+            {
                 return;
+            }
 
             this.OnUpdate( updateContext );
 
@@ -434,7 +452,9 @@ namespace Atom.Xna.UI
         internal void PreUpdateInternal()
         {
             if( !this._isEnabled )
+            {
                 return;
+            }
 
             this.wasMouseOver = this.isMouseOver;
             this.isMouseOver = false;
@@ -462,7 +482,9 @@ namespace Atom.Xna.UI
         public void Draw( ISpriteDrawContext drawContext )
         {
             if( !this._isVisible )
+            {
                 return;
+            }
 
             this.OnDraw( drawContext );
         }
@@ -496,7 +518,9 @@ namespace Atom.Xna.UI
         private void OnIsEnabledChangedPrivate()
         {
             if( this.IsEnabledChanged != null )
+            {
                 this.IsEnabledChanged( this );
+            }
 
             this.OnIsEnabledChanged();
         }
@@ -514,7 +538,9 @@ namespace Atom.Xna.UI
         private void OnIsVisibleChangedPrivate()
         {
             if( this.IsVisibleChanged != null )
+            {
                 this.IsVisibleChanged( this );
+            }
 
             this.OnIsVisibleChanged();
         }
@@ -625,7 +651,9 @@ namespace Atom.Xna.UI
         internal bool MouseOverInternal( ref MouseState mouseState )
         {
             if( !this._isEnabled )
+            {
                 return true;
+            }
 
             if( this.wasMouseOver == false && this.MouseEntering != null )
             {
@@ -657,7 +685,9 @@ namespace Atom.Xna.UI
             ref Microsoft.Xna.Framework.Input.MouseState oldMouseState )
         {
             if( !this._isEnabled )
+            {
                 return true;
+            }
 
             return this.HandleRelatedMouseInput( ref mouseState, ref oldMouseState );
         }
