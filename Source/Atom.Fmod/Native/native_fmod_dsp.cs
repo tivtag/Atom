@@ -1,6 +1,6 @@
 /* ======================================================================================== */
 /* FMOD Core API - DSP header file.                                                         */
-/* Copyright (c), Firelight Technologies Pty, Ltd. 2004-2020.                               */
+/* Copyright (c), Firelight Technologies Pty, Ltd. 2004-2022.                               */
 /*                                                                                          */
 /* Use this header if you are wanting to develop your own DSP plugin to use with FMODs      */
 /* dsp system.  With this header you can make your own DSP plugin that FMOD can             */
@@ -11,6 +11,7 @@
 /* =========================================================================================*/
 
 using System;
+using System.Text;
 using System.Runtime.InteropServices;
 
 #pragma warning disable 1591
@@ -232,7 +233,8 @@ namespace Atom.Fmod.Native
         DSP_PARAMETER_DATA_TYPE_3DATTRIBUTES = -2,
         DSP_PARAMETER_DATA_TYPE_SIDECHAIN = -3,
         DSP_PARAMETER_DATA_TYPE_FFT = -4,
-        DSP_PARAMETER_DATA_TYPE_3DATTRIBUTES_MULTI = -5
+        DSP_PARAMETER_DATA_TYPE_3DATTRIBUTES_MULTI = -5,
+        DSP_PARAMETER_DATA_TYPE_ATTENUATION_RANGE = -6
     }
 
     [StructLayout( LayoutKind.Sequential )]
@@ -279,7 +281,7 @@ namespace Atom.Fmod.Native
         {
             get
             {
-                float[][] buffer = new float[numchannels][];
+                var buffer = new float[numchannels][];
 
                 for( int i = 0; i < numchannels; ++i )
                 {
@@ -305,6 +307,34 @@ namespace Atom.Fmod.Native
             int bufferLength = global::System.Math.Min( buffer.Length, length );
             Marshal.Copy( spectrum_internal[channel], buffer, 0, bufferLength );
         }
+    }
+
+    [StructLayout( LayoutKind.Sequential )]
+    public struct DSP_LOUDNESS_METER_INFO_TYPE
+    {
+        public float momentaryloudness;
+        public float shorttermloudness;
+        public float integratedloudness;
+        public float loudness10thpercentile;
+        public float loudness95thpercentile;
+        [MarshalAs( UnmanagedType.ByValArray, SizeConst = 66 )]
+        public float[] loudnesshistogram;
+        public float maxtruepeak;
+        public float maxmomentaryloudness;
+    }
+
+    [StructLayout( LayoutKind.Sequential )]
+    public struct DSP_LOUDNESS_METER_WEIGHTING_TYPE
+    {
+        [MarshalAs( UnmanagedType.ByValArray, SizeConst = 32 )]
+        public float[] channelweight;
+    }
+
+    [StructLayout( LayoutKind.Sequential )]
+    public struct DSP_PARAMETER_ATTENUATION_RANGE
+    {
+        public float min;
+        public float max;
     }
 
     [StructLayout( LayoutKind.Sequential )]
@@ -495,7 +525,7 @@ namespace Atom.Fmod.Native
     public enum DSP_NORMALIZE : int
     {
         FADETIME,
-        THRESHHOLD,
+        THRESHOLD,
         MAXAMP
     }
 
@@ -682,6 +712,8 @@ namespace Atom.Fmod.Native
         OVERALL_GAIN,
         SURROUND_SPEAKER_MODE,
         _2D_HEIGHT_BLEND,
+        ATTENUATION_RANGE,
+        OVERRIDE_RANGE
     }
 
     public enum DSP_THREE_EQ_CROSSOVERSLOPE_TYPE : int
@@ -717,6 +749,24 @@ namespace Atom.Fmod.Native
         WINDOWTYPE,
         SPECTRUMDATA,
         DOMINANT_FREQ
+    }
+
+
+    public enum DSP_LOUDNESS_METER : int
+    {
+        STATE,
+        WEIGHTING,
+        INFO
+    }
+
+
+    public enum DSP_LOUDNESS_METER_STATE_TYPE : int
+    {
+        RESET_INTEGRATED = -3,
+        RESET_MAXPEAK = -2,
+        RESET_ALL = -1,
+        PAUSED = 0,
+        ANALYZING = 1
     }
 
     public enum DSP_ENVELOPEFOLLOWER : int
@@ -842,6 +892,8 @@ namespace Atom.Fmod.Native
         _3D_SOUND_SIZE,
         _3D_MIN_EXTENT,
         OVERALL_GAIN,
-        OUTPUTGAIN
+        OUTPUTGAIN,
+        ATTENUATION_RANGE,
+        OVERRIDE_RANGE
     }
 }

@@ -2,7 +2,7 @@
   <PropertyGroup>
     <AssemblyTitle>Atom.Game.Specifications</AssemblyTitle>
     <Product>Atom Framework</Product>
-    <TargetFramework>net5.0-windows</TargetFramework>
+    <TargetFramework>net6.0-windows</TargetFramework>
   </PropertyGroup>
 
   <PropertyGroup>

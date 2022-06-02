@@ -4,7 +4,7 @@
     <AssemblyTitle>Atom.Game.Design</AssemblyTitle>
     <Product>Atom Framework</Product>
     <Description>Contains Design-Time components for the Atom.Game library.</Description>
-    <TargetFramework>net5.0-windows</TargetFramework>
+    <TargetFramework>net6.0-windows</TargetFramework>
     <UseWindowsForms>true</UseWindowsForms>
   </PropertyGroup>
   

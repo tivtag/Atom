@@ -1,6 +1,6 @@
 ﻿/* ======================================================================================== */
 /* FMOD Core API - C# wrapper.                                                              */
-/* Copyright (c), Firelight Technologies Pty, Ltd. 2004-2020.                               */
+/* Copyright (c), Firelight Technologies Pty, Ltd. 2004-2022.                               */
 /*                                                                                          */
 /* For more detail visit:                                                                   */
 /* https://fmod.com/resources/documentation-api?version=2.0&page=core-api.html              */
@@ -21,8 +21,8 @@ namespace Atom.Fmod.Native
     */
     public partial class VERSION
     {
-        public const int number = 0x00020107;
-#if !UNITY_2017_4_OR_NEWER
+        public const int number = 0x00020207;
+#if !UNITY_2019_4_OR_NEWER
         public const string dll = "fmod";
 #endif
     }
@@ -149,6 +149,15 @@ namespace Atom.Fmod.Native
     }
 
     [StructLayout( LayoutKind.Sequential )]
+    public partial struct GUID
+    {
+        public int Data1;
+        public int Data2;
+        public int Data3;
+        public int Data4;
+    }
+
+    [StructLayout( LayoutKind.Sequential )]
     public struct ASYNCREADINFO
     {
         public IntPtr handle;
@@ -185,8 +194,22 @@ namespace Atom.Fmod.Native
         NNAUDIO,
         WINSONIC,
         AAUDIO,
+        AUDIOWORKLET,
 
         MAX,
+    }
+
+    public enum PORT_TYPE : int
+    {
+        MUSIC,
+        COPYRIGHT_MUSIC,
+        VOICE,
+        CONTROLLER,
+        PERSONAL,
+        VIBRATION,
+        AUX,
+
+        MAX
     }
 
     public enum DEBUG_MODE : int
@@ -482,6 +505,17 @@ namespace Atom.Fmod.Native
         public StringWrapper functionparams;
     }
 
+    [StructLayout( LayoutKind.Sequential )]
+    public struct CPU_USAGE
+    {
+        public float dsp;                    /* DSP mixing CPU usage. */
+        public float stream;                 /* Streaming engine CPU usage. */
+        public float geometry;               /* Geometry engine CPU usage. */
+        public float update;                 /* System::update CPU usage. */
+        public float convolution1;           /* Convolution reverb processing thread #1 CPU usage */
+        public float convolution2;           /* Convolution reverb processing thread #2 CPU usage */
+    }
+
     [Flags]
     public enum SYSTEM_CALLBACK_TYPE : uint
     {
@@ -500,6 +534,7 @@ namespace Atom.Fmod.Native
         RECORDLISTCHANGED = 0x00001000,
         BUFFEREDNOMIX = 0x00002000,
         DEVICEREINITIALIZE = 0x00004000,
+        OUTPUTUNDERRUN = 0x00008000,
         ALL = 0xFFFFFFFF,
     }
 
@@ -618,20 +653,20 @@ namespace Atom.Fmod.Native
         public int numsubsounds;
         public IntPtr inclusionlist;
         public int inclusionlistnum;
-        public SOUND_PCMREAD_CALLBACK pcmreadcallback;
-        public SOUND_PCMSETPOS_CALLBACK pcmsetposcallback;
-        public SOUND_NONBLOCK_CALLBACK nonblockcallback;
+        public IntPtr pcmreadcallback_internal;
+        public IntPtr pcmsetposcallback_internal;
+        public IntPtr nonblockcallback_internal;
         public IntPtr dlsname;
         public IntPtr encryptionkey;
         public int maxpolyphony;
         public IntPtr userdata;
         public SOUND_TYPE suggestedsoundtype;
-        public FILE_OPEN_CALLBACK fileuseropen;
-        public FILE_CLOSE_CALLBACK fileuserclose;
-        public FILE_READ_CALLBACK fileuserread;
-        public FILE_SEEK_CALLBACK fileuserseek;
-        public FILE_ASYNCREAD_CALLBACK fileuserasyncread;
-        public FILE_ASYNCCANCEL_CALLBACK fileuserasynccancel;
+        public IntPtr fileuseropen_internal;
+        public IntPtr fileuserclose_internal;
+        public IntPtr fileuserread_internal;
+        public IntPtr fileuserseek_internal;
+        public IntPtr fileuserasyncread_internal;
+        public IntPtr fileuserasynccancel_internal;
         public IntPtr fileuserdata;
         public int filebuffersize;
         public CHANNELORDER channelorder;
@@ -643,6 +678,53 @@ namespace Atom.Fmod.Native
         public uint minmidigranularity;
         public int nonblockthreadid;
         public IntPtr fsbguid;
+
+        public SOUND_PCMREAD_CALLBACK pcmreadcallback
+        {
+            set { pcmreadcallback_internal = (value == null ? IntPtr.Zero : Marshal.GetFunctionPointerForDelegate( value )); }
+            get { return pcmreadcallback_internal == IntPtr.Zero ? null : (SOUND_PCMREAD_CALLBACK)Marshal.GetDelegateForFunctionPointer( pcmreadcallback_internal, typeof( SOUND_PCMREAD_CALLBACK ) ); }
+        }
+        public SOUND_PCMSETPOS_CALLBACK pcmsetposcallback
+        {
+            set { pcmsetposcallback_internal = (value == null ? IntPtr.Zero : Marshal.GetFunctionPointerForDelegate( value )); }
+            get { return pcmsetposcallback_internal == IntPtr.Zero ? null : (SOUND_PCMSETPOS_CALLBACK)Marshal.GetDelegateForFunctionPointer( pcmsetposcallback_internal, typeof( SOUND_PCMSETPOS_CALLBACK ) ); }
+        }
+        public SOUND_NONBLOCK_CALLBACK nonblockcallback
+        {
+            set { nonblockcallback_internal = (value == null ? IntPtr.Zero : Marshal.GetFunctionPointerForDelegate( value )); }
+            get { return nonblockcallback_internal == IntPtr.Zero ? null : (SOUND_NONBLOCK_CALLBACK)Marshal.GetDelegateForFunctionPointer( nonblockcallback_internal, typeof( SOUND_NONBLOCK_CALLBACK ) ); }
+        }
+        public FILE_OPEN_CALLBACK fileuseropen
+        {
+            set { fileuseropen_internal = (value == null ? IntPtr.Zero : Marshal.GetFunctionPointerForDelegate( value )); }
+            get { return fileuseropen_internal == IntPtr.Zero ? null : (FILE_OPEN_CALLBACK)Marshal.GetDelegateForFunctionPointer( fileuseropen_internal, typeof( FILE_OPEN_CALLBACK ) ); }
+        }
+        public FILE_CLOSE_CALLBACK fileuserclose
+        {
+            set { fileuserclose_internal = (value == null ? IntPtr.Zero : Marshal.GetFunctionPointerForDelegate( value )); }
+            get { return fileuserclose_internal == IntPtr.Zero ? null : (FILE_CLOSE_CALLBACK)Marshal.GetDelegateForFunctionPointer( fileuserclose_internal, typeof( FILE_CLOSE_CALLBACK ) ); }
+        }
+        public FILE_READ_CALLBACK fileuserread
+        {
+            set { fileuserread_internal = (value == null ? IntPtr.Zero : Marshal.GetFunctionPointerForDelegate( value )); }
+            get { return fileuserread_internal == IntPtr.Zero ? null : (FILE_READ_CALLBACK)Marshal.GetDelegateForFunctionPointer( fileuserread_internal, typeof( FILE_READ_CALLBACK ) ); }
+        }
+        public FILE_SEEK_CALLBACK fileuserseek
+        {
+            set { fileuserseek_internal = (value == null ? IntPtr.Zero : Marshal.GetFunctionPointerForDelegate( value )); }
+            get { return fileuserseek_internal == IntPtr.Zero ? null : (FILE_SEEK_CALLBACK)Marshal.GetDelegateForFunctionPointer( fileuserseek_internal, typeof( FILE_SEEK_CALLBACK ) ); }
+        }
+        public FILE_ASYNCREAD_CALLBACK fileuserasyncread
+        {
+            set { fileuserasyncread_internal = (value == null ? IntPtr.Zero : Marshal.GetFunctionPointerForDelegate( value )); }
+            get { return fileuserasyncread_internal == IntPtr.Zero ? null : (FILE_ASYNCREAD_CALLBACK)Marshal.GetDelegateForFunctionPointer( fileuserasyncread_internal, typeof( FILE_ASYNCREAD_CALLBACK ) ); }
+        }
+        public FILE_ASYNCCANCEL_CALLBACK fileuserasynccancel
+        {
+            set { fileuserasynccancel_internal = (value == null ? IntPtr.Zero : Marshal.GetFunctionPointerForDelegate( value )); }
+            get { return fileuserasynccancel_internal == IntPtr.Zero ? null : (FILE_ASYNCCANCEL_CALLBACK)Marshal.GetDelegateForFunctionPointer( fileuserasynccancel_internal, typeof( FILE_ASYNCCANCEL_CALLBACK ) ); }
+        }
+
     }
 
 #pragma warning disable 414
@@ -686,7 +768,6 @@ namespace Atom.Fmod.Native
 
     public class PRESET
     {
-        /*                                                                                  Instance  Env   Diffus  Room   RoomHF  RmLF DecTm   DecHF  DecLF   Refl  RefDel   Revb  RevDel  ModTm  ModDp   HFRef    LFRef   Diffus  Densty  FLAGS */
         public static REVERB_PROPERTIES OFF() { return new REVERB_PROPERTIES( 1000, 7, 11, 5000, 100, 100, 100, 250, 0, 20, 96, -80.0f ); }
         public static REVERB_PROPERTIES GENERIC() { return new REVERB_PROPERTIES( 1500, 7, 11, 5000, 83, 100, 100, 250, 0, 14500, 96, -8.0f ); }
         public static REVERB_PROPERTIES PADDEDCELL() { return new REVERB_PROPERTIES( 170, 1, 2, 5000, 10, 100, 100, 250, 0, 160, 84, -7.8f ); }
@@ -737,6 +818,7 @@ namespace Atom.Fmod.Native
         public DSP_RESAMPLER resamplerMethod;
         public uint randomSeed;
         public int maxConvolutionThreads;
+        public int maxOpusCodecs;
     }
 
     [Flags]
@@ -784,7 +866,7 @@ namespace Atom.Fmod.Native
         MIXER = 80 * 1024,
         FEEDER = 16 * 1024,
         STREAM = 96 * 1024,
-        FILE = 48 * 1024,
+        FILE = 64 * 1024,
         NONBLOCKING = 112 * 1024,
         RECORD = 16 * 1024,
         GEOMETRY = 48 * 1024,
@@ -797,7 +879,7 @@ namespace Atom.Fmod.Native
     }
 
     [Flags]
-    public enum THREAD_AFFINITY : long // avoid ulong for Bolt compatibility
+    public enum THREAD_AFFINITY : long
     {
         /* Platform agnostic thread groupings */
         GROUP_DEFAULT = 0x4000000000000000,
@@ -866,12 +948,12 @@ namespace Atom.Fmod.Native
     {
         public static RESULT System_Create( out System system )
         {
-            return FMOD5_System_Create( out system.handle );
+            return FMOD5_System_Create( out system.handle, VERSION.number );
         }
 
         #region importfunctions
         [DllImport( VERSION.dll )]
-        private static extern RESULT FMOD5_System_Create( out IntPtr system );
+        private static extern RESULT FMOD5_System_Create( out IntPtr system, uint headerversion );
 
         #endregion
     }
@@ -921,11 +1003,6 @@ namespace Atom.Fmod.Native
     {
         public static RESULT SetAttributes( THREAD_TYPE type, THREAD_AFFINITY affinity = THREAD_AFFINITY.GROUP_DEFAULT, THREAD_PRIORITY priority = THREAD_PRIORITY.DEFAULT, THREAD_STACK_SIZE stacksize = THREAD_STACK_SIZE.DEFAULT )
         {
-            if( (affinity & THREAD_AFFINITY.GROUP_DEFAULT) != 0 )
-            {
-                affinity &= ~THREAD_AFFINITY.GROUP_DEFAULT;
-                affinity = (THREAD_AFFINITY)(((ulong)affinity) | 0x8000000000000000);
-            }
             return FMOD5_Thread_SetAttributes( type, affinity, priority, stacksize );
         }
 
@@ -1017,12 +1094,12 @@ namespace Atom.Fmod.Native
         }
         public RESULT setAdvancedSettings( ref ADVANCEDSETTINGS settings )
         {
-            settings.cbSize = Marshal.SizeOf( settings );
+            settings.cbSize = MarshalHelper.SizeOf( typeof( ADVANCEDSETTINGS ) );
             return FMOD5_System_SetAdvancedSettings( this.handle, ref settings );
         }
         public RESULT getAdvancedSettings( ref ADVANCEDSETTINGS settings )
         {
-            settings.cbSize = Marshal.SizeOf( settings );
+            settings.cbSize = MarshalHelper.SizeOf( typeof( ADVANCEDSETTINGS ) );
             return FMOD5_System_GetAdvancedSettings( this.handle, ref settings );
         }
         public RESULT setCallback( SYSTEM_CALLBACK callback, SYSTEM_CALLBACK_TYPE callbackmask = SYSTEM_CALLBACK_TYPE.ALL )
@@ -1098,24 +1175,10 @@ namespace Atom.Fmod.Native
         {
             return FMOD5_System_GetDSPInfoByPlugin( this.handle, handle, out description );
         }
-        /*
-        public RESULT registerCodec          (ref CODEC_DESCRIPTION description, out uint handle, uint priority)
-        public RESULT registerCodec          (ref CODEC_DESCRIPTION description, out uint handle, uint priority = 0)
-        public RESULT registerCodec(ref CODEC_DESCRIPTION description, out uint handle, uint priority)
-        {
-            return FMOD5_System_RegisterCodec(this.handle, ref description, out handle, priority);
-        }
-        */
         public RESULT registerDSP( ref DSP_DESCRIPTION description, out uint handle )
         {
             return FMOD5_System_RegisterDSP( this.handle, ref description, out handle );
         }
-        /*
-        public RESULT registerOutput(ref OUTPUT_DESCRIPTION description, out uint handle)
-        {
-            return FMOD5_System_RegisterOutput(this.handle, ref description, out handle);
-        }
-        */
 
         // Init/Close.
         public RESULT init( int maxchannels, INITFLAGS flags, IntPtr extradriverdata )
@@ -1210,13 +1273,9 @@ namespace Atom.Fmod.Native
         {
             return FMOD5_System_GetChannelsPlaying( this.handle, out channels, out realchannels );
         }
-        public RESULT getCPUUsage( out float dsp, out float stream, out float geometry, out float update, out float total )
+        public RESULT getCPUUsage( out CPU_USAGE usage )
         {
-            return FMOD5_System_GetCPUUsage( this.handle, out dsp, out stream, out geometry, out update, out total );
-        }
-        public RESULT getCPUUsageEx( out float convolutionThread1, out float convolutionThread2 )
-        {
-            return FMOD5_System_GetCPUUsageEx( this.handle, out convolutionThread1, out convolutionThread2 );
+            return FMOD5_System_GetCPUUsage( this.handle, out usage );
         }
         public RESULT getFileUsage( out Int64 sampleBytesRead, out Int64 streamBytesRead, out Int64 otherBytesRead )
         {
@@ -1242,7 +1301,7 @@ namespace Atom.Fmod.Native
         public RESULT createSound( string name, MODE mode, out Sound sound )
         {
             CREATESOUNDEXINFO exinfo = new CREATESOUNDEXINFO();
-            exinfo.cbsize = Marshal.SizeOf( exinfo );
+            exinfo.cbsize = MarshalHelper.SizeOf( typeof( CREATESOUNDEXINFO ) );
 
             return createSound( name, mode, ref exinfo, out sound );
         }
@@ -1264,7 +1323,7 @@ namespace Atom.Fmod.Native
         public RESULT createStream( string name, MODE mode, out Sound sound )
         {
             CREATESOUNDEXINFO exinfo = new CREATESOUNDEXINFO();
-            exinfo.cbsize = Marshal.SizeOf( exinfo );
+            exinfo.cbsize = MarshalHelper.SizeOf( typeof( CREATESOUNDEXINFO ) );
 
             return createStream( name, mode, ref exinfo, out sound );
         }
@@ -1320,7 +1379,7 @@ namespace Atom.Fmod.Native
         }
 
         // Routing to ports.
-        public RESULT attachChannelGroupToPort( uint portType, ulong portIndex, ChannelGroup channelgroup, bool passThru = false )
+        public RESULT attachChannelGroupToPort( PORT_TYPE portType, ulong portIndex, ChannelGroup channelgroup, bool passThru = false )
         {
             return FMOD5_System_AttachChannelGroupToPort( this.handle, portType, portIndex, channelgroup.handle, passThru );
         }
@@ -1512,12 +1571,8 @@ namespace Atom.Fmod.Native
         private static extern RESULT FMOD5_System_CreateDSPByPlugin( IntPtr system, uint handle, out IntPtr dsp );
         [DllImport( VERSION.dll )]
         private static extern RESULT FMOD5_System_GetDSPInfoByPlugin( IntPtr system, uint handle, out IntPtr description );
-        //[DllImport(VERSION.dll)]
-        //private static extern RESULT FMOD5_System_RegisterCodec           (IntPtr system, out CODEC_DESCRIPTION description, out uint handle, uint priority);
         [DllImport( VERSION.dll )]
         private static extern RESULT FMOD5_System_RegisterDSP( IntPtr system, ref DSP_DESCRIPTION description, out uint handle );
-        //[DllImport(VERSION.dll)]
-        //private static extern RESULT FMOD5_System_RegisterOutput          (IntPtr system, ref OUTPUT_DESCRIPTION description, out uint handle);
         [DllImport( VERSION.dll )]
         private static extern RESULT FMOD5_System_Init( IntPtr system, int maxchannels, INITFLAGS flags, IntPtr extradriverdata );
         [DllImport( VERSION.dll )]
@@ -1563,9 +1618,7 @@ namespace Atom.Fmod.Native
         [DllImport( VERSION.dll )]
         private static extern RESULT FMOD5_System_GetChannelsPlaying( IntPtr system, out int channels, out int realchannels );
         [DllImport( VERSION.dll )]
-        private static extern RESULT FMOD5_System_GetCPUUsage( IntPtr system, out float dsp, out float stream, out float geometry, out float update, out float total );
-        [DllImport( VERSION.dll )]
-        private static extern RESULT FMOD5_System_GetCPUUsageEx( IntPtr system, out float convolutionThread1, out float convolutionThread2 );
+        private static extern RESULT FMOD5_System_GetCPUUsage( IntPtr system, out CPU_USAGE usage );
         [DllImport( VERSION.dll )]
         private static extern RESULT FMOD5_System_GetFileUsage( IntPtr system, out Int64 sampleBytesRead, out Int64 streamBytesRead, out Int64 otherBytesRead );
         [DllImport( VERSION.dll )]
@@ -1599,7 +1652,7 @@ namespace Atom.Fmod.Native
         [DllImport( VERSION.dll )]
         private static extern RESULT FMOD5_System_GetMasterSoundGroup( IntPtr system, out IntPtr soundgroup );
         [DllImport( VERSION.dll )]
-        private static extern RESULT FMOD5_System_AttachChannelGroupToPort( IntPtr system, uint portType, ulong portIndex, IntPtr channelgroup, bool passThru );
+        private static extern RESULT FMOD5_System_AttachChannelGroupToPort( IntPtr system, PORT_TYPE portType, ulong portIndex, IntPtr channelgroup, bool passThru );
         [DllImport( VERSION.dll )]
         private static extern RESULT FMOD5_System_DetachChannelGroupFromPort( IntPtr system, IntPtr channelgroup );
         [DllImport( VERSION.dll )]
@@ -3295,11 +3348,7 @@ namespace Atom.Fmod.Native
         {
             IntPtr descPtr;
             RESULT result = FMOD5_DSP_GetParameterInfo( this.handle, index, out descPtr );
-#if(UNITY_2017_4_OR_NEWER) && !NET_4_6
-            desc = (DSP_PARAMETER_DESC)Marshal.PtrToStructure(descPtr, typeof(DSP_PARAMETER_DESC));
-#else
-            desc = Marshal.PtrToStructure<DSP_PARAMETER_DESC>( descPtr );
-#endif // (UNITY_2017_4_OR_NEWER) && !NET_4_6
+            desc = (DSP_PARAMETER_DESC)MarshalHelper.PtrToStructure( descPtr, typeof( DSP_PARAMETER_DESC ) );
             return result;
         }
         public RESULT getDataParameterIndex( int datatype, out int index )
@@ -3775,7 +3824,7 @@ namespace Atom.Fmod.Native
         #endregion
     }
 
-    #region String Helper Functions
+    #region Helper Functions
     [StructLayout( LayoutKind.Sequential )]
     public struct StringWrapper
     {
@@ -3932,6 +3981,23 @@ namespace Atom.Fmod.Native
                 return helper;
             }
         }
+    }
+
+    // Some of the Marshal functions were marked as deprecated / obsolete, however that decision was reversed: https://github.com/dotnet/corefx/pull/10541
+    // Use the old syntax (non-generic) to ensure maximum compatibility (especially with Unity) ignoring the warnings
+    public static class MarshalHelper
+    {
+#pragma warning disable 618
+        public static int SizeOf( Type t )
+        {
+            return Marshal.SizeOf( t ); // Always use Type version, never Object version as it boxes causes GC allocations
+        }
+
+        public static object PtrToStructure( IntPtr ptr, Type structureType )
+        {
+            return Marshal.PtrToStructure( ptr, structureType );
+        }
+#pragma warning restore 618
     }
 
     #endregion

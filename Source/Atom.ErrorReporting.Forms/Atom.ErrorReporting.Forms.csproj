@@ -3,7 +3,7 @@
     <AssemblyTitle>Atom.ErrorReporting.Forms</AssemblyTitle>
     <Product>Atom Framework</Product>
     <Description>A library that implements a flexible mechanism for adding robust error reporting functionality to a Windows Forms application.</Description>
-    <TargetFramework>net5.0-windows</TargetFramework>
+    <TargetFramework>net6.0-windows</TargetFramework>
     <UseWindowsForms>true</UseWindowsForms>
   </PropertyGroup>
   
