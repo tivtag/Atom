@@ -22,5 +22,5 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible( false )]
 [assembly: NeutralResourcesLanguage( "en" )]
 
-[assembly: AssemblyVersion( "4.3.0.0" )]
-[assembly: AssemblyFileVersion( "4.3.0.0" )]
+[assembly: AssemblyVersion( "2.2.20" )]
+[assembly: AssemblyFileVersion( "0.2.2.20" )]

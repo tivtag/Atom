@@ -4,7 +4,7 @@
     <Product>Atom Framework</Product>
     <Description>An arbitrary library that implements concepts useful the creation of (2D) games.</Description>
     <RootNamespace>Atom</RootNamespace>
-    <TargetFramework>netstandard2.1</TargetFramework>
+    <TargetFramework>net8.0</TargetFramework>
   </PropertyGroup>
 
   <PropertyGroup>

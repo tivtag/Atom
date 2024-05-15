@@ -3,7 +3,7 @@
     <AssemblyTitle>Atom.Math</AssemblyTitle>
     <Product>Atom Framework</Product>
     <Description>The math library of the Atom framework.</Description>
-    <TargetFramework>netstandard2.1</TargetFramework>
+    <TargetFramework>net8.0</TargetFramework>
   </PropertyGroup>
 
   <PropertyGroup>

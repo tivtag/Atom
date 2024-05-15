@@ -5,7 +5,7 @@
     <Product>Atom Framework</Product>
     <OutputType>Exe</OutputType>
     <RootNamespace>Atom.Xna.Effects.HighDynamicRangeTest</RootNamespace>
-    <TargetFramework>net6.0-windows</TargetFramework>
+    <TargetFramework>net8.0-windows</TargetFramework>
   </PropertyGroup>
 
   <PropertyGroup>
@@ -16,7 +16,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="MonoGame.Framework.WindowsDX" Version="3.8.0.1641" />
+    <PackageReference Include="MonoGame.Framework.WindowsDX" Version="3.8.1.303" />
   </ItemGroup>
 
   <ItemGroup>

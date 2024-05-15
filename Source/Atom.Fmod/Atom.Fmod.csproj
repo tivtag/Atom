@@ -3,7 +3,7 @@
     <AssemblyTitle>Atom.Fmod</AssemblyTitle>
     <Product>Atom Framework</Product>
     <Description>A library that contains an object oriented wrapper around the C++ audio libary FMOD Studio Suite 2.02.07. (http://www.fmod.org/)</Description>
-    <TargetFramework>netstandard2.1</TargetFramework>
+    <TargetFramework>net8.0</TargetFramework>
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
   </PropertyGroup>
 

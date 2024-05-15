@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <Product>Atom Framework</Product>
-    <TargetFramework>net5.0</TargetFramework>
+    <TargetFramework>net8.0</TargetFramework>
   </PropertyGroup>
   
   <PropertyGroup>
@@ -12,9 +12,9 @@
   </PropertyGroup>
  
   <ItemGroup>
-    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.8.3" />
-    <PackageReference Include="MSTest.TestAdapter" Version="2.1.2" />
-    <PackageReference Include="MSTest.TestFramework" Version="2.1.2" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.8.0" />
+    <PackageReference Include="MSTest.TestAdapter" Version="3.1.1" />
+    <PackageReference Include="MSTest.TestFramework" Version="3.1.1" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Atom.Math.Graph\Atom.Math.Graph.csproj" />

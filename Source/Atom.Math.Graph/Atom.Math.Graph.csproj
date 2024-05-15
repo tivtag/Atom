@@ -3,7 +3,7 @@
     <AssemblyTitle>Atom.Math.Graph</AssemblyTitle>
     <Product>Atom Framework</Product>
     <Description>A library that allows the creation, manipulation and analysis of graphs.</Description>
-    <TargetFramework>netstandard2.1</TargetFramework>
+    <TargetFramework>net8.0</TargetFramework>
   </PropertyGroup>
 
   <PropertyGroup>

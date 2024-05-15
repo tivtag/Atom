@@ -3,8 +3,8 @@
     <AssemblyTitle>Atom</AssemblyTitle>
     <Product>Atom Framework</Product>
     <Description>The core dynamic link library of the Atom framework.</Description>
-    <TargetFramework>netstandard2.1</TargetFramework>
-    <UseWindowsForms>true</UseWindowsForms>
+    <TargetFramework>net8.0</TargetFramework>
+    <UseWindowsForms>false</UseWindowsForms>
   </PropertyGroup>
 
   <PropertyGroup>

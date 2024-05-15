@@ -3,7 +3,7 @@
     <AssemblyTitle>Atom.Xna.Wpf</AssemblyTitle>
     <Product>Atom Framework</Product>
     <Description>A interopability library between the Xna framework, Windows Presentation Foundation (WPF) and Atom.</Description>
-    <TargetFramework>net6.0-windows</TargetFramework>
+    <TargetFramework>net8.0-windows</TargetFramework>
     <UseWpf>true</UseWpf>
     <UseWindowsForms>true</UseWindowsForms>
   </PropertyGroup>
@@ -22,7 +22,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="MonoGame.Framework.WindowsDX" Version="3.8.0.1641" />
+    <PackageReference Include="MonoGame.Framework.WindowsDX" Version="3.8.1.303" />
   </ItemGroup>
   
   <ItemGroup>

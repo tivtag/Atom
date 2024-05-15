@@ -3,7 +3,7 @@
     <AssemblyTitle>Atom.Game.Waypoints</AssemblyTitle>
     <Product>Atom Framework</Product>
     <Description>A library that extends the graphing functionallity of the Atom.Math.Graph library to be easily used as Waypoints in a 2D game.</Description>
-    <TargetFramework>netstandard2.1</TargetFramework>
+    <TargetFramework>net8.0</TargetFramework>
     <RootNamespace>Atom.Waypoints</RootNamespace>
   </PropertyGroup>
   

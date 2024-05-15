@@ -2,7 +2,7 @@
   <PropertyGroup>
     <AssemblyTitle>Atom.Scripting.Specs</AssemblyTitle>
     <Product>Atom Framework</Product>
-    <TargetFramework>net6.0-windows</TargetFramework>
+    <TargetFramework>net8.0-windows</TargetFramework>
   </PropertyGroup>
   
   <PropertyGroup>
@@ -13,7 +13,7 @@
   </PropertyGroup>
   
   <ItemGroup>
-    <PackageReference Include="Machine.Specifications" Version="1.0.0" />
+    <PackageReference Include="Machine.Specifications" Version="1.1.1" />
     <PackageReference Include="Machine.Specifications.Should" Version="1.0.0" />
   </ItemGroup>
 

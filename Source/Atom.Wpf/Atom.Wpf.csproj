@@ -3,7 +3,7 @@
     <AssemblyTitle>Atom.Wpf</AssemblyTitle>
     <Product>Atom Framework</Product>
     <Description>A support library that extends the functionallity of WPF (Windows Presentation Foundation).</Description>
-    <TargetFramework>net6.0-windows</TargetFramework>
+    <TargetFramework>net8.0-windows</TargetFramework>
     <UseWpf>true</UseWpf>
     <UseWindowsForms>true</UseWindowsForms>
   </PropertyGroup>
